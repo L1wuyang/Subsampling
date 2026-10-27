@@ -1,0 +1,99 @@
+{
+  "version": "native_IV_20261025_v1",
+  "purpose": "Actual native outputs versus the same-draw QR LS; changing regularization paths; not an OPT experiment",
+  "data_seed": 202610250804,
+  "sampling_seed": 202610250803,
+  "dimension": 60,
+  "objects": 1200,
+  "data_ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "methods": [
+    "Ridge",
+    "Landweber",
+    "Showalter",
+    "HBF",
+    "Nesterov",
+    "SOAR"
+  ],
+  "directions": [
+    "column",
+    "row"
+  ],
+  "main": {
+    "budgets": [
+      30,
+      60,
+      90,
+      150,
+      240,
+      360,
+      600,
+      1200,
+      2400,
+      4800,
+      9600,
+      19200,
+      38400
+    ],
+    "repetitions": 100,
+    "data_ids": [
+      1
+    ]
+  },
+  "robustness": {
+    "budgets": [
+      1200,
+      19200
+    ],
+    "repetitions": 30,
+    "data_ids": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "tails": {
+    "budgets": [
+      60
+    ],
+    "repetitions": 1000,
+    "data_ids": [
+      1
+    ],
+    "methods": [
+      "HBF",
+      "Nesterov",
+      "SOAR"
+    ],
+    "stream": 1
+  },
+  "zero_response": {
+    "budgets": [
+      30,
+      1200
+    ],
+    "repetitions": 3,
+    "data_ids": [
+      1
+    ],
+    "stream": 2
+  },
+  "parameters": "Full-data Cholesky SPD bracket a=lower/2; b=||A||inf+a; h=.9/max(b,N max atom-norm-squared). Six historical 1/r paths with this common frozen window and safe h. RK4 .9/L or .2/sqrt(L).",
+  "iteration": "Householder tridiagonal orthogonal coordinates, every prescribed recurrence/RK4 stage; float64 without fastmath; actual output then explicit LS subtraction; no eig/SVD/analytic residual trajectories",
+  "LS": "GELSY pivoted-QR complete orthogonal least squares; 1e-12 sampling-atom relative threshold, column minimum norm Gram solution via two solves, row jointly weighted design/response",
+  "stopping": "All steps precomputed from full data and budget; no discrepancy stopping and no iteration cap; numerical failures retained",
+  "resolution": "64 eps max(1, coefficient norms) diagnostic; half-grid and dense independent checks reported separately, no fabricated below-resolution accuracy",
+  "inference": "Pointwise t99 Monte Carlo intervals for primary conditional means; t29 robustness within each data set; no selection for favorable decline; tail arms separate; no speedup claim",
+  "pilot": {
+    "directory": "outputs/pilot_02",
+    "verification_sha256": "ec7d292f94a32673756cfe292ca7fc5c0af6fc02fa9238c78da7ee846f7d2009",
+    "checks": 117
+  },
+  "preregistration": "Frozen only after pilot and before any formal data/sketch; no OPT/tangents/C because IV targets same-draw LS, not a fixed full-data generator"
+}

@@ -1,0 +1,134 @@
+{
+  "name": "Experiment III: native fixed-target first-order MSE calibration",
+  "date": "2026-10-24",
+  "data_seed": 202610240704,
+  "sampling_seed": 202610240703,
+  "directions": [
+    "column",
+    "row"
+  ],
+  "dimension": 60,
+  "objects": 1200,
+  "data_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "methods": [
+    "Ridge",
+    "Landweber",
+    "Showalter",
+    "HBF",
+    "Nesterov",
+    "SOAR"
+  ],
+  "probability": "UNI only; no OPT ranking or probability selection",
+  "main": {
+    "data_id": 1,
+    "budgets": [
+      30,
+      60,
+      90,
+      150,
+      240,
+      360,
+      600,
+      1200,
+      2400,
+      4800,
+      9600,
+      19200,
+      38400
+    ],
+    "repetitions": 500
+  },
+  "robustness": {
+    "data_ids": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "budgets": [
+      1200,
+      19200
+    ],
+    "repetitions": 500
+  },
+  "sensitivity": {
+    "data_ids": [
+      1,
+      2
+    ],
+    "budgets": [
+      1200,
+      19200
+    ],
+    "repetitions": 100,
+    "c_values": [
+      0.5,
+      2.0
+    ]
+  },
+  "zero_response": {
+    "data_ids": [
+      1,
+      2
+    ],
+    "budgets": [
+      30,
+      1200,
+      38400
+    ],
+    "repetitions": 5
+  },
+  "data_model": "Same column heterogeneous Gaussian and spiked-row Gaussian distributions as native I/II; fresh independent draws. Column beta norm=1; row signal RMS=1; sigma=.5.",
+  "parameters": "c=1 main. alpha=c trace(A)/60. L=N max squared atom norm, valid for every UNI sketch. Copy actual I/II six-method formulas, full finite-grid targets/tangents. Steps, grid and times fixed before counts; derivatives freeze all calibrated parameters. This is a new UNI-specific protocol, not identical to I/II self-consistent four-probability L.",
+  "sampling": "Counts ~ Multinomial(r,1/N), independent budgets. SeedSequence[sampling_seed,direction_index,data_id,stream,budget]. Exact with-replacement law, identical counts shared across all six methods. Row Gram AND RHS reweighted; column beta=X.T u.",
+  "theory": "J_i from actual full fixed-parameter recurrence/RK4, joint Gram/RHS for rows. C=N trace(Q J_centered J_centered.T)/target_norm_sq, Q=XX.T column and I row. Exact linear error Z=sum_i J_i(N_i*N/r-1), actual error e, remainder R=e-Z. Preserve e^2=Z^2+R^2+2<Z,R>. No curve fitting.",
+  "inference": "Conditional pointwise Student-t499 Monte Carlo mean intervals for 500 draws; sensitivity t99. Empirical/theory ratio is descriptive. No pass/fail gate based on ratio closeness, no extrapolated universal agreement. Robustness min/median/max over 20 independent data, not confidence intervals. No CLT or Gaussianity verification claimed.",
+  "boundaries": "No residual-event stopping or execution cap. All repeated draws, low coverage, extreme states and nonfinite failures retained. Zero-response relative gaps and calibration ratios NaN. Covariance trace zero is explicit. Separate coefficient and prediction risk. Large r>N only explores fixed-data limit, not acceleration. IV and real data not run.",
+  "verification": "Audit all rows from saved native states; replay all full targets, selected ordinary and extreme sketches; independent one-vector recurrences/RK4; fixed-parameter finite differences on data1/10/20 each direction, all six methods; grid refinement at data1/10/20 r30(if present)/1200/19200; expanded-draw weighting and centered covariance checks.",
+  "replication_counts": {
+    "main": 306000,
+    "sensitivity": 9600,
+    "zero_response": 360
+  },
+  "pilot": {
+    "path": "outputs/pilot_01",
+    "checks": 234,
+    "verification_sha256": "8299c5138f7595200fa1c77d8bb1779ce9ef2e0f547c0dd15427dc93ed32d7a1"
+  }
+}
