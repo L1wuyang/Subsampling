@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "date": "2026-10-27",
+  "release_kind": "source plus original simulation inputs, saved repetition metrics and current tables",
+  "environment": "Windows / Python 3.12.7",
+  "simulation_manifest_sha256": "a875ce5db67b36fc00da917086b16ff3dae7203dea64b5046fd90464b6e67506",
+  "counts": {
+    "inputs": 130,
+    "metric_shards": 18,
+    "metric_source_CSVs": 518,
+    "tables": 49,
+    "rows": 1432512
+  },
+  "input_arrays": 590,
+  "original_input_bytes_and_arrays_match": true,
+  "original_metric_CSV_bytes_losslessly_reconstructed": true,
+  "duplicate_record_keys": 0,
+  "undefined_relative_metrics": 1872,
+  "table_sources": {
+    "current_repair": 45,
+    "frozen_sensitivity_references": 4
+  },
+  "independent_reconciliation": {
+    "1": {
+      "saved_metric_values_reconciled": 2184,
+      "records": 546000,
+      "zero_relative_nan_records": 720,
+      "metrics_equal_to_current_saved_tables": true
+    },
+    "2": {
+      "saved_metric_values_reconciled": 2808,
+      "records": 546000,
+      "zero_relative_nan_records": 720,
+      "metrics_equal_to_current_saved_tables": true
+    },
+    "3": {
+      "saved_metric_values_reconciled": 3900,
+      "records": 315960,
+      "zero_relative_nan_records": 360,
+      "metrics_equal_to_current_saved_tables": true
+    },
+    "4": {
+      "saved_metric_values_reconciled": 564,
+      "records": 24552,
+      "zero_relative_nan_records": 72,
+      "metrics_equal_to_current_saved_tables": true
+    }
+  },
+  "isolated_original_project_reads_denied": true,
+  "isolated_new_metric_summary_passed": true,
+  "changed_shard_rejected": true,
+  "output_inside_inputs_rejected": true,
+  "tested_entrypoint_sha256": {
+    "run.py": "fc45ce98fb7c904b52633a3a62cb8f04403cde9e1cef3cb78a56fb38b1387d5e",
+    "repro1026/simulation_data.py": "dbd157ab844c283f2c46819ca78369ffeb620adefb3273dc6aad22fccded3080"
+  },
+  "frozen_scientific_files_byte_identical": 54,
+  "new_trajectories_executed": 0,
+  "paper_sources_and_PDFs_unchanged": true,
+  "base_runtime_acceptance": "lite_base_acceptance.json",
+  "detailed_evidence": "Revision_and_Guides/GitHub_Simulation_Data_20261027 in the local working project"
+}

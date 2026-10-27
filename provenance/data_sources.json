@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-27",
+  "hash_note": "Frozen research input hashes, not checksums signed or published by the data providers. Official downloads independently matched the GDSC bytes on 2026-10-16 and the UCI ZIP on 2026-10-17.",
+  "files": {
+    "expression": {
+      "dataset": "gdsc",
+      "provider": "Wellcome Sanger Institute / GDSC",
+      "release": "release-6.0",
+      "filename": "sanger1018_brainarray_ensemblgene_rma.txt.gz",
+      "path": "Data/real_data_20261016/raw/gdsc/expression_release_6.0/sanger1018_brainarray_ensemblgene_rma.txt.gz",
+      "bytes": 141390873,
+      "sha256": "90fe07de1a72fa9f4fdcbdfc0c0bb23c70b1435bac2adad7e99c2f2bb154ca93",
+      "url": "https://ftp.sanger.ac.uk/pub/project/cancerrxgene/releases/release-6.0/sanger1018_brainarray_ensemblgene_rma.txt.gz",
+      "provider_page": "https://ftp.sanger.ac.uk/pub/project/cancerrxgene/releases/release-6.0/"
+    },
+    "response": {
+      "dataset": "gdsc",
+      "provider": "Wellcome Sanger Institute / GDSC",
+      "release": "release-8.4; fitted dose response dated 24Jul22",
+      "filename": "GDSC2_fitted_dose_response_24Jul22.csv",
+      "path": "Data/real_data_20261016/raw/gdsc/response_release_8.4/GDSC2_fitted_dose_response_24Jul22.csv",
+      "bytes": 39834719,
+      "sha256": "9d6dc82b9a072bb00b6139dcd6c4c11de1e047f210382fb726e92ab8dd0eae2a",
+      "url": "https://ftp.sanger.ac.uk/pub/project/cancerrxgene/releases/release-8.4/GDSC2_fitted_dose_response_24Jul22.csv",
+      "provider_page": "https://ftp.sanger.ac.uk/pub/project/cancerrxgene/releases/release-8.4/"
+    },
+    "year": {
+      "dataset": "year",
+      "provider": "UCI Machine Learning Repository",
+      "release": "YearPredictionMSD dataset 203; official 463715/51630 prefix split",
+      "filename": "YearPredictionMSD.txt",
+      "path": "Data/real_data_20261016/raw/yearpredictionmsd/yearpredictionmsd/YearPredictionMSD.txt",
+      "bytes": 448576698,
+      "sha256": "4b6f8e50235b359e01689ae7fb33ad0f89677e9a15f25f3d6259327a6bb927bb",
+      "url": "https://archive.ics.uci.edu/static/public/203/yearpredictionmsd.zip",
+      "provider_page": "https://archive.ics.uci.edu/dataset/203/yearpredictionmsd",
+      "archive": {
+        "filename": "yearpredictionmsd.zip",
+        "path": "Data/real_data_20261016/raw/yearpredictionmsd/yearpredictionmsd.zip",
+        "bytes": 211011981,
+        "sha256": "06f801af323bb7798e800583acce4ea1ed2697ac12c23f4424aea0a7a3d09e11",
+        "url": "https://archive.ics.uci.edu/static/public/203/yearpredictionmsd.zip",
+        "member": "YearPredictionMSD.txt"
+      }
+    }
+  },
+  "frozen_split": {
+    "path": "provenance/exp5_inputs/gdsc_split.json",
+    "bytes": 25454,
+    "sha256": "b9fc322f0117243ef8449a37d38944f26a296b166c22d4b65e6e827bdc322c6d",
+    "drug_id": 1862,
+    "matched_cells": 937,
+    "training_cells": 749,
+    "test_cells": 188,
+    "note": "Bundled fixed ID lists; no response values, expression data, or regenerated split."
+  },
+  "source_probe": {
+    "date": "2026-10-27",
+    "method": "HTTPS HEAD only with default certificate verification; zero response-body bytes read",
+    "expression": {"status": 200, "content_length": 141390873},
+    "response": {"status": 200, "content_length": 39834719},
+    "year_archive": {"status": 200, "content_length": null},
+    "note": "Reachability and headers only, not a new full remote hash validation."
+  }
+}
