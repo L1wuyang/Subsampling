@@ -1,0 +1,147 @@
+{
+  "completed": true,
+  "records": 24552,
+  "main_records": 18480,
+  "tail_records": 6000,
+  "zero_records": 72,
+  "status": {
+    "complete": 24480,
+    "zero_response": 72
+  },
+  "zero_relative_undefined": 72,
+  "primary_endpoint_comparisons": [
+    {
+      "direction": "column",
+      "method": "Ridge",
+      "at_1200": 0.00037440752177403755,
+      "at_38400": 2.930054236072601e-06,
+      "endpoint_ratio": 0.00782584233935596,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "column",
+      "method": "Landweber",
+      "at_1200": 1.8651452845583877e-06,
+      "at_38400": 3.3687988042625973e-15,
+      "endpoint_ratio": 1.8061857337082624e-09,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "column",
+      "method": "Showalter",
+      "at_1200": 1.8667967534625535e-06,
+      "at_38400": 3.3807279608044657e-15,
+      "endpoint_ratio": 1.8109780588239493e-09,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "column",
+      "method": "HBF",
+      "at_1200": 1.5684549397516905e-05,
+      "at_38400": 1.2703982945395838e-07,
+      "endpoint_ratio": 0.008099679897343474,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "column",
+      "method": "Nesterov",
+      "at_1200": 8.063131375915602e-13,
+      "at_38400": 4.9614284008878805e-22,
+      "endpoint_ratio": 6.153227784068556e-10,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "unresolved",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "column",
+      "method": "SOAR",
+      "at_1200": 0.00038152457068636595,
+      "at_38400": 4.225012374042915e-06,
+      "endpoint_ratio": 0.011074024318911052,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "row",
+      "method": "Ridge",
+      "at_1200": 0.22905809180143755,
+      "at_38400": 0.0033520746107300586,
+      "endpoint_ratio": 0.014634168059148309,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "row",
+      "method": "Landweber",
+      "at_1200": 2.9434478401056715e-05,
+      "at_38400": 9.96742423344256e-13,
+      "endpoint_ratio": 3.3863091092127945e-08,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "row",
+      "method": "Showalter",
+      "at_1200": 2.9435312910272138e-05,
+      "at_38400": 9.968378269433768e-13,
+      "endpoint_ratio": 3.3865372180076503e-08,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "row",
+      "method": "HBF",
+      "at_1200": 0.012211297705299913,
+      "at_38400": 0.0001242764339190105,
+      "endpoint_ratio": 0.010177168464664684,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "row",
+      "method": "Nesterov",
+      "at_1200": 3.458855529808297e-13,
+      "at_38400": 2.0171233464155227e-15,
+      "endpoint_ratio": 0.0058317652444053346,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "unresolved",
+      "accuracy_certified": false
+    },
+    {
+      "direction": "row",
+      "method": "SOAR",
+      "at_1200": 0.2715105141558769,
+      "at_38400": 0.004434087209722617,
+      "endpoint_ratio": 0.016331180483040015,
+      "local_floor_fraction_at_38400": 0.0,
+      "selected_replay_status": "not_replayed",
+      "accuracy_certified": false
+    }
+  ],
+  "numerical_failure_records": 0,
+  "maximum_main_scaled_gap": 2178382625271365.5,
+  "maximum_tail_scaled_gap": 6.949212114962043e+20,
+  "primary_repetitions": 100,
+  "robustness_repetitions": 30,
+  "tail_repetitions": 1000,
+  "prescribed_native_updates": 40490859850,
+  "RK4_rhs_evaluations": 121568741280,
+  "note": "No trimming. Tiny direct subtractions are resolution diagnostics, not analytic residual estimates. Different frozen data/protocol from the legacy spectral study.",
+  "accuracy_certified": false,
+  "local_floor_semantics": "Subtraction scale only; false does not certify accumulated accuracy",
+  "selected_independent_replay_warnings": 2,
+  "tail_concentration_warning_groups": 6
+}

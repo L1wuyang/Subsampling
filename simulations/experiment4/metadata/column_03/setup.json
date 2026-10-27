@@ -1,0 +1,11 @@
+{
+  "a": 3.3786305478221683,
+  "b": 100.37864151313845,
+  "L": 15889.845136980017,
+  "h": 5.663994785609671e-05,
+  "lambda_min_bracket": [
+    6.757261095644337,
+    6.757261095644409
+  ],
+  "bound_method": "48 Cholesky SPD bisections; infinity-norm upper bound; no eigendecomposition"
+}

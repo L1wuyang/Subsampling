@@ -1,0 +1,2 @@
+# Preserve the frozen scientific source bytes and their SHA-256 across checkouts.
+* -text

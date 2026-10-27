@@ -1,0 +1,2787 @@
+{
+  "passed": true,
+  "total_rows_audited": 546000,
+  "all_raw_metrics_recomputed": true,
+  "max_absolute_metric_recompute_error": 4.547473508864641e-13,
+  "native_replays": [
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.944887522662628e-15
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 5.760669551861796e-15
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.5983725700991945e-15
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 3.3454392974351074e-15
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.527777240283157e-14
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 5.08654527876221e-15
+    },
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 2.297794783766558e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.136794564368933e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.004468841630092e-14
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.3734062448655454e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 4.359460256484572e-14
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.3069206461795385e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.300260876861739e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.377373670569684e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.059530529810956e-14
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.268394473932892e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 7.618542501425417e-14
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.029333124357305e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.321321708570872e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.471246952789214e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.1450198272494157e-14
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.4552121775616988e-14
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 8.156375588248551e-14
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.190289971186945e-14
+    },
+    {
+      "data_id": 2,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 8.909258753790164e-15
+    },
+    {
+      "data_id": 2,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.304599473238618e-15
+    },
+    {
+      "data_id": 2,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.4334553516052116e-15
+    },
+    {
+      "data_id": 2,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 3.2249327079611433e-15
+    },
+    {
+      "data_id": 2,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.694693081143006e-14
+    },
+    {
+      "data_id": 2,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.852441735445924e-15
+    },
+    {
+      "data_id": 3,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.894624270858178e-15
+    },
+    {
+      "data_id": 3,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.651335377642081e-15
+    },
+    {
+      "data_id": 3,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.4589740455931913e-15
+    },
+    {
+      "data_id": 3,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.1359173327318836e-15
+    },
+    {
+      "data_id": 3,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.3379950966503338e-14
+    },
+    {
+      "data_id": 3,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.677738846714199e-15
+    },
+    {
+      "data_id": 4,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.3334469002922474e-14
+    },
+    {
+      "data_id": 4,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.0170706470269854e-15
+    },
+    {
+      "data_id": 4,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.4076822479781796e-15
+    },
+    {
+      "data_id": 4,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 1.936379009488719e-15
+    },
+    {
+      "data_id": 4,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.7734592582369114e-14
+    },
+    {
+      "data_id": 4,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.631885262164295e-15
+    },
+    {
+      "data_id": 5,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 6.778518274056765e-15
+    },
+    {
+      "data_id": 5,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.542507518358603e-15
+    },
+    {
+      "data_id": 5,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.134936668134402e-15
+    },
+    {
+      "data_id": 5,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.063081476116683e-15
+    },
+    {
+      "data_id": 5,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.1198896725190956e-14
+    },
+    {
+      "data_id": 5,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.6472766915523344e-15
+    },
+    {
+      "data_id": 6,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1918792044969295e-14
+    },
+    {
+      "data_id": 6,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.4577578028832484e-15
+    },
+    {
+      "data_id": 6,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.9050689782897155e-15
+    },
+    {
+      "data_id": 6,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.5025069698103305e-15
+    },
+    {
+      "data_id": 6,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.6245182621842744e-14
+    },
+    {
+      "data_id": 6,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.550875365477435e-15
+    },
+    {
+      "data_id": 7,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.3686634908243817e-14
+    },
+    {
+      "data_id": 7,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.580579301942766e-15
+    },
+    {
+      "data_id": 7,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.894636195568911e-15
+    },
+    {
+      "data_id": 7,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.4261235014493554e-15
+    },
+    {
+      "data_id": 7,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 4.169534405998319e-14
+    },
+    {
+      "data_id": 7,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 5.666183667948304e-15
+    },
+    {
+      "data_id": 8,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.219338109189694e-14
+    },
+    {
+      "data_id": 8,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.3645551009188858e-15
+    },
+    {
+      "data_id": 8,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.723478289764499e-15
+    },
+    {
+      "data_id": 8,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.657052793112869e-15
+    },
+    {
+      "data_id": 8,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 4.5478216281988856e-14
+    },
+    {
+      "data_id": 8,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.5413384502002014e-15
+    },
+    {
+      "data_id": 9,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.2468904669439741e-14
+    },
+    {
+      "data_id": 9,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.681128355373963e-15
+    },
+    {
+      "data_id": 9,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.6146727130483753e-15
+    },
+    {
+      "data_id": 9,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.1059514419698586e-15
+    },
+    {
+      "data_id": 9,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.1171989828133335e-14
+    },
+    {
+      "data_id": 9,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.7931322469087844e-15
+    },
+    {
+      "data_id": 10,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 8.003749431221516e-15
+    },
+    {
+      "data_id": 10,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.2515507873163093e-15
+    },
+    {
+      "data_id": 10,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.147836312879987e-15
+    },
+    {
+      "data_id": 10,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 1.3440693017233997e-15
+    },
+    {
+      "data_id": 10,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.462362602428902e-14
+    },
+    {
+      "data_id": 10,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.110730205687923e-15
+    },
+    {
+      "data_id": 11,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1153675707708258e-14
+    },
+    {
+      "data_id": 11,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.2022675860072372e-15
+    },
+    {
+      "data_id": 11,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.618525060906485e-15
+    },
+    {
+      "data_id": 11,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.6596156676755835e-15
+    },
+    {
+      "data_id": 11,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.800769365661986e-14
+    },
+    {
+      "data_id": 11,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.85922290700283e-15
+    },
+    {
+      "data_id": 12,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.95594663921044e-15
+    },
+    {
+      "data_id": 12,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.4266615947508005e-15
+    },
+    {
+      "data_id": 12,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.463375746567158e-15
+    },
+    {
+      "data_id": 12,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.4019399953800686e-15
+    },
+    {
+      "data_id": 12,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.624737907144299e-14
+    },
+    {
+      "data_id": 12,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.840847908452734e-15
+    },
+    {
+      "data_id": 13,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.407216248241946e-14
+    },
+    {
+      "data_id": 13,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.029771222424953e-15
+    },
+    {
+      "data_id": 13,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.8120932331012766e-15
+    },
+    {
+      "data_id": 13,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.5829467513581894e-15
+    },
+    {
+      "data_id": 13,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.9993976982597446e-14
+    },
+    {
+      "data_id": 13,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.8584200524185403e-15
+    },
+    {
+      "data_id": 14,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.2113043269763999e-14
+    },
+    {
+      "data_id": 14,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.178892484414244e-15
+    },
+    {
+      "data_id": 14,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.607547329515746e-15
+    },
+    {
+      "data_id": 14,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.9919429108042608e-15
+    },
+    {
+      "data_id": 14,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.607292131325741e-14
+    },
+    {
+      "data_id": 14,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.6121465973835894e-15
+    },
+    {
+      "data_id": 15,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1149116229175192e-14
+    },
+    {
+      "data_id": 15,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.38490332334068e-15
+    },
+    {
+      "data_id": 15,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.6636044896685223e-15
+    },
+    {
+      "data_id": 15,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 3.214977577765888e-15
+    },
+    {
+      "data_id": 15,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.503154057908217e-14
+    },
+    {
+      "data_id": 15,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.723102951670589e-15
+    },
+    {
+      "data_id": 16,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1375795967789772e-14
+    },
+    {
+      "data_id": 16,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.379181220896826e-15
+    },
+    {
+      "data_id": 16,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.9532682623733794e-15
+    },
+    {
+      "data_id": 16,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 3.206516573518205e-15
+    },
+    {
+      "data_id": 16,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.656917970026472e-14
+    },
+    {
+      "data_id": 16,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.5456947322624153e-15
+    },
+    {
+      "data_id": 17,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.4491390370827487e-14
+    },
+    {
+      "data_id": 17,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.1017010982602675e-15
+    },
+    {
+      "data_id": 17,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.6433907353019038e-15
+    },
+    {
+      "data_id": 17,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.5541625482831515e-15
+    },
+    {
+      "data_id": 17,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.413486581778463e-14
+    },
+    {
+      "data_id": 17,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 5.372142568091143e-15
+    },
+    {
+      "data_id": 18,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.0986197568724184e-14
+    },
+    {
+      "data_id": 18,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.0079329740092615e-15
+    },
+    {
+      "data_id": 18,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.704193541817348e-15
+    },
+    {
+      "data_id": 18,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.7296589107149155e-15
+    },
+    {
+      "data_id": 18,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.8561885121880906e-14
+    },
+    {
+      "data_id": 18,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.703142284269397e-15
+    },
+    {
+      "data_id": 19,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 6.949880750529978e-15
+    },
+    {
+      "data_id": 19,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.4634048530499293e-15
+    },
+    {
+      "data_id": 19,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.6887058180817284e-15
+    },
+    {
+      "data_id": 19,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 1.667649506568248e-15
+    },
+    {
+      "data_id": 19,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.57220969085923e-14
+    },
+    {
+      "data_id": 19,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.949321923396474e-15
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.661991331845349e-15
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.0970962972070794e-15
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.857729350320358e-15
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 1.6896464903428638e-15
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 5.618966158606115e-15
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.467082151604143e-15
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 2.4698072670717178e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.4266148602475847e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.3430208985004942e-14
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.1714160559326499e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 7.854112400472525e-14
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.190170604013247e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 3.06838280724393e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 3.249583557939352e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 3.008545366705665e-14
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 3.036277877414266e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 7.427613936334048e-14
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 2.8120327066974738e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.6384810124670952e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 1.6943007157998985e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 1.9224514010981323e-14
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 1.6956251766657927e-14
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 8.617535430556157e-14
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.8046013456994335e-14
+    },
+    {
+      "data_id": 21,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.759103206714263e-15
+    },
+    {
+      "data_id": 21,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.789782703961979e-15
+    },
+    {
+      "data_id": 21,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.4070086813854775e-15
+    },
+    {
+      "data_id": 21,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 1.9136830648365395e-15
+    },
+    {
+      "data_id": 21,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 8.060289885486083e-14
+    },
+    {
+      "data_id": 21,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.460710460614e-15
+    },
+    {
+      "data_id": 22,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.0193872250542207e-14
+    },
+    {
+      "data_id": 22,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.606009041242035e-15
+    },
+    {
+      "data_id": 22,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.698721304191074e-15
+    },
+    {
+      "data_id": 22,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.428811112387726e-15
+    },
+    {
+      "data_id": 22,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 4.923310259173191e-14
+    },
+    {
+      "data_id": 22,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.5297574216126624e-15
+    },
+    {
+      "data_id": 23,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.952008192782517e-15
+    },
+    {
+      "data_id": 23,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.1424227283827797e-15
+    },
+    {
+      "data_id": 23,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.6476040524569045e-15
+    },
+    {
+      "data_id": 23,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 3.4188966083336026e-15
+    },
+    {
+      "data_id": 23,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 4.1792360632710025e-14
+    },
+    {
+      "data_id": 23,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.194244252934736e-15
+    },
+    {
+      "data_id": 24,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.0287064083996782e-14
+    },
+    {
+      "data_id": 24,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.316304947178031e-15
+    },
+    {
+      "data_id": 24,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.4485964442786516e-15
+    },
+    {
+      "data_id": 24,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.277744110394964e-15
+    },
+    {
+      "data_id": 24,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.6376734194146885e-14
+    },
+    {
+      "data_id": 24,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.451421452137154e-15
+    },
+    {
+      "data_id": 25,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 7.984524189872213e-15
+    },
+    {
+      "data_id": 25,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.991886586047607e-15
+    },
+    {
+      "data_id": 25,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.3915841814767513e-15
+    },
+    {
+      "data_id": 25,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 1.0739829811004994e-15
+    },
+    {
+      "data_id": 25,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 4.306494741127049e-14
+    },
+    {
+      "data_id": 25,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.8655867643266113e-15
+    },
+    {
+      "data_id": 26,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 8.985949485474433e-15
+    },
+    {
+      "data_id": 26,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.945090722296138e-15
+    },
+    {
+      "data_id": 26,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.14509482847029e-15
+    },
+    {
+      "data_id": 26,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.4992447146858775e-15
+    },
+    {
+      "data_id": 26,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.5633018437877158e-14
+    },
+    {
+      "data_id": 26,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 1.6679345924428098e-15
+    },
+    {
+      "data_id": 27,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.669178729127645e-15
+    },
+    {
+      "data_id": 27,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.7173810648354955e-15
+    },
+    {
+      "data_id": 27,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.927837072487559e-15
+    },
+    {
+      "data_id": 27,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.932980350416231e-15
+    },
+    {
+      "data_id": 27,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.1213192434373083e-14
+    },
+    {
+      "data_id": 27,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.105234009756049e-15
+    },
+    {
+      "data_id": 28,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.3783008900054757e-14
+    },
+    {
+      "data_id": 28,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.725207850986755e-15
+    },
+    {
+      "data_id": 28,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.7148686000905294e-15
+    },
+    {
+      "data_id": 28,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.6838566141967483e-15
+    },
+    {
+      "data_id": 28,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.303794609326462e-14
+    },
+    {
+      "data_id": 28,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.3222528310313606e-15
+    },
+    {
+      "data_id": 29,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 8.81352070746881e-15
+    },
+    {
+      "data_id": 29,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.153054082233258e-15
+    },
+    {
+      "data_id": 29,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.805510737231593e-15
+    },
+    {
+      "data_id": 29,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.383265111561623e-15
+    },
+    {
+      "data_id": 29,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.4899706176923836e-14
+    },
+    {
+      "data_id": 29,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.84073889024562e-15
+    },
+    {
+      "data_id": 30,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.0307942345709222e-14
+    },
+    {
+      "data_id": 30,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.5092422615717006e-15
+    },
+    {
+      "data_id": 30,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.3325419809499552e-15
+    },
+    {
+      "data_id": 30,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.301863011565869e-15
+    },
+    {
+      "data_id": 30,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.5389763667919276e-14
+    },
+    {
+      "data_id": 30,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.3676586110318914e-15
+    },
+    {
+      "data_id": 31,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1478585412045981e-14
+    },
+    {
+      "data_id": 31,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.0400097152975394e-15
+    },
+    {
+      "data_id": 31,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.002545265216938e-15
+    },
+    {
+      "data_id": 31,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.2233931234159104e-15
+    },
+    {
+      "data_id": 31,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.8333224782308168e-14
+    },
+    {
+      "data_id": 31,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.419009270308106e-15
+    },
+    {
+      "data_id": 32,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.588281629200398e-15
+    },
+    {
+      "data_id": 32,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.9642724109840065e-15
+    },
+    {
+      "data_id": 32,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.7982331800887066e-15
+    },
+    {
+      "data_id": 32,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.5164757598951097e-15
+    },
+    {
+      "data_id": 32,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.6377808941542335e-14
+    },
+    {
+      "data_id": 32,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.2191681914368562e-15
+    },
+    {
+      "data_id": 33,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 9.685456278541027e-15
+    },
+    {
+      "data_id": 33,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.1197143716778815e-15
+    },
+    {
+      "data_id": 33,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.2347830125627345e-15
+    },
+    {
+      "data_id": 33,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.191570989285003e-15
+    },
+    {
+      "data_id": 33,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.8145744647851925e-14
+    },
+    {
+      "data_id": 33,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.529370636259223e-15
+    },
+    {
+      "data_id": 34,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.0049048269309646e-14
+    },
+    {
+      "data_id": 34,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.8155841267892955e-15
+    },
+    {
+      "data_id": 34,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.320580254484027e-15
+    },
+    {
+      "data_id": 34,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.4789629417461635e-15
+    },
+    {
+      "data_id": 34,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.7410974249623355e-14
+    },
+    {
+      "data_id": 34,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.764990326789512e-15
+    },
+    {
+      "data_id": 35,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.0424718938408846e-14
+    },
+    {
+      "data_id": 35,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.9502117864593265e-15
+    },
+    {
+      "data_id": 35,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.0280179112380208e-15
+    },
+    {
+      "data_id": 35,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.912748974940108e-15
+    },
+    {
+      "data_id": 35,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 3.928801483288277e-14
+    },
+    {
+      "data_id": 35,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.974678825150246e-15
+    },
+    {
+      "data_id": 36,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1496036426865028e-14
+    },
+    {
+      "data_id": 36,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.015155005880379e-15
+    },
+    {
+      "data_id": 36,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.437438961788735e-15
+    },
+    {
+      "data_id": 36,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.813051893495439e-15
+    },
+    {
+      "data_id": 36,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.1177995277197236e-14
+    },
+    {
+      "data_id": 36,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 4.208243223083655e-15
+    },
+    {
+      "data_id": 37,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.2444626321898244e-14
+    },
+    {
+      "data_id": 37,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 4.070426152224819e-15
+    },
+    {
+      "data_id": 37,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.0030523549217743e-15
+    },
+    {
+      "data_id": 37,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.114074981864413e-15
+    },
+    {
+      "data_id": 37,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 7.892936151843798e-15
+    },
+    {
+      "data_id": 37,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.8564357514332485e-15
+    },
+    {
+      "data_id": 38,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1674428653019878e-14
+    },
+    {
+      "data_id": 38,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.4579736018407937e-15
+    },
+    {
+      "data_id": 38,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.6490454366160644e-15
+    },
+    {
+      "data_id": 38,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.2072664044732775e-15
+    },
+    {
+      "data_id": 38,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.3629784783690427e-14
+    },
+    {
+      "data_id": 38,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.2034702140288688e-15
+    },
+    {
+      "data_id": 39,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.0057100045708256e-14
+    },
+    {
+      "data_id": 39,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 2.5315369529121817e-15
+    },
+    {
+      "data_id": 39,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 2.481227084637559e-15
+    },
+    {
+      "data_id": 39,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 3.1734953702801794e-15
+    },
+    {
+      "data_id": 39,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 1.964391427669928e-14
+    },
+    {
+      "data_id": 39,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 2.7511642410880955e-15
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "kind": "full_target",
+      "error": 1.1552483168284204e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "kind": "full_target",
+      "error": 3.5827277168872394e-15
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "kind": "full_target",
+      "error": 3.0655778829825797e-15
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "kind": "full_target",
+      "error": 2.419834168474144e-15
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "kind": "full_target",
+      "error": 2.4561253726561376e-14
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "kind": "full_target",
+      "error": 3.805981724958715e-15
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.7572595031931576e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.5739167415903776e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.308832113066668e-14
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.2511377960158471e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 7.758655017128384e-14
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 30,
+      "rule": "OPT",
+      "error": 1.2215922225149463e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 7.439269154084603e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.592766130678504e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.560768265035354e-14
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.24154691021151e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 1.3618301177430267e-13
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 150,
+      "rule": "UNI",
+      "error": 6.50889095049213e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 3.315142380820181e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.5886568339950185e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.1621273847888954e-14
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.93987169599133e-14
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 7.397797658018389e-14
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "kind": "sketch",
+      "budget": 600,
+      "rule": "OPT",
+      "error": 2.3938005333138273e-14
+    },
+    {
+      "data_id": 21,
+      "method": "HBF",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 16,
+      "error": 2.389002221027901e-14,
+      "relative_gap": 5.5187837272710425
+    },
+    {
+      "data_id": 21,
+      "method": "Nesterov",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 16,
+      "error": 1.5891287753571997e-13,
+      "relative_gap": 5.384517808492554
+    },
+    {
+      "data_id": 21,
+      "method": "SOAR",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 16,
+      "error": 1.9349856821186338e-14,
+      "relative_gap": 5.381356811845135
+    },
+    {
+      "data_id": 21,
+      "method": "Landweber",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 16,
+      "error": 2.192362059298687e-14,
+      "relative_gap": 5.368315512801295
+    },
+    {
+      "data_id": 21,
+      "method": "Showalter",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 16,
+      "error": 2.352983424599661e-14,
+      "relative_gap": 5.368135566500047
+    },
+    {
+      "data_id": 21,
+      "method": "Ridge",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 16,
+      "error": 2.892795824569994e-14,
+      "relative_gap": 5.203096742287404
+    },
+    {
+      "data_id": 31,
+      "method": "HBF",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 6,
+      "error": 2.0774566281939747e-14,
+      "relative_gap": 4.597875266072247
+    },
+    {
+      "data_id": 31,
+      "method": "Landweber",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 6,
+      "error": 1.8105047553209378e-14,
+      "relative_gap": 4.460602925024669
+    },
+    {
+      "data_id": 31,
+      "method": "Showalter",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 6,
+      "error": 2.056586548720578e-14,
+      "relative_gap": 4.460427364345457
+    },
+    {
+      "data_id": 31,
+      "method": "Nesterov",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "NORM",
+      "rep": 6,
+      "error": 1.232866653867496e-13,
+      "relative_gap": 4.404324357578449
+    },
+    {
+      "data_id": 9,
+      "method": "Ridge",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "OPT",
+      "rep": 33,
+      "error": 7.302855363623512e-15,
+      "relative_gap": 0.9858135212202552
+    },
+    {
+      "data_id": 17,
+      "method": "HBF",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "OPT",
+      "rep": 39,
+      "error": 8.448735213912968e-15,
+      "relative_gap": 0.9762317406592012
+    },
+    {
+      "data_id": 37,
+      "method": "HBF",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "OPT",
+      "rep": 24,
+      "error": 9.30067619639731e-15,
+      "relative_gap": 0.9731994628407384
+    },
+    {
+      "data_id": 6,
+      "method": "Showalter",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "OPT",
+      "rep": 9,
+      "error": 1.1069412816757427e-14,
+      "relative_gap": 0.9256590051017628
+    },
+    {
+      "data_id": 6,
+      "method": "Landweber",
+      "kind": "extreme",
+      "budget": 30,
+      "rule": "OPT",
+      "rep": 9,
+      "error": 7.462344078991238e-15,
+      "relative_gap": 0.9256311734524264
+    }
+  ],
+  "finite_differences": [
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "row": 403,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.8124749266265103e-09
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "row": 403,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 3.3141141986323672e-09
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "row": 403,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 3.304518956907813e-09
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "row": 403,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 3.2689109598587045e-09
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "row": 403,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.575988460154459e-09
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "row": 403,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.476720463466069e-09
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "row": 773,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.748346823615886e-09
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "row": 773,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.8409383820721537e-09
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "row": 773,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.841134027579596e-09
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "row": 0,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 1.0495098657601417e-09
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "row": 0,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 9.412842316433766e-10
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "row": 0,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 8.131154626917135e-10
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "row": 224,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.700779002542723e-09
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "row": 224,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.7049127467595464e-09
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "row": 224,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.6996004233009303e-09
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "row": 224,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 2.1356317637281138e-09
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "row": 224,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 1.952608302926817e-09
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "row": 224,
+      "selection": "largest saved influence for finite-difference resolution",
+      "relative_error": 1.6243709464036724e-09
+    }
+  ],
+  "grid_refinements": [
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 3.1072193986486353e-15
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 2.3312008376793888e-11
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 2.0897104407967506e-11
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 4.324350196393375e-15
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 2.6782613749289644e-10
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 2.330605742185904e-10
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 3.626317871699886e-15
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 3.4276747521759285e-12
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 9.544606043724185e-12
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 2.6757405374009797e-15
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 2.39311777860205e-11
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 1.2208445098270761e-11
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 3.912007903482248e-15
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 9.736215826484606e-11
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 1.5586002959472379e-10
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 3.6107102480806476e-15
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 4.155865828948488e-12
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 8.339448623585656e-12
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 3.9771095749707795e-15
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 1.2100675028873273e-11
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "budget": 30,
+      "rule": "OPT",
+      "relative_change": 1.493298309977377e-11
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 5.602029696863709e-15
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 8.383297187222191e-11
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "budget": 150,
+      "rule": "UNI",
+      "relative_change": 1.0279127100611266e-10
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 2.9736218558441207e-15
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 2.5890324153218916e-12
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "budget": 600,
+      "rule": "OPT",
+      "relative_change": 3.3087931584526944e-12
+    }
+  ],
+  "independent_weighted_draws": [
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 24,
+      "spike_draws": 26
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 22,
+      "spike_draws": 25
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 22,
+      "spike_draws": 25
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 22,
+      "spike_draws": 26
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 20,
+      "spike_draws": 28
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 20,
+      "spike_draws": 28
+    },
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 143,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 143,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 143,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 143,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 143,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 143,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 1,
+      "method": "Ridge",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 222,
+      "spike_draws": 376
+    },
+    {
+      "data_id": 1,
+      "method": "Landweber",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 193,
+      "spike_draws": 421
+    },
+    {
+      "data_id": 1,
+      "method": "Showalter",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 192,
+      "spike_draws": 421
+    },
+    {
+      "data_id": 1,
+      "method": "HBF",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 173,
+      "spike_draws": 444
+    },
+    {
+      "data_id": 1,
+      "method": "Nesterov",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 161,
+      "spike_draws": 458
+    },
+    {
+      "data_id": 1,
+      "method": "SOAR",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 160,
+      "spike_draws": 461
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 22,
+      "spike_draws": 21
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 20,
+      "spike_draws": 22
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 20,
+      "spike_draws": 22
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 20,
+      "spike_draws": 20
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 21,
+      "spike_draws": 23
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 21,
+      "spike_draws": 23
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 138,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 138,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 138,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 138,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 138,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 138,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 20,
+      "method": "Ridge",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 215,
+      "spike_draws": 398
+    },
+    {
+      "data_id": 20,
+      "method": "Landweber",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 184,
+      "spike_draws": 432
+    },
+    {
+      "data_id": 20,
+      "method": "Showalter",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 184,
+      "spike_draws": 432
+    },
+    {
+      "data_id": 20,
+      "method": "HBF",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 170,
+      "spike_draws": 455
+    },
+    {
+      "data_id": 20,
+      "method": "Nesterov",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 161,
+      "spike_draws": 458
+    },
+    {
+      "data_id": 20,
+      "method": "SOAR",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 157,
+      "spike_draws": 463
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 24,
+      "spike_draws": 18
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 24,
+      "spike_draws": 20
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 24,
+      "spike_draws": 20
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 26,
+      "spike_draws": 23
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 25,
+      "spike_draws": 21
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "budget": 30,
+      "rule": "OPT",
+      "unique_rows": 25,
+      "spike_draws": 22
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 144,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 144,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 144,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 144,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 144,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "budget": 150,
+      "rule": "UNI",
+      "unique_rows": 144,
+      "spike_draws": 5
+    },
+    {
+      "data_id": 40,
+      "method": "Ridge",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 212,
+      "spike_draws": 389
+    },
+    {
+      "data_id": 40,
+      "method": "Landweber",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 213,
+      "spike_draws": 396
+    },
+    {
+      "data_id": 40,
+      "method": "Showalter",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 213,
+      "spike_draws": 396
+    },
+    {
+      "data_id": 40,
+      "method": "HBF",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 194,
+      "spike_draws": 427
+    },
+    {
+      "data_id": 40,
+      "method": "Nesterov",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 184,
+      "spike_draws": 433
+    },
+    {
+      "data_id": 40,
+      "method": "SOAR",
+      "budget": 600,
+      "rule": "OPT",
+      "unique_rows": 178,
+      "spike_draws": 436
+    }
+  ],
+  "primary_tests_recomputed": 18,
+  "source_hashes_unchanged": true,
+  "protected_files_unchanged": 2961,
+  "spectral_guard_active": true
+}

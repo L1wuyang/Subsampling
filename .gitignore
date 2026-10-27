@@ -1,0 +1,15 @@
+# Separately acquired official data and newly generated scientific outputs
+/Data/**/raw/
+/runs/
+/.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.nbc
+*.nbi
+*.part
+*.zip
+*.7z
+*.7z.*
+.DS_Store
+Thumbs.db
