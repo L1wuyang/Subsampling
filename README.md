@@ -1,29 +1,52 @@
-# 1026 experiments: code and simulation data
+# Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework
 
-[中文说明](README_CN.md)
+**Companion code and experimental materials** · [中文说明](README_CN.md)
 
-This repository provides the code for Experiments I-V and the published simulation data for I-IV: **130 NPZ inputs, 1,432,512 per-repeat metric records, summary tables and protocol metadata**. It retains the actual recurrences, fixed-grid RK4 updates, matching derivatives, probability designs and frozen seeds. You can inspect the published simulation results immediately or rerun the algorithms.
+This repository accompanies the manuscript by Junchen Li, Ying-Ao Wang and Ye Zhang. It provides the implementations of Experiments I–V, simulated inputs and per-repetition records for I–IV, and saved metrics and statistical analyses for V. The implementations use the numerical recurrences and fixed-grid fourth-order Runge–Kutta (RK4) maps described in the manuscript, with matching full-data targets, derivatives, probability designs and random seeds.
 
-Simulation data are under `simulations/experiment1/` through `experiment4/`. Raw real-world data for V are acquired separately from official sources. Full saved states, influence arrays, paper files and duplicate archives are excluded.
+## Experiments and files
 
-## Use the published simulation results
+| Experiment | Purpose | Released materials |
+| --- | --- | --- |
+| I | Column-sampling probability comparison | `simulations/experiment1/`: 40 input datasets, metrics, tables and protocol metadata |
+| II | Row-sampling probability comparison | `simulations/experiment2/`: 40 input datasets, metrics, tables and protocol metadata |
+| III | First-order conditional MSE calibration | `simulations/experiment3/`: 20 column and 20 row inputs, metrics and tables |
+| IV | Least-squares comparison using the same sampling draws | `simulations/experiment4/`: five inputs per direction, metrics, tables and numerical diagnostics |
+| V | GDSC and YearPredictionMSD applications | `evidence/experiment5/`: saved metrics, paired comparisons and statistical reanalysis; [official input data](docs/DATA_SOURCES.md) |
 
-Python 3.11 or 3.12 is recommended; validation used Python 3.12.7. From the repository root:
+I–IV contain **130 NPZ inputs and 1,432,512 per-repetition metric records**. [The simulation guide](docs/SIMULATION_DATA.md) documents fields, grouping and interpretation. Experiment V's [statistical evidence guide](evidence/experiment5/README.md) documents the saved records and the joint 36-comparison Holm analysis.
+
+## Install and verify
+
+Use Python 3.11 or 3.12; the recorded validation environment is Python 3.12.7 on Windows. From the repository root:
 
 ```text
 python -m pip install -r requirements-lock.txt
 python run.py verify
 python run.py simulation-data verify --experiment all
-python run.py simulation-data summarize --experiment all --output runs/published_analysis
 ```
 
-The simulation commands verify the bundled data and recompute dataset means, equally weighted summaries and selected plots from the published metrics. They require no real-world downloads or trajectory execution. Select `--experiment 1` through `4` for one experiment and use a new output directory.
+`requirements-lock.txt` and `environment.json` record the dependencies and validation environment. Use the **root `run.py`** for the workflows below. The scripts nested under `Experiments/` are retained source records; see [entry points and source provenance](docs/MAINTENANCE.md#entry-points-and-frozen-sources).
 
-See [simulation files, fields and interpretation](docs/SIMULATION_DATA.md) for record counts, pairing, risk definitions and IV diagnostics.
+## Check the reported results from saved records
 
-## Rerun the algorithms
+Recompute I–IV dataset means, equally weighted summaries and selected plots:
 
-The existing execution workflow remains available. `smoke` uses smaller dimensions, budgets and replication counts; `formal` executes the frozen full protocol.
+```text
+python run.py simulation-data summarize --experiment all --output runs/reported_simulations
+```
+
+Recompute V's two-sided paired tests and joint Holm correction:
+
+```text
+python evidence/experiment5/reanalyze.py --output runs/reported_v
+```
+
+These commands analyze the bundled experimental records. Select `--experiment 1` through `4` for one simulation experiment. Choose a new output directory for each analysis. The existing detailed tables are available in each experiment's `tables/` directory and in V's `reference/` directory.
+
+## Rerun the experiments
+
+`smoke` checks the execution and reporting workflow with smaller dimensions, budgets and replication counts. `formal` runs the full frozen experimental protocol.
 
 ```text
 python run.py preflight --experiment simulations
@@ -34,27 +57,26 @@ python run.py formal --experiment simulations --output runs/formal_simulations -
 python run.py analyze --experiment simulations --results runs/formal_simulations --output runs/formal_simulations_analysis
 ```
 
-`simulations` selects I-IV; `--experiment 1` through `5` selects one experiment. Formal runs are expensive: IV alone contains approximately 40.5 billion updates.
+`simulations` selects I–IV; `--experiment 1` through `5` selects one experiment. Formal execution regenerates inputs from the frozen seeds. IV alone entails approximately 40.5 billion updates; check the workflow with `smoke` before allocating resources for a full run.
 
-**`simulation-data summarize` reads published metric shards; `analyze --results` reads a complete directory generated by your own run.** Formal execution regenerates inputs from frozen seeds; it does not automatically load the published NPZ files.
-
-## Real-data experiment V
-
-[Official versions, checksums and manual import instructions](docs/DATA_SOURCES_CN.md) are supplied. The fixed GDSC ID split is already included.
+For V, obtain the fixed official data files and verify their checksums first:
 
 ```text
 python run.py data download --dataset all
 python run.py data check --dataset all
-python run.py smoke --experiment 5 --output runs/v_smoke --workers 2
-python run.py analyze --experiment 5 --results runs/v_smoke --output runs/v_smoke_analysis
+python run.py formal --experiment 5 --output runs/formal_v --workers 8
+python run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis
 ```
 
-After acquiring the data, use `formal --experiment all` and `analyze --experiment all` for I-V. V retains two-sided paired tests and one joint 36-comparison Holm family. Its oracle probabilities and historical test exploration are explained in the [simulation guide](docs/SIMULATION_DATA.md#interpretation).
+The [data source guide](docs/DATA_SOURCES.md) gives exact versions, checksums and manual import instructions. The GDSC training/test ID split is included; Year uses its official ordered split. For newly executed experiments, `analyze --results` reads the complete generated run directory, including the saved states needed for III's bias analysis and IV's diagnostics.
 
-IV replay and the separate support-bounded V extension remain available through `iv-diagnostics`, `python -m repro1026.iv_precision --help` and `stable-v`. Replay requires a complete new IV run; the bundled tables include the published diagnostics.
+## Documentation and provenance
 
-## Update an existing GitHub repository
+- [Simulation data, metric definitions and statistical interpretation](docs/SIMULATION_DATA.md)
+- [Experiment V: saved statistical evidence](evidence/experiment5/README.md)
+- [Official real-data acquisition](docs/DATA_SOURCES.md)
+- [Optional numerical diagnostics and extensions](docs/ADVANCED_DIAGNOSTICS.md)
+- [How to cite the manuscript and identify the code version](docs/CITATION.md)
+- [Repository maintenance and frozen-source records](docs/MAINTENANCE.md)
 
-Extract the release and copy its contents into your repository root, alongside `run.py`, preserving the folders. In GitHub Desktop, review the changes, commit, then push/sync. Upload the extracted files, not the ZIP itself. Keep `.gitattributes` to preserve frozen source bytes and `.gitignore` to exclude downloaded real data and new runs.
-
-`MANIFEST.json` records release files; `simulations/manifest.json` describes the simulation data; `provenance/` records frozen sources and origins. Code was tested on Windows; compare numerical tolerances across BLAS/platforms. TeX is not required.
+`MANIFEST.json` records the released files and checksums; `simulations/manifest.json` describes I–IV data; `provenance/` records fixed inputs and source origins. Historical dates in internal directory and module names identify the preserved computation records. Use an exact Git commit when identifying the materials used for a result.

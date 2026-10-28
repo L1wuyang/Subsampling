@@ -1,6 +1,8 @@
 # 真实数据获取和逐字节校验
 
-本包已附实验 I—IV 的模拟输入、逐次指标和汇总表，见 [仿真数据说明](SIMULATION_DATA_CN.md)。实验 V 的真实数据从下列官方渠道获取。预处理使用训练集拟合均值、标准差和响应截距；固定划分随源码提供。
+[English](DATA_SOURCES.md) · [仓库说明](../README_CN.md)
+
+本包已附实验 I—IV 的模拟输入、逐次指标和汇总表，见 [仿真数据说明](SIMULATION_DATA_CN.md)。实验 V 的保存指标核验见[实验 V 统计材料说明](../evidence/experiment5/README_CN.md)；完整重跑所需的原始真实数据从下列官方渠道获取。预处理使用训练集拟合均值、标准差和响应截距；固定划分随源码提供。
 
 ## 官方来源和固定版本
 
@@ -47,18 +49,18 @@ year ZIP SHA256
 
 ## 下载和检查
 
-从源码包根运行；获取层使用 Python 标准库。
+在仓库根通过 `run.py` 运行；获取层使用 Python 标准库。
 
 ```bash
 # 可按数据集分别获取；默认 --dataset all
-python -m repro1026.data_sources download --dataset gdsc
-python -m repro1026.data_sources download --dataset year
+python run.py data download --dataset gdsc
+python run.py data download --dataset year
 
 # 离线检查三个最终文件及 GDSC 固定 ID 清单
-python -m repro1026.data_sources check --dataset all
+python run.py data check --dataset all
 ```
 
-也可用 `--root PATH` 指定另一份包/数据根；数据写入 `PATH/Data/...`，GDSC ID 清单应位于其 `provenance/exp5_inputs/gdsc_split.json`。默认使用模块所在的源码包根。
+需要指定另一份包/数据根时，可使用额外支持 `--root PATH` 的模块接口，例如 `python -m repro1026.data_sources check --dataset all --root PATH`。数据写入 `PATH/Data/...`，GDSC ID 清单应位于其 `provenance/exp5_inputs/gdsc_split.json`。默认使用模块所在的源码包根。
 
 下载完成后的三个最终位置是：
 
@@ -77,13 +79,13 @@ Data/real_data_20261016/raw/yearpredictionmsd/yearpredictionmsd/YearPredictionMS
 已有文件位于其他目录时，`check --file` 只读校验这些路径；`download --file` 在校验后复制到标准位置。支持的键为 `expression`、`response`、`year`、`year_archive`，可重复传入：
 
 ```bash
-python -m repro1026.data_sources check --dataset gdsc --file "expression=D:/data/sanger1018_brainarray_ensemblgene_rma.txt.gz" --file "response=D:/data/GDSC2_fitted_dose_response_24Jul22.csv"
+python run.py data check --dataset gdsc --file "expression=D:/data/sanger1018_brainarray_ensemblgene_rma.txt.gz" --file "response=D:/data/GDSC2_fitted_dose_response_24Jul22.csv"
 
 # 本地官方 ZIP：无需再次下载；校验 ZIP 后仅提取目标 TXT
-python -m repro1026.data_sources download --dataset year --file "year_archive=D:/data/yearpredictionmsd.zip"
+python run.py data download --dataset year --file "year_archive=D:/data/yearpredictionmsd.zip"
 
 # 也可直接导入已经校验的官方 TXT
-python -m repro1026.data_sources download --dataset year --file "year=D:/data/YearPredictionMSD.txt"
+python run.py data download --dataset year --file "year=D:/data/YearPredictionMSD.txt"
 ```
 
 `check` 的通过条件是所选数据集的最终原始文件全部有效；只给 `year_archive` 不会把尚缺的 TXT 当作已经准备完成。程序以 JSON 报告状态，全部通过退出码为 0，否则为 1。

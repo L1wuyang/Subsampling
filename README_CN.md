@@ -1,29 +1,52 @@
-# 1026 实验源码与仿真数据
+# Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework
 
-[English](README.md)
+**论文配套代码与实验材料** · [English](README.md)
 
-本仓库提供实验 I—V 的运行代码，以及论文 I—IV 的 **130 份 NPZ 仿真输入、1,432,512 条逐次指标、汇总表和协议参数**。保留实际递推、有限网格 RK4、匹配导数、概率设计和冻结种子。可以直接查看随包仿真结果，也可以按协议重新运行。
+本仓库配套 Junchen Li、Ying-Ao Wang 和 Ye Zhang 的上述论文，提供实验 I—V 的实现、I—IV 的仿真输入和逐次指标，以及 V 的保存指标与统计分析材料。实现采用论文中的实际递推与固定网格四阶 Runge–Kutta（RK4）计算，并使用匹配的完整数据目标、导数、抽样概率和随机种子。
 
-新增数据位于 `simulations/experiment1/` 至 `experiment4/`。实验 V 的原始真实数据从官方渠道另行获取；完整状态、影响量数组、论文文件和重复压缩包不随仓库分发。
+## 实验与文件对应
 
-## 直接检查并汇总发布结果
+| 实验 | 研究内容 | 随仓库提供的材料 |
+| --- | --- | --- |
+| I | 列抽样概率比较 | `simulations/experiment1/`：40 份输入、指标、结果表和协议元数据 |
+| II | 行抽样概率比较 | `simulations/experiment2/`：40 份输入、指标、结果表和协议元数据 |
+| III | 一阶条件 MSE 校准 | `simulations/experiment3/`：20 份列输入、20 份行输入、指标和结果表 |
+| IV | 同次抽样最小二乘比较 | `simulations/experiment4/`：每个方向五份输入、指标、结果表和数值诊断 |
+| V | GDSC 与 YearPredictionMSD 应用 | `evidence/experiment5/`：保存指标、配对比较和统计重分析；[原始数据官方来源](docs/DATA_SOURCES_CN.md) |
 
-建议使用 Python 3.11 或 3.12；实际验证环境为 Python 3.12.7。在仓库根运行：
+I—IV 合计 **130 份 NPZ 输入、1,432,512 条逐次指标**。[仿真数据说明](docs/SIMULATION_DATA_CN.md) 解释字段、分组和统计含义；V 的[统计材料说明](evidence/experiment5/README_CN.md) 给出保存指标及联合 36 项 Holm 分析的复核方法。
+
+## 安装与完整性检查
+
+使用 Python 3.11 或 3.12；已记录的验证环境为 Windows 上的 Python 3.12.7。在仓库根目录运行：
 
 ```text
 python -m pip install -r requirements-lock.txt
 python run.py verify
 python run.py simulation-data verify --experiment all
-python run.py simulation-data summarize --experiment all --output runs/published_analysis
 ```
 
-仿真数据命令核验随包输入和指标分片，并从发布指标重新计算数据集均值、等权汇总和少量图。不需要下载真实数据或重新执行迭代。可用 `--experiment 1` 至 `4` 单独选择实验，每次使用新的输出目录。
+`requirements-lock.txt` 和 `environment.json` 记录依赖与验证环境。下列流程统一使用**根目录 `run.py`**；`Experiments/` 内嵌脚本作为源代码记录保留，详见[入口与冻结源码说明](docs/MAINTENANCE.md#entry-points-and-frozen-sources)。
 
-记录数量、字段、配对关系、风险定义和 IV 诊断见[仿真数据说明](docs/SIMULATION_DATA_CN.md)。
+## 从保存指标核验论文结果
 
-## 重新运行算法
+重新计算 I—IV 的数据集内均值、数据集等权汇总和部分图：
 
-原运行入口继续保留。`smoke` 缩小维度、预算和重复次数，检查实际算法与输出链路；`formal` 执行冻结的正式协议。
+```text
+python run.py simulation-data summarize --experiment all --output runs/reported_simulations
+```
+
+重新计算 V 的双侧配对检验和联合 Holm 校正：
+
+```text
+python evidence/experiment5/reanalyze.py --output runs/reported_v
+```
+
+上述命令分析随仓库提供的实验记录。可用 `--experiment 1` 至 `4` 单独选择仿真实验；每次使用新的输出目录。已有详细结果表位于各仿真实验的 `tables/` 及 V 的 `reference/` 目录。
+
+## 重新运行实验
+
+`smoke` 缩小维度、预算和重复次数，用于检查计算及报告流程；`formal` 执行完整的冻结实验协议。
 
 ```text
 python run.py preflight --experiment simulations
@@ -34,27 +57,26 @@ python run.py formal --experiment simulations --output runs/formal_simulations -
 python run.py analyze --experiment simulations --results runs/formal_simulations --output runs/formal_simulations_analysis
 ```
 
-`simulations` 选择 I—IV；`--experiment 1` 至 `5` 可单独运行。正式计算量较大，仅 IV 就约 405 亿次更新。
+`simulations` 选择 I—IV；`--experiment 1` 至 `5` 单独选择一个实验。完整运行按冻结种子重新生成输入。IV 约需执行 405 亿次更新，建议先用 `smoke` 检查流程，再安排完整运行资源。
 
-**`simulation-data summarize` 读取随包发布指标；`analyze --results` 读取你重新运行生成的完整目录。** 正式入口仍按冻结种子生成输入，不会自动改为加载随包 NPZ。
-
-## 真实数据实验 V
-
-[官方数据获取说明](docs/DATA_SOURCES_CN.md)包含版本、校验和与手动导入方式，固定 GDSC ID 划分已保留。
+V 先获取固定版本的官方数据并核验校验和：
 
 ```text
 python run.py data download --dataset all
 python run.py data check --dataset all
-python run.py smoke --experiment 5 --output runs/v_smoke --workers 2
-python run.py analyze --experiment 5 --results runs/v_smoke --output runs/v_smoke_analysis
+python run.py formal --experiment 5 --output runs/formal_v --workers 8
+python run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis
 ```
 
-数据齐备后，用 `formal --experiment all` 和 `analyze --experiment all` 运行与分析 I—V。V 保留双侧配对检验和一次联合 36 项 Holm；OPT 的 oracle 含义及历史测试探索的解释见[数据说明](docs/SIMULATION_DATA_CN.md#解释结果时的条件)。
+[数据来源说明](docs/DATA_SOURCES_CN.md) 包含精确版本、校验和及手动导入方法。仓库保留 GDSC 训练/测试 ID 划分；Year 使用官方顺序划分。重新执行实验后，`analyze --results` 读取生成的完整运行目录，其中包含 III 偏差分析和 IV 诊断所需的保存状态。
 
-IV 精度重放与独立的 V 全支持界扩展仍可通过 `iv-diagnostics`、`python -m repro1026.iv_precision --help` 和 `stable-v` 调用。重放读取新运行的完整 IV 目录；随包指标用于查看已发布的诊断。
+## 文档与来源记录
 
-## 更新已有 GitHub 仓库
+- [仿真数据、指标定义和统计解释](docs/SIMULATION_DATA_CN.md)
+- [实验 V 保存指标与统计核验](evidence/experiment5/README_CN.md)
+- [真实数据官方获取渠道](docs/DATA_SOURCES_CN.md)
+- [可选数值诊断与扩展](docs/ADVANCED_DIAGNOSTICS_CN.md)
+- [论文引用与代码版本标识](docs/CITATION.md)
+- [仓库维护及冻结源码记录](docs/MAINTENANCE.md)
 
-解压本包，将里面的文件放到已有仓库根目录，与 `run.py` 同层，保留目录结构。在 GitHub Desktop 中检查更改、提交，再 Push/同步。上传解压后的文件，不上传 ZIP 本身。保留 `.gitattributes`，避免自动转换换行改变冻结源码哈希；`.gitignore` 会排除下载的真实数据和新运行产物。
-
-`MANIFEST.json` 记录发布文件，`simulations/manifest.json` 描述仿真数据，`provenance/` 保存源码与数据来源。代码实际在 Windows 上验证；不同 BLAS/平台比较数值容差。运行实验不需要 TeX。
+`MANIFEST.json` 记录发布文件及其校验和；`simulations/manifest.json` 描述 I—IV 数据；`provenance/` 记录固定输入及源码来源。内部目录和模块名中的历史日期用于识别保存的计算记录。引用某次结果所用材料时，请记录准确的 Git 提交。

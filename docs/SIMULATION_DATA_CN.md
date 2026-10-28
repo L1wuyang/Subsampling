@@ -2,7 +2,7 @@
 
 [English](SIMULATION_DATA.md) · [仓库使用说明](../README_CN.md)
 
-`simulations/` 补充原始仿真输入、全部已发布逐次指标和对应汇总表。输入 NPZ 保持原始字节；指标保留原字段，敏感性、零响应和尾部记录全部收录。
+`simulations/` 提供原始仿真输入、论文结果对应的逐次指标和汇总表。输入 NPZ 保持原始字节；指标保留原字段，敏感性、零响应和尾部记录全部收录。
 
 ## 内容与数量
 
@@ -37,7 +37,7 @@ I—III 输入保存冻结构造器使用的基础高斯变量、噪声、系数
 
 ```text
 python run.py simulation-data verify --experiment all
-python run.py simulation-data summarize --experiment all --output runs/published_analysis
+python run.py simulation-data summarize --experiment all --output runs/reported_simulations
 ```
 
 可用 `--experiment 1` 至 `4` 单独选择实验。输出根包含 `verification.json` 和 `summary_manifest.json`；各 `expN/` 下生成 `dataset_means.csv`、`equal_dataset_summary.csv`、`record_status_counts.csv` 和 `figures/`。每次选用新的输出目录。
@@ -72,7 +72,7 @@ records = pd.concat((pd.read_csv(path) for path in shards), ignore_index=True)
 | `rank`、`unique_objects`/`unique_rows`、`spike_draws` | 抽样对象的秩与覆盖；低覆盖和重复抽样属于原抽样分布。 |
 | IV 数值诊断 | `resolution_limited` 只描述最终相减的局部尺度。发布诊断另保留两项尚未解决的选定重放警告和六组尾部集中警告，`accuracy_certified` 为 false；解释对应微小差距和尾部均值时须同时查看。 |
 | OPT | 利用完整数据和响应的一阶概率设计 oracle；目标逼近改善本身不代表预测更优或总计算成本更低。 |
-| V 的统计 | V 的数据与结果不属于本仿真补充。当前分析使用双侧配对检验和一次联合 36 项 Holm；历史测试探索使预测比较仍属于描述性证据。 |
+| V 的统计 | 保存指标和统计参考文件另见 [V 统计材料目录](../evidence/experiment5/README_CN.md)。分析使用双侧配对检验和一次联合 36 项 Holm；历史测试探索使预测比较仍属于描述性证据。 |
 
 III/IV 的逐点 Monte Carlo 区间条件于指定完整数据和参数路径。正式表保留原不确定性计算；便捷汇总不改变统计单位，也不建立新的检验家族。
 
@@ -80,4 +80,4 @@ III/IV 的逐点 Monte Carlo 区间条件于指定完整数据和参数路径。
 
 新生成的完整运行目录继续使用 `formal` 或 `smoke`，再用 `analyze --results`。发布指标使用独立入口，是因为 III 的完整分析从状态向量计算偏差，IV 重放还需要状态和抽样计数。本补充提供已有表和诊断；完整重跑会生成这些流程所需的额外数值输出。
 
-仓库省略完整状态、影响量、抽样计数档案及真实数据数值。V 的官方获取方式见[数据来源说明](DATA_SOURCES_CN.md)。
+完整状态、影响量和抽样计数由完整重跑生成。V 的原始数据获取方式见[数据来源说明](DATA_SOURCES_CN.md)；[V 保存指标核验流程](../evidence/experiment5/README_CN.md) 可直接使用随仓库提供的记录检查统计结果。

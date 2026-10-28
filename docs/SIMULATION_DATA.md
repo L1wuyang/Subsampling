@@ -2,7 +2,7 @@
 
 [中文说明](SIMULATION_DATA_CN.md) · [Repository guide](../README.md)
 
-The `simulations/` directory supplies original simulated inputs, every published per-repeat metric and the corresponding summary tables. NPZ inputs preserve the original bytes. Metric records preserve the original fields, including sensitivity, zero-response and tail arms.
+The `simulations/` directory supplies original simulated inputs, the per-repetition metrics underlying the reported results, and the corresponding summary tables. NPZ inputs preserve the original bytes. Metric records preserve the original fields, including sensitivity, zero-response and tail arms.
 
 ## Contents
 
@@ -22,7 +22,7 @@ simulations/
   experiment1/ ... experiment4/
     inputs/       original simulation NPZ inputs
     records/      per-repeat CSV.gz shards
-    tables/       current published summaries, comparisons and risks
+    tables/       reported summaries, comparisons and risks
     metadata/     protocols, execution metadata, parameters and provenance
   experiment4/diagnostics/
 ```
@@ -31,18 +31,18 @@ I-III keep separate main and sensitivity shard groups; zero-response records bel
 
 I-III inputs contain base Gaussian variables, noise, coefficient directions and scale/spike variables used by the frozen constructors. IV inputs contain the constructed design, response, truth and population-risk quantities. III has 20 column and 20 row inputs; IV has five of each. Inspect a file using `np.load(path, allow_pickle=False)`. Formal execution continues to generate inputs from frozen seeds; no automatic load-input option is implied.
 
-Tables use the current rebuilt reporting versions where available; other tables preserve the frozen formal values. IV summaries include the corrected numerical-diagnostic semantics. Protocols retain seeds, budgets and replication counts. Historical verification records describe the original run and retain its original paths; `simulations/manifest.json` maps this release.
+Tables correspond to the reported analyses, with rebuilt reporting tables where available and frozen formal values otherwise. IV summaries include the numerical diagnostics documented below. Protocols retain seeds, budgets and replication counts. Historical verification records describe the original run and retain its original paths; `simulations/manifest.json` maps the released files.
 
 ## Verify and summarize
 
 ```text
 python run.py simulation-data verify --experiment all
-python run.py simulation-data summarize --experiment all --output runs/published_analysis
+python run.py simulation-data summarize --experiment all --output runs/reported_simulations
 ```
 
 Select one experiment using `--experiment 1` through `4`. The output root contains `verification.json` and `summary_manifest.json`; each `expN/` contains `dataset_means.csv`, `equal_dataset_summary.csv`, `record_status_counts.csv` and `figures/`. Choose a new output directory.
 
-The command averages repetitions within each dataset, budget, method and arm, then weights datasets equally. Undefined or nonfinite metrics retain NaN means with valid counts. Selected plots show main arms; all arms remain in the output tables. It summarizes published metrics without executing numerical trajectories.
+The command averages repetitions within each dataset, budget, method and arm, then weights datasets equally. Undefined or nonfinite metrics retain NaN means with valid counts. Selected plots show main arms; all arms remain in the output tables. It summarizes saved metrics without executing numerical trajectories.
 
 For custom analysis, pandas reads a shard directly:
 
@@ -70,14 +70,14 @@ Within an experiment, I/II keys are `(data_id, arm, budget, method, rule, rep)`;
 | `scaled_squared_gap`, `absolute_squared_gap`, `relative_squared_gap` | IV compares numerical output with QR least squares from the same draw. The scaled quantity is N times the absolute squared gap. |
 | `status`, missing relative values | All 1,872 zero-target/zero-response records have undefined relative metrics; keep empty/NaN values. `status` identifies the run outcome; original tail records are retained. |
 | `rank`, `unique_objects`/`unique_rows`, `spike_draws` | Rank and coverage of sampled objects. Low coverage and repeated draws belong to the sampling distribution. |
-| IV diagnostics | `resolution_limited` concerns the local final-subtraction scale. Published diagnostics additionally preserve two unresolved selected replay warnings and six tail-concentration groups; `accuracy_certified` is false. Read these with the corresponding small gaps and tail means. |
+| IV diagnostics | `resolution_limited` concerns the local final-subtraction scale. The recorded diagnostics additionally preserve two unresolved selected replay warnings and six tail-concentration groups; `accuracy_certified` is false. Read these with the corresponding small gaps and tail means. |
 | OPT | A first-order probability-design oracle using complete data and responses. Better target approximation alone does not imply better prediction or lower total computation. |
-| V statistics | V data/results are outside this supplement. Its current analysis uses two-sided paired tests and one joint 36-comparison Holm family. Historical test exploration makes predictive comparisons descriptive. |
+| V statistics | Saved metrics and statistical references are supplied separately in [the V evidence directory](../evidence/experiment5/README.md). The analysis uses two-sided paired tests and one joint 36-comparison Holm family. Historical test exploration makes predictive comparisons descriptive. |
 
 III/IV pointwise Monte Carlo intervals condition on the specified full dataset and parameter path. Formal tables retain their original uncertainty calculations; convenience summaries do not change the statistical unit or establish a new hypothesis family.
 
 ## Complete reruns
 
-Use `formal` or `smoke`, then `analyze --results`, for newly generated complete directories. The published-metric command is separate because full III analysis computes bias from saved vectors and IV replay requires states/counts. This supplement provides existing tables and diagnostics; complete reruns generate the additional numerical outputs for those workflows.
+Use `formal` or `smoke`, then `analyze --results`, for newly generated complete directories. Saved-metric summaries use a separate command because full III analysis computes bias from saved vectors and IV replay requires states/counts. The released materials provide existing tables and diagnostics; complete reruns generate the additional numerical outputs for those workflows.
 
-Full saved states, influence arrays, count archives and real-data values are excluded. Official V acquisition is documented in the [data source guide](DATA_SOURCES_CN.md).
+Full saved states, influence arrays and sampling counts are generated during a complete rerun. Official V input acquisition is documented in the [data source guide](DATA_SOURCES.md); the [V saved-metric workflow](../evidence/experiment5/README.md) checks its statistical results directly from the bundled records.

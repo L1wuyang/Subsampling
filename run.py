@@ -1,4 +1,4 @@
-"""1026 experiments: inspect published simulations or generate and analyze new runs."""
+"""Companion experimental materials: verify saved records or run the frozen protocols."""
 from __future__ import annotations
 import argparse
 import hashlib
@@ -42,7 +42,7 @@ def new_output(path):
     path = Path(path).expanduser().resolve()
     if path == ROOT or ROOT.is_relative_to(path):
         raise ValueError('Output cannot replace the package or one of its parents')
-    for name in ['Experiments', 'Data', 'provenance', 'repro1026', 'docs', 'validation', 'simulations']:
+    for name in ['Experiments', 'Data', 'provenance', 'repro1026', 'docs', 'validation', 'simulations', 'evidence', 'tools']:
         if path.is_relative_to(ROOT/name):
             raise ValueError(f'Output is inside a package input directory: {path}')
     if path.exists():
@@ -96,7 +96,7 @@ def preflight(selected, require_data=True):
         from repro1026.data_sources import check_data
         result['data'] = check_data(ROOT)
         if not result['data']['passed']:
-            raise FileNotFoundError('Experiment V needs separately acquired official files. Run python run.py data download --dataset all; see docs/DATA_SOURCES_CN.md.')
+            raise FileNotFoundError('Experiment V needs separately acquired official files. Run python run.py data download --dataset all; see docs/DATA_SOURCES.md.')
     result['passed'] = True
     return result
 
@@ -137,7 +137,7 @@ def main():
     p.add_argument('--experiment', choices=['all', 'simulations', '1', '2', '3', '4', '5'], default='all')
     p.add_argument('--results', type=Path, required=True)
     p.add_argument('--output', type=Path, required=True)
-    p = subs.add_parser('simulation-data', help='Verify or summarize the published I-IV inputs and repetition metrics')
+    p = subs.add_parser('simulation-data', help='Verify or summarize the released I-IV inputs and repetition metrics')
     p.add_argument('action', choices=['verify', 'summarize'])
     p.add_argument('--experiment', choices=['all', '1', '2', '3', '4'], default='all')
     p.add_argument('--output', type=Path, help='New directory; required for summarize')
