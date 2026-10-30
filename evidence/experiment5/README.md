@@ -36,9 +36,9 @@ python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 
 The lightweight checks use the compact supplied inputs and require `mpmath==1.3.0`; no raw-data download is needed. The guide states the assumptions and limits of each check. The tail examples explain why finite-repetition means need not represent the full conditional MSE; they do not establish a complete MSE ordering among sampling rules.
 
-## Historical analyses
+## Earlier analyses
 
-The original one-sided comparisons, later two-sided/Holm analysis and mean-confidence intervals remain preserved as historical records, not the current inferential basis for Experiment V. The [historical-analysis guide](../../docs/HISTORICAL_ANALYSES.md) lists the unchanged scripts and evidence paths, verification and replay commands, and the relationship to the frozen protocols. Use that guide only to inspect or replay the earlier analyses; use the empirical workflow above for the current results.
+Earlier one-sided and two-sided/Holm analyses are documented in the [complete previous version](https://github.com/L1wuyang/Subsampling/tree/5e1c6b81166b2b574aef6e439aadfb143996793d); they are not the inferential basis of the current V report. `reanalyze.py` and `reference/` remain because the current saved-record workflow uses their archive-verification code and reference checksums. Use the empirical workflow above for the current results.
 
 ## Relation to full reproduction
 

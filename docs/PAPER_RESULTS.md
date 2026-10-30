@@ -51,14 +51,6 @@ python -c "import pandas as pd; t=pd.read_csv('simulations/experiment3/tables/ro
 
 The output is the selected stored table on standard output. C0 verifies its provenance and integrity. C1 provides a separate check of underlying scalar means; neither command is an automatic paper-table exporter.
 
-**C4 — historical V paired tests, kept separate from current empirical reporting.**
-
-```bash
-python -B evidence/experiment5/reanalyze.py --output runs/paper_v_historical
-```
-
-Outputs include `paired_comparisons_two_sided.csv`, `mean_coefficient_errors.csv`, `inference_revision.json` and `verification.json`. This retains the 36-comparison Holm family and the GDSC NORM/UNI duplicate. These tests are historical evidence, not the current basis for full conditional-MSE claims.
-
 **R — regenerate numerical trajectories, then analyze a complete new run.**
 
 For example, for Experiment III:

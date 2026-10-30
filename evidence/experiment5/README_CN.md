@@ -36,9 +36,9 @@ python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 
 轻量核验使用随包提供的紧凑输入，需要 `mpmath==1.3.0`，不需要下载原始数据。诊断说明列明各项检查的前提与适用范围。尾部反例解释有限重复均值为何可能不能代表完整条件 MSE，并未建立所有抽样规则的完整 MSE 排序。
 
-## 历史分析
+## 早期分析
 
-原单侧比较、后续双侧/Holm 分析及均值置信区间均保留为历史记录，不是当前实验 V 的推断依据。[历史分析说明](../../docs/HISTORICAL_ANALYSES_CN.md)集中列出未变更的脚本与证据路径、校验及重放命令，以及它们与冻结协议的关系。复核旧分析时使用该说明；复现当前结果时使用上面的经验汇总流程。
+原单侧及后续双侧/Holm 分析详见[完整旧版](https://github.com/L1wuyang/Subsampling/tree/5e1c6b81166b2b574aef6e439aadfb143996793d)，不作为当前实验 V 的推断依据。当前保存记录流程仍使用 `reanalyze.py` 和 `reference/` 中的归档校验代码及参考校验值，因此保留这些依赖；当前结果使用上面的经验汇总流程。
 
 ## 与完整复现的关系
 

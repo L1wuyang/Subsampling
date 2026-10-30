@@ -1,37 +1,20 @@
-# Validation records
+# Current validation records
 
 [Repository guide](../README.md) · [仓库说明](../README_CN.md)
 
-Each record describes the version, environment and checks named inside it. A historical `passed: true` is not a new test result for the current checkout. Records are retained as evidence rather than rewritten to describe later work.
-
-## Current reporting and organization
+The release identifier is [VERSION](../VERSION). This directory retains the current reporting evidence and the checks for this package:
 
 | Record | Scope |
 | --- | --- |
-| [current_empirical_release_20261030.json](current_empirical_release_20261030.json) | Verification of the empirical Experiment V release: preserved sources and metrics, the two target figures, public report entry points and portable tail/stability checks. Its original contents are retained. |
-| [submission_organization_20261030.json](submission_organization_20261030.json) | Checks specific to the subsequent submission-package organization, including evidence preservation, relocated records, links and release inventory. This is separate from the earlier scientific/reporting checks. |
+| [current_release.json](current_release.json) | Checks for v2026.10.30.1: source/data preservation, dependency-safe removal, local links and saved-evidence verification. |
+| [current_empirical_release_20261030.json](current_empirical_release_20261030.json) | Original verification of the current empirical V reporting and portable tail/stability diagnostics. Retained unchanged; its entries are not claims that the underlying experiments were rerun for this package. |
 
-For the current workflows, use the [root reproduction guide](../README.md), [Experiment V empirical guide](../evidence/experiment5/README.md) and [tail-diagnostic guide](../evidence/experiment5/tail_diagnostics/README.md).
+Earlier engineering acceptance records and the previous organization record are omitted from this version. Their original files and detailed historical explanations remain available in the [complete previous snapshot](https://github.com/L1wuyang/Subsampling/tree/5e1c6b81166b2b574aef6e439aadfb143996793d). Normal subsequent commits preserve that snapshot.
 
-## Historical acceptance records
-
-The following four JSON records moved together from this directory into `history/`, preserving every byte. The relative `lite_base_acceptance.json` reference inside `acceptance_summary.json` still points to a record in the same directory.
-
-| Record | Historical scope |
-| --- | --- |
-| [history/lite_base_acceptance.json](history/lite_base_acceptance.json) | Earlier source-only package and smoke-workflow acceptance; includes the former V statistical workflow and notes what was not executed. |
-| [history/acceptance_summary.json](history/acceptance_summary.json) | Addition and verification of the I–IV simulation inputs, scalar metrics and tables. |
-| [history/metric_reconciliation.json](history/metric_reconciliation.json) | Reconciliation of I–IV saved metrics with the corresponding tables. |
-| [history/submission_materials_20261028.json](history/submission_materials_20261028.json) | Checks for the earlier manuscript-companion release, including historical V reanalysis. |
-
-Dates, old local-project references, source hashes and older analysis statements are preserved to identify their original context. Consult [historical analyses](../docs/HISTORICAL_ANALYSES.md) to distinguish the earlier V tests from the current empirical report.
+For the current workflows, use the [reproduction guide](../README.md), [paper result map](../docs/PAPER_RESULTS.md) and [Experiment V evidence guide](../evidence/experiment5/README.md). The root and evidence manifests verify released files; the simulation manifest and source/pilot hash records remain necessary execution inputs.
 
 ## 中文说明
 
-每份记录只对应其内部标明的版本、环境和检查范围。历史 `passed: true` 不代表当前版本刚刚通过同一检查，旧记录也不会改写为新结果。
+当前版本号见 [VERSION](../VERSION)。本目录仅保留本版检查 `current_release.json`，以及当前 V 经验报告和尾部／稳定性诊断的原验证记录 `current_empirical_release_20261030.json`；后一记录保持原始字节，不表示本次重新执行了完整实验。
 
-- `current_empirical_release_20261030.json` 保留原位置与原始字节，记录经验版实验 V 的源码、指标、目标图、报告入口及尾部／稳定性核验。
-- `submission_organization_20261030.json` 单独记录本次投稿包整理的证据保留、历史记录移动、链接和发布清单等检查，不替代前一份科学／报告核验。
-- 四份早期验收 JSON 整体移动到 `history/`，字节不变；`acceptance_summary.json` 对 `lite_base_acceptance.json` 的同目录引用保持有效。旧日期、本地工程引用、校验值及早期统计表述用于识别原始上下文。
-
-当前复现入口见[仓库说明](../README_CN.md)和[实验 V 经验报告](../evidence/experiment5/README_CN.md)，旧统计流程见[历史分析说明](../docs/HISTORICAL_ANALYSES_CN.md)。
+4 份旧工程验收记录和上一轮整理记录已从本版移除，可在[旧版完整快照](https://github.com/L1wuyang/Subsampling/tree/5e1c6b81166b2b574aef6e439aadfb143996793d)追溯。源码、数据、证据及 pilot 门禁校验文件仍是复现依赖，继续保留。当前使用方法见[仓库说明](../README_CN.md)与[论文图表对照](../docs/PAPER_RESULTS_CN.md)。

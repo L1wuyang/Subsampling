@@ -2,6 +2,8 @@
 
 **Companion code and experimental materials** · [中文说明](README_CN.md)
 
+**Release [v2026.10.30.1](VERSION)** · [Current validation](validation/README.md)
+
 This repository accompanies the manuscript by Junchen Li, Ying-Ao Wang and Ye Zhang. It provides the implementations of Experiments I–V, simulated inputs and per-repetition records for I–IV, and saved metrics, empirical reports and tail diagnostics for V. The implementations use the numerical recurrences and fixed-grid fourth-order Runge–Kutta (RK4) maps described in the manuscript, with matching full-data targets, derivatives, probability designs and random seeds.
 
 For a particular manuscript result, start with the **[paper figure and table map](docs/PAPER_RESULTS.md)**. For the scope of the recorded checks, see the **[validation guide](validation/README.md)**. Experiment V's current report describes finite-repetition empirical means; it does not establish complete conditional-MSE rankings.
@@ -14,9 +16,9 @@ For a particular manuscript result, start with the **[paper figure and table map
 | II | Row-sampling probability comparison | `simulations/experiment2/`: 40 input datasets, metrics, tables and protocol metadata |
 | III | First-order conditional MSE calibration | `simulations/experiment3/`: 20 column and 20 row inputs, metrics and tables |
 | IV | Least-squares comparison using the same sampling draws | `simulations/experiment4/`: five inputs per direction, metrics, tables and numerical diagnostics |
-| V | GDSC and YearPredictionMSD applications | `evidence/experiment5/`: saved metrics, empirical figures, tail diagnostics and historical analyses; [official input data](docs/DATA_SOURCES.md) |
+| V | GDSC and YearPredictionMSD applications | `evidence/experiment5/`: saved metrics, empirical figures and tail diagnostics; [official input data](docs/DATA_SOURCES.md) |
 
-I–IV contain **130 NPZ inputs and 1,432,512 per-repetition metric records**. [The simulation guide](docs/SIMULATION_DATA.md) documents fields, grouping and interpretation. Experiment V's [evidence guide](evidence/experiment5/README.md) documents the current empirical summaries and figures, reproducible tail diagnostics, and historical mean-based analyses.
+I–IV contain **130 NPZ inputs and 1,432,512 per-repetition metric records**. [The simulation guide](docs/SIMULATION_DATA.md) documents fields, grouping and interpretation. Experiment V's [evidence guide](evidence/experiment5/README.md) documents the current empirical summaries, figures and reproducible tail diagnostics.
 
 ## Install and verify
 
@@ -79,9 +81,9 @@ The [data source guide](docs/DATA_SOURCES.md) gives exact versions, checksums an
 ## Documentation and provenance
 
 - [Paper figures and tables: inputs, commands and outputs](docs/PAPER_RESULTS.md)
-- [Current and historical validation records](validation/README.md)
+- [Current validation records](validation/README.md)
 - [Simulation data, metric definitions and statistical interpretation](docs/SIMULATION_DATA.md)
-- [Experiment V: empirical results, tail diagnostics and historical analyses](evidence/experiment5/README.md)
+- [Experiment V: empirical results and tail diagnostics](evidence/experiment5/README.md)
 - [Official real-data acquisition](docs/DATA_SOURCES.md)
 - [Optional numerical diagnostics and extensions](docs/ADVANCED_DIAGNOSTICS.md)
 - [How to cite the manuscript and identify the code version](docs/CITATION.md)
@@ -89,6 +91,6 @@ The [data source guide](docs/DATA_SOURCES.md) gives exact versions, checksums an
 
 `MANIFEST.json` records the released files and checksums; `simulations/manifest.json` describes I–IV data; `provenance/` records fixed inputs and source origins. Historical dates in internal directory and module names identify the preserved computation records. Use an exact Git commit when identifying the materials used for a result.
 
-## Historical analyses
+## Earlier materials
 
-The original one-sided and later two-sided/Holm analyses for V are retained separately as historical evidence. Their definitions, commands and limitations are in the [historical analysis guide](docs/HISTORICAL_ANALYSES.md). They are not the inferential basis of the current V report. Historical acceptance records retain their original bytes in `validation/history/`.
+The [complete previous version](https://github.com/L1wuyang/Subsampling/tree/5e1c6b81166b2b574aef6e439aadfb143996793d) preserves the earlier validation records and detailed historical analyses. V's earlier one-sided and two-sided/Holm analyses are not the inferential basis of the current empirical report. Required archive-verification code and reference files remain in this release.

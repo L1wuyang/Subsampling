@@ -51,14 +51,6 @@ python -c "import pandas as pd; t=pd.read_csv('simulations/experiment3/tables/ro
 
 输出为标准输出中的已保存表格切片。C0 核验文件来源和完整性，C1 则可另外检查底层标量均值；这些命令都不是论文表格的自动排版导出器。
 
-**C4 — 单独复算 V 的历史配对检验。**
-
-```bash
-python -B evidence/experiment5/reanalyze.py --output runs/paper_v_historical
-```
-
-输出包括 `paired_comparisons_two_sided.csv`、`mean_coefficient_errors.csv`、`inference_revision.json`、`verification.json`。保留 36 项共同 Holm 校正及 GDSC NORM/UNI 重复比较。这是历史分析，不能作为当前关于完整条件 MSE 的推断依据。
-
 **R — 重新生成数值轨迹，再分析新的完整运行目录。**
 
 以实验 III 为例：
