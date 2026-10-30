@@ -13,17 +13,18 @@ This guide maps the current manuscript's six figures and the supplement's four f
 
 ## Commands, inputs and outputs
 
-Run from the repository root after installing `requirements-lock.txt`. Use a fresh output directory for each command that writes results.
+Run from the repository root after installing `requirements-lock.txt`. Saved inputs in this map are supplied by the separate review-data archive; install it first with `python run.py review-data download`, or `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` for a local copy. All mapped data paths below refer to the restored layout. Use a fresh output directory for each command that writes results.
 
 **C0 — verify released files and saved evidence; no trajectories.**
 
 ```bash
 python run.py verify
+python run.py review-data verify
 python run.py simulation-data verify --experiment all
 python evidence/experiment5/reanalyze.py --verify
 ```
 
-These commands check the package manifest, I–IV file hashes/record schemas/counts, and the V evidence archive. Verification preserves the distinction between checking stored evidence and independently regenerating it.
+These commands check the core manifest, installed review-data inventory, I–IV file hashes/record schemas/counts, and the V evidence archive. Verification preserves the distinction between checking stored evidence and independently regenerating it.
 
 **C1 — recompute I–IV convenience summaries from saved metric shards.**
 

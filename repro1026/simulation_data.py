@@ -71,7 +71,8 @@ def _fresh_output(output):
 
 def _manifest():
     if not MANIFEST.is_file():
-        raise FileNotFoundError(f'Simulation-data manifest missing: {MANIFEST}')
+        raise FileNotFoundError('Review data are not installed. Run python run.py review-data download, '
+                                'or python run.py review-data install --file PATH.zip before checking saved results.')
     value = json.loads(MANIFEST.read_text(encoding='utf8'))
     if value.get('schema') != 1 or not isinstance(value.get('experiments'), dict):
         raise ValueError('Unsupported simulation-data manifest; expected schema=1 and experiments')

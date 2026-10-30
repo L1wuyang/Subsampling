@@ -147,13 +147,10 @@ def scientific_modules(project_root, run_root):
     return modules
 
 def _target_job(task):
-    project,run,formal,tag,config,stable=task
+    project,run,formal,tag,config=task
     mods=scientific_modules(project,run);mods['common'].guard()
     if config.get('reproduction_mode')=='smoke':
         mods['setup'].HISTORIC_C={tag:{m:1. for m in METHODS} for tag in ['gdsc','year']}
-    if stable:
-        from .v_stability import build_targets
-        return build_targets(Path(formal)/'targets',tag,config,mods)
     return mods['setup'].make(Path(formal)/'targets',tag,config)
 
 def _draw_job(task):
@@ -251,12 +248,12 @@ def analyze_saved(formal_output, project_root=None):
     return summary
 
 
-def run(output, mode='smoke', workers=2, project_root=None, stable=False):
+def run(output, mode='smoke', workers=2, project_root=None):
     project_root=Path(project_root or PACKAGE_ROOT).resolve();output=new_output(output,project_root)
     start=time.perf_counter()
     metadata=prepare_inputs(project_root,output/'inputs',mode)
     config=read(project_root/'Experiments'/EXPERIMENT/'formal_protocol.json')
-    config.update(reproduction_mode=mode,reproduction_adapter='repro1026.exp5',support_stability_revision=stable)
+    config.update(reproduction_mode=mode,reproduction_adapter='repro1026.exp5',support_stability_revision=False)
     if mode=='smoke':
         for tag,budgets in [('gdsc',[24,48]),('year',[32,64])]:
             config[tag]['budgets']=budgets;config[tag]['repetitions']=3
@@ -268,21 +265,12 @@ def run(output, mode='smoke', workers=2, project_root=None, stable=False):
     formal=output/'formal';formal.mkdir();(formal/'targets').mkdir();write(formal/'protocol.json',config)
     frozen={str(p.relative_to(project_root)).replace('\\','/'):sha(p) for p in (project_root/'Experiments'/EXPERIMENT/'src/native_exp5').glob('*.py')}
     frozen['repro1026/exp5.py']=sha(Path(__file__))
-    if stable:
-        from .v_stability import protocol
-        stable_protocol=protocol()
-        config['step_policy']=stable_protocol['step_policy']
-        config['probability_policy']=stable_protocol['probability_policy']
-        config['sampling_seed']=stable_protocol['formal_sampling_seed'] if mode=='formal' else stable_protocol['validation_sampling_seed']
-        write(formal/'protocol.json',config)
-        write(formal/'stability_protocol.json',stable_protocol)
-        frozen['repro1026/v_stability.py']=sha(Path(__file__).with_name('v_stability.py'))
     write(formal/'frozen_sources.json',frozen)
     for relative in frozen:
         source=project_root/relative
         if source.is_file():
             destination=formal/'source_snapshot'/relative;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,destination)
-    target_tasks=[(str(project_root),str(output),str(formal),tag,config,stable) for tag in ['gdsc','year']]
+    target_tasks=[(str(project_root),str(output),str(formal),tag,config) for tag in ['gdsc','year']]
     with concurrent.futures.ProcessPoolExecutor(max_workers=min(2,workers)) as pool:
         for _ in pool.map(_target_job,target_tasks):pass
     manifest={str(p.relative_to(formal)).replace('\\','/'):sha(p) for p in (formal/'targets').rglob('*') if p.is_file()}
@@ -294,7 +282,7 @@ def run(output, mode='smoke', workers=2, project_root=None, stable=False):
         for result in pool.map(_draw_job,tasks):total+=result[-1]
     write(formal/'execution.json',{'completed':True,'records':total,'tasks':len(tasks),'seconds':time.perf_counter()-start})
     reporting=analyze_saved(formal,project_root)
-    result={'completed':True,'mode':mode,'stability_revision':stable,'input_preparation':metadata,'records':total,'reporting':reporting,
+    result={'completed':True,'mode':mode,'stability_revision':False,'input_preparation':metadata,'records':total,'reporting':reporting,
             'elapsed_seconds':time.perf_counter()-start,'source_archives_modified':False,'paper_formal_results_replaced':False}
     write(output/'reproduction.json',result);print(json.dumps(result,ensure_ascii=False,indent=2),flush=True)
     return result

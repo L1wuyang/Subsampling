@@ -6,13 +6,15 @@
 
 ## 复现当前经验汇总与图形
 
-在仓库根目录使用仓库固定的数值依赖执行：
+在仓库根目录使用仓库固定的数值依赖，先安装独立复核数据包。安装会把 `saved_records.tar.gz`、绘图与参考文件、诊断输入恢复到原路径；执行脚本保留在核心包：
 
 ```bash
+python run.py review-data download
+python run.py review-data verify
 python -B evidence/experiment5/empirical.py --output runs/experiment5_empirical
 ```
 
-每次选用新的输出目录。命令校验保存归档及全部 530 份逐次文件、12,720 条记录，并根据 `paper_plot_reference.json` 核对论文两幅目标误差图的 276 个可见数据点。程序同时核验 OPT 在全部 78 个“方法—预算”单元中的经验平均系数目标误差最小。GDSC 的 NORM 记录完整保留在汇总中，目标误差图中以 UNI 表示两者重合的曲线。
+离线安装可用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` 替代下载命令。每次选用新的输出目录。命令校验保存归档及全部 530 份逐次文件、12,720 条记录，并根据 `paper_plot_reference.json` 核对论文两幅目标误差图的 276 个可见数据点。程序同时核验 OPT 在全部 78 个“方法—预算”单元中的经验平均系数目标误差最小。GDSC 的 NORM 记录完整保留在汇总中，目标误差图中以 UNI 表示两者重合的曲线。
 
 输出包括：
 
@@ -34,11 +36,11 @@ python -B evidence/experiment5/tail_diagnostics/verify_witnesses.py
 python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 ```
 
-轻量核验使用随包提供的紧凑输入，需要 `mpmath==1.3.0`，不需要下载原始数据。诊断说明列明各项检查的前提与适用范围。尾部反例解释有限重复均值为何可能不能代表完整条件 MSE，并未建立所有抽样规则的完整 MSE 排序。
+安装复核数据后，轻量核验使用其中的紧凑输入，需要 `mpmath==1.3.0`，不需要下载原始数据。诊断说明列明各项检查的前提与适用范围。尾部反例解释有限重复均值为何可能不能代表完整条件 MSE，并未建立所有抽样规则的完整 MSE 排序。
 
 ## 早期分析
 
-原单侧及后续双侧/Holm 分析详见[完整旧版](https://github.com/L1wuyang/Subsampling/tree/5e1c6b81166b2b574aef6e439aadfb143996793d)，不作为当前实验 V 的推断依据。当前保存记录流程仍使用 `reanalyze.py` 和 `reference/` 中的归档校验代码及参考校验值，因此保留这些依赖；当前结果使用上面的经验汇总流程。
+原单侧及后续双侧/Holm 分析详见[完整旧版](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4)，不作为当前实验 V 的推断依据。当前保存记录流程仍使用 `reanalyze.py` 的归档校验代码及 `reference/` 中的参考校验值；前者保留在核心包，后者随复核数据恢复，当前结果使用上面的经验汇总流程。
 
 ## 与完整复现的关系
 

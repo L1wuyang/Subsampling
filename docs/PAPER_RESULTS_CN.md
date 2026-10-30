@@ -13,17 +13,18 @@
 
 ## 命令、输入与输出
 
-安装 `requirements-lock.txt` 后，在仓库根目录执行。每个写出结果的命令应使用新的输出目录。
+安装 `requirements-lock.txt` 后，在仓库根目录执行。本页保存输入来自独立复核数据包；先运行 `python run.py review-data download`，或用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` 安装本地副本。下表数据路径均指安装后恢复的布局。每个写出结果的命令应使用新的输出目录。
 
 **C0 — 核验发布文件与保存证据，不执行数值轨迹。**
 
 ```bash
 python run.py verify
+python run.py review-data verify
 python run.py simulation-data verify --experiment all
 python evidence/experiment5/reanalyze.py --verify
 ```
 
-这些命令分别检查包清单、I–IV 文件哈希和记录结构/数量，以及 V 证据归档。核验已保存证据与从头独立生成证据是不同操作。
+这些命令分别检查核心清单、已安装复核数据的清单、I–IV 文件哈希和记录结构/数量，以及 V 证据归档。核验已保存证据与从头独立生成证据是不同操作。
 
 **C1 — 从 I–IV 保存指标重算便捷汇总。**
 

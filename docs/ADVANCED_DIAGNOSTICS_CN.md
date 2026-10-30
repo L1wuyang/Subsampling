@@ -1,4 +1,4 @@
-# 可选数值诊断与扩展
+# 进一步数值诊断
 
 [English](ADVANCED_DIAGNOSTICS.md) · [仓库说明](../README_CN.md)
 
@@ -6,7 +6,7 @@
 
 ## 实验 IV：数值分辨率与重放
 
-已有汇总和诊断表位于 `simulations/experiment4/tables/` 与 `simulations/experiment4/diagnostics/`，字段含义见[仿真数据说明](SIMULATION_DATA_CN.md#解释结果时的条件)。
+运行 `python run.py review-data download` 后，已有汇总和诊断表位于 `simulations/experiment4/tables/` 与 `simulations/experiment4/diagnostics/`，字段含义见[仿真数据说明](SIMULATION_DATA_CN.md#解释结果时的条件)。
 
 对重新生成的完整 IV 运行进行诊断：
 
@@ -27,16 +27,6 @@ python -m repro1026.iv_precision --input runs/formal_simulations/exp4 --directio
 
 ## 实验 V：已报告协议的诊断
 
-[可移植尾部诊断](../evidence/experiment5/tail_diagnostics/README.md) 核验现有协议的单原子尾部反例及标量稳定性前提。轻量检查使用随包提供的紧凑输入；另行运行的 Year/Landweber 重建使用哈希匹配的原始数据和冻结的原生代码。这些诊断解释当前有限重复经验汇总的适用范围，不改变已报告的实验协议。
+[可移植尾部诊断](../evidence/experiment5/tail_diagnostics/README.md) 核验现有协议的单原子尾部反例及标量稳定性前提。轻量检查使用 `review-data` 安装的紧凑输入；另行运行的 Year/Landweber 重建使用哈希匹配的原始数据和冻结的原生代码。这些诊断解释当前有限重复经验汇总的适用范围，不改变已报告的实验协议。
 
-## 实验 V：全支持界扩展
-
-`stable-v` 定义独立的实验协议：保留 UNI、NORM 和 LEV，使用更大的公共步长控制界，并重新计算数值目标、导数和 OPT 概率。其输出与论文实验 V 的结果分开保存。
-
-获取 V 的官方数据后，先检查成本计划：
-
-```text
-python run.py stable-v --action plan --output runs/v_support_plan --workers 2
-```
-
-`--action validate` 用缩小规模检查实现；`--action formal` 执行扩展的完整协议。协议和输出字段见 `python run.py stable-v --help` 及 `repro1026/v_stability.py`。成本计划先记录新的步长控制界和更新次数，供安排完整扩展运行时参考。
+独立的前瞻性 `stable-v` 协议不属于本投稿核心包。其原实现保留在[此前完整快照](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4)中，不是复现当前论文所需的流程。

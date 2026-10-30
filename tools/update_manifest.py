@@ -1,8 +1,9 @@
 """Maintain the release file manifest; this is not a numerical experiment runner.
 
 Run from a Git checkout after editing the repository's documentation or evidence.
-Only Python's standard library and Git are required.  The released simulation
-manifest, scientific source hashes, and pilot gates are checked, never rewritten.
+Only Python's standard library and Git are required. Scientific source hashes
+and pilot gates are checked, never rewritten. Separately installed review data
+are excluded from the core inventory and anchored by their release descriptor.
 """
 from __future__ import annotations
 
@@ -19,7 +20,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = "MANIFEST.json"
 FROZEN = "provenance/frozen_scientific_sources.json"
-SIMULATIONS = "simulations/manifest.json"
+REVIEW_DATA = "provenance/review_data.json"
 PILOTS = (
     ("Experiments/experiment3_native_comprehensive_20261024", "outputs/pilot_01"),
     ("Experiments/experiment4_native_comprehensive_20261025", "outputs/pilot_02"),
@@ -108,21 +109,33 @@ def verify_protected(files: dict) -> dict:
             require_digest(files, f"{folder}/{relative.replace(chr(92), '/')}", digest)
         gates[folder] = len(pilot_sources)
 
-    simulation_manifest = json.loads(unchanged_from_head(SIMULATIONS))
-    if simulation_manifest.get("schema") != 1:
-        raise ValueError("Unsupported simulation manifest schema")
-    protected_simulations = 0
-    for experiment in simulation_manifest["experiments"].values():
-        members = list(experiment["files"])
-        for records in experiment["record_sets"]:
-            members.extend(records["parts"])
-        for member in members:
-            require_digest(files, member["path"], member["sha256"], member["bytes"])
-            protected_simulations += 1
+    from importlib.util import module_from_spec, spec_from_file_location
+    spec = spec_from_file_location("release_review_data", ROOT / "repro1026/review_data.py")
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    review = module.load_descriptor(ROOT)
+    if review["version"] != (ROOT / "VERSION").read_text(encoding="utf-8").strip():
+        raise ValueError("VERSION and review-data descriptor differ")
+    prior_exists = subprocess.run(["git", "cat-file", "-e", f"HEAD:{REVIEW_DATA}"],
+                                  cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
+    if prior_exists:
+        prior = json.loads(git("show", f"HEAD:{REVIEW_DATA}"))
+        if review["files"] != prior["files"] or review["source_commit"] != prior["source_commit"]:
+            raise ValueError("Protected review-data contents differ from HEAD")
+    else:
+        # Migration from the full package: every externalized file is anchored
+        # to the previous committed root inventory, not to a newly calculated hash.
+        prior = json.loads(git("show", "HEAD:MANIFEST.json"))["files"]
+        for relative, item in review["files"].items():
+            if prior.get(relative) != item:
+                raise ValueError(f"Review-data member differs from the full-package baseline: {relative}")
+    if set(review["files"]) & set(files):
+        raise ValueError("Review-data members must not be tracked in the core inventory")
     return {
         "frozen_scientific_sources": len(frozen),
         "pilot_sources": gates,
-        "simulation_files": protected_simulations,
+        "review_data_files": len(review["files"]),
+        "review_data_archive_sha256": review["archive"]["sha256"],
     }
 
 
@@ -141,6 +154,13 @@ def rebuild(check: bool) -> dict:
     files = {relative: record(relative) for relative in names if relative != MANIFEST}
     protection = verify_protected(files)
     updated = dict(original)
+    updated["schema"] = 3
+    updated["version"] = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+    updated["package_scope"] = "core code and reproduction instructions"
+    updated["simulation_inputs_bundled"] = False
+    updated["historical_formal_results_bundled"] = False
+    updated["experiment5_saved_metrics_bundled"] = False
+    updated["review_data_descriptor"] = REVIEW_DATA
     updated["files"] = files
     updated["file_count"] = len(files)
     updated["bytes"] = sum(member["bytes"] for member in files.values())

@@ -28,6 +28,10 @@ def digest(data):
 
 def verify_archive():
     manifest = json.loads((HERE / "MANIFEST.json").read_text(encoding="utf8"))
+    missing = [name for name in manifest['files'] if not (HERE / name).is_file()]
+    if missing:
+        raise FileNotFoundError('Review data are not installed. Run python run.py review-data download, '
+                                'or python run.py review-data install --file PATH.zip before checking saved results.')
     for name, item in manifest["files"].items():
         path = HERE / name
         data = path.read_bytes()

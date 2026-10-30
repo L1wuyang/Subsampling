@@ -61,7 +61,8 @@ def verify():
     for relative, digest in frozen.items():
         if sha(ROOT/relative) != digest:
             raise ValueError(f'Frozen scientific source changed: {relative}')
-    return dict(passed=True, files=len(manifest['files']), frozen_scientific_sources=len(frozen),
+    return dict(passed=True, package_scope='core', files=len(manifest['files']), frozen_scientific_sources=len(frozen),
+                review_data_descriptor='provenance/review_data.json',
                 raw_real_data_bundled=manifest.get('raw_real_data_bundled', False),
                 simulation_inputs_bundled=manifest.get('simulation_inputs_bundled', False),
                 formal_results_bundled=manifest.get('historical_formal_results_bundled', False))
@@ -102,7 +103,9 @@ def preflight(selected, require_data=True):
 
 
 def call(arguments):
-    subprocess.run([sys.executable, '-B', *map(str, arguments)], cwd=ROOT, check=True)
+    result = subprocess.run([sys.executable, '-B', *map(str, arguments)], cwd=ROOT, check=False)
+    if result.returncode:
+        raise SystemExit(result.returncode)
 
 
 def experiment_run(number, mode, output, workers):
@@ -128,6 +131,10 @@ def main():
     p.add_argument('--dataset', choices=['all', 'gdsc', 'year'], default='all')
     p.add_argument('--file', action='append', default=[], help='Reuse a local file: expression=PATH, response=PATH, year=PATH or year_archive=PATH')
     p.add_argument('--timeout', type=float, default=90.)
+    p = subs.add_parser('review-data', help='Download, install or verify the separate paper review-data package')
+    p.add_argument('action', choices=['download', 'install', 'verify'])
+    p.add_argument('--file', type=Path, help='Local review-data ZIP; required for install')
+    p.add_argument('--timeout', type=float, default=90.)
     for command in ['smoke', 'formal']:
         p = subs.add_parser(command, help='Run actual algorithms into a new directory; V needs official data')
         p.add_argument('--experiment', choices=['all', 'simulations', '1', '2', '3', '4', '5'], default='all')
@@ -144,11 +151,6 @@ def main():
     p = subs.add_parser('iv-diagnostics', help='Diagnose your new IV outputs, without replacing their means')
     p.add_argument('--input', type=Path, required=True)
     p.add_argument('--output', type=Path, required=True)
-    p = subs.add_parser('stable-v', help='Separate prospective support-bound V extension')
-    p.add_argument('--action', choices=['plan', 'validate', 'formal'], default='plan')
-    p.add_argument('--inputs', type=Path, help='Optional newly prepared gdsc/year inputs for cost planning')
-    p.add_argument('--output', type=Path, required=True)
-    p.add_argument('--workers', type=int, default=2)
     args = parser.parse_args()
     if getattr(args, 'workers', 1) < 1:
         parser.error('--workers must be positive')
@@ -167,6 +169,13 @@ def main():
         arguments = ['-m', 'repro1026.data_sources', args.action, '--dataset', args.dataset]
         for value in args.file:
             arguments += ['--file', value]
+        if args.action == 'download':
+            arguments += ['--timeout', args.timeout]
+        call(arguments)
+    elif args.command == 'review-data':
+        arguments = ['-m', 'repro1026.review_data', args.action]
+        if args.file is not None:
+            arguments += ['--file', args.file.resolve()]
         if args.action == 'download':
             arguments += ['--timeout', args.timeout]
         call(arguments)
@@ -202,15 +211,6 @@ def main():
         call(arguments)
     elif args.command == 'iv-diagnostics':
         call(['-m', 'repro1026.iv_diagnostics', '--input', args.input.resolve(), '--output', args.output.resolve()])
-    elif args.command == 'stable-v':
-        preflight([5], require_data=not (args.action == 'plan' and args.inputs))
-        arguments = ['-m', 'repro1026.v_stability', '--action', args.action,
-                     '--output', args.output.resolve(), '--workers', args.workers]
-        if args.inputs:
-            if args.action != 'plan':
-                parser.error('--inputs is only used for stable-v --action plan')
-            arguments += ['--inputs', args.inputs.resolve()]
-        call(arguments)
 
 
 if __name__ == '__main__':

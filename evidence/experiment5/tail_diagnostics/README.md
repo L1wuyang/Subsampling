@@ -4,15 +4,17 @@ These files reproduce the October 29 YearPredictionMSD tail checks used to quali
 
 ## 1. Lightweight verification (no raw download)
 
-From the repository root, with Python 3.11 or later:
+From the repository root, with Python 3.11 or later, install the separate review data before checking its compact witness inputs:
 
 ```text
 python -m pip install mpmath==1.3.0
+python run.py review-data download
+python run.py review-data verify
 python evidence/experiment5/tail_diagnostics/verify_witnesses.py
 python evidence/experiment5/tail_diagnostics/verify_stability.py
 ```
 
-The first command checks four single-atom witnesses with 80-digit arithmetic and 60-digit outward interval arithmetic: Landweber UNI/OPT, Showalter UNI, and Nesterov UNI. It verifies the stored restored Landweber target vector has norm below 8, checks the historical target-norm premises, and reproduces the archived scalar logarithmic bounds. `--output PATH.json` saves its report instead of printing it. The input file contains only two 90-coordinate standardized rows, their responses, a 90-coordinate target and the scalar probabilities/parameters, encoded as hexadecimal binary64 strings. It does not require NumPy or the large original arrays.
+The `verify_witnesses.py` command checks four single-atom witnesses with 80-digit arithmetic and 60-digit outward interval arithmetic: Landweber UNI/OPT, Showalter UNI, and Nesterov UNI. It verifies the stored restored Landweber target vector has norm below 8, checks the historical target-norm premises, and reproduces the archived scalar logarithmic bounds. `--output PATH.json` saves its report instead of printing it. The input file contains only two 90-coordinate standardized rows, their responses, a 90-coordinate target and the scalar probabilities/parameters, encoded as hexadecimal binary64 strings. It does not require NumPy or the large original arrays.
 
 At budget 50,000, the conservative integer exponents for Landweber UNI and OPT are respectively 2,059,934 and 2,885,997: conditional relative MSE exceeds 10 raised to the indicated exponent, subject to the input and target premises. Showalter's UNI witness is also large at this budget. Nesterov's same-event bound is large at smaller budgets but tiny at 50,000; **a tiny lower bound does not establish negligible tails**. The calculation does not establish a complete conditional-MSE ordering among rules.
 
@@ -31,10 +33,10 @@ Probability conventions are preserved explicitly: Landweber uses the stored bina
 
 ## 2. Full Year/Landweber restoration and scan
 
-Use the pinned numerical environment in the repository's `requirements.txt`; the full path additionally needs NumPy, SciPy, pandas and Numba. It replays the original native recurrences and checkpointed derivatives, without eigenvalue/SVD trajectory shortcuts. It may require several minutes and approximately 1 GB of generated arrays, plus transient memory. The examples place generated outputs under the repository's ignored `runs/` directory, outside this tracked evidence directory.
+Use the pinned numerical environment in the repository's `requirements-lock.txt`; the full path additionally needs NumPy, SciPy, pandas and Numba. It replays the original native recurrences and checkpointed derivatives, without eigenvalue/SVD trajectory shortcuts. It may require several minutes and approximately 1 GB of generated arrays, plus transient memory. The examples place generated outputs under the repository's ignored `runs/` directory, outside this tracked evidence directory.
 
 ```text
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lock.txt
 python run.py data download --dataset year
 python evidence/experiment5/tail_diagnostics/restore_year.py --raw-year Data/real_data_20261016/raw/yearpredictionmsd/yearpredictionmsd/YearPredictionMSD.txt --output runs/tail_year_restore
 python evidence/experiment5/tail_diagnostics/scan_year.py --restored runs/tail_year_restore --output runs/tail_year_scan
@@ -45,6 +47,8 @@ The raw-text path above matches `files.year.path` in [`provenance/data_sources.j
 Restoration verifies the raw text SHA-256, `source_hashes.json` and the frozen saved-records archive hash before using the frozen code. It reconstructs training-only normalization, Gram/cross-product, the three baseline probability arrays, the Landweber target, checkpointed influences and OPT probabilities. It compares full-target metrics, first-order constants, minimum OPT probability and maximum atom/probability ratio against the historical summary in `../saved_records.tar.gz`, requiring relative errors below `1e-8`.
 
 The scan verifies regenerated-array hashes, rescans the full row support, recomputes the saved empirical Landweber means from the archive, and writes `support_stability.csv`, `event_bounds.csv`, `event_witnesses.csv`, `diagnosis.json` and `recomputed_saved_means.csv`. It also regenerates compact inputs for all four witnesses and reruns the high-precision/interval verifier. The Showalter/Nesterov scalar parameters are rebuilt from the regenerated Gram using their frozen formulas; their full targets are not replayed here, and their norm-8 premise continues to use the saved historical target summaries. Rebuilding the complete Experiment V runs is separate from this diagnostic workflow.
+
+For offline installation use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. The scripts remain in the core package; `source_hashes.json`, `witness_inputs.json` and the reference CSV/JSON files below are restored by that installer. Neither lightweight verification nor archive installation requires downloading the official raw Year file.
 
 ## Provenance and limits
 

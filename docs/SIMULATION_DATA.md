@@ -4,6 +4,15 @@
 
 The `simulations/` directory supplies original simulated inputs, the per-repetition metrics underlying the reported results, and the corresponding summary tables. NPZ inputs preserve the original bytes. Metric records preserve the original fields, including sensitivity, zero-response and tail arms.
 
+The entire `simulations/` tree is in the separate review-data ZIP, not in the core source archive. From the repository root, install it once before using the saved-record commands below:
+
+```text
+python run.py review-data download
+python run.py review-data verify
+```
+
+For offline installation use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. See the [root guide](../README.md#install-the-review-data) for download and integrity details. The split preserves the original inputs, records, tables and metadata; it changes their distribution only.
+
 ## Contents
 
 | Experiment | Input NPZ files | Main/robustness records | Sensitivity records | Separate tails | Zero-response records | Total |
@@ -80,4 +89,4 @@ III/IV pointwise Monte Carlo intervals condition on the specified full dataset a
 
 Use `formal` or `smoke`, then `analyze --results`, for newly generated complete directories. Saved-metric summaries use a separate command because full III analysis computes bias from saved vectors and IV replay requires states/counts. The released materials provide existing tables and diagnostics; complete reruns generate the additional numerical outputs for those workflows.
 
-Full saved states, influence arrays and sampling counts are generated during a complete rerun. Official V input acquisition is documented in the [data source guide](DATA_SOURCES.md); the [V saved-metric workflow](../evidence/experiment5/README.md) reproduces its current empirical summaries and figures directly from the bundled records. For new V runs, the default `analyze --experiment 5` likewise produces empirical reporting; historical mean-based tests require a separate explicit command.
+Full saved states, influence arrays and sampling counts are generated during a complete rerun. Official V input acquisition is documented in the [data source guide](DATA_SOURCES.md); the [V saved-metric workflow](../evidence/experiment5/README.md) reproduces its current empirical summaries and figures directly from the installed review-data records. For new V runs, the default `analyze --experiment 5` likewise produces empirical reporting; historical mean-based tests require a separate explicit command.

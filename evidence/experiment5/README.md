@@ -6,13 +6,15 @@ This directory supports the real-data results in *Optimal Subsampling for Regula
 
 ## Reproduce the current empirical summaries and figures
 
-From the repository root, using its pinned numerical requirements:
+From the repository root, using its pinned numerical requirements, first install the separate review-data archive. This restores `saved_records.tar.gz`, the plot/reference files and diagnostic inputs at their original paths; the scripts remain in the core:
 
 ```bash
+python run.py review-data download
+python run.py review-data verify
 python -B evidence/experiment5/empirical.py --output runs/experiment5_empirical
 ```
 
-Choose a new output directory. This command verifies the saved archive, checks all 530 draw files and 12,720 records, and reproduces the 276 visible points in the manuscript's two target-error figures against `paper_plot_reference.json`. It checks that OPT has the smallest empirical mean coefficient-target error in all 78 method-budget cells. GDSC NORM records remain in the summaries; the duplicate NORM curve is represented by UNI in the target figure.
+For offline installation, use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` instead of the download command. Choose a new output directory. This command verifies the saved archive, checks all 530 draw files and 12,720 records, and reproduces the 276 visible points in the manuscript's two target-error figures against `paper_plot_reference.json`. It checks that OPT has the smallest empirical mean coefficient-target error in all 78 method-budget cells. GDSC NORM records remain in the summaries; the duplicate NORM curve is represented by UNI in the target figure.
 
 Outputs include:
 
@@ -34,11 +36,11 @@ python -B evidence/experiment5/tail_diagnostics/verify_witnesses.py
 python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 ```
 
-The lightweight checks use the compact supplied inputs and require `mpmath==1.3.0`; no raw-data download is needed. The guide states the assumptions and limits of each check. The tail examples explain why finite-repetition means need not represent the full conditional MSE; they do not establish a complete MSE ordering among sampling rules.
+After review-data installation, the lightweight checks use the compact supplied inputs and require `mpmath==1.3.0`; no raw-data download is needed. The guide states the assumptions and limits of each check. The tail examples explain why finite-repetition means need not represent the full conditional MSE; they do not establish a complete MSE ordering among sampling rules.
 
 ## Earlier analyses
 
-Earlier one-sided and two-sided/Holm analyses are documented in the [complete previous version](https://github.com/L1wuyang/Subsampling/tree/5e1c6b81166b2b574aef6e439aadfb143996793d); they are not the inferential basis of the current V report. `reanalyze.py` and `reference/` remain because the current saved-record workflow uses their archive-verification code and reference checksums. Use the empirical workflow above for the current results.
+Earlier one-sided and two-sided/Holm analyses are documented in the [complete previous version](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4); they are not the inferential basis of the current V report. `reanalyze.py` remains in the core; `reference/` is restored from the data archive because the current saved-record workflow uses its reference checksums and the archive-verification code. Use the empirical workflow above for the current results.
 
 ## Relation to full reproduction
 

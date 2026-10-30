@@ -13,3 +13,27 @@ __pycache__/
 *.7z.*
 .DS_Store
 Thumbs.db
+
+# Separately installed hash-verified review data
+/simulations/
+/evidence/experiment5/PROVENANCE.json
+/evidence/experiment5/paper_plot_reference.json
+/evidence/experiment5/reference/inference_revision.json
+/evidence/experiment5/reference/paired_comparisons_two_sided.csv
+/evidence/experiment5/reference/reanalyze_saved_v.py
+/evidence/experiment5/saved_records.tar.gz
+/evidence/experiment5/tail_diagnostics/reference/array_manifest.json
+/evidence/experiment5/tail_diagnostics/reference/diagnosis.json
+/evidence/experiment5/tail_diagnostics/reference/event_bounds.csv
+/evidence/experiment5/tail_diagnostics/reference/event_witnesses.csv
+/evidence/experiment5/tail_diagnostics/reference/hbf_soar_values.json
+/evidence/experiment5/tail_diagnostics/reference/independent_check.json
+/evidence/experiment5/tail_diagnostics/reference/original_summary.json
+/evidence/experiment5/tail_diagnostics/reference/portable_validation.json
+/evidence/experiment5/tail_diagnostics/reference/recomputed_saved_means.csv
+/evidence/experiment5/tail_diagnostics/reference/restoration_validation.json
+/evidence/experiment5/tail_diagnostics/reference/showalter_nesterov_witness.json
+/evidence/experiment5/tail_diagnostics/reference/support_stability.csv
+/evidence/experiment5/tail_diagnostics/reference/verified_witnesses.json
+/evidence/experiment5/tail_diagnostics/source_hashes.json
+/evidence/experiment5/tail_diagnostics/witness_inputs.json

@@ -1,0 +1,98 @@
+name: Publish numbered submission release
+
+on:
+  push:
+    branches: [main]
+    paths: [VERSION]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: subsampling-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'L1wuyang/Subsampling' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the exact triggering commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7, verified upstream
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify the core package
+        run: |
+          python3 -B run.py verify
+          python3 -B tools/update_manifest.py --check
+      - name: Rebuild and verify the separate release assets
+        run: python3 -B tools/build_release.py --output "$RUNNER_TEMP/subsampling-release"
+      - name: Verify installed review data before publishing
+        run: |
+          version="$(cat VERSION)"
+          python3 -B run.py review-data install --file "$RUNNER_TEMP/subsampling-release/Subsampling-review-data-${version}.zip"
+          python3 -B run.py review-data verify
+          python3 -B run.py simulation-data verify --experiment all
+          python3 -B run.py verify
+      - name: Create the fixed tag and publish verified assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B tools/build_release.py --output "$RUNNER_TEMP/subsampling-release" --publish
+      - name: Verify the public download from a clean core package
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib
+          import json
+          import os
+          import stat
+          import subprocess
+          import tempfile
+          import time
+          import zipfile
+
+          version = Path('VERSION').read_text(encoding='utf-8').strip()
+          assets = Path(os.environ['RUNNER_TEMP']) / 'subsampling-release'
+          archive_path = assets / f'Subsampling-core-{version}.zip'
+          expected = json.loads((assets / 'build_validation.json').read_bytes())['assets'][archive_path.name]
+          with archive_path.open('rb') as stream:
+              actual_hash = hashlib.file_digest(stream, 'sha256').hexdigest()
+          if archive_path.stat().st_size != expected['bytes'] or actual_hash != expected['sha256']:
+              raise ValueError('Core archive failed the pre-extraction checksum check')
+          public_env = {key: value for key, value in os.environ.items()
+                        if key not in ('GH_TOKEN', 'GITHUB_TOKEN')}
+          with tempfile.TemporaryDirectory(prefix='subsampling-public-check-', dir=os.environ['RUNNER_TEMP']) as folder:
+              destination = Path(folder)
+              prefix = f'Subsampling-{version}/'
+              with zipfile.ZipFile(archive_path) as archive:
+                  names = archive.namelist()
+                  if len(names) != len(set(names)):
+                      raise ValueError('Duplicate core archive entries')
+                  for item in archive.infolist():
+                      parts = PurePosixPath(item.filename).parts
+                      mode = stat.S_IFMT(item.external_attr >> 16)
+                      if (not item.filename.startswith(prefix) or '\\' in item.filename
+                              or ':' in item.filename or '..' in parts
+                              or mode not in (0, stat.S_IFREG)
+                              or not (destination / item.filename).resolve().is_relative_to(destination)):
+                          raise ValueError(f'Unsafe core archive entry: {item.filename}')
+                  archive.extractall(destination)
+              clean_core = destination / f'Subsampling-{version}'
+              subprocess.run(['python3', '-B', 'run.py', 'verify'], cwd=clean_core, env=public_env, check=True)
+              for attempt in range(3):
+                  result = subprocess.run(['python3', '-B', 'run.py', 'review-data', 'download'],
+                                          cwd=clean_core, env=public_env, check=False)
+                  if result.returncode == 0:
+                      break
+                  if attempt == 2:
+                      raise RuntimeError('Public review-data download failed after three attempts')
+                  time.sleep(10 * (attempt + 1))
+              subprocess.run(['python3', '-B', 'run.py', 'review-data', 'verify'],
+                             cwd=clean_core, env=public_env, check=True)
+              subprocess.run(['python3', '-B', 'run.py', 'verify'], cwd=clean_core, env=public_env, check=True)
+          PY

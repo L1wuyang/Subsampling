@@ -1,4 +1,4 @@
-# Optional numerical diagnostics and extensions
+# Additional numerical diagnostics
 
 [中文说明](ADVANCED_DIAGNOSTICS_CN.md) · [Repository guide](../README.md)
 
@@ -6,7 +6,7 @@ The standard reproduction workflow is described in the root README. The tools be
 
 ## Experiment IV: numerical resolution and replay
 
-The released summaries and diagnostic tables are under `simulations/experiment4/tables/` and `simulations/experiment4/diagnostics/`. Their field definitions are in the [simulation guide](SIMULATION_DATA.md#interpretation).
+After `python run.py review-data download`, the saved summaries and diagnostic tables are under `simulations/experiment4/tables/` and `simulations/experiment4/diagnostics/`. Their field definitions are in the [simulation guide](SIMULATION_DATA.md#interpretation).
 
 To inspect a newly generated complete IV run:
 
@@ -27,16 +27,6 @@ This executes the saved number of updates using double-double and triple-double 
 
 ## Experiment V: diagnostics for the reported protocol
 
-The [portable tail diagnostics](../evidence/experiment5/tail_diagnostics/README.md) check the existing protocol's single-atom tail witnesses and scalar stability premises. Lightweight checks use compact bundled inputs; a separate Year/Landweber restoration uses hash-verified raw data and the frozen native code. These diagnostics explain the scope of the current finite-repetition empirical summaries without changing the reported protocol.
+The [portable tail diagnostics](../evidence/experiment5/tail_diagnostics/README.md) check the existing protocol's single-atom tail witnesses and scalar stability premises. Lightweight checks use compact inputs installed by `review-data`; a separate Year/Landweber restoration uses hash-verified raw data and the frozen native code. These diagnostics explain the scope of the current finite-repetition empirical summaries without changing the reported protocol.
 
-## Experiment V: support-bounded extension
-
-`stable-v` defines a separate experimental protocol. It preserves UNI, NORM and LEV while selecting a larger common step bound and recomputing the numerical targets, derivatives and OPT probabilities. Its outputs are separate from the manuscript's Experiment V results.
-
-After acquiring the official V data, inspect the cost plan first:
-
-```text
-python run.py stable-v --action plan --output runs/v_support_plan --workers 2
-```
-
-`--action validate` runs a reduced implementation check; `--action formal` executes the extension's full protocol. See `python run.py stable-v --help` and `repro1026/v_stability.py` for the protocol and output fields. The cost plan records the new step bounds and update counts before a full extension run is attempted.
+The separate prospective `stable-v` protocol is not part of this submission core. Its earlier implementation remains in the [previous full snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4); it is not required to reproduce the current paper.
