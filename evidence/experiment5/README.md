@@ -1,38 +1,60 @@
-# Experiment V: saved-metric evidence
+# Experiment V: empirical results and saved evidence
 
-This directory supports the real-data results in *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. It contains the saved scalar metrics and the statistical reporting revision for GDSC and YearPredictionMSD.
+This directory supports the real-data results in *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. The current workflow reproduces empirical means, the two coefficient-target figures, and descriptive diagnostics from the saved GDSC and YearPredictionMSD records. These finite-repetition summaries do not establish the ordering of the full conditional MSE. Prediction comparisons are descriptive because the test sets had been explored previously.
 
-The archive contains 530 original draw CSVs with 12,720 metric records, 12 full-target summaries, the formal protocols, the execution record, and the original one-sided comparison table. Original file bytes and relative paths are preserved inside `saved_records.tar.gz`. These are scalar experiment outputs; raw covariates, expression measurements, response values, and fitted coefficient vectors are obtained or computed through the main reproduction workflow.
+`saved_records.tar.gz` contains 530 original draw CSVs with 12,720 metric records, 12 full-target summaries, the formal protocols, the execution record, and the original one-sided comparison table. Original file bytes and relative paths are preserved. These are scalar experiment outputs; raw covariates, responses and fitted coefficient vectors are obtained or computed through the full reproduction workflow.
 
-`reference/` preserves the reported two-sided comparison table, the detailed inference-revision report, and the original saved-record analysis script. `PROVENANCE.json` identifies the archived sources. `MANIFEST.json` lists SHA-256 checksums for the package files and every archive member.
+## Reproduce the current empirical summaries and figures
 
-## Check the saved results
+From the repository root, using its pinned numerical requirements:
 
-From the repository root:
+```bash
+python -B evidence/experiment5/empirical.py --output runs/experiment5_empirical
+```
+
+Choose a new output directory. This command verifies the saved archive, checks all 530 draw files and 12,720 records, and reproduces the 276 visible points in the manuscript's two target-error figures against `paper_plot_reference.json`. It checks that OPT has the smallest empirical mean coefficient-target error in all 78 method-budget cells. GDSC NORM records remain in the summaries; the duplicate NORM curve is represented by UNI in the target figure.
+
+Outputs include:
+
+- `summary.csv`, `summary.json` and `rankings.json`: empirical means, repetition counts, empirical-to-first-order ratios, observed stability checks and empirical rankings;
+- `figures/r5_01_gdsc_target.*` and `figures/r5_02_year_target.*`: PDF, SVG and PNG target-error figures with empirical mean curves and no mean-confidence bands;
+- `r5_01_gdsc_target_plotted_points.csv`, `r5_02_year_target_plotted_points.csv` and `figure_validation.json`: plotted target values and checks against the paper reference;
+- descriptive diagnostics for empirical-to-first-order ratios, test RMSE against matched full-model references, untrimmed error distributions and sampled-object coverage;
+- `saved_evidence_verification.json`: archive checksums, input counts and verification scope;
+- `index.html`: a local report with the generated figures.
+
+The command uses saved scalar records and performs no model fitting or new random sampling. It does not generate mean-based tests or confidence intervals. Observed stability checks concern the realized matrices, and empirical-to-first-order ratios compare the observed means with the first-order criterion; neither certifies full-support stability or finite-budget conditional MSE accuracy.
+
+## Check the tail diagnostics
+
+The [portable tail-diagnostic guide](tail_diagnostics/README.md) documents lightweight high-precision checks of the Year Landweber UNI/OPT, Showalter UNI and Nesterov UNI witnesses, separate HBF/SOAR stability-premise checks, and a full Year/Landweber reconstruction from hash-verified official raw data.
+
+```bash
+python -B evidence/experiment5/tail_diagnostics/verify_witnesses.py
+python -B evidence/experiment5/tail_diagnostics/verify_stability.py
+```
+
+The lightweight checks use the compact supplied inputs and require `mpmath==1.3.0`; no raw-data download is needed. The guide states the assumptions and limits of each check. The tail examples explain why finite-repetition means need not represent the full conditional MSE; they do not establish a complete MSE ordering among sampling rules.
+
+## Historical mean-based analyses
+
+`reference/` preserves the previous two-sided comparison table, detailed inference-revision report and original saved-record analysis script. These files and the earlier one-sided table are historical records, not the current inferential basis for Experiment V. `PROVENANCE.json` identifies the archived sources; `MANIFEST.json` records package and archive-member checksums.
+
+To verify or replay that historical analysis explicitly:
 
 ```bash
 python -B evidence/experiment5/reanalyze.py --verify
-python -B evidence/experiment5/reanalyze.py --output runs/experiment5_saved_check
+python -B evidence/experiment5/reanalyze.py --output runs/experiment5_historical
 ```
 
-The checksum check uses only Python's standard library. Reanalysis uses NumPy, pandas and SciPy from the repository's pinned requirements. Choose a new output directory; input files and reference outputs are preserved.
+The checksum-only command uses Python's standard library. Historical reanalysis uses NumPy, pandas and SciPy. It recomputes 36 two-sided paired Student t tests at budgets 749 (GDSC) and 5,000 (Year), with one joint Holm correction, and checks the saved reference table. The family retains the GDSC NORM/UNI duplicate. Its outputs include `paired_comparisons_two_sided.csv`, `inference_revision.json`, `mean_coefficient_errors.csv` and `verification.json`.
 
-Reanalysis computes 36 two-sided paired Student t tests at budgets 749 (GDSC) and 5,000 (Year), with one joint Holm correction. It verifies the results against the saved reference table, including the maximum adjusted p-value of approximately `2.9821e-8`, and checks that OPT has the smallest mean coefficient-target error in all 78 method-budget cells. The output directory contains:
-
-- `paired_comparisons_two_sided.csv` and `inference_revision.json`, generated by the original analysis script;
-- `mean_coefficient_errors.csv`, with the means and standard errors calculated from all saved repetitions;
-- `verification.json`, recording the input counts and comparison with the references.
-
-The analysis uses fixed datasets, splits and parameters. The 36-comparison family includes the GDSC NORM/UNI duplicate, as in the paper; intervals are pointwise 95% intervals. Original one-sided statistics are retained as provenance for the later two-sided reporting revision.
-
-The wrapper unpacks only verified regular files into a temporary directory and runs the preserved statistical script. It uses the saved scalar records and performs no model fitting or random sampling. Minor floating-point differences across supported scientific-library versions are checked numerically.
+The historical p-values, standard errors and pointwise 95% intervals do not account for the rare-event contributions identified by the tail diagnostics or for historical parameter/test-set exploration. They are not used to infer full conditional-MSE rankings. The wrapper unpacks verified regular files into a temporary directory and runs the preserved historical script; it does not fit models or draw new samples.
 
 ## Relation to full reproduction
 
-Use the root `run.py` for obtaining the official data and running or analyzing new experiments. `run.py analyze --experiment 5` generates the current two-sided reporting format. Its CSV omits the historical `original_one_sided_p` column, and its inference JSON is a shorter current-format report. This evidence directory preserves the detailed historical reporting files and provides their matching saved inputs.
+Use the root `run.py` for obtaining official data and running or analyzing new experiments. `run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis` now generates empirical summaries and figures; it does not automatically run the historical mean-based tests.
 
-For a full run with `--output runs/formal_v`, Experiment V metrics are written under `runs/formal_v/exp5/formal/`. Analysis with `--output runs/formal_v_analysis` writes reports under `runs/formal_v_analysis/exp5/`. The saved-metric wrapper in this directory writes directly to its specified output directory.
-
-The original script's header refers to the full project archive. The wrapper supplies the exact historical input tree from this compact archive, so that the saved statistical results can be checked independently of the raw real-data downloads.
+For a full run with `--output runs/formal_v`, Experiment V metrics are written under `runs/formal_v/exp5/formal/`. Analysis with `--output runs/formal_v_analysis` writes reports under `runs/formal_v_analysis/exp5/`. The saved-record commands above write directly to their specified output directories. The preserved historical script's original full-project paths are supplied by its archive wrapper and are not required for the current empirical workflow.
 
 [Chinese guide](README_CN.md) · [Repository reproduction guide](../../README.md)

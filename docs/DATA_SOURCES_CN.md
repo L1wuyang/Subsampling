@@ -2,7 +2,7 @@
 
 [English](DATA_SOURCES.md) · [仓库说明](../README_CN.md)
 
-本包已附实验 I—IV 的模拟输入、逐次指标和汇总表，见 [仿真数据说明](SIMULATION_DATA_CN.md)。实验 V 的保存指标核验见[实验 V 统计材料说明](../evidence/experiment5/README_CN.md)；完整重跑所需的原始真实数据从下列官方渠道获取。预处理使用训练集拟合均值、标准差和响应截距；固定划分随源码提供。
+本包已附实验 I—IV 的模拟输入、逐次指标和汇总表，见 [仿真数据说明](SIMULATION_DATA_CN.md)。实验 V 的当前经验汇总、图形及尾部诊断见[实验 V 证据说明](../evidence/experiment5/README_CN.md)；完整重跑所需的原始真实数据从下列官方渠道获取。预处理使用训练集拟合均值、标准差和响应截距；固定划分随源码提供。
 
 ## 官方来源和固定版本
 

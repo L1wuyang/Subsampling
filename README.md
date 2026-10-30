@@ -12,9 +12,9 @@ This repository accompanies the manuscript by Junchen Li, Ying-Ao Wang and Ye Zh
 | II | Row-sampling probability comparison | `simulations/experiment2/`: 40 input datasets, metrics, tables and protocol metadata |
 | III | First-order conditional MSE calibration | `simulations/experiment3/`: 20 column and 20 row inputs, metrics and tables |
 | IV | Least-squares comparison using the same sampling draws | `simulations/experiment4/`: five inputs per direction, metrics, tables and numerical diagnostics |
-| V | GDSC and YearPredictionMSD applications | `evidence/experiment5/`: saved metrics, paired comparisons and statistical reanalysis; [official input data](docs/DATA_SOURCES.md) |
+| V | GDSC and YearPredictionMSD applications | `evidence/experiment5/`: saved metrics, empirical figures, tail diagnostics and historical analyses; [official input data](docs/DATA_SOURCES.md) |
 
-I–IV contain **130 NPZ inputs and 1,432,512 per-repetition metric records**. [The simulation guide](docs/SIMULATION_DATA.md) documents fields, grouping and interpretation. Experiment V's [statistical evidence guide](evidence/experiment5/README.md) documents the saved records and the joint 36-comparison Holm analysis.
+I–IV contain **130 NPZ inputs and 1,432,512 per-repetition metric records**. [The simulation guide](docs/SIMULATION_DATA.md) documents fields, grouping and interpretation. Experiment V's [evidence guide](evidence/experiment5/README.md) documents the current empirical summaries and figures, reproducible tail diagnostics, and historical mean-based analyses.
 
 ## Install and verify
 
@@ -36,13 +36,14 @@ Recompute I–IV dataset means, equally weighted summaries and selected plots:
 python run.py simulation-data summarize --experiment all --output runs/reported_simulations
 ```
 
-Recompute V's two-sided paired tests and joint Holm correction:
+Reproduce V's current empirical summaries and the two manuscript target-error figures, without mean-confidence bands:
 
 ```text
-python evidence/experiment5/reanalyze.py --output runs/reported_v
+python -B evidence/experiment5/empirical.py --output runs/reported_v
+python -B evidence/experiment5/tail_diagnostics/verify_witnesses.py
 ```
 
-These commands analyze the bundled experimental records. Select `--experiment 1` through `4` for one simulation experiment. Choose a new output directory for each analysis. The existing detailed tables are available in each experiment's `tables/` directory and in V's `reference/` directory.
+These commands analyze the bundled experimental records. Select `--experiment 1` through `4` for one simulation experiment. Choose a new output directory for each analysis. V reports finite-repetition empirical means; these do not establish full conditional-MSE rankings. Its [tail diagnostics](evidence/experiment5/tail_diagnostics/README.md) include lightweight witness checks and a separate reconstruction workflow. The original one-sided and later two-sided/Holm analyses remain historical evidence, available through `evidence/experiment5/reanalyze.py`; they are not the current inferential basis for V.
 
 ## Rerun the experiments
 
@@ -68,12 +69,12 @@ python run.py formal --experiment 5 --output runs/formal_v --workers 8
 python run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis
 ```
 
-The [data source guide](docs/DATA_SOURCES.md) gives exact versions, checksums and manual import instructions. The GDSC training/test ID split is included; Year uses its official ordered split. For newly executed experiments, `analyze --results` reads the complete generated run directory, including the saved states needed for III's bias analysis and IV's diagnostics.
+The [data source guide](docs/DATA_SOURCES.md) gives exact versions, checksums and manual import instructions. The GDSC training/test ID split is included; Year uses its official ordered split. For newly executed experiments, `analyze --results` reads the complete generated run directory, including the saved states needed for III's bias analysis and IV's diagnostics. For V, this default analysis now produces empirical summaries and figures, without automatically running historical mean-based tests.
 
 ## Documentation and provenance
 
 - [Simulation data, metric definitions and statistical interpretation](docs/SIMULATION_DATA.md)
-- [Experiment V: saved statistical evidence](evidence/experiment5/README.md)
+- [Experiment V: empirical results, tail diagnostics and historical analyses](evidence/experiment5/README.md)
 - [Official real-data acquisition](docs/DATA_SOURCES.md)
 - [Optional numerical diagnostics and extensions](docs/ADVANCED_DIAGNOSTICS.md)
 - [How to cite the manuscript and identify the code version](docs/CITATION.md)

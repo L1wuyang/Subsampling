@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-30",
+  "baseline_commit": "280f4815a3bc5119ea1ea7a1003b959e07b102b5",
+  "scope": "Current empirical Experiment V reporting and portable tail diagnostics; frozen scientific bodies and historical evidence retained",
+  "frozen_scientific_sources_unchanged": 54,
+  "simulation_record_rows_verified": 1432512,
+  "saved_scalar_records": 12720,
+  "visible_target_points": 276,
+  "target_figure_pixels_equal_current_manuscript": {
+    "r5_01_gdsc_target": true,
+    "r5_02_year_target": true
+  },
+  "root_analyze_entry_point_passed": true,
+  "historical_two_sided_reanalysis_passed": true,
+  "default_mean_tests_or_intervals_generated": false,
+  "scalar_witness_verification_passed": true,
+  "stability_premise_verification_passed": true,
+  "full_year_restoration_validation": "evidence/experiment5/tail_diagnostics/reference/portable_validation.json",
+  "source_sha256": {
+    "repro1026/exp5.py": "3051ed5fc04f80730439e0bce6a6804e7b1c3e83eed0a9adebff2c11de8586b5",
+    "repro1026/reporting.py": "44a676f81ba58454219237bf1cbd3c65f071c48bc90bbc73203091da5ba6e381",
+    "repro1026/empirical_v.py": "74725f0156a925d48baf55eb9687ce2f9e81b0e9eaedadad72f8b212ac213adf",
+    "repro1026/v_stability.py": "80813d59c48d93eee03f221f8d8b73484c77241cb6da0f0be12b487370376d8e",
+    "evidence/experiment5/empirical.py": "e918a963c5f80277e904d74485a77205bfa6a962c79edfbd835d22d7d6fed7b7",
+    "evidence/experiment5/paper_plot_reference.json": "c8d2b037f189d519d14fed2f4196b652868ac48ee05e77a6ddd22a158788b7d3"
+  },
+  "versions": {
+    "python": "3.12.4",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "matplotlib": "3.9.1",
+    "scipy": "1.13.1",
+    "mpmath": "1.3.0"
+  },
+  "formal_and_smoke_adapter_validation": {
+    "empirical_aux_check": {
+      "passed": true,
+      "records": 12720,
+      "figures": 6,
+      "mean_inference_artifacts": false,
+      "matched_full_references": 12
+    },
+    "adapter_formal_check": {
+      "passed": true,
+      "records": 12720,
+      "figures": 6,
+      "mean_inference_artifacts": false,
+      "matched_full_references": 12
+    },
+    "adapter_smoke_check": {
+      "passed": true,
+      "records": 96,
+      "figures": 6,
+      "mean_inference_artifacts": false,
+      "matched_full_references": 12
+    },
+    "paper_target_png_pixel_identical": {
+      "r5_01_gdsc_target": true,
+      "r5_02_year_target": true
+    },
+    "missing_full_reference_rejected": true,
+    "frozen_scientific_sources_unchanged": 54,
+    "coverage_semantics": "distinct sampled atoms / draws; equal mean over six methods; no predictive-coverage inference"
+  },
+  "auxiliary_xtick_layout_validation": {
+    "changed_output_files": [
+      "figures/05_untrimmed_errors.pdf",
+      "figures/05_untrimmed_errors.png",
+      "figures/05_untrimmed_errors.svg"
+    ],
+    "panels_checked": 12,
+    "panels": [
+      {
+        "title": "Ridge / gdsc, N=749",
+        "x_major_labels": [
+          "0.108",
+          "0.198",
+          "0.365"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "Ridge / year, N=5000",
+        "x_major_labels": [
+          "0.0145",
+          "0.0516",
+          "0.184"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "Landweber / gdsc, N=749",
+        "x_major_labels": [
+          "0.0694",
+          "0.133",
+          "0.256"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "Landweber / year, N=5000",
+        "x_major_labels": [
+          "0.0143",
+          "0.0512",
+          "0.184"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "Showalter / gdsc, N=749",
+        "x_major_labels": [
+          "0.0699",
+          "0.134",
+          "0.256"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "Showalter / year, N=5000",
+        "x_major_labels": [
+          "0.0143",
+          "0.0512",
+          "0.184"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "HBF / gdsc, N=749",
+        "x_major_labels": [
+          "0.0546",
+          "0.109",
+          "0.219"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "HBF / year, N=5000",
+        "x_major_labels": [
+          "0.0192",
+          "0.0575",
+          "0.172"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "Nesterov / gdsc, N=749",
+        "x_major_labels": [
+          "0.0501",
+          "0.0999",
+          "0.199"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "Nesterov / year, N=5000",
+        "x_major_labels": [
+          "0.0207",
+          "0.0611",
+          "0.181"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "SOAR / gdsc, N=749",
+        "x_major_labels": [
+          "0.0562",
+          "0.105",
+          "0.194"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      },
+      {
+        "title": "SOAR / year, N=5000",
+        "x_major_labels": [
+          "0.0204",
+          "0.0606",
+          "0.18"
+        ],
+        "overlap": false,
+        "minor_ticks": 0
+      }
+    ],
+    "all_other_files_hash_unchanged": true,
+    "data_and_target_figures_unchanged": true
+  }
+}

@@ -24,7 +24,7 @@ def protocol():
       'validation_only_override':'Small validation uses c=1, small raw subsets, and minimum L_star=2*old_L to exercise recalibration. None of these overrides applies to formal mode.',
       'formal_budgets':{'gdsc':[75,187,374,749,1498,2996],'year':[500,1000,2000,5000,10000,20000,50000]},
       'formal_repetitions':{'gdsc':30,'year':50},
-      'inference':'Two-sided paired t on OPT-minus-UNI/NORM/LEV, primary budgets 749/5000, one joint Holm across 36 comparisons; pointwise 95% intervals; all failures/tails retained.',
+      'reporting':'Finite-repetition empirical means and descriptive diagnostics, with all failures/tails retained; no automatic mean tests or mean confidence intervals. Support bounds alone do not certify Monte Carlo accuracy.',
       'historical_c_retained':True,'historical_test_exploration_remains':True,
       'publication_rule':'Representative validation is implementation evidence only. Do not replace original paper V or claim risk/significance improvement before full formal execution and audit.',
     }

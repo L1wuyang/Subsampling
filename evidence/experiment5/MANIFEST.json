@@ -3,17 +3,25 @@
   "hash_algorithm": "sha256",
   "description": "Package checksums exclude this manifest; archive members preserve original bytes",
   "files": {
+    "empirical.py": {
+      "bytes": 3065,
+      "sha256": "e918a963c5f80277e904d74485a77205bfa6a962c79edfbd835d22d7d6fed7b7"
+    },
+    "paper_plot_reference.json": {
+      "bytes": 51858,
+      "sha256": "c8d2b037f189d519d14fed2f4196b652868ac48ee05e77a6ddd22a158788b7d3"
+    },
     "PROVENANCE.json": {
       "bytes": 1193,
       "sha256": "e3ba02d805a36943f9565bff6cd4e99b09917167f04da569c5c7a6f9eeb1b673"
     },
     "README.md": {
-      "bytes": 3823,
-      "sha256": "65d1706457ffaeb8731cc67af2bd4672136a11bd998aaad782cbcaf89aad25d1"
+      "bytes": 6055,
+      "sha256": "1be61f2bdefcbc60fd4245d6627cc3fc934ef8d09f3e1fbb76f75ca8a3029ae1"
     },
     "README_CN.md": {
-      "bytes": 3223,
-      "sha256": "4057c47019d3ac41a13fadd3448af9f7c32b4299771b8ad5de78ee016fccbeee"
+      "bytes": 5360,
+      "sha256": "7ca24e336a6a6cb164ff8287b450bbc1239953e4ed7818daccfe5f48a381089f"
     },
     "reanalyze.py": {
       "bytes": 9126,
@@ -34,6 +42,86 @@
     "saved_records.tar.gz": {
       "bytes": 716947,
       "sha256": "e1355e6de8ba6103bc1e72460e915cb1d6fa98fe3b9154ceae1f006417a63d2a"
+    },
+    "tail_diagnostics/README.md": {
+      "bytes": 8999,
+      "sha256": "fc7857b3430c04382e3e248796729d318ec069f4698ad0415e2d246ce801e1d2"
+    },
+    "tail_diagnostics/reference/array_manifest.json": {
+      "bytes": 1656,
+      "sha256": "6d9b4b00142768ba99916aa3fe427ff8bbb8de6a0a22ce331f73175a8a652f8e"
+    },
+    "tail_diagnostics/reference/diagnosis.json": {
+      "bytes": 17521,
+      "sha256": "cbd92a476398a5a82ab517a80f42654ad2dcf8da2ee08604d590b70a8acc6a5c"
+    },
+    "tail_diagnostics/reference/event_bounds.csv": {
+      "bytes": 3783,
+      "sha256": "5ffeea8d54afc4b693c587529b0c7df73e9f65ba723cbfd9ff5290e2564d1954"
+    },
+    "tail_diagnostics/reference/event_witnesses.csv": {
+      "bytes": 32286,
+      "sha256": "48ded6006ff7f3b694c41b68892071ce60d8f3b88439fb608bf074d7ed351b15"
+    },
+    "tail_diagnostics/reference/hbf_soar_values.json": {
+      "bytes": 6316,
+      "sha256": "813149faa36a3dfaddf1d3c7d710afa9df24de1cfdf305ce40551f5c0b334cc6"
+    },
+    "tail_diagnostics/reference/independent_check.json": {
+      "bytes": 5415,
+      "sha256": "d32bdc6709bbdc64d54be17927e3262687feddf5562da7a8f1f21c2a004ed6e0"
+    },
+    "tail_diagnostics/reference/original_summary.json": {
+      "bytes": 471,
+      "sha256": "86dec0426d07283d96d291f0aa323bd9a66504bb4cf47d0e948cda4c1f04be81"
+    },
+    "tail_diagnostics/reference/portable_validation.json": {
+      "bytes": 1809,
+      "sha256": "b7db328d502c249e0ad721430a77b94a1a3af16aa2935cf7e9f80f3b74db4f23"
+    },
+    "tail_diagnostics/reference/recomputed_saved_means.csv": {
+      "bytes": 963,
+      "sha256": "0650c295d32ab0efc97a3b7bd07cc4f9f56f524d985507b0e1f37091053ca608"
+    },
+    "tail_diagnostics/reference/restoration_validation.json": {
+      "bytes": 3777,
+      "sha256": "b7542d26c49ec8799005c45608ad2a93252cdda5f481483ade98d418a2a40e27"
+    },
+    "tail_diagnostics/reference/showalter_nesterov_witness.json": {
+      "bytes": 6532,
+      "sha256": "f47e0593d66ebb1f464af2554b5d011c96c8fffb28ae34fb62d49e9e41aaadbb"
+    },
+    "tail_diagnostics/reference/support_stability.csv": {
+      "bytes": 810,
+      "sha256": "dd2bd220cee710d31884e2dd6cbb343604521acc2192e5c437bd59459abe7433"
+    },
+    "tail_diagnostics/reference/verified_witnesses.json": {
+      "bytes": 6742,
+      "sha256": "20ee4f4936c713666125f8495a2caae3c6422b7a9870f655972d008173650732"
+    },
+    "tail_diagnostics/restore_year.py": {
+      "bytes": 7976,
+      "sha256": "d4490bae2e562de7d37edfab536fa7ec1af4f32abf5241a3dfb882b9187b0d9d"
+    },
+    "tail_diagnostics/scan_year.py": {
+      "bytes": 8884,
+      "sha256": "bf246fa03a3314ca47f0e736698dde8e44ac8aca4ccd803896619c1fc69c1806"
+    },
+    "tail_diagnostics/source_hashes.json": {
+      "bytes": 1975,
+      "sha256": "e1ed64e6d91b567d2f5bd663c5daee8e655d6a246366acdeea682c327e6a5260"
+    },
+    "tail_diagnostics/verify_stability.py": {
+      "bytes": 1683,
+      "sha256": "a1094248fc0bc3006221409e0ea71f835ce6b13a35d62f0152d98b4d964cb8e6"
+    },
+    "tail_diagnostics/verify_witnesses.py": {
+      "bytes": 4862,
+      "sha256": "a17ef225c50e184c77f3ff40d85474af4e5629bc3f28a37c5c578b712c940cb2"
+    },
+    "tail_diagnostics/witness_inputs.json": {
+      "bytes": 12824,
+      "sha256": "9c803c9023c05de3254a5585a3ca58e070fca95e1ec97749a65772f3ea90f5bc"
     }
   },
   "archive_members": {

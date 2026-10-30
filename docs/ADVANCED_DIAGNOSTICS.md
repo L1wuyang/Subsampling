@@ -25,6 +25,10 @@ python -m repro1026.iv_precision --input runs/formal_simulations/exp4 --directio
 
 This executes the saved number of updates using double-double and triple-double arithmetic. Precision-tier agreement measures numerical consistency for the selected draws. The output records the chosen tiers and tolerances; it is not a uniform floating-point error bound. Replay can be expensive even for one draw.
 
+## Experiment V: diagnostics for the reported protocol
+
+The [portable tail diagnostics](../evidence/experiment5/tail_diagnostics/README.md) check the existing protocol's single-atom tail witnesses and scalar stability premises. Lightweight checks use compact bundled inputs; a separate Year/Landweber restoration uses hash-verified raw data and the frozen native code. These diagnostics explain the scope of the current finite-repetition empirical summaries without changing the reported protocol.
+
 ## Experiment V: support-bounded extension
 
 `stable-v` defines a separate experimental protocol. It preserves UNI, NORM and LEV while selecting a larger common step bound and recomputing the numerical targets, derivatives and OPT probabilities. Its outputs are separate from the manuscript's Experiment V results.

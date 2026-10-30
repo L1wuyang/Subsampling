@@ -1,7 +1,9 @@
-"""Portable Experiment V: rebuild raw inputs, execute native maps, report two-sided tests.
+"""Portable Experiment V: rebuild inputs, execute native maps, report empirical means.
 
 The archived scientific bodies are imported unchanged. All new artifacts are
 written under a fresh --output directory; source archives are never updated.
+Historical two-sided mean tests are available explicitly, but are not part of
+the default finite-repetition report or evidence for full conditional MSE order.
 """
 from __future__ import annotations
 import argparse, concurrent.futures, gzip, hashlib, importlib, json, math, os
@@ -183,8 +185,12 @@ def paired_comparisons(frame, budgets, alternative='two-sided'):
     result['supports_OPT_lower']=(result.difference<0)&(result.p_holm<.05)
     return result
 
-def analyze_saved(formal_output, project_root=None):
-    """Current default analysis: two-sided paired tests, one joint 36-pair Holm."""
+def analyze_saved_historical(formal_output, project_root=None):
+    """Historical mean-test report; never called by the current default flow.
+
+    These calculations do not establish full conditional MSE ordering. Use a
+    separate copy of saved outputs when explicitly reproducing this history.
+    """
     formal_output=Path(formal_output).resolve();project_root=Path(project_root or PACKAGE_ROOT).resolve()
     assert_writable_output(formal_output,project_root)
     config=read(formal_output/'protocol.json');mods=scientific_modules(project_root,formal_output.parent);analysis=mods['analyze']
@@ -216,9 +222,34 @@ def analyze_saved(formal_output, project_root=None):
     pairs.to_csv(formal_output/'paired_comparisons_two_sided.csv',index=False)
     revision={'analysis':'two-sided paired t, one joint Holm over all 36 comparisons','conditional_on_fixed_data_and_parameters':True,
               'pointwise_intervals_not_simultaneous':True,'comparisons':len(pairs),'max_two_sided_holm_p':float(pairs.p_holm.max()),
-              'original_one_sided_preserved_separately':True,'historical_exploration_not_adjusted':True,'role':'formal current reporting' if formal_mode else 'smoke only'}
+              'original_one_sided_preserved_separately':True,'historical_exploration_not_adjusted':True,
+              'role':'historical mean-based analysis; not current full-MSE evidence' if formal_mode else 'historical smoke analysis only'}
     write(formal_output/'inference_revision.json',revision)
     return revision
+
+
+def analyze_saved(formal_output, project_root=None):
+    """Current default: empirical summaries and descriptive figures, without tests."""
+    from .empirical_v import analyze_records
+    formal_output = Path(formal_output).resolve()
+    project_root = Path(project_root or PACKAGE_ROOT).resolve()
+    assert_writable_output(formal_output, project_root)
+    config = read(formal_output/'protocol.json')
+    if not read(formal_output/'execution.json').get('completed'):
+        raise ValueError('Cannot report an incomplete experiment')
+    # Fresh runs contain no earlier reports. Do not leave stale mean-test files
+    # beside a current report or silently remove historical user artifacts.
+    legacy = ['primary_comparisons.csv', 'paired_comparisons_two_sided.csv',
+              'primary_comparisons_original_one_sided.csv', 'inference_revision.json']
+    if any((formal_output/name).exists() for name in legacy):
+        raise ValueError('Historical reports already exist; use run.py analyze with a new output directory')
+    smoke = bool(config.get('reproduction_mode') == 'smoke' or config.get('run_mode') == 'smoke' or config.get('smoke_only'))
+    summary = analyze_records(formal_output, config=config, smoke=smoke)
+    summary.update(reproduction_mode='smoke' if smoke else 'formal',
+                   role='reduced engineering check only; not paper results' if smoke else 'finite-repetition empirical reporting')
+    write(formal_output/'summary.json', summary)
+    return summary
+
 
 def run(output, mode='smoke', workers=2, project_root=None, stable=False):
     project_root=Path(project_root or PACKAGE_ROOT).resolve();output=new_output(output,project_root)
@@ -262,8 +293,8 @@ def run(output, mode='smoke', workers=2, project_root=None, stable=False):
     with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as pool:
         for result in pool.map(_draw_job,tasks):total+=result[-1]
     write(formal/'execution.json',{'completed':True,'records':total,'tasks':len(tasks),'seconds':time.perf_counter()-start})
-    inference=analyze_saved(formal,project_root)
-    result={'completed':True,'mode':mode,'stability_revision':stable,'input_preparation':metadata,'records':total,'inference':inference,
+    reporting=analyze_saved(formal,project_root)
+    result={'completed':True,'mode':mode,'stability_revision':stable,'input_preparation':metadata,'records':total,'reporting':reporting,
             'elapsed_seconds':time.perf_counter()-start,'source_archives_modified':False,'paper_formal_results_replaced':False}
     write(output/'reproduction.json',result);print(json.dumps(result,ensure_ascii=False,indent=2),flush=True)
     return result

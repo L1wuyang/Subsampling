@@ -2,7 +2,7 @@
 
 [中文说明](DATA_SOURCES_CN.md) · [Repository guide](../README.md)
 
-The experimental materials include the simulated inputs, per-repetition metrics and summary tables for Experiments I–IV; see the [simulation data guide](SIMULATION_DATA.md). The [Experiment V evidence guide](../evidence/experiment5/README.md) explains how to check its saved metrics. Acquire the original real-world data for full Experiment V reruns from the official sources below. Preprocessing fits feature means, standard deviations and the response intercept on the training set; the fixed split is supplied with the code.
+The experimental materials include the simulated inputs, per-repetition metrics and summary tables for Experiments I–IV; see the [simulation data guide](SIMULATION_DATA.md). The [Experiment V evidence guide](../evidence/experiment5/README.md) documents its current empirical summaries, figures and tail diagnostics. Acquire the original real-world data for full Experiment V reruns from the official sources below. Preprocessing fits feature means, standard deviations and the response intercept on the training set; the fixed split is supplied with the code.
 
 ## Official sources and frozen versions
 

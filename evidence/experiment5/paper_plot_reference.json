@@ -1,0 +1,2083 @@
+{
+  "description": "Published Experiment V target-figure coordinates and mean points after the empirical-reporting revision. The points are recomputed from the archived draw CSVs; no sampling or estimator is rerun.",
+  "date": "2026-10-29",
+  "tolerance_relative": 2e-12,
+  "figures": {
+    "r5_01_gdsc_target": {
+      "panels": [
+        {
+          "method": "Ridge",
+          "xlim": [
+            60.0,
+            3700.0
+          ],
+          "ylim": [
+            0.021746659885097167,
+            4.8831005730582016
+          ]
+        },
+        {
+          "method": "Landweber",
+          "xlim": [
+            60.0,
+            3700.0
+          ],
+          "ylim": [
+            0.015771468201446735,
+            2.9976094681300434
+          ]
+        },
+        {
+          "method": "Showalter",
+          "xlim": [
+            60.0,
+            3700.0
+          ],
+          "ylim": [
+            0.01566175339468746,
+            2.9984337637300182
+          ]
+        },
+        {
+          "method": "HBF",
+          "xlim": [
+            60.0,
+            3700.0
+          ],
+          "ylim": [
+            0.013668864677591408,
+            2.3727167159722886
+          ]
+        },
+        {
+          "method": "Nesterov",
+          "xlim": [
+            60.0,
+            3700.0
+          ],
+          "ylim": [
+            0.012365002481481969,
+            2.1529786783290894
+          ]
+        },
+        {
+          "method": "SOAR",
+          "xlim": [
+            60.0,
+            3700.0
+          ],
+          "ylim": [
+            0.011822266070732832,
+            2.1062779404502776
+          ]
+        }
+      ],
+      "points": [
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 75,
+          "mean": 2.6115925090759706
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 187,
+          "mean": 1.0449308438674305
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 374,
+          "mean": 0.5066917431447879
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 749,
+          "mean": 0.20972854111059075
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 1498,
+          "mean": 0.09377740021062173
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 2996,
+          "mean": 0.0446868595480164
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 75,
+          "mean": 3.503860713389184
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 187,
+          "mean": 1.3022807984830478
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 374,
+          "mean": 0.5377801337088438
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 749,
+          "mean": 0.2322104186493944
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 1498,
+          "mean": 0.09681282159613055
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 2996,
+          "mean": 0.0459726948982417
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 75,
+          "mean": 2.4407681828417584
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 187,
+          "mean": 0.8301491053646205
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 374,
+          "mean": 0.33652593747032405
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 749,
+          "mean": 0.14986648049426865
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 1498,
+          "mean": 0.0649057752869305
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 2996,
+          "mean": 0.028699601997918506
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 75,
+          "mean": 1.5587839495916682
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 187,
+          "mean": 0.6109742414981988
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 374,
+          "mean": 0.310826146396358
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 749,
+          "mean": 0.13799124252229006
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 1498,
+          "mean": 0.06617493539116534
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 2996,
+          "mean": 0.03271571482240706
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 75,
+          "mean": 2.149434451119802
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 187,
+          "mean": 0.7753547155234396
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 374,
+          "mean": 0.3288919612032656
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 749,
+          "mean": 0.1550535937910461
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 1498,
+          "mean": 0.06919058523231889
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 2996,
+          "mean": 0.03478940543648896
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 75,
+          "mean": 1.497794481623709
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 187,
+          "mean": 0.49320372263204876
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 374,
+          "mean": 0.21689222985590725
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 749,
+          "mean": 0.09691579296258292
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 1498,
+          "mean": 0.043522039044703024
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 2996,
+          "mean": 0.020629330830337186
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 75,
+          "mean": 1.5586894752525977
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 187,
+          "mean": 0.6109345910383321
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 374,
+          "mean": 0.3108025432915065
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 749,
+          "mean": 0.13797901695896247
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 1498,
+          "mean": 0.0661687965382993
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 2996,
+          "mean": 0.032712378294464585
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 75,
+          "mean": 2.1493135861444572
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 187,
+          "mean": 0.7753075053129367
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 374,
+          "mean": 0.3288674945967231
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 749,
+          "mean": 0.1550403849189891
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 1498,
+          "mean": 0.06918396525017866
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 2996,
+          "mean": 0.03478584899909123
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 75,
+          "mean": 1.5009994966901927
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 187,
+          "mean": 0.4951767523222064
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 374,
+          "mean": 0.21872963522959887
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 749,
+          "mean": 0.09667024845515192
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 1498,
+          "mean": 0.04378338133218736
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 2996,
+          "mean": 0.02047486713214182
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 75,
+          "mean": 1.21846358774262
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 187,
+          "mean": 0.4785280326362051
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 374,
+          "mean": 0.250603740857789
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 749,
+          "mean": 0.11482124042736021
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 1498,
+          "mean": 0.05635690624560382
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 2996,
+          "mean": 0.028146103830052286
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 75,
+          "mean": 1.7016116352046484
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 187,
+          "mean": 0.6115356521121326
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 374,
+          "mean": 0.2650376548652623
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 749,
+          "mean": 0.12937574004542823
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 1498,
+          "mean": 0.05954446012249887
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 2996,
+          "mean": 0.03064448885138337
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 75,
+          "mean": 1.0093668938809566
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 187,
+          "mean": 0.3697290810487436
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 374,
+          "mean": 0.16974852463714565
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 749,
+          "mean": 0.0779103959819334
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 1498,
+          "mean": 0.0365614063665554
+        },
+        {
+          "dataset": "gdsc",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 2996,
+          "mean": 0.018062555127391664
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 75,
+          "mean": 1.0959736915690816
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 187,
+          "mean": 0.43102698672091116
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 374,
+          "mean": 0.2268646648164979
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 749,
+          "mean": 0.10438431983786775
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 1498,
+          "mean": 0.05157772994426778
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 2996,
+          "mean": 0.02569466918251146
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 75,
+          "mean": 1.5398047211327976
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 187,
+          "mean": 0.5522451695948317
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 374,
+          "mean": 0.23998799237800575
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 749,
+          "mean": 0.11816056088214003
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 1498,
+          "mean": 0.05453251754574218
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 2996,
+          "mean": 0.028261168830421422
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 75,
+          "mean": 0.9334429773244801
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 187,
+          "mean": 0.33537607115955637
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 374,
+          "mean": 0.1419112569982073
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 749,
+          "mean": 0.0689129156105995
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 1498,
+          "mean": 0.032707480436876074
+        },
+        {
+          "dataset": "gdsc",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 2996,
+          "mean": 0.016331656106536092
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 75,
+          "mean": 1.069187761582996
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 187,
+          "mean": 0.420947851899276
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 374,
+          "mean": 0.22194866296289228
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 749,
+          "mean": 0.10237933459339721
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 1498,
+          "mean": 0.05068543010254305
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 2996,
+          "mean": 0.02524848038434405
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 75,
+          "mean": 1.5041588770888372
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 187,
+          "mean": 0.5397297255816793
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 374,
+          "mean": 0.23492423653693714
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 749,
+          "mean": 0.115961264463196
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 1498,
+          "mean": 0.05361510275529517
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 2996,
+          "mean": 0.027844339094669508
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 75,
+          "mean": 0.924337698520805
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 187,
+          "mean": 0.31585758761431826
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 374,
+          "mean": 0.150564418653603
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 749,
+          "mean": 0.07175492951156524
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 1498,
+          "mean": 0.03198025908458754
+        },
+        {
+          "dataset": "gdsc",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 2996,
+          "mean": 0.015455887635882721
+        }
+      ]
+    },
+    "r5_02_year_target": {
+      "panels": [
+        {
+          "method": "Ridge",
+          "xlim": [
+            370.0,
+            68000.0
+          ],
+          "ylim": [
+            0.00200815700280002,
+            1.868548508453872
+          ]
+        },
+        {
+          "method": "Landweber",
+          "xlim": [
+            370.0,
+            68000.0
+          ],
+          "ylim": [
+            0.002017600854247815,
+            1.8681642514466623
+          ]
+        },
+        {
+          "method": "Showalter",
+          "xlim": [
+            370.0,
+            68000.0
+          ],
+          "ylim": [
+            0.002017600854247833,
+            1.8681642514466612
+          ]
+        },
+        {
+          "method": "HBF",
+          "xlim": [
+            370.0,
+            68000.0
+          ],
+          "ylim": [
+            0.002584324158160214,
+            1.855508143437124
+          ]
+        },
+        {
+          "method": "Nesterov",
+          "xlim": [
+            370.0,
+            68000.0
+          ],
+          "ylim": [
+            0.002020714838851228,
+            1.8681270506261076
+          ]
+        },
+        {
+          "method": "SOAR",
+          "xlim": [
+            370.0,
+            68000.0
+          ],
+          "ylim": [
+            0.0020257902264478288,
+            1.870030657628329
+          ]
+        }
+      ],
+      "points": [
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 500,
+          "mean": 1.2641158777219863
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 1000,
+          "mean": 0.5635794301395611
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 2000,
+          "mean": 0.23796497791099047
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 5000,
+          "mean": 0.09498608259571467
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 10000,
+          "mean": 0.04429348547016745
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 20000,
+          "mean": 0.022111693189818114
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "UNI",
+          "budget": 50000,
+          "mean": 0.008909012172154389
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "NORM",
+          "budget": 500,
+          "mean": 0.9358325252520746
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "NORM",
+          "budget": 1000,
+          "mean": 0.4065995659061109
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "NORM",
+          "budget": 2000,
+          "mean": 0.19992842646050157
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "NORM",
+          "budget": 5000,
+          "mean": 0.07375177087957255
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "NORM",
+          "budget": 10000,
+          "mean": 0.03744834443585055
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "NORM",
+          "budget": 20000,
+          "mean": 0.017524612431171007
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "NORM",
+          "budget": 50000,
+          "mean": 0.007103684646158036
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 500,
+          "mean": 0.9123525359447232
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 1000,
+          "mean": 0.40248515100192445
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 2000,
+          "mean": 0.1908476534646221
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 5000,
+          "mean": 0.0709585104086769
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 10000,
+          "mean": 0.035900484539886056
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 20000,
+          "mean": 0.01777600752963224
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "LEV",
+          "budget": 50000,
+          "mean": 0.006561008547999775
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 500,
+          "mean": 0.7189607707012271
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 1000,
+          "mean": 0.26201378948132653
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 2000,
+          "mean": 0.09428439514497501
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 5000,
+          "mean": 0.03349816162445143
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 10000,
+          "mean": 0.015672090527627577
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 20000,
+          "mean": 0.007508109914127161
+        },
+        {
+          "dataset": "year",
+          "method": "Ridge",
+          "rule": "OPT",
+          "budget": 50000,
+          "mean": 0.0029411076503632278
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 500,
+          "mean": 1.264135595780284
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 1000,
+          "mean": 0.5635855266378688
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 2000,
+          "mean": 0.2379665988648495
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 5000,
+          "mean": 0.09498659187044871
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 10000,
+          "mean": 0.04429372361696642
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 20000,
+          "mean": 0.02211179332464835
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "UNI",
+          "budget": 50000,
+          "mean": 0.00890904912182948
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "NORM",
+          "budget": 500,
+          "mean": 0.9358392718961203
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "NORM",
+          "budget": 1000,
+          "mean": 0.4066013013649619
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "NORM",
+          "budget": 2000,
+          "mean": 0.19992918363139914
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "NORM",
+          "budget": 5000,
+          "mean": 0.07375199364828217
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "NORM",
+          "budget": 10000,
+          "mean": 0.03744843998866088
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "NORM",
+          "budget": 20000,
+          "mean": 0.017524658180992074
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "NORM",
+          "budget": 50000,
+          "mean": 0.0071037021874925214
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 500,
+          "mean": 0.9123591105698118
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 1000,
+          "mean": 0.4024872623368565
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 2000,
+          "mean": 0.1908484244130576
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 5000,
+          "mean": 0.07095870099468107
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 10000,
+          "mean": 0.035900590741379086
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 20000,
+          "mean": 0.017776060501106153
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "LEV",
+          "budget": 50000,
+          "mean": 0.006561020323730535
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 500,
+          "mean": 0.7230478588397372
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 1000,
+          "mean": 0.2592358493245206
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 2000,
+          "mean": 0.09405344761468439
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 5000,
+          "mean": 0.033756770368674915
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 10000,
+          "mean": 0.01563063866048199
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 20000,
+          "mean": 0.007536187234963432
+        },
+        {
+          "dataset": "year",
+          "method": "Landweber",
+          "rule": "OPT",
+          "budget": 50000,
+          "mean": 0.0029547054226183385
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 500,
+          "mean": 1.2641355957802838
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 1000,
+          "mean": 0.5635855266378688
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 2000,
+          "mean": 0.2379665988648495
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 5000,
+          "mean": 0.09498659187044872
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 10000,
+          "mean": 0.04429372361696644
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 20000,
+          "mean": 0.02211179332464835
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "UNI",
+          "budget": 50000,
+          "mean": 0.008909049121829486
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "NORM",
+          "budget": 500,
+          "mean": 0.9358392718961203
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "NORM",
+          "budget": 1000,
+          "mean": 0.4066013013649619
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "NORM",
+          "budget": 2000,
+          "mean": 0.19992918363139914
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "NORM",
+          "budget": 5000,
+          "mean": 0.07375199364828218
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "NORM",
+          "budget": 10000,
+          "mean": 0.037448439988660896
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "NORM",
+          "budget": 20000,
+          "mean": 0.017524658180992077
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "NORM",
+          "budget": 50000,
+          "mean": 0.00710370218749252
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 500,
+          "mean": 0.9123591105698117
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 1000,
+          "mean": 0.4024872623368565
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 2000,
+          "mean": 0.1908484244130576
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 5000,
+          "mean": 0.07095870099468109
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 10000,
+          "mean": 0.03590059074137909
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 20000,
+          "mean": 0.017776060501106153
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "LEV",
+          "budget": 50000,
+          "mean": 0.0065610203237305344
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 500,
+          "mean": 0.7230478588397365
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 1000,
+          "mean": 0.25923584932451976
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 2000,
+          "mean": 0.09405344761468407
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 5000,
+          "mean": 0.03375677036867483
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 10000,
+          "mean": 0.015630638660481855
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 20000,
+          "mean": 0.0075361872349635275
+        },
+        {
+          "dataset": "year",
+          "method": "Showalter",
+          "rule": "OPT",
+          "budget": 50000,
+          "mean": 0.002954705422618349
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 500,
+          "mean": 1.2703598871595814
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 1000,
+          "mean": 0.5763770709360384
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 2000,
+          "mean": 0.24478156599636633
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 5000,
+          "mean": 0.0997627902649979
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 10000,
+          "mean": 0.04834930716669464
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 20000,
+          "mean": 0.024501195627832165
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "UNI",
+          "budget": 50000,
+          "mean": 0.010397893529333372
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "NORM",
+          "budget": 500,
+          "mean": 0.9464616939388704
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "NORM",
+          "budget": 1000,
+          "mean": 0.4127959466231029
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "NORM",
+          "budget": 2000,
+          "mean": 0.2059293406235308
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "NORM",
+          "budget": 5000,
+          "mean": 0.07710142531792336
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "NORM",
+          "budget": 10000,
+          "mean": 0.03936849797979701
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "NORM",
+          "budget": 20000,
+          "mean": 0.018454207174660377
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "NORM",
+          "budget": 50000,
+          "mean": 0.0074418980792939305
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 500,
+          "mean": 0.9262845114546246
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 1000,
+          "mean": 0.4126636386753789
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 2000,
+          "mean": 0.19651050846174012
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 5000,
+          "mean": 0.07465823039824106
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 10000,
+          "mean": 0.037984680293638225
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 20000,
+          "mean": 0.018865376980191806
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "LEV",
+          "budget": 50000,
+          "mean": 0.006986208780039776
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 500,
+          "mean": 0.5940591518471295
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 1000,
+          "mean": 0.23208287666229666
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 2000,
+          "mean": 0.09468920663871452
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 5000,
+          "mean": 0.037504954513445835
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 10000,
+          "mean": 0.018222673078942094
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 20000,
+          "mean": 0.009095929661595129
+        },
+        {
+          "dataset": "year",
+          "method": "HBF",
+          "rule": "OPT",
+          "budget": 50000,
+          "mean": 0.0037033514904480785
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 500,
+          "mean": 1.2641938298058444
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 1000,
+          "mean": 0.5634339650009559
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 2000,
+          "mean": 0.23788901494922318
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 5000,
+          "mean": 0.09496171407114566
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 10000,
+          "mean": 0.044281419221422036
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 20000,
+          "mean": 0.02210764997079119
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "UNI",
+          "budget": 50000,
+          "mean": 0.008907868547922608
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "NORM",
+          "budget": 500,
+          "mean": 0.9357856866696954
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "NORM",
+          "budget": 1000,
+          "mean": 0.40653853439555315
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "NORM",
+          "budget": 2000,
+          "mean": 0.19986444752958427
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "NORM",
+          "budget": 5000,
+          "mean": 0.07375164332358781
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "NORM",
+          "budget": 10000,
+          "mean": 0.03745753067454596
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "NORM",
+          "budget": 20000,
+          "mean": 0.017521103965971282
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "NORM",
+          "budget": 50000,
+          "mean": 0.007105207989059584
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 500,
+          "mean": 0.9120860154191712
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 1000,
+          "mean": 0.4023876381735101
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 2000,
+          "mean": 0.19085982488749426
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 5000,
+          "mean": 0.0709503727356506
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 10000,
+          "mean": 0.03589229478048957
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 20000,
+          "mean": 0.017773885504071718
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "LEV",
+          "budget": 50000,
+          "mean": 0.006560045350030853
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 500,
+          "mean": 0.755532973018259
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 1000,
+          "mean": 0.2647860822129892
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 2000,
+          "mean": 0.0991834453618055
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 5000,
+          "mean": 0.03635386057326063
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 10000,
+          "mean": 0.015811376625444355
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 20000,
+          "mean": 0.007895071042381359
+        },
+        {
+          "dataset": "year",
+          "method": "Nesterov",
+          "rule": "OPT",
+          "budget": 50000,
+          "mean": 0.0028938653177148
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 500,
+          "mean": 1.2656003533865234
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 1000,
+          "mean": 0.5637790356519812
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 2000,
+          "mean": 0.23809369875282477
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 5000,
+          "mean": 0.09505640653525088
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 10000,
+          "mean": 0.04432192184764707
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 20000,
+          "mean": 0.02213983763872618
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "UNI",
+          "budget": 50000,
+          "mean": 0.00891873963602212
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "NORM",
+          "budget": 500,
+          "mean": 0.9365781851965953
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "NORM",
+          "budget": 1000,
+          "mean": 0.40686034722775205
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "NORM",
+          "budget": 2000,
+          "mean": 0.20001241769496048
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "NORM",
+          "budget": 5000,
+          "mean": 0.07388344903171253
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "NORM",
+          "budget": 10000,
+          "mean": 0.037513365516420656
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "NORM",
+          "budget": 20000,
+          "mean": 0.017533250567254334
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "NORM",
+          "budget": 50000,
+          "mean": 0.0071189290921204375
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 500,
+          "mean": 0.912819048610109
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 1000,
+          "mean": 0.40260128551539437
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 2000,
+          "mean": 0.1910044346559822
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 5000,
+          "mean": 0.07101267307485654
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 10000,
+          "mean": 0.03590457740977007
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 20000,
+          "mean": 0.01779654009336361
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "LEV",
+          "budget": 50000,
+          "mean": 0.00658235281179022
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 500,
+          "mean": 0.6944454828592551
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 1000,
+          "mean": 0.24533920658610023
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 2000,
+          "mean": 0.09644722314220562
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 5000,
+          "mean": 0.03365232845973707
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 10000,
+          "mean": 0.016425595637426273
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 20000,
+          "mean": 0.007609487786548839
+        },
+        {
+          "dataset": "year",
+          "method": "SOAR",
+          "rule": "OPT",
+          "budget": 50000,
+          "mean": 0.0029310525789306235
+        }
+      ]
+    }
+  }
+}

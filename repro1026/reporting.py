@@ -1,6 +1,9 @@
 """Analyze explicitly supplied new I--V runs and draw figures using budget N.
 
-The Lite source release has no bundled results or manuscript builder. Example::
+The release includes saved simulation and Experiment V evidence. This entry
+point analyzes explicitly supplied runs. Experiment V defaults to finite-
+repetition empirical reporting; historical mean tests are not current evidence.
+Example::
 
     python -m repro1026.reporting --experiment 3 --results runs/formal --output analysis/exp3
 
@@ -170,8 +173,13 @@ def scientific_analysis(experiment):
     return module
 
 
-def current_two_sided(frame, output: Path, budgets=None):
-    """One joint 36-pair Holm family; retain the original one-sided output."""
+def historical_two_sided(frame, output: Path, budgets=None):
+    """Legacy analysis only; not called by the current reporting entry point.
+
+    This historical mean-based calculation does not establish the ordering of
+    the full conditional MSE. The archived original analysis is also available
+    through evidence/experiment5/reanalyze.py.
+    """
     from .exp5 import paired_comparisons
     budgets = budgets or {'gdsc': 749, 'year': 5000}
     old = output/'primary_comparisons.csv'
@@ -323,37 +331,9 @@ def smoke_IV(module, output, config):
 
 
 def smoke_V(module, output, config):
-    import numpy as np
-    import matplotlib.pyplot as plt
-    frame=module.load_records(output)
-    expected=sum(len(config[tag]['budgets'])*config[tag]['repetitions']*24 for tag in ('gdsc','year'))
-    if len(frame)!=expected or frame.duplicated(['dataset','method','rule','budget','rep']).any():
-        raise ValueError('V records are incomplete or duplicated')
-    if not np.isfinite(frame[module.METRICS]).all().all() or (frame.status!='complete').any():
-        save(output/'failure_summary.json', dict(records=len(frame),
-             failed_records=int((frame.status!='complete').sum()), all_records_retained=True))
-        raise RuntimeError('V failures retained; no successful-only unconditional mean is reported')
-    grouped=module.summarize(frame)
-    grouped.to_csv(output/'summary.csv', index=False)
-    for field, name, label in [
-        ('relative_coefficient_error_mean', '01_target_comparison', 'Relative coefficient target MSE'),
-        ('test_response_rmse_mean', '02_prediction', 'Mean individual test RMSE'),
-    ]:
-        fig, axes=plt.subplots(3, 4, figsize=(12, 8.2), layout='constrained')
-        for i, method in enumerate(module.METHODS):
-            for j, tag in enumerate(('gdsc','year')):
-                ax=axes[i//2, (i%2)*2+j]
-                for rule in module.RULES:
-                    g=grouped[(grouped.dataset==tag)&(grouped.method==method)&(grouped.rule==rule)].sort_values('budget')
-                    ax.plot(g.budget, g[field], 'o-', ms=3, label=rule, color=module.COLORS[rule])
-                ax.set(xscale='log', title=method+' / '+tag, xlabel='Draws N', ylabel=label)
-                ax.grid(alpha=.2)
-                if i==0 and j==0:ax.legend(fontsize=7)
-        _emit(fig, output, name)
-    save(output/'summary.json', dict(completed=True, records=len(frame),
-         observed_step_bound_violations=int((~frame.step_bound_observed).sum())))
-    current_two_sided(frame, output, {tag:config[tag]['budgets'][0] for tag in ('gdsc','year')})
-    return read(output/'summary.json')
+    """Reduced engineering output with the same empirical-only interpretation."""
+    from .empirical_v import analyze_records
+    return analyze_records(output, config=config, smoke=True)
 
 
 def attach_IV_diagnostics(source, output):
@@ -398,14 +378,16 @@ def analyze(experiment: int, output: Path, results: Path):
             analysis=output/'outputs/formal_01'
         else:
             copy_analysis_inputs(source, output, experiment)
-            module=scientific_analysis(experiment)
-            if mode=='smoke':
-                if experiment==3:smoke_III(module, output)
-                elif experiment==4:smoke_IV(module, output, config)
-                else:smoke_V(module, output, config)
+            if experiment == 5:
+                from .empirical_v import analyze_records
+                analyze_records(output, config=config, smoke=(mode == 'smoke'))
             else:
-                module.main(SimpleNamespace(output=str(output)))
-                if experiment==5:current_two_sided(module.load_records(output), output)
+                module=scientific_analysis(experiment)
+                if mode=='smoke':
+                    if experiment==3:smoke_III(module, output)
+                    elif experiment==4:smoke_IV(module, output, config)
+                else:
+                    module.main(SimpleNamespace(output=str(output)))
             analysis=output
             if experiment==4:replay_count=attach_IV_diagnostics(source, output)
         summary=read(analysis/'summary.json')

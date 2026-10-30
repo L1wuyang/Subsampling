@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-30",
+  "lightweight_scalar_witnesses_passed": 4,
+  "hbf_soar_scalar_premise_checks_passed": 10,
+  "changed_step_negative_check_rejected": true,
+  "raw_year_full_restoration_passed": true,
+  "historical_summary_relative_tolerance": 1e-08,
+  "maximum_observed_relative_difference": 5.167298777393882e-11,
+  "reconstructed_array_hashes_equal_october29_reconstruction": {
+    "inputs/year/E.npy": true,
+    "inputs/year/ey.npy": true,
+    "inputs/year/preprocessing.npz": true,
+    "inputs/year/X.npy": true,
+    "inputs/year/y.npy": true,
+    "targets/year/LEV_probability.npy": true,
+    "targets/year/M.npy": true,
+    "targets/year/NORM_probability.npy": true,
+    "targets/year/rhs.npy": true,
+    "targets/year/UNI_probability.npy": true,
+    "targets/year/Landweber/influences.npy": true,
+    "targets/year/Landweber/OPT_probability.npy": true,
+    "targets/year/Landweber/parameters.json": true,
+    "targets/year/Landweber/scores.npy": true,
+    "targets/year/Landweber/summary.json": true,
+    "targets/year/Landweber/target.npy": true
+  },
+  "full_scan_output_hashes_equal_october29_scan": {
+    "event_bounds.csv": true,
+    "event_witnesses.csv": true,
+    "support_stability.csv": true,
+    "recomputed_saved_means.csv": true,
+    "diagnosis.json": true
+  },
+  "fresh_scalar_interval_witnesses_passed": 4,
+  "versions": {
+    "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2"
+  },
+  "qualification": "Byte equality here compares two independent reconstructions in the tested environment, not the unavailable original historical arrays. No cross-platform byte identity or complete floating-point trajectory certificate is claimed."
+}

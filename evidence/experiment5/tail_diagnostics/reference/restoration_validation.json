@@ -1,0 +1,88 @@
+{
+  "raw_zip": "user-supplied/yearpredictionmsd.zip",
+  "raw_zip_sha256": "06f801af323bb7798e800583acce4ea1ed2697ac12c23f4424aea0a7a3d09e11",
+  "raw_member": "YearPredictionMSD.txt",
+  "raw_sha256": "4b6f8e50235b359e01689ae7fb33ad0f89677e9a15f25f3d6259327a6bb927bb",
+  "source_hashes_match": {
+    "Experiments/experiment5_native_realdata_20261025/formal_protocol.json": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/__init__.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/common.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/data.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/kernel.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/native_forward.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/setup.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/formal.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/analyze.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/pilot.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/column_reference.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/row_reference.py": true,
+    "Experiments/experiment5_native_realdata_20261025/src/native_exp5/integrator_reference.py": true
+  },
+  "parameters": {
+    "method": "Landweber",
+    "alpha": 463.7150000000001,
+    "L": 309413058.1314737,
+    "eta": 43.06808563193865,
+    "dt": 2.9087330878504104e-09,
+    "steps": 741388,
+    "T": 0.00215649980653524
+  },
+  "rank": 90,
+  "comparisons": {
+    "full.response_test_mse": {
+      "restored": 90.44315668226068,
+      "archived": 90.44315668226064,
+      "relative_difference": 4.713741283420716e-16
+    },
+    "full.response_test_rmse": {
+      "restored": 9.510160707488632,
+      "archived": 9.51016070748863,
+      "relative_difference": 1.8678515474522796e-16
+    },
+    "full.coefficient_norm_squared": {
+      "restored": 60.03741639351209,
+      "archived": 60.037416393517695,
+      "relative_difference": 9.33781385328316e-14
+    },
+    "constants.UNI": {
+      "restored": 453.13324775603417,
+      "archived": 453.1332477560111,
+      "relative_difference": 5.093077626013132e-14
+    },
+    "constants.NORM": {
+      "restored": 375.19592939473847,
+      "archived": 375.1959293947235,
+      "relative_difference": 3.984536608515442e-14
+    },
+    "constants.LEV": {
+      "restored": 355.30474381826014,
+      "archived": 355.30474381824604,
+      "relative_difference": 3.9676272615970776e-14
+    },
+    "constants.OPT": {
+      "restored": 148.27840043813725,
+      "archived": 148.2784004381306,
+      "relative_difference": 4.485265545799804e-14
+    },
+    "minimum_opt_probability": {
+      "restored": 2.1564969862954627e-08,
+      "archived": 2.1564969862954627e-08,
+      "relative_difference": 0.0
+    },
+    "maximum_atom_to_probability": {
+      "restored": 54950020990.93052,
+      "archived": 54950020988.09109,
+      "relative_difference": 5.167298777393882e-11
+    }
+  },
+  "restoration_matches_historical_summaries": true,
+  "restoration_tolerance": 1e-08,
+  "original_arrays_available": false,
+  "claim": "Reconstructed using frozen native code and hash-matched raw data; historical array-byte identity cannot be asserted without original array manifest.",
+  "seconds": 159.66411240003072,
+  "versions": {
+    "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2"
+  }
+}

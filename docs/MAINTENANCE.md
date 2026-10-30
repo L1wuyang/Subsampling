@@ -6,9 +6,9 @@ This page is for maintainers. The reproduction commands are in the root README.
 
 ## Entry points and frozen sources
 
-Use the root `run.py` for verification, data acquisition, experiment execution and analysis. The additional saved-record entry point is `evidence/experiment5/reanalyze.py`.
+Use the root `run.py` for verification, data acquisition, experiment execution and analysis. The current V saved-record entry point is `evidence/experiment5/empirical.py`; `evidence/experiment5/reanalyze.py` preserves historical mean-based analyses. Portable tail checks and reconstruction are documented in `evidence/experiment5/tail_diagnostics/README.md`.
 
-The scripts under `Experiments/` preserve the scientific implementation and its source history. Some nested III/IV commands refer to verification or delivery modules from the original full workspace. The archived V analyzer preserves the original one-sided analysis. These are historical entry points; current execution and the two-sided V analysis are provided by the root workflow.
+The scripts under `Experiments/` preserve the scientific implementation and its source history. Some nested III/IV commands refer to verification or delivery modules from the original full workspace. The archived V analyzer preserves the original one-sided analysis and mean-confidence bands. These are historical entry points; the root workflow now uses `repro1026/empirical_v.py` for current empirical-only V reporting, while I–IV retain their analysis paths.
 
 `provenance/frozen_scientific_sources.json` identifies the protected source and protocol files. III/IV pilot records also provide source-hash gates used by the execution workflow. Reference modules can be imported by other experiments even when their contents are identical. Retain these files and hashes when editing documentation or adding statistical evidence.
 
@@ -25,7 +25,8 @@ python tools/update_manifest.py
 python tools/update_manifest.py --check
 python run.py verify
 python run.py simulation-data verify --experiment all
-python evidence/experiment5/reanalyze.py --output runs/release_v_check
+python evidence/experiment5/empirical.py --output runs/release_v_check
+python evidence/experiment5/reanalyze.py --output runs/release_v_historical_check
 git diff --check
 git status --short
 ```
@@ -36,7 +37,7 @@ Review the exact files, commit them and push the reviewed commit. Upload extract
 
 ## 中文维护说明
 
-复现读者统一使用根目录 `run.py`；V 的保存指标核验使用 `evidence/experiment5/reanalyze.py`。`Experiments/` 中的内嵌入口及旧 V 单侧分析作为来源记录保留，部分旧命令依赖原完整工程，不作为本仓库的公开运行入口。
+复现读者统一使用根目录 `run.py`；V当前经验汇总使用 `evidence/experiment5/empirical.py`，历史均值分析使用 `evidence/experiment5/reanalyze.py`。`Experiments/` 中的内嵌入口及旧V单侧分析作为来源记录保留，部分旧命令依赖原完整工程，不作为本仓库的公开运行入口。
 
 修改文档或增加统计材料时，保留冻结源码、协议、reference 模块以及 III/IV pilot 门禁文件的原始字节。历史路径和验收记录对应原运行，新校验另存记录。完成更改后按上面的命令更新发布清单、执行校验，检查 Git 差异，再提交和推送。
 

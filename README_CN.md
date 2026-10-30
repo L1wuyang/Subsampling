@@ -12,9 +12,9 @@
 | II | 行抽样概率比较 | `simulations/experiment2/`：40 份输入、指标、结果表和协议元数据 |
 | III | 一阶条件 MSE 校准 | `simulations/experiment3/`：20 份列输入、20 份行输入、指标和结果表 |
 | IV | 同次抽样最小二乘比较 | `simulations/experiment4/`：每个方向五份输入、指标、结果表和数值诊断 |
-| V | GDSC 与 YearPredictionMSD 应用 | `evidence/experiment5/`：保存指标、配对比较和统计重分析；[原始数据官方来源](docs/DATA_SOURCES_CN.md) |
+| V | GDSC 与 YearPredictionMSD 应用 | `evidence/experiment5/`：保存指标、经验图形、尾部诊断及历史分析；[原始数据官方来源](docs/DATA_SOURCES_CN.md) |
 
-I—IV 合计 **130 份 NPZ 输入、1,432,512 条逐次指标**。[仿真数据说明](docs/SIMULATION_DATA_CN.md) 解释字段、分组和统计含义；V 的[统计材料说明](evidence/experiment5/README_CN.md) 给出保存指标及联合 36 项 Holm 分析的复核方法。
+I—IV 合计 **130 份 NPZ 输入、1,432,512 条逐次指标**。[仿真数据说明](docs/SIMULATION_DATA_CN.md) 解释字段、分组和统计含义；V 的[材料说明](evidence/experiment5/README_CN.md) 给出当前经验汇总、论文图形、尾部诊断及历史均值分析的复核方法。
 
 ## 安装与完整性检查
 
@@ -36,13 +36,14 @@ python run.py simulation-data verify --experiment all
 python run.py simulation-data summarize --experiment all --output runs/reported_simulations
 ```
 
-重新计算 V 的双侧配对检验和联合 Holm 校正：
+复现 V 当前的经验汇总及两张不含均值置信区间的论文目标误差图：
 
 ```text
-python evidence/experiment5/reanalyze.py --output runs/reported_v
+python -B evidence/experiment5/empirical.py --output runs/reported_v
+python -B evidence/experiment5/tail_diagnostics/verify_witnesses.py
 ```
 
-上述命令分析随仓库提供的实验记录。可用 `--experiment 1` 至 `4` 单独选择仿真实验；每次使用新的输出目录。已有详细结果表位于各仿真实验的 `tables/` 及 V 的 `reference/` 目录。
+上述命令分析随仓库提供的实验记录。可用 `--experiment 1` 至 `4` 单独选择仿真实验；每次使用新的输出目录。V 报告有限重复抽样的经验均值，不能据此推断完整条件 MSE 排序。[尾部诊断说明](evidence/experiment5/tail_diagnostics/README.md)提供轻量见证核验和独立的输入重建流程。原单侧及后续双侧/Holm 分析保留为历史证据，可通过 `evidence/experiment5/reanalyze.py` 复算，不再作为 V 当前总体 MSE 排序的推断依据。
 
 ## 重新运行实验
 
@@ -68,12 +69,12 @@ python run.py formal --experiment 5 --output runs/formal_v --workers 8
 python run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis
 ```
 
-[数据来源说明](docs/DATA_SOURCES_CN.md) 包含精确版本、校验和及手动导入方法。仓库保留 GDSC 训练/测试 ID 划分；Year 使用官方顺序划分。重新执行实验后，`analyze --results` 读取生成的完整运行目录，其中包含 III 偏差分析和 IV 诊断所需的保存状态。
+[数据来源说明](docs/DATA_SOURCES_CN.md) 包含精确版本、校验和及手动导入方法。仓库保留 GDSC 训练/测试 ID 划分；Year 使用官方顺序划分。重新执行实验后，`analyze --results` 读取生成的完整运行目录，其中包含 III 偏差分析和 IV 诊断所需的保存状态。V的默认分析现为经验汇总和图形，不再自动执行历史均值检验。
 
 ## 文档与来源记录
 
 - [仿真数据、指标定义和统计解释](docs/SIMULATION_DATA_CN.md)
-- [实验 V 保存指标与统计核验](evidence/experiment5/README_CN.md)
+- [实验 V 经验结果、尾部诊断与历史分析](evidence/experiment5/README_CN.md)
 - [真实数据官方获取渠道](docs/DATA_SOURCES_CN.md)
 - [可选数值诊断与扩展](docs/ADVANCED_DIAGNOSTICS_CN.md)
 - [论文引用与代码版本标识](docs/CITATION.md)
