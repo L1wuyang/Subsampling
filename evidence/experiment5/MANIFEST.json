@@ -16,12 +16,12 @@
       "sha256": "e3ba02d805a36943f9565bff6cd4e99b09917167f04da569c5c7a6f9eeb1b673"
     },
     "README.md": {
-      "bytes": 6055,
-      "sha256": "1be61f2bdefcbc60fd4245d6627cc3fc934ef8d09f3e1fbb76f75ca8a3029ae1"
+      "bytes": 5094,
+      "sha256": "f1b12adedc0490ab4252538e88e2bb9bccff1f40789ce65ff97b51dd25ea7438"
     },
     "README_CN.md": {
-      "bytes": 5360,
-      "sha256": "7ca24e336a6a6cb164ff8287b450bbc1239953e4ed7818daccfe5f48a381089f"
+      "bytes": 4485,
+      "sha256": "dec422b4928a0609b1b80d3c80554fb835031664e218d76c3f8b6612a3546f75"
     },
     "reanalyze.py": {
       "bytes": 9126,

@@ -36,20 +36,9 @@ python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 
 轻量核验使用随包提供的紧凑输入，需要 `mpmath==1.3.0`，不需要下载原始数据。诊断说明列明各项检查的前提与适用范围。尾部反例解释有限重复均值为何可能不能代表完整条件 MSE，并未建立所有抽样规则的完整 MSE 排序。
 
-## 历史均值分析
+## 历史分析
 
-`reference/` 保留此前的双侧比较表、详细统计修订报告及原始保存记录分析脚本。它们与更早的单侧比较表均为历史记录，不是当前实验 V 的推断依据。来源记录见 `PROVENANCE.json`，包内文件及归档成员的校验值见 `MANIFEST.json`。
-
-需要明确核验或重放历史分析时执行：
-
-```bash
-python -B evidence/experiment5/reanalyze.py --verify
-python -B evidence/experiment5/reanalyze.py --output runs/experiment5_historical
-```
-
-仅校验的命令使用 Python 标准库；历史重分析使用 NumPy、pandas 和 SciPy。它在 GDSC 预算 749、Year 预算 5,000 处重新计算 36 项双侧配对 Student t 检验，统一进行一次 Holm 校正，并核对保存的参考表；比较家族保留 GDSC NORM/UNI 重复项。输出包括 `paired_comparisons_two_sided.csv`、`inference_revision.json`、`mean_coefficient_errors.csv` 和 `verification.json`。
-
-历史 p 值、标准误和逐点 95% 区间不涵盖尾部诊断揭示的稀有事件贡献，也未调整历史参数及测试集探索，因此不用于推断完整条件 MSE 的排序。适配脚本仅将通过校验的普通文件释放到临时目录，再调用保留的历史脚本，不拟合模型或产生新抽样。
+原单侧比较、后续双侧/Holm 分析及均值置信区间均保留为历史记录，不是当前实验 V 的推断依据。[历史分析说明](../../docs/HISTORICAL_ANALYSES_CN.md)集中列出未变更的脚本与证据路径、校验及重放命令，以及它们与冻结协议的关系。复核旧分析时使用该说明；复现当前结果时使用上面的经验汇总流程。
 
 ## 与完整复现的关系
 

@@ -36,20 +36,9 @@ python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 
 The lightweight checks use the compact supplied inputs and require `mpmath==1.3.0`; no raw-data download is needed. The guide states the assumptions and limits of each check. The tail examples explain why finite-repetition means need not represent the full conditional MSE; they do not establish a complete MSE ordering among sampling rules.
 
-## Historical mean-based analyses
+## Historical analyses
 
-`reference/` preserves the previous two-sided comparison table, detailed inference-revision report and original saved-record analysis script. These files and the earlier one-sided table are historical records, not the current inferential basis for Experiment V. `PROVENANCE.json` identifies the archived sources; `MANIFEST.json` records package and archive-member checksums.
-
-To verify or replay that historical analysis explicitly:
-
-```bash
-python -B evidence/experiment5/reanalyze.py --verify
-python -B evidence/experiment5/reanalyze.py --output runs/experiment5_historical
-```
-
-The checksum-only command uses Python's standard library. Historical reanalysis uses NumPy, pandas and SciPy. It recomputes 36 two-sided paired Student t tests at budgets 749 (GDSC) and 5,000 (Year), with one joint Holm correction, and checks the saved reference table. The family retains the GDSC NORM/UNI duplicate. Its outputs include `paired_comparisons_two_sided.csv`, `inference_revision.json`, `mean_coefficient_errors.csv` and `verification.json`.
-
-The historical p-values, standard errors and pointwise 95% intervals do not account for the rare-event contributions identified by the tail diagnostics or for historical parameter/test-set exploration. They are not used to infer full conditional-MSE rankings. The wrapper unpacks verified regular files into a temporary directory and runs the preserved historical script; it does not fit models or draw new samples.
+The original one-sided comparisons, later two-sided/Holm analysis and mean-confidence intervals remain preserved as historical records, not the current inferential basis for Experiment V. The [historical-analysis guide](../../docs/HISTORICAL_ANALYSES.md) lists the unchanged scripts and evidence paths, verification and replay commands, and the relationship to the frozen protocols. Use that guide only to inspect or replay the earlier analyses; use the empirical workflow above for the current results.
 
 ## Relation to full reproduction
 

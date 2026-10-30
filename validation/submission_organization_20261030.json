@@ -1,0 +1,121 @@
+{
+  "scope": "Submission-package documentation organization; no new numerical experiments",
+  "baseline_commit": "b5f64581ea2e14c0a9bca9343f77593a560a6afe",
+  "integrity_checks": {
+    "simulation_data": {
+      "passed": true,
+      "schema": 1,
+      "selected_experiments": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "manifest_sha256": "a875ce5db67b36fc00da917086b16ff3dae7203dea64b5046fd90464b6e67506",
+      "experiments": {
+        "1": {
+          "files_checked": 193,
+          "record_sets": [
+            {
+              "id": "results",
+              "parts": 5,
+              "rows": 499200,
+              "columns": 16
+            },
+            {
+              "id": "sensitivity_results",
+              "parts": 1,
+              "rows": 46800,
+              "columns": 16
+            }
+          ],
+          "rows": 546000
+        },
+        "2": {
+          "files_checked": 193,
+          "record_sets": [
+            {
+              "id": "results",
+              "parts": 5,
+              "rows": 499200,
+              "columns": 20
+            },
+            {
+              "id": "sensitivity_results",
+              "parts": 1,
+              "rows": 46800,
+              "columns": 20
+            }
+          ],
+          "rows": 546000
+        },
+        "3": {
+          "files_checked": 85,
+          "record_sets": [
+            {
+              "id": "results",
+              "parts": 4,
+              "rows": 306000,
+              "columns": 21
+            },
+            {
+              "id": "sensitivity_results",
+              "parts": 1,
+              "rows": 9960,
+              "columns": 21
+            }
+          ],
+          "rows": 315960
+        },
+        "4": {
+          "files_checked": 34,
+          "record_sets": [
+            {
+              "id": "metrics",
+              "parts": 1,
+              "rows": 24552,
+              "columns": 23
+            }
+          ],
+          "rows": 24552
+        }
+      },
+      "verification": "All declared bytes/SHA-256; CSV.gz schemas and row counts",
+      "trajectories_executed": 0
+    },
+    "experiment_v_archive": {
+      "verified": true,
+      "archive_members": 546,
+      "historical_inputs": 533
+    }
+  },
+  "numerical_trajectories_executed": 0,
+  "organization_checks": {
+    "passed": true,
+    "scope": "Documentation and submission-material organization; no scientific rerun",
+    "baseline_github_commit": "b5f64581ea2e14c0a9bca9343f77593a560a6afe",
+    "baseline_files": 647,
+    "unchanged_files_at_original_paths": 636,
+    "all_files_outside_declared_documentation_and_manifest_edits_preserved": true,
+    "archived_validation_records_byte_identical": {
+      "validation/acceptance_summary.json": "validation/history/acceptance_summary.json",
+      "validation/lite_base_acceptance.json": "validation/history/lite_base_acceptance.json",
+      "validation/metric_reconciliation.json": "validation/history/metric_reconciliation.json",
+      "validation/submission_materials_20261028.json": "validation/history/submission_materials_20261028.json"
+    },
+    "frozen_scientific_sources_unchanged": 54,
+    "evidence_manifest_changes": [
+      "README.md",
+      "README_CN.md"
+    ],
+    "evidence_archive_member_manifest_unchanged": true,
+    "local_markdown_links_checked": 121,
+    "paper_map_coverage": {
+      "main_figures": 6,
+      "supplementary_figures": 4,
+      "supplementary_tables": 13
+    },
+    "numerical_trajectories_executed": 0,
+    "layout_scope": "I-IV final layouts and compact V prediction layout are not exported by this repository; the maps identify numerical sources and distinguish convenience plots."
+  }
+}

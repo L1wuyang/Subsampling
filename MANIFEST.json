@@ -13,8 +13,8 @@
   "experiment5_metric_rows": 12720,
   "experiment5_evidence_manifest": "evidence/experiment5/MANIFEST.json",
   "simulation_data_manifest": "simulations/manifest.json",
-  "file_count": 646,
-  "bytes": 241170828,
+  "file_count": 652,
+  "bytes": 241220365,
   "files": {
     ".gitattributes": {
       "sha256": "c5ab86920c794081b11caa06eeaa060d31d193062feb2cc02d94c406cb60d518",
@@ -237,12 +237,12 @@
       "bytes": 3145
     },
     "README.md": {
-      "sha256": "2446cfbc2ea5c57eb3388818ad9307c1a358b1d99f1348a87ccc18bf70d73790",
-      "bytes": 6161
+      "sha256": "5db5a37f5a4983f6af49e60249148a840373b126e9de2ee143185960cfe63804",
+      "bytes": 7156
     },
     "README_CN.md": {
-      "sha256": "cf77489c4f53676ecaa12208970980b517304c5a751b711e460c870ec23107ff",
-      "bytes": 5432
+      "sha256": "4c6c7078354c9ebb60d23dba9568fc6077e8c52bc3da5655d6d7e5781600a03f",
+      "bytes": 6241
     },
     "docs/ADVANCED_DIAGNOSTICS.md": {
       "sha256": "ae55aa1dd0541197956a3d2484d077c45b998c73104ec3d79f1d9de9e604eebe",
@@ -264,9 +264,25 @@
       "sha256": "54670bacc9f3051373559f765a30ba52bc09f7ad8260ed88139f660a95561c4e",
       "bytes": 5758
     },
+    "docs/HISTORICAL_ANALYSES.md": {
+      "sha256": "a0211f96cd14ee3b12b4b35d39dc7ae6611ab599f40733491f6ca093f3f9e348",
+      "bytes": 5417
+    },
+    "docs/HISTORICAL_ANALYSES_CN.md": {
+      "sha256": "ffebb131f755b74e890ec749fdef62c4917fa4f6677bff392b7ae6bf4935733e",
+      "bytes": 4510
+    },
     "docs/MAINTENANCE.md": {
-      "sha256": "613bf37a56a3d76d8620a6be03bd89e73f660e116bf1bfb15bccb1c12feec86c",
-      "bytes": 3669
+      "sha256": "9fd7be585d79a4918a309ad6d5a6ee395b686eb4a8ca79d52f6dd9580510d5dd",
+      "bytes": 5011
+    },
+    "docs/PAPER_RESULTS.md": {
+      "sha256": "0d9db50d4d341a7899b6930e3d468db7d868bf9f40a66b988f38df567339c815",
+      "bytes": 16155
+    },
+    "docs/PAPER_RESULTS_CN.md": {
+      "sha256": "ced69e55219c4254de0f48fe62e2068bc79eec81151a04d56c805698fdb0b791",
+      "bytes": 14833
     },
     "docs/SIMULATION_DATA.md": {
       "sha256": "836362880dc8f1067c40cf2d2e7768b34d4843f7b5216390b3975483d3b2202c",
@@ -281,7 +297,7 @@
       "bytes": 866
     },
     "evidence/experiment5/MANIFEST.json": {
-      "sha256": "d1dfdce85b882fdffb76a0860f937a54ff05f8575413ccd82c051cffca070a06",
+      "sha256": "d421c4895d9dfb25e1570c7d11afd2d036e9f6f202b1491a593ccd650dae6e99",
       "bytes": 124556
     },
     "evidence/experiment5/PROVENANCE.json": {
@@ -289,12 +305,12 @@
       "bytes": 1193
     },
     "evidence/experiment5/README.md": {
-      "sha256": "1be61f2bdefcbc60fd4245d6627cc3fc934ef8d09f3e1fbb76f75ca8a3029ae1",
-      "bytes": 6055
+      "sha256": "f1b12adedc0490ab4252538e88e2bb9bccff1f40789ce65ff97b51dd25ea7438",
+      "bytes": 5094
     },
     "evidence/experiment5/README_CN.md": {
-      "sha256": "7ca24e336a6a6cb164ff8287b450bbc1239953e4ed7818daccfe5f48a381089f",
-      "bytes": 5360
+      "sha256": "dec422b4928a0609b1b80d3c80554fb835031664e218d76c3f8b6612a3546f75",
+      "bytes": 4485
     },
     "evidence/experiment5/empirical.py": {
       "sha256": "e918a963c5f80277e904d74485a77205bfa6a962c79edfbd835d22d7d6fed7b7",
@@ -2580,25 +2596,33 @@
       "sha256": "8f7042aba4a76e678051302931bfd2ff959a97279eb90693f1fcfc40647196c0",
       "bytes": 8758
     },
-    "validation/acceptance_summary.json": {
-      "sha256": "f9a896346a4c5fa5fc5309464d030d5008a0a374de56b608c8207399222a1d3a",
-      "bytes": 2224
+    "validation/README.md": {
+      "sha256": "cd78ce538f58795cbdc4257784c6a47a2fab5dd2efa4684176c930c056530f07",
+      "bytes": 3518
     },
     "validation/current_empirical_release_20261030.json": {
       "sha256": "5f04fb79aa5f2d24b6a7ff278015c4a7f8ebae89c0507facdd429e173c57d130",
       "bytes": 5603
     },
-    "validation/lite_base_acceptance.json": {
+    "validation/history/acceptance_summary.json": {
+      "sha256": "f9a896346a4c5fa5fc5309464d030d5008a0a374de56b608c8207399222a1d3a",
+      "bytes": 2224
+    },
+    "validation/history/lite_base_acceptance.json": {
       "sha256": "7b60c5f1d54bd6b60ff5d44cbe335219c99671b82b2bccf9c338e57be8fae830",
       "bytes": 1831
     },
-    "validation/metric_reconciliation.json": {
+    "validation/history/metric_reconciliation.json": {
       "sha256": "4be3e0c01b524b6c5cd904e962006c8243eede069e97281b4c7ce6638d7bf73e",
       "bytes": 924
     },
-    "validation/submission_materials_20261028.json": {
+    "validation/history/submission_materials_20261028.json": {
       "sha256": "584041e3ba8fa6f007ffa72eb3ba819f8e7cfea6c39253f050ee4a707b80e142",
       "bytes": 4117
+    },
+    "validation/submission_organization_20261030.json": {
+      "sha256": "11297dbf23934f23f56545c202d0b238c507ed42734684e28b2068959975537a",
+      "bytes": 3794
     }
   }
 }

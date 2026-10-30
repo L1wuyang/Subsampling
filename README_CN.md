@@ -2,7 +2,9 @@
 
 **论文配套代码与实验材料** · [English](README.md)
 
-本仓库配套 Junchen Li、Ying-Ao Wang 和 Ye Zhang 的上述论文，提供实验 I—V 的实现、I—IV 的仿真输入和逐次指标，以及 V 的保存指标与统计分析材料。实现采用论文中的实际递推与固定网格四阶 Runge–Kutta（RK4）计算，并使用匹配的完整数据目标、导数、抽样概率和随机种子。
+本仓库配套 Junchen Li、Ying-Ao Wang 和 Ye Zhang 的上述论文，提供实验 I—V 的实现、I—IV 的仿真输入和逐次指标，以及 V 的保存指标、经验报告和尾部诊断。实现采用论文中的实际递推与固定网格四阶 Runge–Kutta（RK4）计算，并使用匹配的完整数据目标、导数、抽样概率和随机种子。
+
+核验某项论文结果，请先看**[论文图表对照表](docs/PAPER_RESULTS_CN.md)**；了解已有检查的范围，请看**[验证记录说明](validation/README.md)**。实验 V 当前报告有限重复抽样的经验均值，不据此确立完整条件 MSE 排序。
 
 ## 实验与文件对应
 
@@ -36,14 +38,17 @@ python run.py simulation-data verify --experiment all
 python run.py simulation-data summarize --experiment all --output runs/reported_simulations
 ```
 
+该命令生成保存记录的便捷汇总和图形，并不直接生成全部论文排版图。[图表对照表](docs/PAPER_RESULTS_CN.md)逐项说明数据选择及所需的额外步骤。
+
 复现 V 当前的经验汇总及两张不含均值置信区间的论文目标误差图：
 
 ```text
 python -B evidence/experiment5/empirical.py --output runs/reported_v
 python -B evidence/experiment5/tail_diagnostics/verify_witnesses.py
+python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 ```
 
-上述命令分析随仓库提供的实验记录。可用 `--experiment 1` 至 `4` 单独选择仿真实验；每次使用新的输出目录。V 报告有限重复抽样的经验均值，不能据此推断完整条件 MSE 排序。[尾部诊断说明](evidence/experiment5/tail_diagnostics/README.md)提供轻量见证核验和独立的输入重建流程。原单侧及后续双侧/Holm 分析保留为历史证据，可通过 `evidence/experiment5/reanalyze.py` 复算，不再作为 V 当前总体 MSE 排序的推断依据。
+上述命令分析随仓库提供的实验记录。可用 `--experiment 1` 至 `4` 单独选择仿真实验；每次使用新的输出目录。V 使用 12,720 条保存指标和包含 276 个点的目标图参考。[尾部诊断说明](evidence/experiment5/tail_diagnostics/README.md)提供轻量见证与稳定性核验，以及独立的输入重建流程。
 
 ## 重新运行实验
 
@@ -73,6 +78,8 @@ python run.py analyze --experiment 5 --results runs/formal_v --output runs/forma
 
 ## 文档与来源记录
 
+- [论文图表：输入、命令与输出对照](docs/PAPER_RESULTS_CN.md)
+- [当前及历史验证记录](validation/README.md)
 - [仿真数据、指标定义和统计解释](docs/SIMULATION_DATA_CN.md)
 - [实验 V 经验结果、尾部诊断与历史分析](evidence/experiment5/README_CN.md)
 - [真实数据官方获取渠道](docs/DATA_SOURCES_CN.md)
@@ -81,3 +88,7 @@ python run.py analyze --experiment 5 --results runs/formal_v --output runs/forma
 - [仓库维护及冻结源码记录](docs/MAINTENANCE.md)
 
 `MANIFEST.json` 记录发布文件及其校验和；`simulations/manifest.json` 描述 I—IV 数据；`provenance/` 记录固定输入及源码来源。内部目录和模块名中的历史日期用于识别保存的计算记录。引用某次结果所用材料时，请记录准确的 Git 提交。
+
+## 历史分析
+
+V 的原单侧检验及后续双侧/Holm 分析单独保留为历史证据；其定义、命令和限制见[历史分析说明](docs/HISTORICAL_ANALYSES_CN.md)。这些分析不作为当前 V 报告的推断依据。早期验收记录以原始字节保存在 `validation/history/`。
