@@ -13,8 +13,8 @@
   "experiment5_metric_rows": 12720,
   "experiment5_evidence_manifest": "evidence/experiment5_stable/PROVENANCE.json",
   "simulation_data_manifest": "simulations/manifest.json",
-  "file_count": 403,
-  "bytes": 20372653,
+  "file_count": 404,
+  "bytes": 20377775,
   "files": {
     ".gitattributes": {
       "sha256": "c5ab86920c794081b11caa06eeaa060d31d193062feb2cc02d94c406cb60d518",
@@ -1609,8 +1609,8 @@
       "bytes": 12111
     },
     "validation/README.md": {
-      "sha256": "efb3e40f9163050a9dbadad4eb6ccf2ec50eb53856189931eb2873541e873eee",
-      "bytes": 4440
+      "sha256": "1318a58c6fcd48f672f6cc5a1a09925770318924f1fc9d4ae1620ec8313e43e6",
+      "bytes": 4627
     },
     "validation/current_empirical_release_20261030.json": {
       "sha256": "5f04fb79aa5f2d24b6a7ff278015c4a7f8ebae89c0507facdd429e173c57d130",
@@ -1627,6 +1627,10 @@
     "validation/latest_saved_record_checks_20261101.json": {
       "sha256": "c4e046dd4b5e7571c913a171557eb38423941bb4f3716682545b5542324008c2",
       "bytes": 1620
+    },
+    "validation/reported_results_checks_20261101.json": {
+      "sha256": "3a8d0351eed000b8792dd4cb64df945d11cbb6e874fe37fa37c676e3b1266feb",
+      "bytes": 4935
     }
   },
   "version": "v2026.10.30.2",

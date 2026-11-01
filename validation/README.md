@@ -1,5 +1,7 @@
 # Validation records for the reported experiments
 
+[November 1 reported-results checks](reported_results_checks_20261101.json) record the saved-metric reanalysis, evidence hashes, six figure assets and exact scope of the current checks.
+
 ## GDSC Ridge comparison
 
 The GDSC comparison executes 180 new direct Ridge solves. It preserves all 720 previous GDSC Ridge records. `Experiments/experiment5_gdsc_liniu_20261101/analyze.py` separately verifies 900 records, 30 summaries, six paired intervals, and (with original inputs) all 180 newly saved states without further solves. The evidence is `evidence/gdsc_ridge_liniu/`; the 78/78 ranking excludes this fifth rule. All new intervals are pointwise Monte Carlo intervals conditional on one fixed dataset.
