@@ -71,7 +71,7 @@ python -B tools/make_review_paper_figures.py --evidence-root evidence --output r
 | G.1 `tab:v7_robustness` | T3 `robustness_summary.csv` 选 `budget=19200`；按方向/方法查看 `median,minimum,maximum`。 | C0/C3；每组为 20 个数据集的比值。最小—最大是观察范围，不是置信区间。 |
 | G.2 `tab:v7_decomposition` | T3 `endpoint_decomposition.csv`，`budget=38400,arm=main,data_id=1`；`ratio,linear_ratio,remainder_ratio,cross_ratio`。 | C0/C3；检查总量=线性+余项+带符号交叉项，每项基于 500 次抽样。 |
 | H.1 `tab:exp4_endpoints` | T4 `endpoint_comparison.csv` 的 `at_1200,at_38400,endpoint_ratio`。 | C0/C3；用 T4 `gap_summary.csv` 的 `arm=main,data_id=1` 交叉核对。保留 Nesterov 的分辨率限定。 |
-| H.2 `tab:exp4_replay` | `simulations/experiment4/metadata/verification.json` 的 `dense_native_replays`，选 `budget=38400`；`relative_coefficient_difference,replay_change_over_gap`。 | C0 后查看 JSON：10 行保存结果，5 种方法×2 个方向，第 0 次重复。`diagnostics/resolution_report.json` 另记录两项 Nesterov 警告。当前根目录 IV 诊断仅回放选定 Nesterov 配置，不能冒充完整十行表重建。 |
+| H.2 `tab:exp4_replay` | `simulations/experiment4/metadata/verification.json` 的 `dense_native_replays`，选 `budget=38400`；`relative_coefficient_difference,replay_change_over_gap`。 | C0 后查看 JSON：10 行保存结果，5 种方法×2 个方向，第 0 次重复。`diagnostics/resolution_report.json` 另记录两项 Nesterov 警告。当前根目录 IV 诊断仅回放选定 Nesterov 配置，其核验范围限于所选配置，完整十行表需使用对应的保存记录。 |
 | H.3 `tab:exp4_tails` | T4 `gap_summary.csv`，`arm=tails,budget=60`；`mean,median,maximum,top_one_percent_share`。 | C0/C3；6 组、每组 1,000 次抽样。最后一列是 0–1 的份额，不是次数，也不是已乘 100 的百分数。 |
 
 旧V见证及Holm分析保留在 `evidence/experiment5/`，其数值与旧步长不用于新图表。复算标量不恢复全部轨迹数组，不建立新数据独立确认或端到端加速结论。

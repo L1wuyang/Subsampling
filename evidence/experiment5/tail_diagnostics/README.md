@@ -1,4 +1,4 @@
-> Historical V evidence from v2026.10.30.2. The local November 1 draft uses [the new full-support stable evidence](../../experiment5_stable/README.md). Original scalar witnesses and Holm analyses here are preserved for provenance.
+> Historical Experiment V evidence from v2026.10.30.2. The manuscript reports [the full-support stable results](../../experiment5_stable/README.md). The scalar witnesses and Holm analyses here document the historical protocol.
 
 # Experiment V: portable tail diagnostics
 

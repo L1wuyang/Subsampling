@@ -10,7 +10,7 @@
 python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root evidence/gdsc_ridge_liniu --stable-root evidence/experiment5_stable --report runs/gdsc_ln_scalar_check.json
 ```
 
-若有原始预处理输入，在命令末尾追加 `--input-root /path/to/historical-experiment5/inputs`，会逐个检查保存的新状态、随机数、抽样计数、显式系数误差及预测误差。本次草稿已实际完成两种复核。
+若有原始预处理输入，在命令末尾追加 `--input-root /path/to/historical-experiment5/inputs`，会逐个检查保存的新状态、随机数、抽样计数、显式系数误差及预测误差。随附核验回执记录了标量汇总与全部 180 个保存状态的检查结果。
 
 ## 完整复现新增抽样
 

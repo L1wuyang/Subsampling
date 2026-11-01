@@ -8,8 +8,8 @@ At N=2996 LN_floor/OPT mean errors are 0.02879534/0.02857425, a 0.768% lower obs
 
 The probability total-variation distance is 0.03119715; the deterministic complete-coefficient first-order criterion decreases by 0.646970% under OPT. This case does not demonstrate a clear empirical finite-budget improvement over LN_floor. The original 78/78 statement applies only to UNI/NORM/LEV/OPT, excluding this new rule.
 
-All 180 new states pass explicit-coefficient, Gram and QR-coordinate checks; normalized solve residuals are at most 5.35e-17. A separate analysis recomputes 30 summary cells and six paired intervals, preserves all 720 baseline records, and verifies all 180 new states with original inputs. Prediction outcomes are secondary and the previously explored test split is descriptive. No additional tuning or cost experiment was performed. New results remain local and unpublished.
+All 180 new states pass explicit-coefficient, Gram and QR-coordinate checks; normalized solve residuals are at most 5.35e-17. A separate analysis recomputes 30 summary cells and six paired intervals, preserves all 720 baseline records, and verifies all 180 new states with original inputs. Prediction outcomes are secondary and the previously explored test split is descriptive. No additional tuning or cost experiment was performed.
 
 See paired_comparisons.csv for every budget, summary.csv for all five rules, comparison_metrics.csv for all 900 records, and independent_validation.json for the verification scope.
 
-[中文说明](README_CN.md) · [Reproduction](../../Experiments/experiment5_gdsc_liniu_20261101/README_CN.md)
+[中文说明](README_CN.md) · [Reproduction](../../../Experiments/experiment5_gdsc_liniu_20261101/README_CN.md)

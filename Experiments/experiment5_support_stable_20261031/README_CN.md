@@ -1,17 +1,36 @@
-# 实验 V 全抽样支持稳定版（2026-10-31）
+# 实验五：全支撑稳定的真实数据比较
 
-独立的新科学协议，见 `protocol.json`。不修改原 2026-10-25 冻结源码/协议或旧结果。
+协议 `experiment-V-support-stable-20261031-v1` 比较 GDSC 和 YearPredictionMSD 上六种回归方法的 UNI、NORM、LEV、OPT 抽样规则。完整结果见[保存证据](../../evidence/experiment5_stable/README_CN.md)。
 
-Landweber、Showalter–RK4、Nesterov 采用每套数据共同的候选支持谱界，重算完整目标、原生离散导数和 OPT，全部通过支持门禁后才释放新的随机抽样。UNI/NORM/LEV/OPT 定义、数据划分、历史 c、预算和重复数均保留。所有规定迭代和 RK4 阶段实际执行；独立输出坐标块并行复用冻结原生内核，未使用谱公式、矩阵幂或提前停止。
+## 数值流程
 
-Ridge/HBF/SOAR 的参数不变，复用经 SHA-256 验证的历史完整目标、常数和概率。正式抽样仍对全部六方法重新执行，种子为 202610310501。总计 530 个预算—重复任务、12,720 条方法—规则指标。
+Landweber、Showalter–RK4、Nesterov 对每套数据采用共同的候选谱界，重新计算完整数据数值目标、原生离散导数和 OPT 概率。正式抽样前扫描最终概率向量覆盖的全部原子，检查全支撑谱界及对应步长条件。检查失败时程序停止；扩大尺度后的计算使用新的尝试目录。
 
-本地运行：
+Ridge、HBF、SOAR 使用经 SHA-256 核验的完整目标和概率，并分别采用直接正定求解或各自的全支撑稳定条件。六种方法均使用种子 202610310501 的共同随机数重新抽样。GDSC 的 6 个预算各重复 30 次，Year 的 7 个预算各重复 50 次，共 530 个配对抽样任务、12,720 条指标。48 项全支撑检查均通过。
+
+所有迭代和 RK4 阶段按照规定网格执行。独立输出坐标块调用相同的原生伴随内核，数值目标、算法导数和抽样概率均在正式抽样前固定。方法、概率、参数和检查公式见 `protocol.json` 及[证据说明](../../evidence/experiment5_stable/README_CN.md)。
+
+## 复核保存结果
+
+在仓库根目录执行：
 
 ```text
-D:\anaconda1\python.exe -B -X utf8 run_stable.py --historical-root D:/desk/learning/Subsampling/Manuscript/Experiments/experiment5_native_realdata_20261025 --output D:/desk/learning/Subsampling/Manuscript/Workspace/changes/experiment_v_stable_rerun_20261031/formal_01 --workers 8
+python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stable_v_saved
 ```
 
-输出上一级需要先有 `pilot.json` 原生分块伴随与独立密集递推/切线验证。当前本机已完成六种数据—方法组合的检查。输入必须具有原始历史数据和目标清单，轻量复核数据包本身不包含这些完整数组。恢复时只复用已有坐标块和完整抽样任务；科学源码哈希不同将拒绝恢复。日志和输出全部在仓库外工作台。
+该命令核验来源哈希并重新汇总标量结果。`support_gate.json` 保存全支撑证书；`independent_validation.json` 保存原运行的状态核验。逐次指标中的 `step_bound_observed` 是完整矩阵尺度下的 Cholesky 诊断，与全支撑证书分别记录。
 
-进度看输出目录 `status.json`；新支持稳定性证据看 `support_gate.json`，正式结果看最终 `results.json`、`summary.csv`、`metrics.csv`。新门禁覆盖全部可能抽样谱；逐次指标中的 `step_bound_observed` 仍是冻结历史抽样器对完整数据尺度的 Cholesky 诊断，不能替代新门禁。通过稳定性检查不等于证明有限预算完整 MSE 排序。
+## 完整复现
+
+需要官方真实数据、按既定流程生成的预处理 `inputs/`，以及 `experiment5_native_realdata_20261025` 的完整目标与数组。公开的紧凑 review-data 包提供保存指标复核所需材料，不包含这些完整数组。数据来源见[真实数据说明](../../docs/DATA_SOURCES_CN.md)。
+
+在仓库根目录执行，并为本次计算指定新目录：
+
+```text
+python -B Experiments/experiment5_support_stable_20261031/pilot.py --output runs/stable_v/pilot.json
+python -B Experiments/experiment5_support_stable_20261031/run_stable.py --historical-root /path/to/experiment5_native_realdata_20261025 --output runs/stable_v/formal_01 --workers 8
+```
+
+pilot 核对两套数据方向、三种方法的坐标分块伴随、密集递推及切线。完整运行验证输入和来源哈希，计算并冻结全部目标及概率，通过全支撑检查后进行正式抽样；进度和最终汇总分别写入 `status.json`、`results.json`、`summary.csv` 和 `metrics.csv`。
+
+在原四规则中，OPT 在 78/78 个数据集—方法—预算组合的观测均值最低。该排序描述有限次重复的结果；全支撑稳定性本身不证明每个有限预算下完整条件 MSE 的排序。

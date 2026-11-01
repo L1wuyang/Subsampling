@@ -25,9 +25,9 @@ python -m pip install -r requirements-lock.txt
 python run.py verify
 ```
 
-根清单检查代码与紧凑证据；`provenance/frozen_scientific_sources.json` 保留 54 份冻结科学来源哈希和 III/IV pilot 门禁。原验证回执描述原检查，读取回执不等于重复状态数组校验。
+根清单检查代码与紧凑证据；`provenance/frozen_scientific_sources.json` 保留 54 份冻结科学来源哈希和 III/IV pilot 门禁。原始状态数组检查由随附独立核验回执记录。
 
-## 不重跑轨迹复算最新结果
+## 复核保存结果
 
 两项分析无需真实原始数据或旧 240 MB 包，每次指定新的输出目录：
 
@@ -36,7 +36,7 @@ python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stab
 python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_liniu_saved
 ```
 
-检查来源 SHA-256，重新计算全部标量均值、相应区间与校准、唯一 Ridge 主比较并输出便捷 PDF/PNG 图。数值轨迹执行次数为零，不冒充重新完成原独立状态校验。完整未裁剪指标、协议、门禁与原回执已保存，前两项的轨迹数组及官方原始数据不包含在紧凑包中；本次GDSC–LN新增的180个状态、随机数和计数随证据保存，可按独立入口核验。
+检查来源 SHA-256，重新计算全部标量均值、相应区间与校准、唯一 Ridge 主比较并输出便捷 PDF/PNG 图。该分析核验保存的标量指标；原始状态数组检查见独立核验回执。完整未裁剪指标、协议、门禁与原回执已保存，前两项的轨迹数组及官方原始数据不包含在紧凑包中；本次GDSC–LN新增的180个状态、随机数和计数随证据保存，可按独立入口核验。
 
 最终论文六幅图的精确副本位于 `evidence/paper_figures_20261101/`。按期刊版式重绘：
 
@@ -72,9 +72,9 @@ I—IV 继续使用根 CLI 的 `preflight`、`smoke`、`formal` 与 `analyze`（
 
 根清单覆盖代码与报告所用紧凑指标；review-data 描述与 VERSION 保留旧基线，新科学改动以独立协议版本标识，不改旧冻结哈希。原记录保留历史路径，PROVENANCE.json 固定复制文件哈希；三个实验以各自协议版本及证据目录中的来源哈希定位。
 
-## GDSC Ridge Li-Niu addendum / 实验五新增对照
+## 核验 GDSC Ridge 对照
 
-[Results / 结果](evidence/gdsc_ridge_liniu/README.md) · [运行与状态核验](Experiments/experiment5_gdsc_liniu_20261101/README_CN.md)
+[结果](evidence/gdsc_ridge_liniu/README_CN.md) · [运行与状态核验](Experiments/experiment5_gdsc_liniu_20261101/README_CN.md)
 
 ```text
 python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root evidence/gdsc_ridge_liniu --stable-root evidence/experiment5_stable --report runs/gdsc_ln_check.json

@@ -4,7 +4,7 @@
 
 **Results update: November 1, 2026.** Includes full-support stable Experiment V, the simulated Ridge score comparison and the GDSC Ridge Li-Niu comparison, with versioned implementations and saved evidence. [VERSION](VERSION) and release `v2026.10.30.2` identify the unchanged earlier code/review-data archive; the three updated studies are bundled in the current repository. [Update notes](docs/RESULTS_UPDATE_20261101.md) - [Paper result map](docs/PAPER_RESULTS.md)
 
-This repository accompanies the manuscript by Junchen Li, Ying-Ao Wang and Ye Zhang. Experiments I-IV retain their frozen scientific sources and existing published inputs/results. The results update real-data Experiment V with a full-support stable protocol and adds a Ridge column-score ablation. Iterative methods continue to use the actual recurrences and fixed-grid RK4 maps with their matching full-data numerical targets and algorithmic influences.
+This repository accompanies the manuscript by Junchen Li, Ying-Ao Wang and Ye Zhang. Experiments I-IV retain their frozen scientific sources and existing published inputs/results. Experiment V uses a full-support stable protocol, with additional Ridge column-score comparisons on simulated and real data. Iterative methods continue to use the actual recurrences and fixed-grid RK4 maps with their matching full-data numerical targets and algorithmic influences.
 
 ## Reported results
 
@@ -25,7 +25,7 @@ python -m pip install -r requirements-lock.txt
 python run.py verify
 ```
 
-The root manifest checks the source and compact evidence. The unchanged `provenance/frozen_scientific_sources.json` anchors 54 historical scientific sources, including III/IV pilot gates. The original validation receipts retain their exact scope; reading a saved receipt does not repeat state-array validation.
+The root manifest checks the source and compact evidence. The unchanged `provenance/frozen_scientific_sources.json` anchors 54 historical scientific sources, including III/IV pilot gates.
 
 ## Recompute the latest results without trajectories
 
@@ -36,7 +36,7 @@ python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stab
 python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_liniu_saved
 ```
 
-These commands verify bundled-source SHA-256 values, recompute all saved scalar means and relevant intervals, check the unique Ridge primary comparison and export PDF/PNG curves. They execute zero numerical trajectories and do not repeat the original state-based independent checks. The full untrimmed metrics, original gates and original validation receipts are bundled with their provenance. The earlier two studies' trajectory arrays and official raw real data are not bundled. The new GDSC-LN addendum includes its 180 new states, uniforms and counts; see its separate verification command below.
+These commands verify bundled-source SHA-256 values, recompute all saved scalar means and relevant intervals, check the unique Ridge primary comparison and export PDF/PNG curves. They operate on saved scalar metrics; state-based checks are recorded in the original independent validation receipts. The full untrimmed metrics, original gates and original validation receipts are bundled with their provenance. The earlier two studies' trajectory arrays and official raw real data are not bundled. The new GDSC-LN addendum includes its 180 new states, uniforms and counts; see its separate verification command below.
 
 ## Earlier Experiments I-IV and historical V
 
@@ -77,9 +77,9 @@ The root `formal --experiment 5` command still implements the earlier frozen V p
 
 The saved-metric plotting tool exports convenience layouts, rather than asserting identity with the journal artwork. Final manuscript figure assets are matched separately in the paper result map.
 
-## GDSC Ridge Li-Niu addendum / 实验五新增对照
+## Verify the GDSC Ridge comparison
 
-[Results / 结果](evidence/gdsc_ridge_liniu/README.md) · [运行与状态核验](Experiments/experiment5_gdsc_liniu_20261101/README_CN.md)
+[Results](evidence/gdsc_ridge_liniu/README.md) · [Reproduction and saved-state verification](Experiments/experiment5_gdsc_liniu_20261101/README_CN.md)
 
 ```text
 python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root evidence/gdsc_ridge_liniu --stable-root evidence/experiment5_stable --report runs/gdsc_ln_check.json

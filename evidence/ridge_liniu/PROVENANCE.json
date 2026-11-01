@@ -1,5 +1,5 @@
 {
-  "scope": "local review draft; not published",
+  "scope": "Evidence for the reported Ridge column-score comparison",
   "collected_date": "2026-11-01",
   "original_output_directory": "D:\\desk\\learning\\Subsampling\\Manuscript\\Workspace\\changes\\ridge_liniu_ablation_20261101\\formal_01",
   "source_baseline_commit": "8859ce1be0396225e047122aa4ee0acccf76db2d",
@@ -53,8 +53,8 @@
       "bytes": 727
     },
     "RESULTS.md": {
-      "sha256": "2d983d05ef47675af173cf6b2d54f9f474e0af93b1d9b164cfc8918e282db1d1",
-      "bytes": 1145
+      "sha256": "6e3b33c0cd202ad7c23f1506531f0d0e94e74a0450533d3e8a66647031eee3e7",
+      "bytes": 1134
     },
     "score_diagnostics.csv": {
       "sha256": "f1a07fbee79c78a8a58d5daef2383d7fae0539e8d89d4ee95d74a7d1bfde2606",
@@ -82,5 +82,12 @@
     }
   },
   "bundled_scope": "complete scalar metric records, summary tables, protocol, gate and original validation records; no trajectory arrays",
-  "original_validation_scope": "Original independent validation was completed using saved arrays at the source path. Saved-metric analysis here checks scalar records only."
+  "original_validation_scope": "Original independent validation was completed using saved arrays at the source path. Saved-metric analysis here checks scalar records only.",
+  "submission_documentation_revision": {
+    "date": "2026-11-01",
+    "files": [
+      "RESULTS.md"
+    ],
+    "scope": "Editorial wording and relative links; numerical records and execution sources unchanged"
+  }
 }

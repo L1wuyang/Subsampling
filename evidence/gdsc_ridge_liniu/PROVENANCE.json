@@ -1,5 +1,5 @@
 {
-  "scope": "local review draft; unpublished GDSC Ridge addendum",
+  "scope": "Evidence for the reported GDSC Ridge Li-Niu score comparison",
   "original_output_directory": "D:\\desk\\learning\\Subsampling\\Manuscript\\Workspace\\changes\\experiment_v_gdsc_liniu_20261101\\formal_01",
   "scientific_protocol": "experiment-V-GDSC-ridge-LN-floor-20261101-v1",
   "new_records": 180,
@@ -838,42 +838,56 @@
       "bytes": 4942
     },
     "original_documentation/README.md": {
-      "sha256": "5122e3bd7b1a961ab85eb40baf420e60bf9ff23ef18a61d5b10c36a3bb019e04",
-      "bytes": 2153
+      "sha256": "98bc3de8d6174d44be06a66df2f472233b66e8f9a8ed6478b02b54acf7c8ab23",
+      "bytes": 2114
     },
     "original_documentation/README_CN.md": {
-      "sha256": "355e7f1c22654d44de5f13f6ba99b9aa42af124972acadb1d6d416c169030a4b",
-      "bytes": 3052
+      "sha256": "b89078bd7c577f8332589dc51a436e0171dabdcffa152cb0312cfa78a6736380",
+      "bytes": 3058
     },
     "original_documentation/RESULTS.md": {
-      "sha256": "89b8daf10f2557a49764261af7ad7f804abcab28f9044a7a0f87f81a54adcc5a",
-      "bytes": 2041
+      "sha256": "ced1ab620d861cf01a6ad8783336a8b3d4d3eec8adea7f6118d7fe84b13f29df",
+      "bytes": 1999
     },
     "original_documentation/RESULTS_CN.md": {
-      "sha256": "f9a34df8070b4a582e17b4bf6c440bfea140f173a8f96d45b94fee3c29d3f707",
-      "bytes": 2940
+      "sha256": "1aaec17ce14ea46047a9518d2e4e2f0cc5d151dc6067e56f573cbf6dc5395324",
+      "bytes": 2943
     }
   },
   "documentation_publication_history": {
     "README.md": {
       "original_path": "original_documentation/README.md",
       "original_sha256": "5122e3bd7b1a961ab85eb40baf420e60bf9ff23ef18a61d5b10c36a3bb019e04",
-      "reason": "Update collection-time local/unpublished status for repository publication; scientific results unchanged"
+      "reason": "Submission documentation updated; numerical results unchanged",
+      "original_commit": "e761b30b6a1db4a1fe43b104ba82109814c297a3"
     },
     "README_CN.md": {
       "original_path": "original_documentation/README_CN.md",
       "original_sha256": "355e7f1c22654d44de5f13f6ba99b9aa42af124972acadb1d6d416c169030a4b",
-      "reason": "Update collection-time local/unpublished status for repository publication; scientific results unchanged"
+      "reason": "Submission documentation updated; numerical results unchanged",
+      "original_commit": "e761b30b6a1db4a1fe43b104ba82109814c297a3"
     },
     "RESULTS.md": {
       "original_path": "original_documentation/RESULTS.md",
       "original_sha256": "89b8daf10f2557a49764261af7ad7f804abcab28f9044a7a0f87f81a54adcc5a",
-      "reason": "Update collection-time local/unpublished status for repository publication; scientific results unchanged"
+      "reason": "Submission documentation updated; numerical results unchanged",
+      "original_commit": "e761b30b6a1db4a1fe43b104ba82109814c297a3"
     },
     "RESULTS_CN.md": {
       "original_path": "original_documentation/RESULTS_CN.md",
       "original_sha256": "f9a34df8070b4a582e17b4bf6c440bfea140f173a8f96d45b94fee3c29d3f707",
-      "reason": "Update collection-time local/unpublished status for repository publication; scientific results unchanged"
+      "reason": "Submission documentation updated; numerical results unchanged",
+      "original_commit": "e761b30b6a1db4a1fe43b104ba82109814c297a3"
     }
+  },
+  "submission_documentation_revision": {
+    "date": "2026-11-01",
+    "files": [
+      "original_documentation/README.md",
+      "original_documentation/README_CN.md",
+      "original_documentation/RESULTS.md",
+      "original_documentation/RESULTS_CN.md"
+    ],
+    "scope": "Editorial wording and relative links; numerical records and execution sources unchanged"
   }
 }

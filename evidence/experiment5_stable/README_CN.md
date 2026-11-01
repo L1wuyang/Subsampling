@@ -14,7 +14,7 @@
 python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stable_v_saved
 ```
 
-输出汇总、两张正文目标误差图和核验回执；检查来源哈希及全部均值、标准误、预测 RMSE 和校准值。不会执行轨迹。`metrics.csv` 是完整标量记录，不包含全部状态数组；原 `independent_validation.json` 记录源目录中的独立状态校验，本命令不冒充重新完成该校验。完整目标参数与预测参考位于 `targets/<dataset>/<method>/summary.json`。
+输出汇总、两张正文目标误差图和核验回执；检查来源哈希及全部均值、标准误、预测 RMSE 和校准值。不会执行轨迹。`metrics.csv` 是完整标量记录，不包含全部状态数组；原 `independent_validation.json` 记录源目录中的独立状态校验，该状态校验与本命令的标量汇总核验分别记录。完整目标参数与预测参考位于 `targets/<dataset>/<method>/summary.json`。
 
 完整重跑说明见[版本化科研实现](../../Experiments/experiment5_support_stable_20261031/README_CN.md)，需要官方输入及历史完整数据数组，轻量公开数据包不足以单独重跑。原协议、门禁和验证保留原始字节；来源目录及逐文件哈希见 `PROVENANCE.json`。
 

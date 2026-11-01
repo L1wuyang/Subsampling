@@ -1,5 +1,5 @@
 {
-  "scope": "Local draft saved-metric verification; no numerical trajectories executed",
+  "scope": "Saved-metric verification of reported results; no numerical trajectories executed",
   "date": "2026-11-01",
   "stable_v": {
     "passed": true,
@@ -44,5 +44,5 @@
     "pdf_byte_identity_after_redraw_asserted": false
   },
   "original_state_array_validation_repeated": false,
-  "published": false
+  "included_in_companion_repository": true
 }

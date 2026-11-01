@@ -1,4 +1,4 @@
-"""Recompute the November 1 draft results from bundled metrics; no trajectories."""
+"""Recompute reported experimental summaries from bundled saved metrics."""
 from __future__ import annotations
 
 import argparse

@@ -1,42 +1,50 @@
 # Ridge 列抽样：Li–Niu 与完整系数影响分数对照
 
-独立协议 ridge-LN-floor-ablation-20261101-v1。用户授权先准备代码，稳定实验五完成后立即运行。此目录为科研实现及运行说明，不是实验知识笔记；不改变历史冻结来源、原实验 I 或正在运行的实验五。
+本实验比较 Li–Niu (2024) 公式 (2.10) 的列抽样分数与完整系数影响分数，考察系数恢复变换对抽样概率、一阶误差准则和有限预算误差的影响。协议为 `ridge-LN-floor-ablation-20261101-v1`，完整结果见[保存证据](../../evidence/ridge_liniu/README_CN.md)。
 
-## 固定比较与边界
+## 实验设计
 
-复用实验 I 全部 40 份主输入（n=60,p=1200），alpha=trace(H)/60；沿用 13 个预算、每预算 40 次抽样。另用新种子 202611010301，五规则共享同一组均匀随机数。共 520 个数据—预算任务、104,000 条指标。统计单位为每份数据的重复均值，唯一主比较是 N=150 时 FULL_OPT 减 LN_floor 的相对平方系数误差；双侧配对 t 检验和 95% t39 区间。其余曲线、基线及预算为描述性、逐点结果。该设计复用既有数据，不称独立数据确认。
+复用实验 I 的全部 40 份主输入，`n=60`、`p=1200`，固定 `alpha=trace(H)/60`，其中 `H=XX^T`。采用 13 个预算，每份数据、每个预算抽样 40 次。五条规则 UNI、NORM、LEV、LN_floor、FULL_OPT 共享均匀随机数，抽样种子为 202611010301；不同数据集和预算使用独立随机流。共完成 520 个数据集—预算任务、104,000 条指标。
 
-Li–Niu 分数为 abs(beta_j)*norm(a_j)。完整分数为 abs(beta_j)*norm(X.T K a_j)，K=(H+alpha I)^-1。两者采用共同下界 epsilon/p、epsilon=.01，按 max(epsilon/p,tau*score) 精确分配，所以称 LN_floor；它是受约束版本，不冒充未改动的原文算法。NORM/LEV 沿用 .99*normalized_score+.01/p。全部分数为零时退回均匀分布。
+令 `K=(H+alpha I)^(-1)`、`beta=X^T K y`，`a_j` 为第 j 列。两种目标相关分数为：
 
-所有规则解同一列草图岭方程，并使用完整 X.T 恢复系数。没有迭代步长、外层加速、NOPL 或预抽样近似。FULL 在自身一阶准则的最小性只作确定性核对；正式评价看全部有限预算误差、校准与尾部。保留持平、反转、极端值和失败，不以 FULL 胜出或显著性作为接受条件，不声明端到端加速。
+```text
+s_LN[j]   = abs(beta[j]) * norm(a_j)
+s_FULL[j] = abs(beta[j]) * norm(X^T K a_j)
+```
 
-## 实现和轻量准备
+LN_floor 和 FULL_OPT 使用相同的概率约束 `pi[j]>=0.01/p`，精确分配为 `pi[j]=max(0.01/p,tau*s[j])`，其中 tau 使概率和为一；全零分数使用均匀分布。NORM、LEV 采用 0.01 的均匀混合。各规则均进行有放回加权列抽样，求解同一个草图 Ridge 方程，并以完整 `X^T` 恢复系数。评价指标为相对共同完整 Ridge 目标的平方系数误差。
 
-- core.py：解析影响、分数、概率、完整系数恢复、加权重复抽样和检查点。
-- pilot.py：所有列的有限差分导数、原冻结 Ridge 实现对照、KKT/零分数、各向同性等价、重复权重、门禁、损坏检测和 270 条合成数据端到端流程。
-- run_experiment.py prepare：校验受发布描述符锚定的原输入和协议；对全部 40 份数据构造目标和概率，保存诊断，冻结全部源码及状态；不执行正式抽样。
-- run_experiment.py run：前置实验门禁与 pilot 必须通过；按冻结源码运行，分任务落盘并校验后续复用。
-- analyze.py：从原始输出状态独立重算二次型误差，核验随机流/完整格点/哈希，保留全部记录；生成曲线、尾部、数据集均值和唯一主比较。
-- queue_after_v.py：只等待完成文件，30 秒轮询；前置门禁开后立即释放一次正式计算，默认 2 个进程，每个 BLAS 单线程；生成人类可读的实时页面。
+唯一预设主比较为 `N=150` 的 FULL_OPT 减 LN_floor。先在每份数据内平均 40 次配对抽样，再以 40 个数据集均值进行双侧配对 t 检验及 t39 的 95% 区间估计。其他预算和规则的结果为描述性比较，曲线区间为逐点区间。
 
-典型调用（路径由命令行显式给出，输出目录放仓库之外）：
+## 结果与解释
 
-    python -B -X utf8 pilot.py --repo CODE_ROOT --output WORK/pilot_01
-    python -B -X utf8 run_experiment.py prepare --repo CODE_ROOT --output WORK/prepared
-    python -B -X utf8 queue_after_v.py --prepared WORK/prepared --root WORK --predecessor STABLE_V/formal_01 --pilot WORK/pilot_01/pilot.json
+主比较差值为 -0.0003228063，95% CI 为 [-0.0009423789, 0.0002967663]，双侧 p=0.298436，未检出显著差异。LN_floor 与 FULL_OPT 的概率总变差距离均值为 0.002990，完整一阶系数准则的平均改善为 0.006058%。全部预算、反转及尾部结果见 `evidence/ridge_liniu/`。
 
-准备和 pilot 都完成后，只有精确相同源码的 pilot 才能放行。等待中若修改源码，队列会在释放前拒绝运行；应另建准备/pilot 版本，不能悄改冻结回执。已有准备目录拒绝覆盖。队列与运行各有独占锁，重复启动会拒绝；异常退出留下锁时，应先确认原进程已退出后再处理，禁止启动重复计算。
+本实验使用完整数据目标构造精确分数，评价的是共同概率下界下的 oracle 分数；Li–Niu 的 NOPL 近似和外层迭代不在此比较范围内。复用输入的设计用于分数消融。指定一阶准则的最小化与有限预算经验误差分别报告。
 
-## 实验五完成门禁
+## 复核保存结果
 
-必须是 experiment-V-support-stable-20261031-v1：status/results 标明完成且 12,720 条记录；support_gate 通过；independent_validation 通过且为 530 个任务；RESULTS.md、新旧对照 CSV、目标变化 CSV 和新旧图已生成。目标分块结束不足以开门，普通进程退出也不足以开门。门禁完全不检查 OPT 排名。缺文件、失败或未核验时始终等待，不改实验五进程或结果。
+在仓库根目录执行：
 
-## 输出
+```text
+python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_liniu_saved
+```
 
-准备目录：seal.json、source_snapshot、states、score_diagnostics.csv、input_hashes.json。
+该命令检查证据哈希，重新汇总全部指标、逐点区间和主比较，并生成图表。原始运行的状态数组核验见 `evidence/ridge_liniu/independent_validation.json`。
 
-正式目录：tasks 下每个数据—预算的 CSV、状态 NPZ、哈希完成标志；metrics.csv、dataset_means.csv、summary.csv、tails.csv、primary_comparison.json、primary_dataset_differences.csv、score_diagnostics.csv、comparison.png/svg、RESULTS.md、independent_validation.json、execution.json。
+## 完整复现
 
-曲线使用对数坐标；95% 逐点 t 区间下端点非正时省略该区间并在图上注明，summary.csv 始终保留未经修改的端点。不得用接近零的正数替代负端点并拉伸坐标。
+先按[数据说明](../../docs/SIMULATION_DATA_CN.md)安装 review-data 数据包，恢复实验 I 的 40 份原始输入。以下命令均在仓库根目录执行，输出使用新目录：
 
-任务保存共同均匀随机数和全部五规则输出，可重建抽样索引；续跑只复用身份和文件哈希匹配的完整任务。出现失败时保存失败记录和状态，不生成仅成功样本的结论。中途非完整任务可在人工恢复同一冻结运行后重算。正式输出只在独立核验完成后标为 completed。
+```text
+python -B Experiments/ridge_liniu_ablation_20261101/pilot.py --repo . --output runs/ridge_ln/pilot
+python -B Experiments/ridge_liniu_ablation_20261101/run_experiment.py prepare --repo . --output runs/ridge_ln/prepared
+python -B Experiments/ridge_liniu_ablation_20261101/run_experiment.py run --prepared runs/ridge_ln/prepared --output runs/ridge_ln/formal --predecessor /path/to/stable-v/formal_01 --pilot runs/ridge_ln/pilot/pilot.json --workers 2
+```
+
+该版本运行入口要求提供已完成稳定实验五的协议、完成状态和核验回执。这项运行顺序检查不参与分数构造、参数选择或统计检验，也不检查 OPT 排名。`queue_after_v.py` 提供相同入口的等待启动方式。
+
+`prepare` 核对原输入与协议，保存全部目标、概率及源码快照；pilot 核对解析导数、概率约束、重复抽样权重和完整系数恢复。正式任务保存共同随机数、全部五条规则的状态及指标，完成任务仅在身份和哈希一致时复用。独立分析器 `analyze.py` 从保存状态重新计算误差并核验完整任务网格。
+
+`summary.csv` 保留全部原始区间端点。对数图省略下端点非正的区间，并在图中标明；所有原始误差和尾部记录均保留。

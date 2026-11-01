@@ -1,4 +1,4 @@
-> 此目录为旧版历史 V 证据。2026-11-01 草稿使用[全支持稳定结果](../experiment5_stable/README_CN.md)；旧见证与 Holm 分析保留用于溯源。
+> 本目录保存历史实验五的证据；当前稿件采用[全支撑稳定结果](../experiment5_stable/README_CN.md)。历史见证与 Holm 分析用于来源追溯。
 
 # 实验 V：经验结果与保存证据
 
