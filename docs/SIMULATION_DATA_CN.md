@@ -1,3 +1,5 @@
+> 本 I—IV 数据指南中的 V 引用指 v2026.10.30.2 历史结果。当前报告使用 evidence/experiment5_stable 与其独立协议源码；根 formal/analyze --experiment 5 仍是旧 V。新稳定 V 与 Ridge 对应见 PAPER_RESULTS_CN.md。
+
 # 实验 I—IV 仿真数据说明
 
 [English](SIMULATION_DATA.md) · [仓库使用说明](../README_CN.md)
@@ -11,7 +13,7 @@ python run.py review-data download
 python run.py review-data verify
 ```
 
-离线安装使用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`。下载与校验方式见[仓库说明](../README_CN.md#安装复核数据)。此次拆分只改变分发方式，原始输入、记录、表格与元数据的字节保持不变。
+离线安装使用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`。下载与校验方式见[仓库说明](../README_CN.md)。此次拆分只改变分发方式，原始输入、记录、表格与元数据的字节保持不变。
 
 ## 内容与数量
 
@@ -89,4 +91,6 @@ III/IV 的逐点 Monte Carlo 区间条件于指定完整数据和参数路径。
 
 新生成的完整运行目录继续使用 `formal` 或 `smoke`，再用 `analyze --results`。发布指标使用独立入口，是因为 III 的完整分析从状态向量计算偏差，IV 重放还需要状态和抽样计数。本补充提供已有表和诊断；完整重跑会生成这些流程所需的额外数值输出。
 
-完整状态、影响量和抽样计数由完整重跑生成。V 的原始数据获取方式见[数据来源说明](DATA_SOURCES_CN.md)；[V 保存指标流程](../evidence/experiment5/README_CN.md) 可直接使用安装后的复核数据记录复现当前经验汇总与图形。新运行的 V 默认 `analyze --experiment 5` 同样生成经验报告，历史均值检验需要另行明确调用。
+完整状态、影响量和抽样计数由完整重跑生成。V 的原始数据获取方式见[数据来源说明](DATA_SOURCES_CN.md)；[V 保存指标流程](../evidence/experiment5/README_CN.md) 可直接使用安装后的复核数据记录复现历史经验汇总与图形。新运行的 V 默认 `analyze --experiment 5` 同样生成经验报告，历史均值检验需要另行明确调用。
+
+当前报告的稳定 V 不由根 analyze --experiment 5 实现，使用独立 Experiments/experiment5_support_stable_20261031 与 evidence/experiment5_stable；其保存指标直接随仓库提供。

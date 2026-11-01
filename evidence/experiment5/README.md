@@ -1,3 +1,5 @@
+> Historical V evidence from v2026.10.30.2. The reported manuscript results use [the new full-support stable evidence](../experiment5_stable/README.md). Original scalar witnesses and Holm analyses here are preserved for provenance.
+
 # Experiment V: empirical results and saved evidence
 
 This directory supports the real-data results in *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. The current workflow reproduces empirical means, the two coefficient-target figures, and descriptive diagnostics from the saved GDSC and YearPredictionMSD records. These finite-repetition summaries do not establish the ordering of the full conditional MSE. Prediction comparisons are descriptive because the test sets had been explored previously.
@@ -49,3 +51,4 @@ Use the root `run.py` for obtaining official data and running or analyzing new e
 For a full run with `--output runs/formal_v`, Experiment V metrics are written under `runs/formal_v/exp5/formal/`. Analysis with `--output runs/formal_v_analysis` writes reports under `runs/formal_v_analysis/exp5/`. The saved-record commands above write directly to their specified output directories. The preserved historical script's original full-project paths are supplied by its archive wrapper and are not required for the current empirical workflow.
 
 [Chinese guide](README_CN.md) · [Repository reproduction guide](../../README.md)
+All root `run.py formal/analyze --experiment 5` commands in this historical guide execute the preserved 2026-10-25 V protocol. The latest stable version uses its separate [implementation](../../Experiments/experiment5_support_stable_20261031/README_CN.md) and [saved evidence](../experiment5_stable/README.md).

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "comparison_records": 900,
+  "newly_computed_records": 180,
+  "preserved_baseline_records": 720,
+  "independently_reaggregated_summary_cells": 30,
+  "independently_reaggregated_paired_intervals": 6,
+  "raw_states_verified": 180,
+  "max_recomputed_relative_error": 3.515571046954335e-15,
+  "extra_estimator_solves": 0,
+  "interval_scope": "Pointwise t29 Monte Carlo intervals conditional on one fixed dataset; all budgets descriptive",
+  "files": {
+    "protocol.json": "23dbf0a92ef43f4e42fefe0e585c626060b8146e9fc5f2b2c03f2ce527e1d39a",
+    "new_metrics.csv": "caba555dd96faba171b74c8d3bd935a176c609c65563328b1707dcc37086cc91",
+    "comparison_metrics.csv": "287d9c6db40612eb1e3683b2609a406ffae4d62884f80bdf7f11747583f0b90b",
+    "summary.csv": "faee513869fb385d4dccb481364d0915e1a77fc65e9fb697089f901dbdaccb52",
+    "paired_comparisons.csv": "01f6e459965d99946311fbc471c5ab128912a57eb32af971975bae5ef2865ec7",
+    "score_diagnostics.json": "4e721ded02a879eaa19b613c47c0254e9b79d69ca27fe0c62a06cc907068d244"
+  }
+}

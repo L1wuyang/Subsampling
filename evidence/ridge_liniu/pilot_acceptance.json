@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "checks": {
+    "dual_equals_primal_ridge": true,
+    "all_atom_derivatives_max_relative_error": 1.009896913878993e-08,
+    "water_filling_KKT_extreme_zero_scores": true,
+    "isotropic_LN_and_FULL_coincide": true,
+    "zero_response_uniform_oracle_fallback": true,
+    "repeated_atoms_and_inverse_probability_weights": true,
+    "agreement_with_frozen_Ridge_target_and_influences": true,
+    "predecessor_gate_requires_all_files_and_no_ranking_filter": true,
+    "Windows_spawn_two_worker_execution": true,
+    "completed_task_resume_is_byte_preserving": true,
+    "miniature_end_to_end_270_rows_verified": true,
+    "tampered_preparation_rejected": true,
+    "tampered_completed_task_rejected": true
+  },
+  "sources": {
+    "core.py": "e8dabc1f4d36db7857dc896c7bb1a4b4d74792b3624aff0dd977959a497971ca",
+    "protocol.json": "8c444f6b07d02ce8def6174640d51600a336a36ccb612365e5ebaf10b5a20b06",
+    "pilot.py": "03f992b9d10d2075da5498dd0ef14af99a8ff1895cb09726d78ec1bd796114a0",
+    "run_experiment.py": "6379071bc84f53797111d3d649d0c1fedd4bf6498837fab9b5b378730e1d0f3b",
+    "analyze.py": "89dc24696a940bbdfffe34cac8b4695855166965e1c1de1b2b1d3d18d88c30bd",
+    "queue_after_v.py": "0808d626ff4c2b20bf542c6782d4604c62a60fcd872aface5c3d4579b9e502e4",
+    "README_CN.md": "c8c079e2d21ff3dec7a8c00f65ba0709cc8d08140c70939eb4c4702dde815e84"
+  },
+  "frozen_native_sha256": "16c0edbf6f96d78246b39e9d4bae87711fb8c8937ecaba9b549df5720f5f39e5",
+  "synthetic_rows": 270,
+  "formal_draws_executed": 0
+}

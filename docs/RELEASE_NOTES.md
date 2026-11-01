@@ -1,3 +1,5 @@
+> The November 1 results are bundled in the current repository; see [results update](RESULTS_UPDATE_20261101.md). VERSION and the release notes below describe the unchanged earlier v2026.10.30.2 archive.
+
 # v2026.10.30.2 — Core code and separate review data
 
 This version separates the submission code from saved numerical evidence. A source download contains the experiment implementations, frozen protocols, verification/reporting tools and guides. The large saved-data tree is installed only when checking the reported results.

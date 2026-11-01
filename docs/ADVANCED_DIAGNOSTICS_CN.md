@@ -1,3 +1,5 @@
+> 本历史指南中的 V 诊断针对保留的旧 V 协议；当前报告的全支持稳定版见 evidence/experiment5_stable 与其独立版本实现。
+
 # 进一步数值诊断
 
 [English](ADVANCED_DIAGNOSTICS.md) · [仓库说明](../README_CN.md)
@@ -29,4 +31,4 @@ python -m repro1026.iv_precision --input runs/formal_simulations/exp4 --directio
 
 [可移植尾部诊断](../evidence/experiment5/tail_diagnostics/README.md) 核验现有协议的单原子尾部反例及标量稳定性前提。轻量检查使用 `review-data` 安装的紧凑输入；另行运行的 Year/Landweber 重建使用哈希匹配的原始数据和冻结的原生代码。这些诊断解释当前有限重复经验汇总的适用范围，不改变已报告的实验协议。
 
-独立的前瞻性 `stable-v` 协议不属于本投稿核心包。其原实现保留在[此前完整快照](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4)中，不是复现当前论文所需的流程。
+此前可选的 `stable-v` 扩展保留在[历史完整快照](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4)中，与本次采用的版本化实现不同。当前结果请使用 `Experiments/experiment5_support_stable_20261031/` 及根 README 中的入口。

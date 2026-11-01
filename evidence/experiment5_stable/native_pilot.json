@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "dataset": "gdsc",
+      "method": "Landweber",
+      "steps": 1443,
+      "coordinate_split_error": 3.2201546024606234e-17,
+      "dense_state_error": 1.1685445509832745e-15,
+      "dense_derivative_error": 6.046374937456085e-16
+    },
+    {
+      "dataset": "gdsc",
+      "method": "Showalter",
+      "steps": 1443,
+      "coordinate_split_error": 3.618663826366296e-17,
+      "dense_state_error": 1.637637764451964e-16,
+      "dense_derivative_error": 6.506341790499006e-16
+    },
+    {
+      "dataset": "gdsc",
+      "method": "Nesterov",
+      "steps": 92,
+      "coordinate_split_error": 2.0596702558134283e-16,
+      "dense_state_error": 2.7624293515216503e-15,
+      "dense_derivative_error": 1.6820631947092815e-15
+    },
+    {
+      "dataset": "year",
+      "method": "Landweber",
+      "steps": 1681,
+      "coordinate_split_error": 0.0,
+      "dense_state_error": 4.4149649681472986e-16,
+      "dense_derivative_error": 4.0512592590480116e-16
+    },
+    {
+      "dataset": "year",
+      "method": "Showalter",
+      "steps": 1681,
+      "coordinate_split_error": 0.0,
+      "dense_state_error": 4.0974833156260907e-16,
+      "dense_derivative_error": 4.605675590748954e-16
+    },
+    {
+      "dataset": "year",
+      "method": "Nesterov",
+      "steps": 99,
+      "coordinate_split_error": 0.0,
+      "dense_state_error": 2.1886051269581835e-15,
+      "dense_derivative_error": 3.919402239505977e-15
+    }
+  ]
+}

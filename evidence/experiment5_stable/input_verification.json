@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\gdsc\\E.npy",
+      "sha256": "35f368e85c952711fc016a22c84abd9865f737c9cd5d435e3d58132856424128"
+    },
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\gdsc\\ey.npy",
+      "sha256": "b1d7d38285603e6936f795ddb3b4bf0fd13aabdd9dadefcbb6403537578f3259"
+    },
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\gdsc\\X.npy",
+      "sha256": "ecc8d08d4261e6595256dca418b5e4778f248ab3945db31128e651142bf71bd2"
+    },
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\gdsc\\y.npy",
+      "sha256": "e69a4242f6fa7c68f42a6bd2c9237c54aa7f4481f43aae43f9b2f940e94c4f5b"
+    },
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\year\\E.npy",
+      "sha256": "cde8a955a581c6a543c95da10c300851b4b733ed1862c28d8781e81cd19d3841"
+    },
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\year\\ey.npy",
+      "sha256": "b0ad8af6af013444900674111e7404863b0c2353c8fa2ee9117924a3f5ea297b"
+    },
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\year\\X.npy",
+      "sha256": "eeb2a50105a9ed77ea3070bc31b5cb05aae7b159c1a230394f5b35206da89813"
+    },
+    {
+      "path": "D:\\desk\\learning\\Subsampling\\Manuscript\\Experiments\\experiment5_native_realdata_20261025\\inputs\\year\\y.npy",
+      "sha256": "8b25a6140f768acd3d77d26de2548456bfaa23e991ff540a8c4c61c88fabd753"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\__init__.py",
+      "sha256": "67acb265ec55dfa6a76e543c55e46a9f67531c5db16b5a4880870e602f529981"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\common.py",
+      "sha256": "268b34b316d315fb5e10db59d97647137862516438a806e2199a4ecf3520ae96"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\data.py",
+      "sha256": "023e11f16081ee9858c14701fa43f99644dfe3f7739bdf058aff8b45072017c5"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\kernel.py",
+      "sha256": "180fcf524fb2ec6308f739063654a34f12a57b3db3b4034a984c6f7e62de565b"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\native_forward.py",
+      "sha256": "f5d98f3da0a313b722cc86e63fd3a1abcea803c258a84ad5de7a18a31b19caeb"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\setup.py",
+      "sha256": "9b3fb3f2a8d82007dcfaf695117dab6eb739bd86787a5a03a601fee5feb62ecf"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\pilot.py",
+      "sha256": "f15f5520315e9fd9e5de0aa0c909976eb81e3f717a5041c37b3c5ee5fce38f9a"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\formal.py",
+      "sha256": "d457e0b37733863d1140f1ee8b617556d5ee115b1d787e0a73b5dbb320153b7b"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\column_reference.py",
+      "sha256": "16c0edbf6f96d78246b39e9d4bae87711fb8c8937ecaba9b549df5720f5f39e5"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\row_reference.py",
+      "sha256": "103fa76314220a3a826d94f627054ef1089572523eb2c99b54f35608f0d56b59"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\src\\native_exp5\\integrator_reference.py",
+      "sha256": "16c0edbf6f96d78246b39e9d4bae87711fb8c8937ecaba9b549df5720f5f39e5"
+    },
+    {
+      "path": "D:\\desk\\learning\\GitHub\\Subsampling\\Experiments\\experiment5_native_realdata_20261025\\formal_protocol.json",
+      "sha256": "6295e7bfa614126b6877f8b1386ce969f2d8a95f30a774dd25b90cf3105c75cd"
+    }
+  ]
+}

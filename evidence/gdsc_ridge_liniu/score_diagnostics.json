@@ -1,0 +1,50 @@
+{
+  "alpha": 17737.0,
+  "coefficient_target_norm_squared": 0.0041913642378524265,
+  "probability_TV_LN_OPT": 0.031197147898051603,
+  "first_order_reduction_percent": 0.6469697565419597,
+  "max_analytic_OPT_probability_discrepancy": 4.87890977618477e-19,
+  "rules": [
+    {
+      "rule": "UNI",
+      "normalized_coefficient_constant": 122.07207569256497,
+      "min_probability": 5.637932006540001e-05,
+      "max_probability": 5.637932006540001e-05,
+      "maximum_atom_to_probability": 13285013.000000045,
+      "floor_atoms": 0
+    },
+    {
+      "rule": "NORM",
+      "normalized_coefficient_constant": 122.07207569256497,
+      "min_probability": 5.637932006540001e-05,
+      "max_probability": 5.637932006540001e-05,
+      "maximum_atom_to_probability": 13285013.000000045,
+      "floor_atoms": 0
+    },
+    {
+      "rule": "LEV",
+      "normalized_coefficient_constant": 124.11600057645438,
+      "min_probability": 8.316391713586834e-06,
+      "max_probability": 0.00014121056004670588,
+      "maximum_atom_to_probability": 90063097.77067475,
+      "floor_atoms": 0
+    },
+    {
+      "rule": "OPT",
+      "normalized_coefficient_constant": 72.58460114267771,
+      "min_probability": 5.637932006540002e-07,
+      "max_probability": 0.000547339448042727,
+      "maximum_atom_to_probability": 1328501300.0000024,
+      "floor_atoms": 106
+    },
+    {
+      "rule": "LN_floor",
+      "normalized_coefficient_constant": 73.0572595167092,
+      "min_probability": 5.637932006540001e-07,
+      "max_probability": 0.0005027479356624996,
+      "maximum_atom_to_probability": 1328501300.0000026,
+      "floor_atoms": 107
+    }
+  ],
+  "stability": "Every sampled Gram is positive semidefinite; alpha=17737 makes its Ridge system SPD."
+}

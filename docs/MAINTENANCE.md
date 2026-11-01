@@ -6,11 +6,11 @@ Reproduction commands are in the root README; the [paper result map](PAPER_RESUL
 
 ## Entry points and frozen sources
 
-Use the root `run.py` for core verification, data acquisition, experiment execution and analysis. The current V saved-record entry point is `evidence/experiment5/empirical.py`. Its imported `reanalyze.py` remains in the core; the required historical reference files arrive with the review data. The [tail guide](../evidence/experiment5/tail_diagnostics/README.md) describes portable diagnostics and restoration.
+Use the root `run.py` for core verification, data acquisition, experiment execution and analysis. The reported stable V saved-record entry point is `tools/analyze_latest_saved.py --experiment stable-v`. The historical V saved-record entry point remains `evidence/experiment5/empirical.py`. Its imported `reanalyze.py` remains in the core; the required historical reference files arrive with the review data. The [tail guide](../evidence/experiment5/tail_diagnostics/README.md) describes portable diagnostics and restoration.
 
 `Experiments/` preserves the scientific algorithms and source history. Some nested III/IV commands still refer to modules from the original full workspace, and the archived V analyzer describes the earlier inferential workflow. Use the documented root adapters for current reports. Retained original source modules and paths are execution/hash dependencies, not endorsements of every legacy command.
 
-`provenance/frozen_scientific_sources.json` identifies protected source and protocol files. III/IV pilot records are execution hash gates. Some experiments import separate copies of reference modules even when their bytes are identical. Preserve these source bytes and gates when changing packaging or documentation. The prospective `stable-v` extension was removed from the submission core; it remains in the [previous full snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4).
+`provenance/frozen_scientific_sources.json` identifies protected source and protocol files. III/IV pilot records are execution hash gates. Some experiments import separate copies of reference modules even when their bytes are identical. Preserve these source bytes and gates when changing packaging or documentation. The historical optional `stable-v` extension in the [previous full snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) is distinct from the reported `Experiments/experiment5_support_stable_20261031/` implementation. Use the latter and its versioned protocol for the current results.
 
 ## Core and data inventories
 
@@ -23,15 +23,14 @@ If a core file covered by the evidence manifest changes, update only that file's
 
 ## Validate and release
 
-Review the intended additions and removals, then stage them before regenerating the core inventory:
+Review the intended additions and removals, regenerate the core inventory and stage only the exact intended file paths:
 
 ```text
-git add -A
 python tools/update_manifest.py
 python tools/update_manifest.py --check
 python run.py verify
 python run.py preflight --experiment simulations
-git add MANIFEST.json
+git add -- MANIFEST.json <exact-reviewed-file-paths>
 git diff --check
 git diff --cached --check
 git status --short
@@ -60,7 +59,7 @@ Keep `VERSION`, the review-data descriptor and release notes consistent. The rel
 
 ## 中文维护说明
 
-根目录 `run.py` 是当前复现入口。V 的 `empirical.py` 使用核心包中的 `reanalyze.py` 校验逻辑，以及复核数据安装的历史参考文件。原算法、reference 副本、协议和 III/IV pilot 门禁继续按原字节保留；旧目录中的所有子命令并非都属于当前支持流程。独立 `stable-v` 扩展已移出核心包，可在上述固定旧提交查看。
+根目录 `run.py` 提供核心及原冻结流程。当前稳定 V 使用独立的 `Experiments/experiment5_support_stable_20261031/` 协议与 `tools/analyze_latest_saved.py --experiment stable-v` 保存记录入口。历史 V 的 `empirical.py` 和此前可选的 `stable-v` 扩展保留原范围，不应与本次实现混淆。原算法、reference 副本、协议和 III/IV pilot 门禁继续按原字节保留。
 
 根 `MANIFEST.json` 只覆盖核心文件；`provenance/review_data.json` 固定数据 ZIP 与成员校验值。安装后恢复原数据路径，但这些数据应继续被 Git 忽略。V 的嵌套清单仍在核心中；修改其覆盖的核心说明或脚本时，只更新对应条目，不改原数据及压缩包成员哈希。
 

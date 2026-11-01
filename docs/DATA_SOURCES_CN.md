@@ -2,7 +2,7 @@
 
 [English](DATA_SOURCES.md) · [仓库说明](../README_CN.md)
 
-独立复核数据包保存实验 I—IV 的模拟输入、逐次指标和汇总表，见 [仿真数据说明](SIMULATION_DATA_CN.md)。实验 V 的当前经验汇总、图形及尾部诊断见[实验 V 证据说明](../evidence/experiment5/README_CN.md)；完整重跑所需的原始真实数据从下列官方渠道获取。预处理使用训练集拟合均值、标准差和响应截距；固定划分随源码提供。
+独立复核数据包保存实验 I—IV 的模拟输入、逐次指标和汇总表，见 [仿真数据说明](SIMULATION_DATA_CN.md)。实验 V 的报告指标与全支撑检查见[稳定 V 证据说明](../evidence/experiment5_stable/README_CN.md)，历史尾部诊断保留在[旧 V 证据目录](../evidence/experiment5/README_CN.md)；完整重跑所需的原始真实数据从下列官方渠道获取。预处理使用训练集拟合均值、标准差和响应截距；固定划分随源码提供。
 
 `review-data` 命令安装已保存的实验证据；下面的 `data` 命令获取新实验 V 运行所需的官方原始输入，两者用途不同。
 

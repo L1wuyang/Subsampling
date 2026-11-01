@@ -1,0 +1,140 @@
+{
+  "completed": true,
+  "protocol": "experiment-V-GDSC-ridge-LN-floor-20261101-v1",
+  "new_records": 180,
+  "comparison_records": 900,
+  "failures": 0,
+  "budgets": [
+    75,
+    187,
+    374,
+    749,
+    1498,
+    2996
+  ],
+  "paired_uniforms_verified": 180,
+  "max_solve_residual": 5.3408616719286263e-17,
+  "max_coordinate_relative_discrepancy": 2.017756136263075e-15,
+  "max_saved_OPT_relative_discrepancy": 4.5402576685860195e-15,
+  "all_consumed_sources_unchanged": true,
+  "score_diagnostics": {
+    "alpha": 17737.0,
+    "coefficient_target_norm_squared": 0.0041913642378524265,
+    "probability_TV_LN_OPT": 0.031197147898051603,
+    "first_order_reduction_percent": 0.6469697565419597,
+    "max_analytic_OPT_probability_discrepancy": 4.87890977618477e-19,
+    "rules": [
+      {
+        "rule": "UNI",
+        "normalized_coefficient_constant": 122.07207569256497,
+        "min_probability": 5.637932006540001e-05,
+        "max_probability": 5.637932006540001e-05,
+        "maximum_atom_to_probability": 13285013.000000045,
+        "floor_atoms": 0
+      },
+      {
+        "rule": "NORM",
+        "normalized_coefficient_constant": 122.07207569256497,
+        "min_probability": 5.637932006540001e-05,
+        "max_probability": 5.637932006540001e-05,
+        "maximum_atom_to_probability": 13285013.000000045,
+        "floor_atoms": 0
+      },
+      {
+        "rule": "LEV",
+        "normalized_coefficient_constant": 124.11600057645438,
+        "min_probability": 8.316391713586834e-06,
+        "max_probability": 0.00014121056004670588,
+        "maximum_atom_to_probability": 90063097.77067475,
+        "floor_atoms": 0
+      },
+      {
+        "rule": "OPT",
+        "normalized_coefficient_constant": 72.58460114267771,
+        "min_probability": 5.637932006540002e-07,
+        "max_probability": 0.000547339448042727,
+        "maximum_atom_to_probability": 1328501300.0000024,
+        "floor_atoms": 106
+      },
+      {
+        "rule": "LN_floor",
+        "normalized_coefficient_constant": 73.0572595167092,
+        "min_probability": 5.637932006540001e-07,
+        "max_probability": 0.0005027479356624996,
+        "maximum_atom_to_probability": 1328501300.0000026,
+        "floor_atoms": 107
+      }
+    ],
+    "stability": "Every sampled Gram is positive semidefinite; alpha=17737 makes its Ridge system SPD."
+  },
+  "comparisons": [
+    {
+      "budget": 75,
+      "repetitions": 30,
+      "LN_mean": 2.5117583536201007,
+      "OPT_mean": 2.455426373018519,
+      "OPT_minus_LN": -0.056331980601582524,
+      "ci_low": -0.37975092447435294,
+      "ci_high": 0.2670869632711879,
+      "reduction_percent": 2.242730894888545,
+      "OPT_lower_draws": 16
+    },
+    {
+      "budget": 187,
+      "repetitions": 30,
+      "LN_mean": 0.7929525962576405,
+      "OPT_mean": 0.7922811398140773,
+      "OPT_minus_LN": -0.0006714564435632713,
+      "ci_low": -0.06888282068955238,
+      "ci_high": 0.06753990780242584,
+      "reduction_percent": 0.0846780055620111,
+      "OPT_lower_draws": 18
+    },
+    {
+      "budget": 374,
+      "repetitions": 30,
+      "LN_mean": 0.32822168268983354,
+      "OPT_mean": 0.3457564237848165,
+      "OPT_minus_LN": 0.017534741094982997,
+      "ci_low": -0.00950124345493691,
+      "ci_high": 0.0445707256449029,
+      "reduction_percent": -5.342346962358713,
+      "OPT_lower_draws": 13
+    },
+    {
+      "budget": 749,
+      "repetitions": 30,
+      "LN_mean": 0.14382023718199197,
+      "OPT_mean": 0.1483343396657419,
+      "OPT_minus_LN": 0.004514102483749912,
+      "ci_low": -0.0029849962388535456,
+      "ci_high": 0.01201320120635337,
+      "reduction_percent": -3.1387116112440605,
+      "OPT_lower_draws": 12
+    },
+    {
+      "budget": 1498,
+      "repetitions": 30,
+      "LN_mean": 0.06323232410070374,
+      "OPT_mean": 0.06320099683595286,
+      "OPT_minus_LN": -3.132726475087652e-05,
+      "ci_low": -0.002907051818250398,
+      "ci_high": 0.002844397288748645,
+      "reduction_percent": 0.04954311769561626,
+      "OPT_lower_draws": 18
+    },
+    {
+      "budget": 2996,
+      "repetitions": 30,
+      "LN_mean": 0.028795339483118344,
+      "OPT_mean": 0.028574248804635095,
+      "OPT_minus_LN": -0.0002210906784832501,
+      "ci_low": -0.0012515380949330818,
+      "ci_high": 0.0008093567379665816,
+      "reduction_percent": 0.7678002150760088,
+      "OPT_lower_draws": 18
+    }
+  ],
+  "formal_draw_seconds": 4.001848000014434,
+  "inferential_scope": "All six budgets are descriptive. Report paired OPT-minus-LN differences and pointwise t29 Monte Carlo intervals over 30 saved common-uniform draws. No primary hypothesis test, no population inference, no simultaneous coverage, and no budget or parameter selection after observing LN results."
+}

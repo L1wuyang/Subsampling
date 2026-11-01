@@ -1,128 +1,86 @@
 # Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework
 
-**Companion code and experimental materials** · [中文说明](README_CN.md)
+**Companion code and experimental materials** - [中文说明](README_CN.md)
 
-**Version [v2026.10.30.2](VERSION)** · [Release and downloads](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2) · [Current validation](validation/README.md)
+**Results update: November 1, 2026.** Includes full-support stable Experiment V, the simulated Ridge score comparison and the GDSC Ridge Li-Niu comparison, with versioned implementations and saved evidence. [VERSION](VERSION) and release `v2026.10.30.2` identify the unchanged earlier code/review-data archive; the three updated studies are bundled in the current repository. [Update notes](docs/RESULTS_UPDATE_20261101.md) - [Paper result map](docs/PAPER_RESULTS.md)
 
-This repository accompanies the manuscript by Junchen Li, Ying-Ao Wang and Ye Zhang. The core package contains the implementations of Experiments I–V, protocols, verification/reporting tools and documentation. Saved simulation inputs, metric records, tables and Experiment V diagnostic inputs are supplied as a separate review-data archive. The implementations use the numerical recurrences and fixed-grid fourth-order Runge–Kutta (RK4) maps described in the manuscript, with matching full-data targets, derivatives, probability designs and random seeds.
+This repository accompanies the manuscript by Junchen Li, Ying-Ao Wang and Ye Zhang. Experiments I-IV retain their frozen scientific sources and existing published inputs/results. The results update real-data Experiment V with a full-support stable protocol and adds a Ridge column-score ablation. Iterative methods continue to use the actual recurrences and fixed-grid RK4 maps with their matching full-data numerical targets and algorithmic influences.
 
-For a particular manuscript result, start with the **[paper figure and table map](docs/PAPER_RESULTS.md)**. For the scope of the recorded checks, see the **[validation guide](validation/README.md)**. Experiment V's current report describes finite-repetition empirical means; it does not establish complete conditional-MSE rankings.
+## Reported results
 
-## Code and review data
-
-The [Release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2) separates two downloads:
-
-- `Subsampling-core-v2026.10.30.2.zip`: core code, frozen protocols, source checksums and guides; 107 files, approximately 1.2 MB after extraction. It is sufficient to verify the code and generate new simulations.
-- [`Subsampling-review-data-v2026.10.30.2.zip`](https://github.com/L1wuyang/Subsampling/releases/download/v2026.10.30.2/Subsampling-review-data-v2026.10.30.2.zip): all 545 previously released simulation and saved-evidence files, with their original bytes; the archive is 240,281,192 bytes (approximately 240 MB). Install it to check the reported results without rerunning trajectories.
-
-Git history retains the earlier large data files, so an ordinary full `git clone` still downloads that history. For the small core download, use the Release core ZIP or a shallow checkout of this tag:
-
-```text
-git clone --depth 1 --branch v2026.10.30.2 https://github.com/L1wuyang/Subsampling.git
-```
-
-The data archive does not include the official raw GDSC/Year data or every trajectory-level state array. Full reruns obtain or generate those separately. Installing review data restores its original relative paths and leaves it outside the tracked core inventory. [Release notes](docs/RELEASE_NOTES.md) describe the split.
-
-## Experiments and files
-
-| Experiment | Purpose | Review-data locations after installation |
+| Study | Bundled records and source | Interpretation |
 | --- | --- | --- |
-| I | Column-sampling probability comparison | `simulations/experiment1/`: 40 input datasets, metrics, tables and protocol metadata |
-| II | Row-sampling probability comparison | `simulations/experiment2/`: 40 input datasets, metrics, tables and protocol metadata |
-| III | First-order conditional MSE calibration | `simulations/experiment3/`: 20 column and 20 row inputs, metrics and tables |
-| IV | Least-squares comparison using the same sampling draws | `simulations/experiment4/`: five inputs per direction, metrics, tables and numerical diagnostics |
-| V | GDSC and YearPredictionMSD applications | `evidence/experiment5/`: saved metrics, empirical figures and tail diagnostics; [official input data](docs/DATA_SOURCES.md) |
+| Stable Experiment V | [evidence/experiment5_stable](evidence/experiment5_stable/README.md): 12,720 complete scalar records, 530 sketch tasks, protocol, 48 full-support gates, matched full-target summaries and original validation | Among UNI/NORM/LEV/OPT, OPT has the lowest observed mean in 78/78 cells; finite repetitions do not prove full conditional-MSE ordering. |
+| Ridge Li-Niu score ablation | [evidence/ridge_liniu](evidence/ridge_liniu/README.md): 104,000 complete scalar records, results covering all 40 reused inputs, 13 budgets, five rules and original validation | At prespecified N=150, FULL-LN=-0.0003228063, 95% CI [-0.0009423789, 0.0002967663], two-sided p=.298436. No significant difference detected; equivalence not established. |
+| GDSC Ridge LN addendum | [evidence/gdsc_ridge_liniu](evidence/gdsc_ridge_liniu/README.md): 180 new LN_floor records and 720 preserved four-rule records; six budgets, 30 paired draws | At N=2996 OPT is 0.768% lower; reversals at N=374/749 and all six pointwise paired intervals spanning zero are retained. |
 
-I–IV contain **130 NPZ inputs and 1,432,512 per-repetition metric records**. [The simulation guide](docs/SIMULATION_DATA.md) documents fields, grouping and interpretation. Experiment V's [evidence guide](evidence/experiment5/README.md) documents the current empirical summaries, figures and reproducible tail diagnostics.
+All errors in this table are relative squared coefficient deviations from the fixed full-data regularized target. They are separate from true-coefficient recovery or predictive risk. LN_floor is the exact lower-bound adaptation of the Li-Niu score, with the same floor constraint as FULL_OPT; this experiment does not run NOPL or the original outer iteration. [Detailed result boundaries](docs/LATEST_RESULTS.md)
 
 ## Install and verify
 
-Use Python 3.11 or 3.12; the recorded validation environment is Python 3.12.7 on Windows. From the repository root:
+Use Python 3.11 or 3.12 (recorded environment: Windows, Python 3.12.7):
 
 ```text
 python -m pip install -r requirements-lock.txt
 python run.py verify
 ```
 
-`requirements-lock.txt` and `environment.json` record the dependencies and validation environment. Use the **root `run.py`** for the workflows below. The scripts nested under `Experiments/` are retained source records; see [entry points and source provenance](docs/MAINTENANCE.md#entry-points-and-frozen-sources).
+The root manifest checks the source and compact evidence. The unchanged `provenance/frozen_scientific_sources.json` anchors 54 historical scientific sources, including III/IV pilot gates. The original validation receipts retain their exact scope; reading a saved receipt does not repeat state-array validation.
 
-## Install the review data
+## Recompute the latest results without trajectories
 
-Download the versioned archive, verify its SHA-256 and every member, and restore the declared paths:
+No raw real data or old 240 MB review archive is needed for these two commands. Choose a new output directory:
+
+```text
+python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stable_v_saved
+python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_liniu_saved
+```
+
+These commands verify bundled-source SHA-256 values, recompute all saved scalar means and relevant intervals, check the unique Ridge primary comparison and export PDF/PNG curves. They execute zero numerical trajectories and do not repeat the original state-based independent checks. The full untrimmed metrics, original gates and original validation receipts are bundled with their provenance. The earlier two studies' trajectory arrays and official raw real data are not bundled. The new GDSC-LN addendum includes its 180 new states, uniforms and counts; see its separate verification command below.
+
+## Earlier Experiments I-IV and historical V
+
+The earlier [public release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2) separates a core source archive and `Subsampling-review-data-v2026.10.30.2.zip` (240,281,192 bytes). Its 545 files restore I-IV inputs/results plus **historical** V evidence. They do not overwrite the three versioned latest-result evidence directories.
 
 ```text
 python run.py review-data download
 python run.py review-data verify
-```
-
-For offline use, download the data ZIP from the Release elsewhere and install the local file:
-
-```text
-python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip
-```
-
-Replace the example path with your local ZIP path. The descriptor `provenance/review_data.json` fixes the archive and file hashes. Installation refuses conflicting existing contents. `python run.py verify` checks only the core; `review-data verify` checks the installed data. Neither launches experiments.
-
-## Check the reported results from saved records
-
-After installing the review data, verify and recompute I–IV dataset means, equally weighted summaries and selected plots:
-
-```text
 python run.py simulation-data verify --experiment all
 python run.py simulation-data summarize --experiment all --output runs/reported_simulations
 ```
 
-This command produces convenient saved-record summaries and plots, not all of the typeset manuscript figures. The [figure and table map](docs/PAPER_RESULTS.md) identifies the data selection and additional work needed for each result.
+For offline installation, use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. The descriptor fixes all hashes and refuses conflicting files. I-IV comprise 130 NPZ inputs and 1,432,512 per-repetition metric records; see the [simulation guide](docs/SIMULATION_DATA.md). The [paper result map](docs/PAPER_RESULTS.md) identifies precise selections and figure inputs. Earlier V means, scalar rare-event witnesses and historical Holm analyses remain at [evidence/experiment5](evidence/experiment5/README.md); they are retained for provenance and do not supply the new stable-run curves.
 
-Reproduce V's current empirical summaries and the two manuscript target-error figures, without mean-confidence bands:
+## Full experimental reruns
 
-```text
-python -B evidence/experiment5/empirical.py --output runs/reported_v
-python -B evidence/experiment5/tail_diagnostics/verify_witnesses.py
-python -B evidence/experiment5/tail_diagnostics/verify_stability.py
-```
-
-These commands analyze the installed review-data records. Select `--experiment 1` through `4` for one simulation experiment. Choose a new output directory for each analysis. V uses 12,720 saved metric records and a 276-point target-figure reference. Its [tail diagnostics](evidence/experiment5/tail_diagnostics/README.md) include lightweight witness and stability checks and a separate reconstruction workflow.
-
-## Rerun the experiments
-
-`smoke` checks the execution and reporting workflow with smaller dimensions, budgets and replication counts. `formal` runs the full frozen experimental protocol.
+I-IV continue to use the root CLI. A smoke run checks the workflow at reduced dimensions; formal execution regenerates the frozen input streams:
 
 ```text
 python run.py preflight --experiment simulations
 python run.py smoke --experiment simulations --output runs/smoke --workers 2
-python run.py analyze --experiment simulations --results runs/smoke --output runs/smoke_analysis
-
 python run.py formal --experiment simulations --output runs/formal_simulations --workers 8
 python run.py analyze --experiment simulations --results runs/formal_simulations --output runs/formal_simulations_analysis
 ```
 
-Saved review data is not required to generate new simulation runs. `simulations` selects I–IV; `--experiment 1` through `5` selects one experiment. Formal execution regenerates inputs from the frozen seeds. IV alone entails approximately 40.5 billion updates; check the workflow with `smoke` before allocating resources for a full run.
+The versioned latest studies use their own fixed protocols and prerequisites:
 
-For V, obtain the fixed official data files and verify their checksums first:
+- [Stable V implementation and full rerun prerequisites](Experiments/experiment5_support_stable_20261031/README_CN.md). Official GDSC/Year inputs and the historical complete targets/arrays are required; the lightweight public review-data package alone is insufficient. The split-adjoint pilot must pass before the new support gate releases sampling.
+- [Ridge score-ablation implementation](Experiments/ridge_liniu_ablation_20261101/README_CN.md). Install the old review-data archive to recover the 40 frozen Experiment I inputs, then follow the preparation, pilot and predecessor-gate steps. Reusing these inputs is an ablation, not new-data independent confirmation.
 
-```text
-python run.py data download --dataset all
-python run.py data check --dataset all
-python run.py formal --experiment 5 --output runs/formal_v --workers 8
-python run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis
-```
-
-The [data source guide](docs/DATA_SOURCES.md) gives exact versions, checksums and manual import instructions. The GDSC training/test ID split is included; Year uses its official ordered split. For newly executed experiments, `analyze --results` reads the complete generated run directory, including the saved states needed for III's bias analysis and IV's diagnostics. For V, this default analysis now produces empirical summaries and figures, without automatically running historical mean-based tests.
+The root `formal --experiment 5` command still implements the earlier frozen V protocol; use the separate stable-V directory for the reported full-support protocol. [Official raw input acquisition](docs/DATA_SOURCES.md) remains available through `python run.py data download` and `data check`.
 
 ## Documentation and provenance
 
-- [Paper figures and tables: inputs, commands and outputs](docs/PAPER_RESULTS.md)
-- [Current validation records](validation/README.md)
-- [Simulation data, metric definitions and statistical interpretation](docs/SIMULATION_DATA.md)
-- [Experiment V: empirical results and tail diagnostics](evidence/experiment5/README.md)
-- [Official real-data acquisition](docs/DATA_SOURCES.md)
-- [Additional numerical diagnostics](docs/ADVANCED_DIAGNOSTICS.md)
-- [How to cite the manuscript and identify the code version](docs/CITATION.md)
-- [Repository maintenance and frozen-source records](docs/MAINTENANCE.md)
+[Paper figures and tables](docs/PAPER_RESULTS.md) - [Latest result interpretation](docs/LATEST_RESULTS.md) - [Validation scope](validation/README.md) - [Data sources](docs/DATA_SOURCES.md) - [Additional diagnostics](docs/ADVANCED_DIAGNOSTICS.md) - [Citation](docs/CITATION.md) - [Maintenance](docs/MAINTENANCE.md)
 
-`MANIFEST.json` records core files and checksums. `provenance/review_data.json` identifies the separate data asset; the installed `simulations/manifest.json` describes I–IV records. `provenance/` also records fixed inputs and source origins. Historical dates in internal directory and module names identify the preserved computation records. Use an exact Git commit when identifying the materials used for a result.
+`MANIFEST.json` covers the source and compact reported metrics. `provenance/review_data.json` and VERSION retain their unchanged earlier baseline. New experiment protocols version the scientific changes separately; no old frozen hash is changed. Original run records may retain historical local paths, while bundled `PROVENANCE.json` records the copied hashes. The three studies are identified by their protocol versions and the source hashes stored with each evidence directory.
 
-## Earlier materials
+The saved-metric plotting tool exports convenience layouts, rather than asserting identity with the journal artwork. Final manuscript figure assets are matched separately in the paper result map.
 
-The [complete previous version](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) preserves the preceding combined code/data layout and the optional `stable-v` extension omitted from this core package. Earlier validation/history remains reachable through its commit history. V's earlier tests are not the inferential basis of the current empirical report. Required archive-verification code stays in the core, and its historical reference files are installed with the review data. Frozen source modules and pilot hash gates remain because the reproduction workflows use or verify them; retained original source paths are not a claim that every legacy subcommand is a supported paper workflow.
+## GDSC Ridge Li-Niu addendum / 实验五新增对照
+
+[Results / 结果](evidence/gdsc_ridge_liniu/README.md) · [运行与状态核验](Experiments/experiment5_gdsc_liniu_20261101/README_CN.md)
+
+```text
+python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root evidence/gdsc_ridge_liniu --stable-root evidence/experiment5_stable --report runs/gdsc_ln_check.json
+```

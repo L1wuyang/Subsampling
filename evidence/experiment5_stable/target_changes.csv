@@ -1,0 +1,13 @@
+dataset,method,relative_target_change
+gdsc,Ridge,0.0
+gdsc,Landweber,0.0001304177880699431
+gdsc,Showalter,6.340334596793995e-15
+gdsc,HBF,0.0
+gdsc,Nesterov,0.004334365730700817
+gdsc,SOAR,0.0
+year,Ridge,0.0
+year,Landweber,8.831809874519591e-11
+year,Showalter,8.831777591628341e-11
+year,HBF,0.0
+year,Nesterov,0.001456875507859996
+year,SOAR,0.0

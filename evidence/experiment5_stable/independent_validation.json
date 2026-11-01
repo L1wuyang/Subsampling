@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "records": 12720,
+  "tasks": 530,
+  "cells": 78,
+  "opt_lowest_cells": 78,
+  "exceptions": [],
+  "full_conditional_mse_ordering_inferred": false
+}

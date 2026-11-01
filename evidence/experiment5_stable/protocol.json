@@ -1,0 +1,51 @@
+{
+  "version": "experiment-V-support-stable-20261031-v1",
+  "historical_source_commit": "8859ce1be0396225e047122aa4ee0acccf76db2d",
+  "sampling_seed": 202610310501,
+  "changed_methods": [
+    "Landweber",
+    "Showalter",
+    "Nesterov"
+  ],
+  "unchanged_methods": [
+    "Ridge",
+    "HBF",
+    "SOAR"
+  ],
+  "rules": [
+    "UNI",
+    "NORM",
+    "LEV",
+    "OPT"
+  ],
+  "step_policy": "Per dataset common candidate L=max(32*complete infinity norm,1.05*maximum historical atom/probability bound over baseline and three changed OPT rules), capped at the universal probability-floor bound. Set h=.9/L with frozen native parameter formulas. Recompute full targets, native discrete derivatives and OPT. Before any draws require every new rule's exact scanned support bound <=L; otherwise increase L and recompute all changed targets. GDSC universal bound alone is sufficient. No adaptation to formal draws.",
+  "probability_floor": 0.01,
+  "probability_policy": "Preserve original UNI/NORM/LEV and OPT definitions; no added stability probability constraints.",
+  "parameter_policy": "Preserve historical c and alpha calibration; recalculate finite iteration counts and RK4 mesh. Retain every prescribed native update and RK4 stage. No eigendecomposition, spectral formula, matrix power, early stopping or trajectory substitution.",
+  "gdsc": {
+    "budgets": [
+      75,
+      187,
+      374,
+      749,
+      1498,
+      2996
+    ],
+    "repetitions": 30
+  },
+  "year": {
+    "budgets": [
+      500,
+      1000,
+      2000,
+      5000,
+      10000,
+      20000,
+      50000
+    ],
+    "repetitions": 50
+  },
+  "parallelism": "Independent output-coordinate adjoint blocks and independent sketches only; no change to frozen native numerical kernels.",
+  "unchanged_targets": "Reuse hash-matched historical Ridge/HBF/SOAR targets, sensitivities and probabilities because those algorithms and their parameters are unchanged. All six methods receive fresh formal subsamples.",
+  "reporting": "Finite-repetition empirical comparisons plus first-order calibration and explicit support stability certificates; stability alone does not establish finite-budget complete MSE ordering."
+}

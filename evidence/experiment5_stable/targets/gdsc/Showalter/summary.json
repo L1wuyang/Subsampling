@@ -1,0 +1,17 @@
+{
+  "c": 1.0,
+  "full": {
+    "response_test_mse": 0.3191830314257644,
+    "response_test_rmse": 0.5649628584480261,
+    "coefficient_norm_squared": 0.006152609529604538
+  },
+  "constants": {
+    "UNI": 94.98624932890885,
+    "NORM": 94.98624932890885,
+    "LEV": 100.06787018930643,
+    "OPT": 57.0074586081193
+  },
+  "minimum_opt_probability": 5.637932006540001e-07,
+  "maximum_atom_to_probability": 1328501300.0000014,
+  "provenance": "Recomputed native coordinate-block adjoints; all native updates executed."
+}

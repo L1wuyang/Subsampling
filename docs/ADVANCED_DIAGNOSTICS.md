@@ -1,3 +1,5 @@
+> Experiment V diagnostics in this baseline guide concern the preserved historical V protocol. For the local full-support stable update use evidence/experiment5_stable and its versioned implementation.
+
 # Additional numerical diagnostics
 
 [中文说明](ADVANCED_DIAGNOSTICS_CN.md) · [Repository guide](../README.md)
@@ -27,6 +29,6 @@ This executes the saved number of updates using double-double and triple-double 
 
 ## Experiment V: diagnostics for the reported protocol
 
-The [portable tail diagnostics](../evidence/experiment5/tail_diagnostics/README.md) check the existing protocol's single-atom tail witnesses and scalar stability premises. Lightweight checks use compact inputs installed by `review-data`; a separate Year/Landweber restoration uses hash-verified raw data and the frozen native code. These diagnostics explain the scope of the current finite-repetition empirical summaries without changing the reported protocol.
+The [portable tail diagnostics](../evidence/experiment5/tail_diagnostics/README.md) check the existing protocol's single-atom tail witnesses and scalar stability premises. Lightweight checks use compact inputs installed by `review-data`; a separate Year/Landweber restoration uses hash-verified raw data and the frozen native code. These diagnostics concern the historical V records. Current full-support stable V records and checks are in `evidence/experiment5_stable/`.
 
-The separate prospective `stable-v` protocol is not part of this submission core. Its earlier implementation remains in the [previous full snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4); it is not required to reproduce the current paper.
+The earlier optional `stable-v` extension in the [previous full snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) is distinct from the versioned full-support implementation used here. Follow `Experiments/experiment5_support_stable_20261031/` and the root README for the reported results.

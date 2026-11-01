@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "rows": 104000,
+  "tasks": 520,
+  "failures": 0,
+  "zero_targets": 0,
+  "max_independent_metric_relative_error": 8.387077885679598e-14,
+  "all_outcomes_retained": true,
+  "formal": true
+}

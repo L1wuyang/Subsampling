@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "predecessor": "D:\\desk\\learning\\Subsampling\\Manuscript\\Workspace\\changes\\experiment_v_stable_rerun_20261031\\formal_01",
+  "files": {
+    "protocol.json": "37af1bbe88cee7c328ed409cb4ec58bd94ac29a085bbdbd937ee23110e126062",
+    "status.json": "c7361e2946611dc1405008863bdc83893b7ba8e05d3d9c525acaa59b8c9518af",
+    "results.json": "1e598d984f6702359a959b0cde5fecce51fa5e50e736ee8a8866fcbc90ba8858",
+    "support_gate.json": "8e66a9ebaeb5f38b9390c9bed4a961fe4a0c7e8a788d0178314e3edd2fe00450",
+    "independent_validation.json": "a1fdc19a39be8e1c5dfececd0f5e00030db34b4b18fceebde2ca0c2ca94a4c39",
+    "RESULTS.md": "3b63ea440195b573ea38d813a54f6911285c9b15a88b8e77ade72386f2f9db92"
+  }
+}

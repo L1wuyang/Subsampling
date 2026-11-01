@@ -1,3 +1,5 @@
+> Historical V evidence from v2026.10.30.2. The local November 1 draft uses [the new full-support stable evidence](../../experiment5_stable/README.md). Original scalar witnesses and Holm analyses here are preserved for provenance.
+
 # Experiment V: portable tail diagnostics
 
 These files reproduce the October 29 YearPredictionMSD tail checks used to qualify the finite-repetition summaries in the paper. They leave the frozen experimental protocols, draws and scientific conclusions unchanged. [The parent evidence guide](../README.md) covers the saved empirical comparisons; [data acquisition](../../../docs/DATA_SOURCES.md) describes the official raw inputs.

@@ -1,0 +1,17 @@
+{
+  "c": 1e-06,
+  "full": {
+    "response_test_mse": 90.44315767847131,
+    "response_test_rmse": 9.510160759864752,
+    "coefficient_norm_squared": 60.036871749627835
+  },
+  "constants": {
+    "UNI": 453.1312675007523,
+    "NORM": 375.1948470398618,
+    "LEV": 355.3037803257193,
+    "OPT": 148.27798419641982
+  },
+  "seconds": 1.5851583000039682,
+  "minimum_opt_probability": 2.156496986295462e-08,
+  "maximum_atom_to_probability": 54905730988.310036
+}

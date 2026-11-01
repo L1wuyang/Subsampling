@@ -1,0 +1,48 @@
+{
+  "scope": "Local draft saved-metric verification; no numerical trajectories executed",
+  "date": "2026-11-01",
+  "stable_v": {
+    "passed": true,
+    "records": 12720,
+    "sketch_tasks": 530,
+    "cells": 78,
+    "opt_lowest_observed_cells": 78,
+    "support_checks": 48,
+    "saved_summary_matches": true,
+    "full_conditional_mse_ordering_inferred": false,
+    "original_state_array_validation_repeated": false,
+    "numerical_trajectories_executed": 0,
+    "bundled_sources_sha256_checked": true
+  },
+  "ridge_liniu": {
+    "passed": true,
+    "records": 104000,
+    "datasets": 40,
+    "tasks": 520,
+    "saved_summary_matches": true,
+    "primary_matches": true,
+    "independent_state_quadratic_form_validation_repeated": false,
+    "original_independent_validation": "independent_validation.json",
+    "n": 40,
+    "mean": -0.0003228063263253981,
+    "se": 0.0003063110522189125,
+    "ci_low": -0.0009423789103554985,
+    "ci_high": 0.0002967662577047022,
+    "budget": 150,
+    "contrast": "FULL_OPT minus LN_floor",
+    "two_sided_p": 0.298436456115232,
+    "full_lower_datasets": 26,
+    "full_over_ln_ratio_of_means": 0.9958062887479565,
+    "numerical_trajectories_executed": 0,
+    "bundled_sources_sha256_checked": true
+  },
+  "paper_redraw": {
+    "completed": true,
+    "source_receipt": "evidence/paper_figures_20261101/figure_receipt.json",
+    "assets_copied_from_local_overleaf": true,
+    "five_pdf_assets": 5,
+    "pdf_byte_identity_after_redraw_asserted": false
+  },
+  "original_state_array_validation_repeated": false,
+  "published": false
+}

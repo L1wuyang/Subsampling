@@ -1,0 +1,16 @@
+{
+  "n": 40,
+  "mean": -0.0003228063263253981,
+  "se": 0.0003063110522189125,
+  "ci_low": -0.0009423789103554985,
+  "ci_high": 0.0002967662577047022,
+  "budget": 150,
+  "contrast": "FULL_OPT minus LN_floor",
+  "metric": "data-set mean relative squared target gap",
+  "two_sided_p": 0.298436456115232,
+  "t_statistic": -1.0538513840326496,
+  "full_lower_datasets": 26,
+  "full_over_ln_ratio_of_means": 0.9958062887479565,
+  "one_prespecified_primary_contrast": true,
+  "independent_data_confirmation": false
+}

@@ -1,3 +1,5 @@
+> 此目录为旧版历史 V 证据。2026-11-01 草稿使用[全支持稳定结果](../experiment5_stable/README_CN.md)；旧见证与 Holm 分析保留用于溯源。
+
 # 实验 V：经验结果与保存证据
 
 本目录对应论文 *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework* 的 GDSC 与 YearPredictionMSD 真实数据实验。当前报告流程从保存记录复现经验均值、两幅系数目标误差图及描述性诊断。这些有限重复汇总不建立完整条件 MSE 的排序；预测比较也只作描述性解释，因为测试集曾被探索使用。
@@ -49,3 +51,4 @@ python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 完整运行指定 `--output runs/formal_v` 时，实验 V 指标保存于 `runs/formal_v/exp5/formal/`；分析指定 `--output runs/formal_v_analysis` 时，报告保存于 `runs/formal_v_analysis/exp5/`。上述保存记录命令直接写入其指定的输出目录。保留的历史脚本所需原完整工程路径由归档适配脚本提供，当前经验汇总流程不依赖这些历史路径。
 
 [English guide](README.md) · [仓库复现说明](../../README_CN.md)
+本文根 run.py 的 formal/analyze --experiment 5 命令执行保留的2026-10-25旧V协议；最新稳定版走[独立实现](../../Experiments/experiment5_support_stable_20261031/README_CN.md)与[新证据](../experiment5_stable/README_CN.md)。

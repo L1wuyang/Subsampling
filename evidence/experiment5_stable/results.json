@@ -1,0 +1,19 @@
+{
+  "completed": true,
+  "records": 12720,
+  "cells": 78,
+  "opt_lowest_empirical_mean_cells": 78,
+  "full_support_gate_passed": true,
+  "full_conditional_mse_ordering_inferred": false,
+  "all_methods_fresh_draws": true,
+  "changed_targets": [
+    "Landweber",
+    "Showalter",
+    "Nesterov"
+  ],
+  "unchanged_targets_reused": [
+    "Ridge",
+    "HBF",
+    "SOAR"
+  ]
+}

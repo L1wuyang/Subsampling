@@ -1,3 +1,5 @@
+> Historical V references in this I–IV data guide refer to v2026.10.30.2. The reported results use evidence/experiment5_stable and its separate versioned source; the root formal/analyze --experiment 5 workflow remains the earlier V protocol. See PAPER_RESULTS.md for new stable-V and Ridge mappings.
+
 # Simulation data for Experiments I-IV
 
 [中文说明](SIMULATION_DATA_CN.md) · [Repository guide](../README.md)
@@ -11,7 +13,7 @@ python run.py review-data download
 python run.py review-data verify
 ```
 
-For offline installation use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. See the [root guide](../README.md#install-the-review-data) for download and integrity details. The split preserves the original inputs, records, tables and metadata; it changes their distribution only.
+For offline installation use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. See the [root guide](../README.md) for download and integrity details. The split preserves the original inputs, records, tables and metadata; it changes their distribution only.
 
 ## Contents
 
@@ -81,7 +83,7 @@ Within an experiment, I/II keys are `(data_id, arm, budget, method, rule, rep)`;
 | `rank`, `unique_objects`/`unique_rows`, `spike_draws` | Rank and coverage of sampled objects. Low coverage and repeated draws belong to the sampling distribution. |
 | IV diagnostics | `resolution_limited` concerns the local final-subtraction scale. The recorded diagnostics additionally preserve two unresolved selected replay warnings and six tail-concentration groups; `accuracy_certified` is false. Read these with the corresponding small gaps and tail means. |
 | OPT | A first-order probability-design oracle using complete data and responses. Better target approximation alone does not imply better prediction or lower total computation. |
-| V summaries and historical statistics | The [V evidence directory](../evidence/experiment5/README.md) provides the current `empirical.py` workflow for finite-repetition means and figures, plus portable tail diagnostics. These summaries do not establish full conditional-MSE rankings. The previous two-sided paired tests and joint 36-comparison Holm family remain historical records available through `reanalyze.py`; they are not the current inferential basis. Previously explored test sets also make prediction comparisons descriptive. |
+| V summaries and historical statistics | The [V evidence directory](../evidence/experiment5/README.md) provides the historical `empirical.py` workflow for finite-repetition means and figures, plus portable tail diagnostics. These summaries do not establish full conditional-MSE rankings. The previous two-sided paired tests and joint 36-comparison Holm family remain historical records available through `reanalyze.py`; they are not the current inferential basis. Previously explored test sets also make prediction comparisons descriptive. |
 
 III/IV pointwise Monte Carlo intervals condition on the specified full dataset and parameter path. Formal tables retain their original uncertainty calculations; convenience summaries do not change the statistical unit or establish a new hypothesis family.
 
@@ -89,4 +91,4 @@ III/IV pointwise Monte Carlo intervals condition on the specified full dataset a
 
 Use `formal` or `smoke`, then `analyze --results`, for newly generated complete directories. Saved-metric summaries use a separate command because full III analysis computes bias from saved vectors and IV replay requires states/counts. The released materials provide existing tables and diagnostics; complete reruns generate the additional numerical outputs for those workflows.
 
-Full saved states, influence arrays and sampling counts are generated during a complete rerun. Official V input acquisition is documented in the [data source guide](DATA_SOURCES.md); the [V saved-metric workflow](../evidence/experiment5/README.md) reproduces its current empirical summaries and figures directly from the installed review-data records. For new V runs, the default `analyze --experiment 5` likewise produces empirical reporting; historical mean-based tests require a separate explicit command.
+Full saved states, influence arrays and sampling counts are generated during a complete rerun. Official V input acquisition is documented in the [data source guide](DATA_SOURCES.md); the [V saved-metric workflow](../evidence/experiment5/README.md) reproduces its historical empirical summaries and figures directly from the installed review-data records. For new runs of the historical V protocol, the root `analyze --experiment 5` produces empirical reporting; the reported stable-V protocol and saved-metric workflow use the separate `Experiments/experiment5_support_stable_20261031/` and `evidence/experiment5_stable/` directories. Historical mean-based tests require a separate explicit command.

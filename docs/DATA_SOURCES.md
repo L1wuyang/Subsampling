@@ -2,7 +2,7 @@
 
 [中文说明](DATA_SOURCES_CN.md) · [Repository guide](../README.md)
 
-The separate review-data archive contains the simulated inputs, per-repetition metrics and summary tables for Experiments I–IV; see the [simulation data guide](SIMULATION_DATA.md). The [Experiment V evidence guide](../evidence/experiment5/README.md) documents its current empirical summaries, figures and tail diagnostics. Acquire the original real-world data for full Experiment V reruns from the official sources below. Preprocessing fits feature means, standard deviations and the response intercept on the training set; the fixed split is supplied with the code.
+The separate review-data archive contains the simulated inputs, per-repetition metrics and summary tables for Experiments I–IV; see the [simulation data guide](SIMULATION_DATA.md). The [stable Experiment V evidence guide](../evidence/experiment5_stable/README.md) documents the reported metrics and full-support checks; historical tail diagnostics remain in the [earlier V evidence directory](../evidence/experiment5/README.md). Acquire the original real-world data for full Experiment V reruns from the official sources below. Preprocessing fits feature means, standard deviations and the response intercept on the training set; the fixed split is supplied with the code.
 
 The `review-data` command installs saved experimental evidence. The `data` commands below acquire official raw inputs for new Experiment V runs; they serve a different purpose.
 

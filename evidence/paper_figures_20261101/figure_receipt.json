@@ -1,0 +1,35 @@
+{
+  "operation": "redraw_saved_results_only",
+  "generated": {
+    "figures/r5_01_gdsc_target.pdf": "07ebdf61dc70cec8e31c69ff2ef9bd719c0cc643a2eb8f237e96d48b731ba522",
+    "figures/r5_02_year_target.pdf": "3b7ac1c679e78276a0a0c984e84adc7ad6bc48dde787168c1462473327371c25",
+    "figures/r5_04_prediction.pdf": "fc21d1f53037967d4ed09627156ef554c6de2141ad10a5e06ad94b2952f8509a",
+    "figures/r1_04_ridge_liniu.pdf": "2e207f7bd0acbbded6433f76802334d0b1c10509222a363fd09547bb9b77f1cb",
+    "figures/r1_05_ridge_liniu_calibration.pdf": "f5cefee30caa534a426b558a7d8726ee642cb0a6666f03beb3f85bb61a01c070",
+    "figures/r5_05_gdsc_liniu.pdf": "820b68679dafbfb29ef2935d8977d2de59b187bc12f6d16aae9e8844077a87cd"
+  },
+  "sources": {
+    "experiment5_stable/summary.csv": "94565ff09c5537085a83b46c58119c803df8715345f0beca3c93c866c9e68cda",
+    "ridge_liniu/summary.csv": "3e8a90a1b7f16881e4261e000852a401cdc5234711d9ae280dc23fbc60bb7a66",
+    "ridge_liniu/dataset_means.csv": "440fe298c3fcfedc61678de230a2333935f106f6bb9fd27b560f13e56aaa00a7",
+    "experiment5_stable/targets/gdsc/Ridge/summary.json": "165a31f621af6a6bc131d4e7aa4efd00069429fa2d5b270e3da669cf04f8ad37",
+    "experiment5_stable/targets/gdsc/Landweber/summary.json": "75ca0828e0f742b7c2f6f7bcd5e34e5ec84a0da3acd97223aee8fffe64c39010",
+    "experiment5_stable/targets/gdsc/Showalter/summary.json": "c8fe11e9efd98c78d1c2310a202928cff006e6ff5a02fe31007fee731267ae44",
+    "experiment5_stable/targets/gdsc/HBF/summary.json": "4f1845ac13945067b266807e9531e7861886d2db6959bcbf062a4c35a8b42193",
+    "experiment5_stable/targets/gdsc/Nesterov/summary.json": "81a03fd4f5e227e6e5da13d08275912eb6123ca67928c0901f2c638f47c77033",
+    "experiment5_stable/targets/gdsc/SOAR/summary.json": "f50e81b69d49b25f96a7ddb225833328b258a2de1efa0b5e8e8c6dbc680b18ce",
+    "experiment5_stable/targets/year/Ridge/summary.json": "c3d0c54452ec51c42c1bee135eb4db49c1f5079829fd538ed272f7f336ee52c5",
+    "experiment5_stable/targets/year/Landweber/summary.json": "d178955326354723acc3d34862a6596c0ec602042fa162682839d9619f61d4aa",
+    "experiment5_stable/targets/year/Showalter/summary.json": "41eec91b6d568bb2ad784e964ba18abe2f0314b3ab068d69c51c192ccac49fa8",
+    "experiment5_stable/targets/year/HBF/summary.json": "91ee26e8efb6b614a794b355e637bdfe6adfe36ee857f8d0351a71b285c33b0b",
+    "experiment5_stable/targets/year/Nesterov/summary.json": "36b184818995db95371e8fd1bcc3109b8f419f7f955f079a313ec90083b42b51",
+    "experiment5_stable/targets/year/SOAR/summary.json": "b7c42ffd0a8b4e0281c41e525ac6c4c6ce880ef9d83822f46683eaad6624f0a2",
+    "gdsc_ridge_liniu/summary.csv": "faee513869fb385d4dccb481364d0915e1a77fc65e9fb697089f901dbdaccb52",
+    "gdsc_ridge_liniu/paired_comparisons.csv": "01f6e459965d99946311fbc471c5ab128912a57eb32af971975bae5ef2865ec7"
+  },
+  "V_finite_repetition_means_without_confidence_bands": true,
+  "LN_interval_units": "40 independent data-set means; paired differences use the same inputs",
+  "LN_primary_budget": 150,
+  "GDSC_LN_interval_units": "30 paired common-uniform draws, single fixed dataset; pointwise t29 Monte Carlo intervals",
+  "GDSC_LN_all_budgets_descriptive": true
+}

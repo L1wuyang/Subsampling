@@ -8,6 +8,7 @@ are excluded from the core inventory and anchored by their release descriptor.
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import os
@@ -156,10 +157,35 @@ def rebuild(check: bool) -> dict:
     updated = dict(original)
     updated["schema"] = 3
     updated["version"] = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-    updated["package_scope"] = "core code and reproduction instructions"
+    latest_saved_metrics = "evidence/experiment5_stable/metrics.csv" in files
+    updated["package_scope"] = ("core code, reproduction instructions and compact latest-result metrics"
+                                if latest_saved_metrics else "core code and reproduction instructions")
     updated["simulation_inputs_bundled"] = False
     updated["historical_formal_results_bundled"] = False
-    updated["experiment5_saved_metrics_bundled"] = False
+    updated["experiment5_saved_metrics_bundled"] = latest_saved_metrics
+    updated["historical_experiment5_evidence_manifest"] = "evidence/experiment5/MANIFEST.json"
+    updated["experiment5_evidence_manifest"] = (
+        "evidence/experiment5_stable/PROVENANCE.json" if latest_saved_metrics
+        else "evidence/experiment5/MANIFEST.json")
+    if latest_saved_metrics:
+        with local_file("evidence/experiment5_stable/metrics.csv").open(encoding="utf-8", newline="") as stream:
+            updated["experiment5_metric_rows"] = sum(1 for _ in csv.DictReader(stream))
+    ridge_saved_metrics = "evidence/ridge_liniu/metrics.csv" in files
+    updated["ridge_liniu_saved_metrics_bundled"] = ridge_saved_metrics
+    if ridge_saved_metrics:
+        updated["ridge_liniu_evidence_manifest"] = "evidence/ridge_liniu/PROVENANCE.json"
+        with local_file("evidence/ridge_liniu/metrics.csv").open(encoding="utf-8", newline="") as stream:
+            updated["ridge_liniu_metric_rows"] = sum(1 for _ in csv.DictReader(stream))
+    else:
+        updated.pop("ridge_liniu_evidence_manifest", None)
+        updated.pop("ridge_liniu_metric_rows", None)
+    gdsc_ln_metrics = "evidence/gdsc_ridge_liniu/new_metrics.csv" in files
+    updated["gdsc_ridge_liniu_saved_metrics_bundled"] = gdsc_ln_metrics
+    if gdsc_ln_metrics:
+        updated["gdsc_ridge_liniu_evidence_manifest"] = "evidence/gdsc_ridge_liniu/PROVENANCE.json"
+        for key, name in [("new_metric_rows", "new_metrics.csv"), ("comparison_metric_rows", "comparison_metrics.csv")]:
+            with local_file("evidence/gdsc_ridge_liniu/" + name).open(encoding="utf-8", newline="") as stream:
+                updated["gdsc_ridge_liniu_" + key] = sum(1 for _ in csv.DictReader(stream))
     updated["review_data_descriptor"] = REVIEW_DATA
     updated["files"] = files
     updated["file_count"] = len(files)

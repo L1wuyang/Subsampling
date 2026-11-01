@@ -1,0 +1,86 @@
+{
+  "scope": "local review draft; not published",
+  "collected_date": "2026-11-01",
+  "original_output_directory": "D:\\desk\\learning\\Subsampling\\Manuscript\\Workspace\\changes\\ridge_liniu_ablation_20261101\\formal_01",
+  "source_baseline_commit": "8859ce1be0396225e047122aa4ee0acccf76db2d",
+  "files": {
+    "comparison.png": {
+      "sha256": "18e4c80289c9a500be1e86409568c10774cea8f572c763c592a04545b0cac66e",
+      "bytes": 173109
+    },
+    "comparison.svg": {
+      "sha256": "0ec9cfcf4886c9e6f827943fdca2ebd07de2d8b93667bfa8cabc8ff2b7003814",
+      "bytes": 73210
+    },
+    "dataset_means.csv": {
+      "sha256": "440fe298c3fcfedc61678de230a2333935f106f6bb9fd27b560f13e56aaa00a7",
+      "bytes": 255698
+    },
+    "execution.json": {
+      "sha256": "c14c5021fac39a74f6d56ce4d720306d11ff6706e251292b59b198cd41eb0dd1",
+      "bytes": 197
+    },
+    "independent_validation.json": {
+      "sha256": "666c2242de40596c00ec12a4c6b1ebaf811ecf46c2e52ec05953f629941ce7b3",
+      "bytes": 220
+    },
+    "metrics.csv": {
+      "sha256": "c1967dcc86ef6048b943e294c14c5e59f35ee5724c572c28dd07f4e09ec378c0",
+      "bytes": 10966501
+    },
+    "pilot_acceptance.json": {
+      "sha256": "5c5279ed0bf3e85aaf518c6d88447d545449d1aa0d1298f4692ef05afdc664b2",
+      "bytes": 1543
+    },
+    "preparation_seal.json": {
+      "sha256": "ffd5cf422f15e3a2f5eff77223bc9d9c73d758045b9aacaaed215cab5f718a23",
+      "bytes": 10582
+    },
+    "primary_comparison.json": {
+      "sha256": "07e71337058d230320edc67029e5b7cb63ce50ba91002449f6961c040443b973",
+      "bytes": 525
+    },
+    "primary_dataset_differences.csv": {
+      "sha256": "8763c1c74966d5a716687a76fbff697415063a464dcf6487da73043d70680174",
+      "bytes": 1063
+    },
+    "protocol.json": {
+      "sha256": "7d83a70b709f9e527c6628132fb9fcf5985be5439d373a2633692fea2917862c",
+      "bytes": 3168
+    },
+    "release_gate.json": {
+      "sha256": "db753d6b97f9aa3274b2eaa8694907937c69f2c1a33e93a95f29fb1cbf568d0d",
+      "bytes": 727
+    },
+    "RESULTS.md": {
+      "sha256": "2d983d05ef47675af173cf6b2d54f9f474e0af93b1d9b164cfc8918e282db1d1",
+      "bytes": 1145
+    },
+    "score_diagnostics.csv": {
+      "sha256": "f1a07fbee79c78a8a58d5daef2383d7fae0539e8d89d4ee95d74a7d1bfde2606",
+      "bytes": 29412
+    },
+    "status.json": {
+      "sha256": "30f98a89fce12a6295e6209cc293f642556c8b4ddfd9a0c5a8ad75cb9e5b50c3",
+      "bytes": 150
+    },
+    "summary.csv": {
+      "sha256": "3e8a90a1b7f16881e4261e000852a401cdc5234711d9ae280dc23fbc60bb7a66",
+      "bytes": 8740
+    },
+    "tails.csv": {
+      "sha256": "841ba9fd94e71be2fddc039e935ef5d1f8fe755238426607ce04538281f38d36",
+      "bytes": 8761
+    },
+    "prepared_input_hashes.json": {
+      "sha256": "3f471589aae686a7ca6dc9f5118cf83bb776bc777120bdc04437e225c55cc2f4",
+      "bytes": 4685
+    },
+    "prepared_seal.json": {
+      "sha256": "ffd5cf422f15e3a2f5eff77223bc9d9c73d758045b9aacaaed215cab5f718a23",
+      "bytes": 10582
+    }
+  },
+  "bundled_scope": "complete scalar metric records, summary tables, protocol, gate and original validation records; no trajectory arrays",
+  "original_validation_scope": "Original independent validation was completed using saved arrays at the source path. Saved-metric analysis here checks scalar records only."
+}

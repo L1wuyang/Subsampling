@@ -1,3 +1,5 @@
+> The November 1 results are included in the current repository. Use the exact Git commit to identify them. VERSION and v2026.10.30.2 identify the unchanged earlier code/review-data archive.
+
 # Manuscript citation and code version
 
 [Repository guide](../README.md) · [中文说明](../README_CN.md)
@@ -16,11 +18,11 @@ The computational materials accompany:
 }
 ```
 
-This submission package is **v2026.10.30.2**, recorded in [VERSION](../VERSION), with code and review-data downloads grouped in the [Release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2). Include the version identifier and exact Git commit when identifying the computational materials:
+The reported full-support V and Ridge score comparisons are identified by the exact repository commit and their protocol versions. The earlier **v2026.10.30.2**, recorded in [VERSION](../VERSION), supplies the separate I-IV review-data archive through its [Release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2). Record both the current source commit and the archive identifier:
 
 ```text
 Repository: https://github.com/L1wuyang/Subsampling
-Tag:        v2026.10.30.2
+Data archive: v2026.10.30.2 (I-IV and historical V)
 Commit:     output of git rev-parse HEAD
 ```
 
@@ -30,4 +32,4 @@ The manuscript's fixed code link should identify a commit containing the files c
 
 The [previous complete snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) retains the previous combined code/data distribution and the optional extension removed from the core. A moving branch such as `main` does not identify a fixed version.
 
-本投稿包标签为 `v2026.10.30.2`；同时记录实际 Git 提交号和复核数据包 SHA-256，分别固定核心源码与独立数据。已发布标签不应移动或重复用于不同内容。旧版文件可通过上面的固定快照访问；`main` 会随更新移动。
+本次报告结果以实际 Git 提交号和各实验协议版本定位；`v2026.10.30.2` 仅定位此前的独立复核数据归档，同时记录数据包 SHA-256。已发布标签不应移动或重复用于不同内容。旧版文件可通过上面的固定快照访问；`main` 会随更新移动。
