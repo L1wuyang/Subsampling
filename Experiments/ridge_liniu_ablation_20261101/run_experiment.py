@@ -1,4 +1,4 @@
-"""Prepare exact scores now; release the formal ablation only after stable V."""
+"""Run the frozen Ridge ablation, optionally preserving the author's V-first queue."""
 from core import *
 import argparse
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -68,9 +68,20 @@ def prepare(repo, output):
 
 def run(prepared, output, predecessor, pilot, workers):
     prepared, output = Path(prepared).resolve(), Path(output).resolve()
-    ready, reason = predecessor_ready(predecessor)
-    if not ready:
-        raise ValueError("Predecessor release gate closed: " + reason)
+    # The protocol retains the original author's scheduling history. It is not
+    # a scientific input to this ablation; requesting it explicitly still runs
+    # the original gate, while standalone runs retain all Ridge-specific gates.
+    release_gate = dict(passed=True, mode="standalone", predecessor=None, files={})
+    if predecessor is not None:
+        predecessor = Path(predecessor).resolve()
+        ready, reason = predecessor_ready(predecessor)
+        if not ready:
+            raise ValueError("Predecessor release gate closed: " + reason)
+        release_gate = dict(
+            passed=True, mode="optional_predecessor", predecessor=str(predecessor),
+            files={name: digest(predecessor / name) for name in
+                   ("protocol.json", "status.json", "results.json", "support_gate.json",
+                    "independent_validation.json", "RESULTS.md")})
     seal = verify_prepared(prepared)
     config = read(prepared / "protocol.json")
     if config["scope"] != "formal_reused_inputs_ablation":
@@ -95,11 +106,7 @@ def run(prepared, output, predecessor, pilot, workers):
         save(execution_path, dict(completed=False, identity=identity, pid=os.getpid()))
         save(output / "protocol.json", config)
         save(output / "pilot_acceptance.json", acceptance)
-        save(output / "release_gate.json", dict(
-            passed=True, predecessor=str(Path(predecessor).resolve()),
-            files={name: digest(Path(predecessor) / name) for name in
-                   ("protocol.json", "status.json", "results.json", "support_gate.json",
-                    "independent_validation.json", "RESULTS.md")}))
+        save(output / "release_gate.json", release_gate)
         shutil.copy2(prepared / "seal.json", output / "preparation_seal.json")
         total = len(config["data_ids"]) * len(config["budgets"])
         save(output / "status.json", dict(phase="formal_draws", completed=False, pid=os.getpid(),
@@ -149,7 +156,8 @@ def main():
     launch = sub.add_parser("run")
     launch.add_argument("--prepared", type=Path, required=True)
     launch.add_argument("--output", type=Path, required=True)
-    launch.add_argument("--predecessor", type=Path, required=True)
+    launch.add_argument("--predecessor", type=Path,
+                        help="Optional completed stable-V directory for the author's scheduling gate")
     launch.add_argument("--pilot", type=Path, required=True)
     launch.add_argument("--workers", type=int, default=2, choices=range(1, 5))
     args = parser.parse_args()

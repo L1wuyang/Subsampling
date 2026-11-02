@@ -1,6 +1,6 @@
 # Experiment V: full-support stable run
 
-Reported results, collected November 1, 2026. This directory supplies the full-support stable Experiment V evidence used by the manuscript. These results are bundled in the current repository; release v2026.10.30.2 remains the historical baseline.
+Reported results, collected November 1, 2026. This directory supplies the full-support stable Experiment V evidence used by the manuscript. These results are included in submission source version v2026.11.02.1; the unchanged v2026.10.30.2 data archive remains the historical baseline.
 
 The versioned protocol is `experiment-V-support-stable-20261031-v1`. It retains the real-data preprocessing, full-model calibration constants, budgets, repetitions and UNI/NORM/LEV/OPT definitions. The fresh sampling seed is 202610310501. Landweber, Showalter and Nesterov use a common full-support step bound for each dataset, with recomputed numerical targets, algorithmic influences and OPT. Ridge/HBF/SOAR retain hash-verified historical full-data targets and probabilities; all six methods use fresh subsamples.
 
@@ -14,8 +14,8 @@ From the repository root, recompute saved means and regenerate convenient V targ
 python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stable_v_saved
 ```
 
-The output includes `summary.csv`, `r5_01_gdsc_target.pdf`, `r5_02_year_target.pdf` and `validation.json`. It verifies source SHA-256 values and all saved mean, SE, prediction RMSE and calibration columns. `metrics.csv` includes every scalar outcome, not every state array. `independent_validation.json` records the original state-based validation; this lighter analysis does not repeat it. `targets/<dataset>/<method>/summary.json` preserves matched full-target prediction references and algorithm parameters.
+The output includes `summary.csv`, `r5_01_gdsc_target.pdf`, `r5_02_year_target.pdf` and `validation.json`. It verifies source SHA-256 values and all saved mean, SE, prediction RMSE and calibration columns. `metrics.csv` includes every scalar outcome, not every state array. `independent_validation.json` records the original scalar-record completeness/summary checks and full-target integrity/comparisons; it does not certify independent per-sketch state-error recalculation. `targets/<dataset>/<method>/summary.json` preserves matched full-target prediction references and algorithm parameters.
 
-The scientific implementation and rerun prerequisites are documented in [the versioned source directory](../../Experiments/experiment5_support_stable_20261031/README_CN.md). Full reruns require official inputs and historical full-data arrays, which the public review-data asset does not contain. All original protocol and validation records retain their source bytes and historical paths; `PROVENANCE.json` fixes the copied hashes.
+The scientific implementation and rerun prerequisites are documented in [the versioned source directory](../../Experiments/experiment5_support_stable_20261031/README.md). Full reruns require official inputs and historical full-data arrays, which the public review-data asset does not contain. All original protocol and validation records retain their source bytes and historical paths; `PROVENANCE.json` fixes the copied hashes.
 
 The saved-metric plotting tool exports convenience layouts, rather than asserting identity with the journal artwork. Final manuscript figure assets are matched separately in the paper result map.

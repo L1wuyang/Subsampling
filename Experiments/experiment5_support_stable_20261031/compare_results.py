@@ -1,4 +1,7 @@
-"""Independently validate and compare a completed support-stable V run."""
+"""Check scalar records and full targets, then compare a completed stable V run.
+
+This report does not recompute per-sketch coefficient errors from saved states.
+"""
 import argparse
 import hashlib
 import json
@@ -8,20 +11,16 @@ import time
 
 import numpy as np
 import pandas as pd
+from run_paths import historical_paths, historical_summary
 
 
 def read(p):
     return json.loads(p.read_text(encoding='utf-8'))
 
 
-def main():
-    parser=argparse.ArgumentParser()
-    parser.add_argument('--output',type=Path,required=True)
-    parser.add_argument('--historical-root',type=Path,required=True)
-    parser.add_argument('--wait',action='store_true')
-    args=parser.parse_args();out=args.output;old=args.historical_root
-    while args.wait and not (out/'results.json').exists():
-        time.sleep(30)
+def compare_run(output, historical_root):
+    out = Path(output).expanduser().resolve()
+    _, historical = historical_paths(historical_root)
     assert read(out/'results.json')['completed']
     assert read(out/'support_gate.json')['passed']
     for rel,expected in read(out/'target_manifest.json').items():
@@ -36,7 +35,7 @@ def main():
         assert data.loc[data.dataset==ds].groupby(['method','rule','budget']).size().eq(rep).all()
     keys=['dataset','method','rule','budget']
     actual=data.groupby(keys,as_index=False).relative_coefficient_error.mean().rename(columns={'relative_coefficient_error':'new_mean'})
-    history=pd.read_csv(old/'outputs/formal_01/summary.csv')
+    history=historical_summary(historical)
     merged=actual.merge(history[keys+['relative_coefficient_error_mean','calibration']],on=keys,validate='one_to_one')
     merged=merged.rename(columns={'relative_coefficient_error_mean':'old_mean','calibration':'old_calibration'})
     merged=merged.merge(pd.read_csv(out/'summary.csv')[keys+['empirical_to_first_order']],on=keys,validate='one_to_one')
@@ -46,7 +45,7 @@ def main():
     for ds in ('gdsc','year'):
         C=np.load(out/'targets'/ds/'C.npy')
         for method in ['Ridge','Landweber','Showalter','HBF','Nesterov','SOAR']:
-            before=np.load(old/'outputs/formal_01/targets'/ds/method/'target.npy')
+            before=np.load(historical/'targets'/ds/method/'target.npy')
             after=np.load(out/'targets'/ds/method/'target.npy')
             target_changes.append(dict(dataset=ds,method=method,
                 relative_target_change=float(np.linalg.norm(C@(after-before))/np.linalg.norm(C@before))))
@@ -58,8 +57,9 @@ def main():
     validation=dict(passed=True,records=len(data),tasks=530,cells=len(wins),
                     opt_lowest_cells=sum(x['opt_lowest'] for x in wins),
                     exceptions=[x for x in wins if not x['opt_lowest']],
+                    scope='Scalar-record completeness and means, full-target hashes and old/new target comparison',
+                    per_sketch_state_errors_recomputed=False,
                     full_conditional_mse_ordering_inferred=False)
-    (out/'independent_validation.json').write_text(json.dumps(validation,indent=2),encoding='utf-8')
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -75,6 +75,7 @@ def main():
             ax.set_title(ds+' / '+method);ax.set_xlabel('Sampling budget');ax.set_ylabel('Empirical relative squared error');ax.grid(alpha=.2)
     axes[0,0].legend(fontsize=8)
     fig.savefig(out/'old_new_comparison.png',dpi=180);fig.savefig(out/'old_new_comparison.pdf')
+    plt.close(fig)
     rows=merged[merged.rule.isin(['UNI','OPT'])].copy()
     rows=rows[rows.apply(lambda r:int(r.budget)==(2996 if r.dataset=='gdsc' else 50000),axis=1)]
     text=['# Stable Experiment V results', '',
@@ -88,7 +89,21 @@ def main():
     text+=['', 'Stability excludes the identified exponential numerical amplification. It does not by itself certify finite-budget full MSE ordering.', '',
            'See independent_validation.json, support_gate.json, old_new_comparison.csv and target_changes.csv.']
     (out/'RESULTS.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
+    (out/'independent_validation.json').write_text(json.dumps(validation,indent=2),encoding='utf-8')
     print(json.dumps(validation,indent=2),flush=True)
+    return validation
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output',type=Path,required=True,help='Completed stable V formal output')
+    parser.add_argument('--historical-root',type=Path,required=True,
+                        help='Historical experiment root or root CLI output containing exp5/')
+    parser.add_argument('--wait',action='store_true')
+    args=parser.parse_args()
+    while args.wait and not (args.output/'results.json').exists():
+        time.sleep(30)
+    compare_run(args.output, args.historical_root)
 
 
 if __name__=='__main__':main()

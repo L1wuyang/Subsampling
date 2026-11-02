@@ -10,7 +10,7 @@ Probability total-variation distance has mean .002990 and range [.002291,.004290
 
 Other budgets and baselines are descriptive, retaining reversals, pointwise intervals and tail outcomes. Calibration decreases from about 1.58 at N=30 to 1.12 at N=600; it is not an exact finite-sample formula. LN_floor uses the same exact probability-floor constraint as FULL_OPT; NOPL and the original outer iteration are not evaluated. Reused inputs do not provide new-data independent confirmation. End-to-end costs were not measured, and no speedup is claimed.
 
-Errors here are relative squared coefficient deviations from fixed full-data regularized numerical targets, separate from true-coefficient recovery or prediction. New scientific protocols version changes separately from frozen historical sources. These results are bundled in the current repository; the earlier release remains the archive for I-IV review data and historical V.
+Errors here are relative squared coefficient deviations from fixed full-data regularized numerical targets, separate from true-coefficient recovery or prediction. New scientific protocols version changes separately from frozen historical sources. These scientific results are preserved in submission source version v2026.11.02.1; the unchanged v2026.10.30.2 data archive supplies I-IV review data and historical V. Stable-V verification covers record completeness, scalar summaries and full-target integrity/comparisons, not independent per-sketch state-error recalculation.
 
 
 ## Experiment V addendum: GDSC Ridge Li-Niu score comparison

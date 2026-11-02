@@ -1,0 +1,263 @@
+{
+  "scope": "Local manuscript source and figure crosscheck; no manuscript files uploaded or modified; no full scientific rerun or PDF curve-digitization performed",
+  "manuscripts": {
+    "manuscript.tex": {
+      "sha256": "813387db31a7e6fb8f543dbb1562e82972522912aea7302f4d93b3e232bd1f6b",
+      "bytes": 99214
+    },
+    "ESM_1.tex": {
+      "sha256": "97c9ab2eb6798e3f7aa1e38301e35ee14fd51d0a62fa4c9a9bc286c0b2759af4",
+      "bytes": 127477
+    }
+  },
+  "unique_figures": 13,
+  "figures": [
+    {
+      "manuscript_path": "figures/01_target_approximation.pdf",
+      "sha256": "5f25b29522a7df1722223e4ecb5aef53f8bad0ca7e7703b063e96a76fe80cbb5",
+      "bytes": 33428,
+      "locations": [
+        {
+          "document": "manuscript.tex",
+          "line": 1338
+        }
+      ],
+      "bundled_pdf": null,
+      "bundled_bytes_match": null,
+      "original_figure_receipt_match": null,
+      "historical_numerical_mapping": {
+        "source": "simulations/experiment1/tables/summary_curves.csv",
+        "selection": "metric=relative_gap; 40 dataset means; all budgets/methods/rules"
+      }
+    },
+    {
+      "manuscript_path": "figures/03_true_coefficient_risk.pdf",
+      "sha256": "8a20636ffb9a2a2b0455b9213fdeffa07c48fc559709c576e28ba819f0c15847",
+      "bytes": 34949,
+      "locations": [
+        {
+          "document": "ESM_1.tex",
+          "line": 1235
+        }
+      ],
+      "bundled_pdf": null,
+      "bundled_bytes_match": null,
+      "original_figure_receipt_match": null,
+      "historical_numerical_mapping": {
+        "source": "simulations/experiment1/tables/summary_curves.csv",
+        "selection": "metric=true_coef_rel_sq; 40 dataset means; all budgets/methods/rules"
+      }
+    },
+    {
+      "manuscript_path": "figures/r1_04_ridge_liniu.pdf",
+      "sha256": "2e207f7bd0acbbded6433f76802334d0b1c10509222a363fd09547bb9b77f1cb",
+      "bytes": 28337,
+      "locations": [
+        {
+          "document": "manuscript.tex",
+          "line": 1389
+        },
+        {
+          "document": "ESM_1.tex",
+          "line": 1355
+        }
+      ],
+      "bundled_pdf": "evidence/paper_figures_20261101/r1_04_ridge_liniu.pdf",
+      "bundled_bytes_match": true,
+      "original_figure_receipt_match": true,
+      "historical_numerical_mapping": null
+    },
+    {
+      "manuscript_path": "figures/r1_05_ridge_liniu_calibration.pdf",
+      "sha256": "f5cefee30caa534a426b558a7d8726ee642cb0a6666f03beb3f85bb61a01c070",
+      "bytes": 17317,
+      "locations": [
+        {
+          "document": "ESM_1.tex",
+          "line": 1371
+        }
+      ],
+      "bundled_pdf": "evidence/paper_figures_20261101/r1_05_ridge_liniu_calibration.pdf",
+      "bundled_bytes_match": true,
+      "original_figure_receipt_match": true,
+      "historical_numerical_mapping": null
+    },
+    {
+      "manuscript_path": "figures/r2_01_target_approximation.pdf",
+      "sha256": "15510932ec8a1c78617362ea6367aad8a4bd3f28ca1675cfd58d5f3298e04fb2",
+      "bytes": 33798,
+      "locations": [
+        {
+          "document": "manuscript.tex",
+          "line": 1425
+        }
+      ],
+      "bundled_pdf": null,
+      "bundled_bytes_match": null,
+      "original_figure_receipt_match": null,
+      "historical_numerical_mapping": {
+        "source": "simulations/experiment2/tables/summary_curves.csv",
+        "selection": "metric=relative_gap; 40 dataset means; all budgets/methods/rules"
+      }
+    },
+    {
+      "manuscript_path": "figures/r2_03_true_coefficient_risk.pdf",
+      "sha256": "ff94c42d4f0a5f06c2d4296bf8a31475564f6c9482d82be1a7d273864bbfa2e7",
+      "bytes": 35251,
+      "locations": [
+        {
+          "document": "ESM_1.tex",
+          "line": 1606
+        }
+      ],
+      "bundled_pdf": null,
+      "bundled_bytes_match": null,
+      "original_figure_receipt_match": null,
+      "historical_numerical_mapping": {
+        "source": "simulations/experiment2/tables/summary_curves.csv",
+        "selection": "metric=true_coef_rel_sq; 40 dataset means; all budgets/methods/rules"
+      }
+    },
+    {
+      "manuscript_path": "figures/r3_01_mse_absolute_compact.pdf",
+      "sha256": "f204c640b18c94ee0d286158ac732ec7b7f47446fa4a14c31e0196da663e0be6",
+      "bytes": 29703,
+      "locations": [
+        {
+          "document": "manuscript.tex",
+          "line": 1464
+        }
+      ],
+      "bundled_pdf": null,
+      "bundled_bytes_match": null,
+      "original_figure_receipt_match": null,
+      "historical_numerical_mapping": {
+        "source": "simulations/experiment3/tables/mse_summary.csv",
+        "selection": "arm=main,data_id=1; mean/low95/high95/theory; both directions"
+      }
+    },
+    {
+      "manuscript_path": "figures/r3_02_mse_ratio.pdf",
+      "sha256": "c0ec4a487d5c9fb5fb1afb7acaf6241f425329f3b4238ed46ae8f9ab13d76aae",
+      "bytes": 29378,
+      "locations": [
+        {
+          "document": "ESM_1.tex",
+          "line": 1701
+        }
+      ],
+      "bundled_pdf": null,
+      "bundled_bytes_match": null,
+      "original_figure_receipt_match": null,
+      "historical_numerical_mapping": {
+        "source": "simulations/experiment3/tables/mse_summary.csv",
+        "selection": "arm=main,data_id=1; ratio/ratio_low95/ratio_high95; both directions"
+      }
+    },
+    {
+      "manuscript_path": "figures/r4_01_scaled_gap.pdf",
+      "sha256": "c0dd63371eab822802894fe131c698abc77b48959ef841ea96f711071d3ca3c3",
+      "bytes": 30291,
+      "locations": [
+        {
+          "document": "manuscript.tex",
+          "line": 1498
+        }
+      ],
+      "bundled_pdf": null,
+      "bundled_bytes_match": null,
+      "original_figure_receipt_match": null,
+      "historical_numerical_mapping": {
+        "source": "simulations/experiment4/tables/gap_summary.csv",
+        "selection": "arm=main,data_id=1; mean/lower/upper already scaled by budget; both directions"
+      }
+    },
+    {
+      "manuscript_path": "figures/r5_01_gdsc_target.pdf",
+      "sha256": "07ebdf61dc70cec8e31c69ff2ef9bd719c0cc643a2eb8f237e96d48b731ba522",
+      "bytes": 28371,
+      "locations": [
+        {
+          "document": "manuscript.tex",
+          "line": 1535
+        }
+      ],
+      "bundled_pdf": "evidence/paper_figures_20261101/r5_01_gdsc_target.pdf",
+      "bundled_bytes_match": true,
+      "original_figure_receipt_match": true,
+      "historical_numerical_mapping": null
+    },
+    {
+      "manuscript_path": "figures/r5_02_year_target.pdf",
+      "sha256": "3b7ac1c679e78276a0a0c984e84adc7ad6bc48dde787168c1462473327371c25",
+      "bytes": 28465,
+      "locations": [
+        {
+          "document": "manuscript.tex",
+          "line": 1570
+        }
+      ],
+      "bundled_pdf": "evidence/paper_figures_20261101/r5_02_year_target.pdf",
+      "bundled_bytes_match": true,
+      "original_figure_receipt_match": true,
+      "historical_numerical_mapping": null
+    },
+    {
+      "manuscript_path": "figures/r5_04_prediction.pdf",
+      "sha256": "fc21d1f53037967d4ed09627156ef554c6de2141ad10a5e06ad94b2952f8509a",
+      "bytes": 25180,
+      "locations": [
+        {
+          "document": "ESM_1.tex",
+          "line": 2476
+        }
+      ],
+      "bundled_pdf": "evidence/paper_figures_20261101/r5_04_prediction.pdf",
+      "bundled_bytes_match": true,
+      "original_figure_receipt_match": true,
+      "historical_numerical_mapping": null
+    },
+    {
+      "manuscript_path": "figures/r5_05_gdsc_liniu.pdf",
+      "sha256": "820b68679dafbfb29ef2935d8977d2de59b187bc12f6d16aae9e8844077a87cd",
+      "bytes": 21196,
+      "locations": [
+        {
+          "document": "ESM_1.tex",
+          "line": 2410
+        }
+      ],
+      "bundled_pdf": "evidence/paper_figures_20261101/r5_05_gdsc_liniu.pdf",
+      "bundled_bytes_match": true,
+      "original_figure_receipt_match": true,
+      "historical_numerical_mapping": null
+    }
+  ],
+  "rounded_table_values_checked": 122,
+  "rounded_table_values_passed": 122,
+  "checked_ESM_tables": [
+    "tab:ridge_liniu_primary",
+    "tab:ridge_liniu_budgets",
+    "tab:real_target_max",
+    "tab:gdsc_liniu_budgets"
+  ],
+  "citation_followup": [
+    {
+      "document": "manuscript.tex",
+      "line": 1658,
+      "current_link": "https://github.com/L1wuyang/Subsampling",
+      "note": "moving repository URL; new submission tag/commit can be added by author"
+    },
+    {
+      "document": "ESM_1.tex",
+      "line": 2500,
+      "current_commit": "e761b30b6a1db4a1fe43b104ba82109814c297a3",
+      "note": "earlier snapshot contains reported results but not the new packaging/rerun changes; update citation if citing the new submission release"
+    }
+  ],
+  "date": "2026-11-02",
+  "code_version": "v2026.11.02.1",
+  "review_data_version": "v2026.10.30.2",
+  "baseline_commit": "d6dcaf57a469fe7f67c9f27c62972d4315ff7728",
+  "passed": true
+}

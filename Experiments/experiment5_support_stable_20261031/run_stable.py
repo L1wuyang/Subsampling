@@ -17,7 +17,6 @@ from pathlib import Path
 import shutil
 import sys
 import time
-import traceback
 
 import numpy as np
 
@@ -28,6 +27,7 @@ sys.path.insert(0, str(NATIVE_SOURCE / 'src'))
 from native_exp5 import kernel, common, formal
 from native_exp5.setup import optimum
 from native_exp5.data import load
+from run_paths import historical_paths, verify_historical_sources
 
 CHANGED = ('Landweber', 'Showalter', 'Nesterov')
 METHODS = ('Ridge', 'Landweber', 'Showalter', 'HBF', 'Nesterov', 'SOAR')
@@ -58,7 +58,8 @@ def coordinate_job(task):
     dest = case / 'blocks' / f'{start:04d}_{stop:04d}.npz'
     if dest.exists():
         return tag, method, start, stop, 'cached'
-    folder = old / 'outputs/formal_01/targets' / tag
+    old, historical = historical_paths(old)
+    folder = historical / 'targets' / tag
     data = load(old / 'inputs', tag)
     X = data['X']; Z = X if tag == 'gdsc' else X.T
     M = np.load(folder / 'M.npy'); C = np.load(folder / 'C.npy')
@@ -86,9 +87,10 @@ def fresh_draw(task):
 
 
 def prepare(out, old, protocol):
+    old, historical = historical_paths(old)
     inp = read(old / 'inputs/data_manifest.json')
-    target_manifest = read(old / 'outputs/formal_01/target_manifest.json')
-    source_manifest = read(old / 'outputs/formal_01/frozen_sources.json')
+    target_manifest = read(historical / 'target_manifest.json')
+    source_manifest = read(historical / 'frozen_sources.json')
     # Verify the exact files consumed, including unchanged copied scientific inputs.
     receipts = []
     for rel, expected in inp.items():
@@ -96,14 +98,10 @@ def prepare(out, old, protocol):
         if p.suffix == '.npy':
             actual = digest(p); assert actual == expected, rel
             receipts.append(dict(path=str(p), sha256=actual))
-    for rel, expected in source_manifest.items():
-        current = NATIVE_SOURCE / rel
-        if current.is_file():
-            actual = digest(current); assert actual == expected, rel
-            receipts.append(dict(path=str(current), sha256=actual))
+    receipts.extend(verify_historical_sources(source_manifest, REPO, NATIVE_SOURCE))
     info = {}
     for tag in ('gdsc', 'year'):
-        hist = old / 'outputs/formal_01/targets' / tag
+        hist = historical / 'targets' / tag
         dest = out / 'targets' / tag; dest.mkdir(parents=True, exist_ok=True)
         X = np.load(old / 'inputs' / tag / 'X.npy', mmap_mode='r')
         norms = np.einsum('ij,ij->j' if tag == 'gdsc' else 'ij,ij->i', X, X)
@@ -140,6 +138,7 @@ def prepare(out, old, protocol):
 
 
 def assemble(out, old, tag, method):
+    old, historical = historical_paths(old)
     case=out/'targets'/tag/method; folder=out/'targets'/tag
     data=load(old/'inputs',tag); X=data['X']; C=np.load(folder/'C.npy'); M=np.load(folder/'M.npy')
     n=C.shape[0]; population=len(np.load(folder/'atom_norms.npy'))
@@ -168,7 +167,7 @@ def assemble(out, old, tag, method):
     np.save(case/'test_prediction.npy',prediction); np.save(case/'design_prediction.npy',design)
     full=dict(response_test_mse=float(np.mean((prediction-data['ey'])**2)),
               response_test_rmse=float(np.sqrt(np.mean((prediction-data['ey'])**2))), coefficient_norm_squared=den)
-    setup=read(old/'outputs/formal_01/targets'/tag/'setup.json')
+    setup=read(historical/'targets'/tag/'setup.json')
     summary=dict(c=setup['models'][method]['c'],full=full,constants=constants,
                  minimum_opt_probability=float(pi.min()),
                  maximum_atom_to_probability=float(np.max(np.load(folder/'atom_norms.npy')/pi)),
@@ -197,6 +196,7 @@ def support_gate(out, info):
 
 def summarize(out, old):
     import pandas as pd
+    _, historical = historical_paths(old)
     data=pd.concat([pd.read_csv(p) for p in sorted((out/'draws').glob('*/*.csv'))],ignore_index=True)
     assert len(data)==12720
     assert data['status'].eq('complete').all()
@@ -210,7 +210,7 @@ def summarize(out, old):
     wins=0
     for _,g in result.groupby(['dataset','method','budget']):
         opt=float(g.loc[g.rule=='OPT','mean'].iloc[0]);wins+=int(opt<g.loc[g.rule!='OPT','mean'].min())
-    olddata=pd.read_csv(old/'outputs/formal_01/summary.csv')
+    olddata=pd.read_csv(historical/'summary.csv')
     olddata.to_csv(out/'historical_summary_reference.csv',index=False)
     save(out/'results.json',dict(completed=True,records=len(data),cells=78,opt_lowest_empirical_mean_cells=wins,
         full_support_gate_passed=read(out/'support_gate.json')['passed'],
@@ -219,18 +219,21 @@ def summarize(out, old):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--historical-root',type=Path,required=True)
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--historical-root',type=Path,required=True,
+                    help='Historical experiment root or root CLI output containing exp5/')
     ap.add_argument('--output',type=Path,required=True);ap.add_argument('--workers',type=int,default=8)
-    args=ap.parse_args();out=args.output.resolve();old=args.historical_root.resolve()
+    args=ap.parse_args();out=args.output.resolve();old,_=historical_paths(args.historical_root)
     assert read(out.parent/'pilot.json')['passed'], 'Native split-adjoint pilot must pass before formal execution'
     out.mkdir(parents=True,exist_ok=True);protocol=read(SOURCE/'protocol.json')
     if (out/'protocol.json').exists(): assert read(out/'protocol.json')==protocol
     else: save(out/'protocol.json',protocol)
-    hashes={str(p):digest(p) for p in [Path(__file__).resolve(),SOURCE/'protocol.json']}
+    sources=[Path(__file__).resolve(),SOURCE/'protocol.json',SOURCE/'run_paths.py',SOURCE/'compare_results.py']
+    hashes={str(p):digest(p) for p in sources}
     if (out/'run_source_hashes.json').exists(): assert read(out/'run_source_hashes.json')==hashes
     else: save(out/'run_source_hashes.json',hashes)
     snapshot=out/'source_snapshot';snapshot.mkdir(exist_ok=True)
-    for path in [Path(__file__).resolve(),SOURCE/'protocol.json']:
+    for path in sources:
         shutil.copy2(path,snapshot/path.name)
     start=time.perf_counter();info=prepare(out,old,protocol)
     save(out/'status.json',dict(phase='native_target_adjoints',completed=False,pid=os.getpid(),started=time.time()))
@@ -264,10 +267,11 @@ def main():
             save(out/'status.json',dict(phase='formal_draws',completed=False,pid=os.getpid(),
                 draws_done=count,draws_total=len(tasks),latest=result,elapsed=time.perf_counter()-start))
     summarize(out,old)
+    save(out/'status.json',dict(phase='result_validation',completed=False,elapsed=time.perf_counter()-start))
+    from compare_results import compare_run
+    compare_run(out, old)
     save(out/'status.json',dict(phase='completed',completed=True,elapsed=time.perf_counter()-start))
 
 
 if __name__=='__main__':
-    try: main()
-    except BaseException:
-        traceback.print_exc(); raise
+    main()

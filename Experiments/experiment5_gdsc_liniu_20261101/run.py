@@ -51,6 +51,21 @@ def constrained(scores, epsilon):
     return np.maximum(floor, tau * scaled)
 
 
+def check_predecessor(stable, protocol):
+    """Require completed stable results and their scalar/target validation."""
+    stable = Path(stable)
+    assert read(stable / "protocol.json")["version"] == protocol["predecessor"]
+    assert read(stable / "results.json")["completed"]
+    assert read(stable / "support_gate.json")["passed"]
+    receipt = stable / "independent_validation.json"
+    if not receipt.is_file():
+        raise FileNotFoundError(
+            f'Missing stable-V result-validation receipt: {receipt}. Complete '
+            'Experiments/experiment5_support_stable_20261031/compare_results.py '
+            '--output STABLE_FORMAL_OUTPUT --historical-root HISTORICAL_V_ROOT first.')
+    assert read(receipt)["passed"]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-root", type=Path, required=True, help="Historical experiment5 inputs directory")
@@ -65,10 +80,7 @@ def main():
         assert read(out / "protocol.json") == protocol
     else:
         save(out / "protocol.json", protocol)
-    assert read(stable / "protocol.json")["version"] == protocol["predecessor"]
-    assert read(stable / "results.json")["completed"]
-    assert read(stable / "support_gate.json")["passed"]
-    assert read(stable / "independent_validation.json")["passed"]
+    check_predecessor(stable, protocol)
     source_hashes = {p.name: sha(p) for p in (SOURCE / "run.py", SOURCE / "protocol.json")}
     if (out / "source_hashes.json").exists():
         assert read(out / "source_hashes.json") == source_hashes

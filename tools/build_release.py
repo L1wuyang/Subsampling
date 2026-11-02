@@ -66,12 +66,13 @@ def descriptor(root):
     if not re.fullmatch(r'v[0-9]{4}\.[0-9]{1,2}\.[0-9]{1,2}\.[0-9]+', version):
         raise ValueError('VERSION must be vYYYY.MM.DD.N')
     value = json.loads(regular_file(root, 'provenance/review_data.json').read_bytes())
-    if value.get('schema') != 1 or value.get('version') != version:
-        raise ValueError('VERSION and review-data descriptor disagree')
+    data_version = value.get('version', '')
+    if value.get('schema') != 1 or not re.fullmatch(r'v[0-9]{4}\.[0-9]{1,2}\.[0-9]{1,2}\.[0-9]+', data_version):
+        raise ValueError('Invalid review-data schema or version')
     if not re.fullmatch('[0-9a-f]{40}', value.get('source_commit', '')):
         raise ValueError('Review-data source must be a complete immutable commit SHA')
-    expected_name = f'Subsampling-review-data-{version}.zip'
-    expected_url = f'https://github.com/{REPOSITORY}/releases/download/{version}/{expected_name}'
+    expected_name = f'Subsampling-review-data-{data_version}.zip'
+    expected_url = f'https://github.com/{REPOSITORY}/releases/download/{data_version}/{expected_name}'
     archive = value['archive']
     if archive['name'] != expected_name or archive['url'] != expected_url:
         raise ValueError('Unexpected review-data asset name or URL')
@@ -170,7 +171,8 @@ def build(output, source_dir=None, timeout=90, root=ROOT):
         (temporary/'SHA256SUMS.txt').write_bytes(checksums.encode('ascii'))
         assets['SHA256SUMS.txt'] = {'bytes': len(checksums), 'sha256': hashlib.sha256(checksums.encode('ascii')).hexdigest()}
         (temporary/'release_notes.md').write_bytes(notes.encode('utf-8'))
-        report = {'version': version, 'source_commit': value['source_commit'], 'core_files': len(core),
+        report = {'version': version, 'review_data_version': value['version'],
+                  'data_source_commit': value['source_commit'], 'core_files': len(core),
                   'data_files': len(value['files']), 'assets': assets, 'data_archive_matches_descriptor': True,
                   'numerical_trajectories_executed': 0}
         (temporary/'build_validation.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
@@ -234,7 +236,9 @@ def publish(output, root=ROOT):
     output = Path(output).resolve()
     version, value = descriptor(root)
     report = json.loads(regular_file(output, 'build_validation.json').read_bytes())
-    if report['version'] != version or not report['data_archive_matches_descriptor']:
+    if (report['version'] != version or report.get('review_data_version') != value['version']
+            or report.get('data_source_commit') != value['source_commit']
+            or not report['data_archive_matches_descriptor']):
         raise ValueError('Build record/version mismatch')
     expected_names = {f'Subsampling-core-{version}.zip', value['archive']['name'], 'SHA256SUMS.txt'}
     if set(report['assets']) != expected_names:
@@ -258,7 +262,7 @@ def publish(output, root=ROOT):
     target = tag_commit(version)
     if target is not None and target != head:
         raise ValueError('Existing version tag points to another commit; use a new VERSION')
-    title = f'Subsampling {version}: core code and review data'
+    title = f'Subsampling {version}: manuscript companion'
     body = notes.rstrip() + f'\n\nFixed source commit: `{head}`.\n'
     if release is not None:
         if target is None or release['name'] != title or release['body'].replace('\r\n','\n') != body:

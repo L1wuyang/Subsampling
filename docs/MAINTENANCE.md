@@ -1,66 +1,46 @@
 # Repository maintenance
 
-[Repository guide](../README.md) · [中文说明](../README_CN.md)
+[Repository guide](../README.md) · [Paper result map](PAPER_RESULTS.md) · [Validation](../validation/README.md)
 
-Reproduction commands are in the root README; the [paper result map](PAPER_RESULTS.md) identifies each figure and numerical table. [Current validation](../validation/README.md) records checks for the version in [VERSION](../VERSION).
+## Sources and evidence
 
-## Entry points and frozen sources
+Use the documented root adapters for I–IV and historical V, and current experiment guides for stable V and the Ridge comparisons. Some archived nested commands still refer to the original author workspace.
 
-Use the root `run.py` for core verification, data acquisition, experiment execution and analysis. The reported stable V saved-record entry point is `tools/analyze_latest_saved.py --experiment stable-v`. The historical V saved-record entry point remains `evidence/experiment5/empirical.py`. Its imported `reanalyze.py` remains in the core; the required historical reference files arrive with the review data. The [tail guide](../evidence/experiment5/tail_diagnostics/README.md) describes portable diagnostics and restoration.
+`provenance/frozen_scientific_sources.json` protects 54 historical scientific files. III/IV pilot records are execution hash gates. Separate reference-module copies may be imported independently even where their bytes are identical. Preserve these files and their bytes.
 
-`Experiments/` preserves the scientific algorithms and source history. Some nested III/IV commands still refer to modules from the original full workspace, and the archived V analyzer describes the earlier inferential workflow. Use the documented root adapters for current reports. Retained original source modules and paths are execution/hash dependencies, not endorsements of every legacy command.
+The `source_snapshot/`, `source_files` and `run_source_hashes` entries in saved evidence describe original runs. Current execution adapters can evolve under a new code release without rewriting those original hashes, snapshots or scientific records. The `v2026.11.02.1` changes concern directory compatibility, postprocessing and optional scheduling; release checks identify them separately.
 
-`provenance/frozen_scientific_sources.json` identifies protected source and protocol files. III/IV pilot records are execution hash gates. Some experiments import separate copies of reference modules even when their bytes are identical. Preserve these source bytes and gates when changing packaging or documentation. The historical optional `stable-v` extension in the [previous full snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) is distinct from the reported `Experiments/experiment5_support_stable_20261031/` implementation. Use the latter and its versioned protocol for the current results.
+## Inventories and versions
 
-## Core and data inventories
+- `VERSION` identifies the code release. `MANIFEST.json` covers its tracked files and records the separate `review_data_version`.
+- `provenance/review_data.json` fixes the historical data version, original URL, archive SHA-256, immutable source commit and all 545 member hashes. A new code release may reuse this descriptor unchanged.
+- Installed review data remain ignored by Git and excluded from the core inventory. `evidence/experiment5/MANIFEST.json` covers the historical mix of helpers and installed evidence.
+- Preserve scientific data hashes. If a current helper covered by a nested manifest changes, update only that helper's entry. Original evidence inventories are not manifests for the evolving execution adapters.
+- Old release receipts belong in `validation/history/`; `validation/current_release.json` records the current code release's actual checks.
 
-- `MANIFEST.json` inventories the tracked core. `python run.py verify` must succeed in a fresh source download with no review data installed.
-- `provenance/review_data.json` identifies the versioned data ZIP, its SHA-256, source commit and every member's original bytes/hash. It is part of the core and fixes what the installer accepts.
-- The data installer restores the original `simulations/` and evidence-data paths. Those files stay ignored by Git; do not add them back to the core manifest.
-- The simulation manifest comes from the data archive. `evidence/experiment5/MANIFEST.json` stays in the core and checks its mixture of core helpers and installed evidence, including original archive members.
+## Validate and package
 
-If a core file covered by the evidence manifest changes, update only that file's bytes/SHA-256 entry. Preserve unchanged data hashes and all `archive_members` entries. The root manifest tool does not regenerate the nested evidence manifest. A change to review-data contents requires a new versioned archive and descriptor; do not replace an existing published asset under the same name.
-
-## Validate and release
-
-Review the intended additions and removals, regenerate the core inventory and stage only the exact intended file paths:
+Run relevant tests, then rebuild/check the inventory:
 
 ```text
+python -B tools/test_latest_rerun_paths.py
+python -B tools/test_ridge_standalone.py
+python -B tools/test_release_versions.py
 python tools/update_manifest.py
 python tools/update_manifest.py --check
 python run.py verify
 python run.py preflight --experiment simulations
-git add -- MANIFEST.json <exact-reviewed-file-paths>
 git diff --check
-git diff --cached --check
-git status --short
 ```
 
-In a separate clean checkout, install the prepared local review-data ZIP and check the restored evidence before publishing it:
+In a fresh extracted core, verify integrity, install the immutable review-data archive, verify members and rerun the saved-metric checks in the release notes. These checks are distinct from full scientific replication. Record the exact environment and checks performed.
 
 ```text
-python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip
-python run.py review-data verify
-python run.py simulation-data verify --experiment all
-python -B evidence/experiment5/empirical.py --output runs/release_v_check
+python tools/build_release.py --output ../release-dist-v2026.11.02.1
 ```
 
-Use a new report directory. Run relevant smoke/analysis or installer checks for changed execution paths; the checks above do not constitute full numerical replication. Record the checks actually completed in `validation/current_release.json`, without rewriting the original empirical-report verification as a new result.
+The builder packages the current core and reconstructs the old data archive byte-for-byte from its fixed source commit. `--source-dir /path/to/original-data-checkout` uses a local copy; every member and the final archive must match the descriptor. Build outputs belong outside the tracked checkout.
 
-Build the versioned core and data archives from the fixed prior source snapshot into a new output directory:
+After local review, pushing a new `VERSION` to `main` runs `.github/workflows/release.yml`. The workflow validates the code and data, publishes the fixed tag and assets, and checks the public data download from a clean extracted core. Monitor its result and compare uploaded checksums before citing it. Never move a published tag or overwrite an existing asset.
 
-```text
-python tools/build_release.py --output ../release-dist-v2026.10.30.2
-```
-
-For a local checkout of the immutable data-source commit, add `--source-dir /path/to/26989d3-checkout`. The builder checks the source/member hashes and writes `Subsampling-core-v2026.10.30.2.zip`, `Subsampling-review-data-v2026.10.30.2.zip`, `SHA256SUMS.txt`, `release_notes.md` and `build_validation.json`. Keep these build outputs outside the tracked core inventory.
-
-Keep `VERSION`, the review-data descriptor and release notes consistent. The release workflow packages and checks the core and the immutable-source review data before creating the corresponding tag/Release and uploading assets. Inspect its result and compare the uploaded assets' checksums before citing the release. Publish changed contents under a new version; do not move an existing release tag or overwrite published assets. The manuscript's fixed links should identify that tag/commit and its separate review-data download.
-
-## 中文维护说明
-
-根目录 `run.py` 提供核心及原冻结流程。当前稳定 V 使用独立的 `Experiments/experiment5_support_stable_20261031/` 协议与 `tools/analyze_latest_saved.py --experiment stable-v` 保存记录入口。历史 V 的 `empirical.py` 和此前可选的 `stable-v` 扩展保留原范围，不应与本次实现混淆。原算法、reference 副本、协议和 III/IV pilot 门禁继续按原字节保留。
-
-根 `MANIFEST.json` 只覆盖核心文件；`provenance/review_data.json` 固定数据 ZIP 与成员校验值。安装后恢复原数据路径，但这些数据应继续被 Git 忽略。V 的嵌套清单仍在核心中；修改其覆盖的核心说明或脚本时，只更新对应条目，不改原数据及压缩包成员哈希。
-
-发布前分别检查“无保存数据的核心包”和“安装数据后的复核流程”，按实际执行结果更新当前验证记录。版本号、数据描述文件和 Release notes 保持一致。检查发布工作流、tag 指向和附件校验和后再在论文中引用；后续改动另用新版本，不移动旧 tag，不覆盖已发布附件。旧版资料保留在 Git 提交历史中。
+中文：科学来源、原始数据、旧运行快照与当前适配器分开管理。代码版本可以更新而沿用旧数据版本。改动后运行对应回归测试和保存结果复核，记录实际验证范围，再发布新 tag；不要用旧版本号覆盖已发布内容。

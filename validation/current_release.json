@@ -1,43 +1,194 @@
 {
-  "version": "v2026.10.30.2",
-  "baseline_commit": "26989d357a1fdbd7ad928482fdac9fba76c8eae4",
-  "scope": "Core code with separately installed complete published review data",
+  "date": "2026-11-02",
+  "version": "v2026.11.02.1",
+  "baseline_commit": "d6dcaf57a469fe7f67c9f27c62972d4315ff7728",
+  "scope": "Fresh pinned environment, execution-adapter regression tests, native pilot, saved-result reanalysis and immutable review-data verification",
   "passed": true,
-  "core_files_including_manifest": 107,
-  "review_data_files": 545,
-  "review_data_archive": {
-    "name": "Subsampling-review-data-v2026.10.30.2.zip",
-    "url": "https://github.com/L1wuyang/Subsampling/releases/download/v2026.10.30.2/Subsampling-review-data-v2026.10.30.2.zip",
-    "bytes": 240281192,
-    "sha256": "d69a39aaec588f9024ea84c184986c21c301231798b774077427a08b6d777c82"
+  "environment": {
+    "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "pandas": "2.2.2",
+      "numba": "0.60.0",
+      "matplotlib": "3.9.2",
+      "Pillow": "10.4.0",
+      "mpmath": "1.3.0",
+      "llvmlite": "0.43.0",
+      "contourpy": "1.2.0",
+      "cycler": "0.11.0",
+      "fonttools": "4.51.0",
+      "kiwisolver": "1.4.7",
+      "packaging": "24.1",
+      "pyparsing": "3.1.2",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2024.1",
+      "tzdata": "2023.3",
+      "six": "1.16.0"
+    },
+    "fresh_virtual_environment": true,
+    "pip_check_passed": true,
+    "installed_from_lock_using_binary_wheels": true
   },
-  "review_data_matches_original_bytes": true,
-  "frozen_scientific_sources_unchanged": 54,
-  "optional_extension_removed": "stable-v",
-  "core_preflight_without_review_data_passed": true,
-  "smoke_experiments_completed_without_review_data": [
-    1,
-    2,
-    3,
-    4
-  ],
-  "smoke_analysis_completed_without_review_data": [
-    1,
-    2,
-    3,
-    4
-  ],
-  "full_numerical_experiments_rerun": false,
-  "offline_review_data_install_and_verify_passed": true,
-  "simulation_record_rows_verified": 1432512,
-  "current_v_saved_metric_records_verified": 12720,
-  "current_v_target_points_verified": 276,
-  "portable_tail_witness_checks_passed": true,
-  "hbf_soar_stability_checks_passed": true,
-  "installer_safety_behavior_tests": 13,
-  "release_builder_publication_tests": 7,
-  "local_markdown_links_checked": 113,
-  "workflow_yaml_parsed": true,
-  "test_runtime_note": "Core-only checks use the standard library. I-IV smoke used the existing Anaconda scientific environment; saved V reporting used the existing Python scientific environment. This does not replace the pinned dependency specification.",
-  "public_download_validation": "Executed after publication by the Release workflow in a clean extracted core; consult the workflow run for its result."
+  "regression_tests": {
+    "stable_v_handoff": 7,
+    "ridge_standalone": 7,
+    "independent_code_data_versions": 5,
+    "total": 19,
+    "commands": [
+      [
+        "-m",
+        "pip",
+        "check"
+      ],
+      [
+        "-B",
+        "tools/test_latest_rerun_paths.py"
+      ],
+      [
+        "-B",
+        "tools/test_ridge_standalone.py"
+      ],
+      [
+        "-B",
+        "tools/test_release_versions.py"
+      ],
+      [
+        "-B",
+        "Experiments/experiment5_support_stable_20261031/pilot.py",
+        "--output",
+        "runs/release_stable_pilot.json"
+      ]
+    ]
+  },
+  "stable_v_native_pilot": {
+    "passed": true,
+    "checks": [
+      {
+        "dataset": "gdsc",
+        "method": "Landweber",
+        "steps": 1443,
+        "coordinate_split_error": 0.0,
+        "dense_state_error": 1.1948656430061123e-15,
+        "dense_derivative_error": 5.307294389815294e-16
+      },
+      {
+        "dataset": "gdsc",
+        "method": "Showalter",
+        "steps": 1443,
+        "coordinate_split_error": 0.0,
+        "dense_state_error": 4.0185722071012947e-16,
+        "dense_derivative_error": 6.882307996839864e-16
+      },
+      {
+        "dataset": "gdsc",
+        "method": "Nesterov",
+        "steps": 92,
+        "coordinate_split_error": 0.0,
+        "dense_state_error": 2.461625790463321e-15,
+        "dense_derivative_error": 1.974767975426828e-15
+      },
+      {
+        "dataset": "year",
+        "method": "Landweber",
+        "steps": 1681,
+        "coordinate_split_error": 0.0,
+        "dense_state_error": 3.1585903928996784e-16,
+        "dense_derivative_error": 3.675955844809467e-16
+      },
+      {
+        "dataset": "year",
+        "method": "Showalter",
+        "steps": 1681,
+        "coordinate_split_error": 0.0,
+        "dense_state_error": 4.302254115202469e-16,
+        "dense_derivative_error": 4.93466800264585e-16
+      },
+      {
+        "dataset": "year",
+        "method": "Nesterov",
+        "steps": 99,
+        "coordinate_split_error": 0.0,
+        "dense_state_error": 1.980133468078619e-15,
+        "dense_derivative_error": 2.9728140283190135e-15
+      }
+    ]
+  },
+  "saved_scalar_checks": {
+    "stable_v": {
+      "passed": true,
+      "records": 12720,
+      "sketch_tasks": 530,
+      "cells": 78,
+      "opt_lowest_observed_cells": 78,
+      "support_checks": 48,
+      "saved_summary_matches": true,
+      "full_conditional_mse_ordering_inferred": false,
+      "original_state_array_validation_repeated": false,
+      "numerical_trajectories_executed": 0,
+      "bundled_sources_sha256_checked": true
+    },
+    "simulated_ridge": {
+      "passed": true,
+      "records": 104000,
+      "datasets": 40,
+      "tasks": 520,
+      "saved_summary_matches": true,
+      "primary_matches": true,
+      "independent_state_quadratic_form_validation_repeated": false,
+      "original_independent_validation": "independent_validation.json",
+      "n": 40,
+      "mean": -0.0003228063263253981,
+      "se": 0.0003063110522189125,
+      "ci_low": -0.0009423789103554985,
+      "ci_high": 0.0002967662577047022,
+      "budget": 150,
+      "contrast": "FULL_OPT minus LN_floor",
+      "two_sided_p": 0.298436456115232,
+      "full_lower_datasets": 26,
+      "full_over_ln_ratio_of_means": 0.9958062887479565,
+      "numerical_trajectories_executed": 0,
+      "bundled_sources_sha256_checked": true
+    },
+    "gdsc_ridge": {
+      "passed": true,
+      "comparison_records": 900,
+      "newly_computed_records": 180,
+      "preserved_baseline_records": 720,
+      "independently_reaggregated_summary_cells": 30,
+      "independently_reaggregated_paired_intervals": 6,
+      "raw_states_verified": 0,
+      "max_recomputed_relative_error": 0.0,
+      "extra_estimator_solves": 0,
+      "interval_scope": "Pointwise t29 Monte Carlo intervals conditional on one fixed dataset; all budgets descriptive",
+      "files": {
+        "protocol.json": "23dbf0a92ef43f4e42fefe0e585c626060b8146e9fc5f2b2c03f2ce527e1d39a",
+        "new_metrics.csv": "caba555dd96faba171b74c8d3bd935a176c609c65563328b1707dcc37086cc91",
+        "comparison_metrics.csv": "287d9c6db40612eb1e3683b2609a406ffae4d62884f80bdf7f11747583f0b90b",
+        "summary.csv": "faee513869fb385d4dccb481364d0915e1a77fc65e9fb697089f901dbdaccb52",
+        "paired_comparisons.csv": "01f6e459965d99946311fbc471c5ab128912a57eb32af971975bae5ef2865ec7",
+        "score_diagnostics.json": "4e721ded02a879eaa19b613c47c0254e9b79d69ca27fe0c62a06cc907068d244"
+      }
+    }
+  },
+  "all_evidence_inventory_files_verified": {
+    "experiment5_stable": 31,
+    "ridge_liniu": 19,
+    "gdsc_ridge_liniu": 210
+  },
+  "review_data": {
+    "version": "v2026.10.30.2",
+    "files_verified": 545,
+    "simulation_metric_rows_verified": 1432512,
+    "source_descriptor_unchanged": true,
+    "archive_sha256": "d69a39aaec588f9024ea84c184986c21c301231798b774077427a08b6d777c82"
+  },
+  "manuscript_alignment": "manuscript_alignment_20261102.json",
+  "full_scientific_experiments_rerun": false,
+  "original_stable_v_and_simulated_ridge_state_checks_repeated": false,
+  "gdsc_raw_states_reverified": 0,
+  "original_scientific_metrics_and_protocols_changed": false,
+  "release_package_checks": "The release workflow independently verifies core/member hashes, packages the archives, refuses existing-tag replacement, and tests the original public data download from a clean extracted core. Its final outcome is recorded in GitHub Actions.",
+  "license_added": false
 }

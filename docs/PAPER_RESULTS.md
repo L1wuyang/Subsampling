@@ -2,7 +2,7 @@
 
 [中文说明](PAPER_RESULTS_CN.md) - [Repository guide](../README.md)
 
-The manuscript reports full-support stable Experiment V and the Ridge score comparisons. Earlier release v2026.10.30.2 supplies I-IV review data and historical V only. References below use LaTeX labels/assets because figure and table numbers may change after inserting the new ablation.
+The manuscript reports full-support stable Experiment V and the Ridge score comparisons, included in submission source version v2026.11.02.1. The unchanged v2026.10.30.2 data archive supplies I-IV review data and historical V. References below use LaTeX labels/assets because figure and table numbers may change after inserting the new ablation.
 
 ## Commands and scope
 
@@ -18,7 +18,7 @@ python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/r
 
 C0 below denotes core/review-data/simulation verification. C1 is the saved I-IV summarization command. C3 means inspecting the named original CSV/JSON (for example with pandas); R means executing the frozen experiment and its formal analysis. None of C0/C1/C3 runs trajectories. Install old review data for I-IV; the two new saved-metric analyses need only the bundled compact evidence.
 
-Convenience I-IV summaries weight datasets equally and do not replace III/IV's first-dataset figures. New analyses verify copied source hashes and recompute every reported scalar mean, corresponding interval/calibration and the sole Ridge primary inference. They do not repeat the original independent state-array checks. The six matching manuscript assets and their figure-generation script are included in this repository. Convenience plotting outputs here need not share its final layout.
+Convenience I-IV summaries weight datasets equally and do not replace III/IV's first-dataset figures. New analyses verify copied source hashes and recompute every reported scalar mean, corresponding interval/calibration and the sole Ridge primary inference. They operate on scalar records. Stable-V validation covers completeness/summaries and full-target integrity/comparisons, not independent per-sketch state-error recalculation. Simulated Ridge has separate original quadratic-form state checks; GDSC state checks require the original preprocessed inputs. The six matching manuscript assets and their figure-generation script are included in this repository. Convenience plotting outputs here need not share its final layout.
 
 ## Latest manuscript figures
 

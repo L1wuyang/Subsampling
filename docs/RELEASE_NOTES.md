@@ -1,48 +1,45 @@
-> The November 1 results are bundled in the current repository; see [results update](RESULTS_UPDATE_20261101.md). VERSION and the release notes below describe the unchanged earlier v2026.10.30.2 archive.
+# v2026.11.02.1 — Manuscript companion
 
-# v2026.10.30.2 — Core code and separate review data
+This release fixes a source version for *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*, including the reported stable Experiment V, simulated Ridge score ablation and GDSC Ridge Li–Niu addendum. The manuscript alignment receipt records the manuscript source and figure hashes checked for this release. Manuscript prose is not redistributed in the code archive.
 
-This version separates the submission code from saved numerical evidence. A source download contains the experiment implementations, frozen protocols, verification/reporting tools and guides. The large saved-data tree is installed only when checking the reported results.
-
-## Assets
+## Downloads
 
 | Asset | Contents |
 | --- | --- |
-| `Subsampling-core-v2026.10.30.2.zip` | Core code and documentation, with its file inventory. |
-| `Subsampling-review-data-v2026.10.30.2.zip` | All 545 previously released data/evidence files: the complete 524-file simulation tree and 21 Experiment V saved-evidence/reference inputs. Original file bytes are preserved. |
-| `SHA256SUMS.txt` | Checksums for the packaged downloads. |
+| `Subsampling-core-v2026.11.02.1.zip` | Current code, English/Chinese guides, compact saved metrics, manuscript figure assets, protocols and validation records. |
+| `Subsampling-review-data-v2026.10.30.2.zip` | Unchanged 545-file historical review-data archive: I–IV inputs/results and historical V evidence. Original filename, bytes and SHA-256 retained. |
+| `SHA256SUMS.txt` | Checksums of both archives. |
 
-The review-data archive includes 130 simulation inputs, 1,432,512 I–IV per-repetition metric records, Experiment V's 12,720 saved metric records, tables and diagnostic inputs. It does not contain the official raw GDSC/Year files or every original trajectory-level state array. Those remain subject to the documented acquisition/recomputation workflows.
+The data archive is a byte-identical convenience copy of the original asset; the installer retains its original fixed URL. It supplies 130 simulation inputs and 1,432,512 I–IV metric records. Official GDSC/Year inputs and full stable-V trajectory outputs are not included; see the acquisition and full-rerun guides.
 
 ## Changes
 
-- Add `review-data download`, `review-data install --file` and `review-data verify` to acquire, validate and restore the exact saved data at its original paths. The archive and member hashes are fixed in `provenance/review_data.json`.
-- Make core verification independent of whether saved data is installed. Restored data remains outside the tracked core inventory.
-- Remove the prospective `stable-v` extension from the submission workflow. Retain the current paper's algorithms, protocols, source hash gates, reporting, and numerical/tail diagnostics.
-- Keep the figure/table map's selections and reproduction limits. This release does not add an exporter for every final typeset manuscript figure.
+- Accept the public root V runner's `inputs/` plus `formal/` layout as well as the original `outputs/formal_01/` layout; bridge the historical calibration column name and verify each source-manifest format.
+- Complete stable V postprocessing automatically so subsequent GDSC runs receive the required validation receipt. The receipt states its scalar/full-target verification scope; it does not claim per-sketch state-error recomputation.
+- Allow simulated Ridge to run independently with its own pilot, input and source checks. The original stable-V predecessor scheduling check remains available explicitly through `--predecessor`.
+- Add English full-rerun guides, concise result navigation, a machine-readable citation and separately identified code/data versions. Move previous release checks into `validation/history/`.
+- Pin the plotting-layout dependency `kiwisolver` to 1.4.7, which supplies a Python 3.12 Windows wheel. The earlier 1.4.4 pin required a local C++ build toolchain; the historical environment record remains unchanged.
+- Preserve the original scientific protocols, all 54 frozen sources, saved numerical evidence and source snapshots. Current execution adapters are versioned by this release; original run-source hashes retain their historical meaning.
 
-The preserved data comes from commit `26989d357a1fdbd7ad928482fdac9fba76c8eae4`. The [previous complete snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) and its ancestors remain available for earlier layouts, optional extensions and historical records.
-
-## Use and validation
-
-After extracting the core and installing its pinned requirements, run:
+## Verification
 
 ```text
+python -m pip install -r requirements-lock.txt
 python run.py verify
 python run.py review-data download
 python run.py review-data verify
 python run.py simulation-data verify --experiment all
-python -B evidence/experiment5/empirical.py --output runs/reported_v
+python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stable_saved
+python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_saved
+python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root evidence/gdsc_ridge_liniu --stable-root evidence/experiment5_stable --report runs/gdsc_saved.json
 ```
 
-For an offline copy, replace the download command with `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`.
+For offline installation use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. Follow [the repository guide](../README.md) for complete experimental reruns and [the paper result map](PAPER_RESULTS.md) for precise figure/table selections. Use new output directories.
 
-The release process checks package/member integrity before publication. Consult `validation/current_release.json` for the exact completed implementation and reporting checks. Saved-evidence verification or smoke execution is not a claim that the full scientific experiments were rerun. The current V report remains descriptive and does not establish full conditional-MSE rankings.
+Completed checks and limits are recorded in `validation/current_release.json`. The release process verifies archive/member hashes and performs a clean-package public-download check. This packaging release does not claim a full rerun of the scientific experiments. Finite-repetition means do not establish full conditional-MSE ordering or Li–Niu equivalence. No license is added in this release.
 
-## 中文说明
+## 中文
 
-本版把核心代码与完整已发布复核数据分开：核心包保留实现、冻结协议、校验与报告工具和说明；独立数据包保留全部 545 份原始文件字节，包括 I—IV 的完整仿真目录及 V 保存证据。数据安装后恢复原路径，但不再进入核心 Git 文件清单。
+本版固定当前文稿对应代码、稳定实验五及两组 Ridge 对照，修复历史 V 到稳定 V 的目录/字段衔接，自动完成稳定 V 后处理，并解除模拟 Ridge 对真实数据实验的非科学性调度依赖。新旧代码版本、原始运行快照及数据版本分别记录。
 
-新增 `review-data` 下载、离线安装及校验入口，移除非当前论文流程的 `stable-v` 扩展。论文算法、记录、尾部与数值诊断继续保留。官方真实数据和未归档的完整轨迹数组仍需另行获取或重算；本版也没有新增全部论文图片的最终版式导出器。
-
-附件校验值见 `SHA256SUMS.txt`；实际完成的检查见 `validation/current_release.json`。核验保存记录不等于重跑完整科学实验，V 的有限重复经验报告也不确立完整条件 MSE 排序。旧版及更早记录可通过固定提交和 Git 历史追溯。
+核心包为 `v2026.11.02.1`；数据包继续使用原名、原字节的 `v2026.10.30.2`，旧发布保持不变。已有数值记录和冻结科学来源保持原样。实际验证范围见 `validation/current_release.json`，文稿对应关系见 `validation/manuscript_alignment_20261102.json`；未重跑全部科学实验，亦未新增许可。

@@ -802,12 +802,12 @@
       "bytes": 4860
     },
     "RESULTS.md": {
-      "sha256": "c42b14d6e813c6b3836f437b68d2cb17a2a9c972868c4a56d4243072ce80ec0f",
-      "bytes": 2095
+      "sha256": "8e2d0676c0b618872f94000a957e91f729ed15e656262b8dc8ca4e7a3577dfa8",
+      "bytes": 598
     },
     "RESULTS_CN.md": {
-      "sha256": "6dc38821f49ddf21257e334dc6001f127a8f2a9185cbf9b31a29111e07afd958",
-      "bytes": 2943
+      "sha256": "2e64f8a90e28ce90d54d8f4dfa54d2b8e415f5950967921a6577463fa326d141",
+      "bytes": 489
     },
     "sampling_release.json": {
       "sha256": "7b63933a534232e60c4de1c95f1d20cc5306dd0fed81bf977553da3bafe4ca23",
@@ -889,5 +889,22 @@
       "original_documentation/RESULTS_CN.md"
     ],
     "scope": "Editorial wording and relative links; numerical records and execution sources unchanged"
+  },
+  "documentation_navigation_revision": {
+    "date": "2026-11-02",
+    "version": "v2026.11.02.1",
+    "original_commit": "d6dcaf57a469fe7f67c9f27c62972d4315ff7728",
+    "original_documents": {
+      "RESULTS.md": {
+        "sha256": "c42b14d6e813c6b3836f437b68d2cb17a2a9c972868c4a56d4243072ce80ec0f",
+        "bytes": 2095
+      },
+      "RESULTS_CN.md": {
+        "sha256": "6dc38821f49ddf21257e334dc6001f127a8f2a9185cbf9b31a29111e07afd958",
+        "bytes": 2943
+      }
+    },
+    "change": "Consolidate duplicate result explanations into README.md and README_CN.md; RESULTS.md and RESULTS_CN.md become navigation pages linking the fixed original reports.",
+    "scope": "Documentation only. Numerical records, source_files, original_documentation and original scientific/validation evidence are unchanged."
   }
 }

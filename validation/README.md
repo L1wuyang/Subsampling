@@ -1,34 +1,18 @@
-# Validation records for the reported experiments
+# Validation records
 
-[Repository guide](../README.md) · [仓库说明](../README_CN.md)
+[Repository guide](../README.md) · [Paper result map](../docs/PAPER_RESULTS.md)
 
-The validation records distinguish integrity checks, reanalysis of saved scalar metrics, and checks using stored estimator states. The [reported-results receipt](reported_results_checks_20261101.json) identifies the evidence hashes and six manuscript figure assets.
+- [Current release checks](current_release.json): `v2026.11.02.1` packaging, execution-adapter regression tests and saved-record verification.
+- [Manuscript alignment](manuscript_alignment_20261102.json): manuscript source hashes, figure-file comparisons and numerical result cross-checks.
+- [Reported results](reported_results_checks_20261101.json): original saved-scalar checks for the three reported studies and six latest figure assets.
+- [Historical core release](history/release_v2026.10.30.2.json) and [historical empirical report](history/empirical_20261030.json): unchanged checks for the earlier release.
 
-## Reported studies
+Stable V contains 12,720 saved scalar records, 530 sketch tasks, 48 support-gate records and matched full-target summaries. Its original `independent_validation.json` records result completeness and summaries; the public postprocessor checks scalar aggregation, full-target changes and hashes. These receipts do not establish per-sketch state-error recomputation.
 
-| Study | Evidence and verification |
-| --- | --- |
-| Full-support stable Experiment V | [Evidence](../evidence/experiment5_stable/README.md), 12,720 scalar records, 530 paired sketch tasks, 48 full-support certificates and the original state-validation receipt. |
-| Simulated Ridge score comparison | [Evidence](../evidence/ridge_liniu/README.md), 104,000 scalar records on 40 data sets, a single prespecified primary comparison, and original state-based quadratic-form checks. |
-| GDSC Ridge score comparison | [Evidence](../evidence/gdsc_ridge_liniu/README.md), 180 LN_floor records and states, 720 retained baseline records, 30 summary cells and six paired intervals. |
+The simulated Ridge comparison contains 104,000 records and an original independent state/quadratic-form validation receipt. `tools/analyze_latest_saved.py` checks hashes and recomputes saved scalar summaries, intervals and the prespecified primary comparison. It does not repeat that original state-array validation.
 
-`tools/analyze_latest_saved.py` verifies evidence hashes and reaggregates stable-V and simulated Ridge scalar summaries. The original independent-validation receipts in the evidence directories record the state-array checks. `Experiments/experiment5_gdsc_liniu_20261101/analyze.py` verifies the GDSC scalar records and, with the original inputs, all 180 newly saved states. These analyses use saved results without additional estimator solves or numerical trajectories.
+The GDSC addendum contains 180 new states and records plus 720 preserved baseline records. Its analyzer checks 30 scalar summary cells and six paired intervals without raw inputs. Supplying `--input-root` additionally verifies saved states against preprocessed data. Intervals are pointwise Monte Carlo intervals conditional on one data set.
 
-The GDSC paired intervals are pointwise Monte Carlo intervals conditional on one fixed data set. The stable-V 78/78 ranking concerns UNI, NORM, LEV and OPT; the additional LN_floor rule is evaluated separately.
+The root manifest protects the current package; 54 historical scientific sources remain separately frozen. The review-data descriptor protects the unchanged 545-file archive for I–IV and historical V. Integrity checks, saved-result reanalysis, small execution tests and full scientific reruns are distinct validation scopes.
 
-## Source and archive integrity
-
-```text
-python tools/update_manifest.py --check
-python run.py review-data verify
-```
-
-The root manifest covers code and compact evidence. `provenance/frozen_scientific_sources.json` anchors the 54 historical scientific sources and III/IV pilot checks. The separate review-data descriptor checks the 545-file v2026.10.30.2 archive and its installed contents. The archive contains Experiments I–IV and historical V evidence; current stable-V and Ridge-comparison evidence is included directly in this repository.
-
-`current_release.json` and `current_empirical_release_20261030.json` retain the checks for that earlier archive. The current evidence directories and [paper result map](../docs/PAPER_RESULTS.md) identify the records used in the manuscript.
-
-## 中文说明
-
-本目录区分文件完整性、保存标量指标汇总和保存状态数组核验。稳定实验五、模拟 Ridge 分数对照及 GDSC Ridge 对照分别提供协议、指标、来源哈希与原始核验回执。保存指标分析入口重新计算汇总和统计区间；GDSC 入口还可结合原始输入核验全部 180 个新增状态。
-
-根清单核对代码与紧凑证据，冻结来源清单保护 54 份历史科学来源及 III/IV pilot。v2026.10.30.2 独立数据包保留 I—IV 与历史 V 的 545 个文件；当前稿件所用稳定 V 和 Ridge 对照证据随仓库提供。具体实验和图表对应关系见[论文结果索引](../docs/PAPER_RESULTS_CN.md)。
+中文：当前发布验证与历史回执分开存放。稳定 V 的公开回执支持完整性、标量汇总与完整目标核对，不应称作逐草图状态误差重算；Ridge 的保存指标复算亦不重复原状态核验。GDSC 只有提供预处理输入时才额外核验全部新增状态。具体执行范围见当前回执。

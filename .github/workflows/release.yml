@@ -34,8 +34,8 @@ jobs:
         run: python3 -B tools/build_release.py --output "$RUNNER_TEMP/subsampling-release"
       - name: Verify installed review data before publishing
         run: |
-          version="$(cat VERSION)"
-          python3 -B run.py review-data install --file "$RUNNER_TEMP/subsampling-release/Subsampling-review-data-${version}.zip"
+          data_asset=$(python3 -c "import json; print(json.load(open('provenance/review_data.json'))['archive']['name'])")
+          python3 -B run.py review-data install --file "$RUNNER_TEMP/subsampling-release/$data_asset"
           python3 -B run.py review-data verify
           python3 -B run.py simulation-data verify --experiment all
           python3 -B run.py verify

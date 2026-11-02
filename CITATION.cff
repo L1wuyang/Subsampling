@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript and identify the code version and separate review-data archive as described in docs/CITATION.md."
+type: software
+title: "Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework — Companion Code"
+authors:
+  - family-names: Li
+    given-names: Junchen
+  - family-names: Wang
+    given-names: Ying-Ao
+  - family-names: Zhang
+    given-names: Ye
+version: v2026.11.02.1
+date-released: 2026-11-02
+repository-code: "https://github.com/L1wuyang/Subsampling"
+url: "https://github.com/L1wuyang/Subsampling/releases/tag/v2026.11.02.1"
+abstract: "Implementations, fixed protocols, saved numerical evidence and reproduction tools accompanying the manuscript. The separate v2026.10.30.2 review-data archive provides Experiments I–IV and historical Experiment V; this source version includes the current stable Experiment V and Ridge score comparisons."

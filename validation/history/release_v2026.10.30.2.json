@@ -1,0 +1,43 @@
+{
+  "version": "v2026.10.30.2",
+  "baseline_commit": "26989d357a1fdbd7ad928482fdac9fba76c8eae4",
+  "scope": "Core code with separately installed complete published review data",
+  "passed": true,
+  "core_files_including_manifest": 107,
+  "review_data_files": 545,
+  "review_data_archive": {
+    "name": "Subsampling-review-data-v2026.10.30.2.zip",
+    "url": "https://github.com/L1wuyang/Subsampling/releases/download/v2026.10.30.2/Subsampling-review-data-v2026.10.30.2.zip",
+    "bytes": 240281192,
+    "sha256": "d69a39aaec588f9024ea84c184986c21c301231798b774077427a08b6d777c82"
+  },
+  "review_data_matches_original_bytes": true,
+  "frozen_scientific_sources_unchanged": 54,
+  "optional_extension_removed": "stable-v",
+  "core_preflight_without_review_data_passed": true,
+  "smoke_experiments_completed_without_review_data": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "smoke_analysis_completed_without_review_data": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "full_numerical_experiments_rerun": false,
+  "offline_review_data_install_and_verify_passed": true,
+  "simulation_record_rows_verified": 1432512,
+  "current_v_saved_metric_records_verified": 12720,
+  "current_v_target_points_verified": 276,
+  "portable_tail_witness_checks_passed": true,
+  "hbf_soar_stability_checks_passed": true,
+  "installer_safety_behavior_tests": 13,
+  "release_builder_publication_tests": 7,
+  "local_markdown_links_checked": 113,
+  "workflow_yaml_parsed": true,
+  "test_runtime_note": "Core-only checks use the standard library. I-IV smoke used the existing Anaconda scientific environment; saved V reporting used the existing Python scientific environment. This does not replace the pinned dependency specification.",
+  "public_download_validation": "Executed after publication by the Release workflow in a clean extracted core; consult the workflow run for its result."
+}

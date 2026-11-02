@@ -2,7 +2,7 @@
 
 [English](PAPER_RESULTS.md) · [仓库说明](../README_CN.md)
 
-论文报告全支撑稳定 V，并包含 Ridge 分数对照。旧 v2026.10.30.2 提供 I—IV 复核数据及历史 V；更新实验的紧凑证据随当前仓库提供。序号可能随新增小节变化，以标签/资产识别。
+论文报告全支撑稳定 V，并包含 Ridge 分数对照，随投稿源码版本 v2026.11.02.1 提供。保持不变的 v2026.10.30.2 数据包提供 I—IV 复核数据及历史 V。序号可能随新增小节变化，以标签/资产识别。
 
 ## 保存指标与最终论文图片
 
@@ -16,7 +16,7 @@ python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stab
 python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_liniu_saved
 ```
 
-C0 表示核心/已安装复核数据/仿真校验，C1 是 I—IV 保存记录汇总，C3 表示直接查看指定 CSV/JSON，R 是完整重跑并分析。C0/C1/C3 不执行轨迹；I—IV 需旧 review-data，两个新分析只需自带紧凑证据。新分析复算全部标量均值、相应区间/校准与唯一主比较，不重复原独立状态数组校验。便捷图不声明与期刊图相同排版。
+C0 表示核心/已安装复核数据/仿真校验，C1 是 I—IV 保存记录汇总，C3 表示直接查看指定 CSV/JSON，R 是完整重跑并分析。C0/C1/C3 不执行轨迹；I—IV 需旧 review-data，两个新分析只需自带紧凑证据。新分析复算全部标量均值、相应区间/校准与唯一主比较。稳定 V 的核验范围为完整性、汇总及完整目标的完整性与新旧比较，不包含逐草图状态误差的独立重算；模拟 Ridge 另有原二次型状态检查，GDSC 状态检查另需原预处理输入。便捷图不声明与期刊图相同排版。
 
 最终六幅图的精确副本在 `evidence/paper_figures_20261101/`，对应收据固定来源及 PDF 哈希。期刊版式只读表格重绘：
 

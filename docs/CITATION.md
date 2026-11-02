@@ -1,12 +1,8 @@
-> The November 1 results are included in the current repository. Use the exact Git commit to identify them. VERSION and v2026.10.30.2 identify the unchanged earlier code/review-data archive.
+# Manuscript and code citation
 
-# Manuscript citation and code version
+[Repository guide](../README.md) · [Machine-readable citation](../CITATION.cff)
 
-[Repository guide](../README.md) · [中文说明](../README_CN.md)
-
-The computational materials accompany:
-
-> Junchen Li, Ying-Ao Wang and Ye Zhang. *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. Manuscript, 2026.
+Junchen Li, Ying-Ao Wang and Ye Zhang. *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. Manuscript, 2026.
 
 ```bibtex
 @unpublished{li2026optimal,
@@ -18,18 +14,21 @@ The computational materials accompany:
 }
 ```
 
-The reported full-support V and Ridge score comparisons are identified by the exact repository commit and their protocol versions. The earlier **v2026.10.30.2**, recorded in [VERSION](../VERSION), supplies the separate I-IV review-data archive through its [Release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2). Record both the current source commit and the archive identifier:
+Use the fixed [v2026.11.02.1 manuscript companion](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.11.02.1) for the current code, reported stable Experiment V and two Ridge score comparisons. The [manuscript alignment receipt](../validation/manuscript_alignment_20261102.json) identifies the checked manuscript sources and figure hashes; [the figure/table map](PAPER_RESULTS.md) identifies numerical selections.
 
 ```text
+Code release: v2026.11.02.1
 Repository: https://github.com/L1wuyang/Subsampling
-Data archive: v2026.10.30.2 (I-IV and historical V)
-Commit:     output of git rev-parse HEAD
+Fixed code URL: https://github.com/L1wuyang/Subsampling/tree/v2026.11.02.1
+Historical I-IV / V data archive: v2026.10.30.2
+Data SHA-256: d69a39aaec588f9024ea84c184986c21c301231798b774077427a08b6d777c82
+Exact source commit: recorded in the Release notes; git rev-parse HEAD
 ```
 
-The manuscript's fixed code link should identify a commit containing the files cited in its data and code availability statement. `MANIFEST.json` supplies core-file checksums; `provenance/review_data.json` fixes the separate data archive and its members. Cite the release tag and retain its full commit SHA and the data-archive SHA-256. A published tag should not be moved or reused for changed contents.
+Suggested data/code availability wording:
 
-引用论文时请使用上述作者、题名及稿件信息；引用实验材料时同时记录仓库地址与 `git rev-parse HEAD` 返回的完整提交号。论文中的固定代码链接应指向实际包含所引用材料的提交，文件级校验和见该版本的 `MANIFEST.json`。
+> Code and computational materials are available in the Subsampling repository, release v2026.11.02.1 (https://github.com/L1wuyang/Subsampling/releases/tag/v2026.11.02.1). This release includes the reported full-support Experiment V and Ridge score comparisons and uses the unchanged v2026.10.30.2 review-data archive for Experiments I–IV and historical V. Official raw real data are obtained separately as documented in the repository.
 
-The [previous complete snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) retains the previous combined code/data distribution and the optional extension removed from the core. A moving branch such as `main` does not identify a fixed version.
+The original [v2026.10.30.2 Release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2) remains unchanged. Its data archive is also attached, with its original name and exact bytes, to the current release for convenience. A moving branch such as `main` does not identify a fixed version. Never move a published tag or replace an existing asset with changed contents.
 
-本次报告结果以实际 Git 提交号和各实验协议版本定位；`v2026.10.30.2` 仅定位此前的独立复核数据归档，同时记录数据包 SHA-256。已发布标签不应移动或重复用于不同内容。旧版文件可通过上面的固定快照访问；`main` 会随更新移动。
+中文：当前稿件请引用 `v2026.11.02.1` 固定发布版本；I–IV 及历史 V 的数据仍单独标识为 `v2026.10.30.2`，并记录上述校验值。本次未新增代码许可。

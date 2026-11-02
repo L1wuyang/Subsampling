@@ -115,8 +115,8 @@ def verify_protected(files: dict) -> dict:
     module = module_from_spec(spec)
     spec.loader.exec_module(module)
     review = module.load_descriptor(ROOT)
-    if review["version"] != (ROOT / "VERSION").read_text(encoding="utf-8").strip():
-        raise ValueError("VERSION and review-data descriptor differ")
+    # Code releases can reuse an older immutable data archive. Its own
+    # version, URL, member hashes and source commit are validated separately.
     prior_exists = subprocess.run(["git", "cat-file", "-e", f"HEAD:{REVIEW_DATA}"],
                                   cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
     if prior_exists:
@@ -187,6 +187,7 @@ def rebuild(check: bool) -> dict:
             with local_file("evidence/gdsc_ridge_liniu/" + name).open(encoding="utf-8", newline="") as stream:
                 updated["gdsc_ridge_liniu_" + key] = sum(1 for _ in csv.DictReader(stream))
     updated["review_data_descriptor"] = REVIEW_DATA
+    updated["review_data_version"] = json.loads(local_file(REVIEW_DATA).read_bytes())["version"]
     updated["files"] = files
     updated["file_count"] = len(files)
     updated["bytes"] = sum(member["bytes"] for member in files.values())
