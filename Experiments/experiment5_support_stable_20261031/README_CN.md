@@ -12,7 +12,7 @@
 python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stable_v_saved
 ```
 
-该命令核验来源哈希并重算标量汇总。原 `independent_validation.json` 记录完整性、汇总及完整目标的完整性与新旧比较，不代表逐草图状态误差的独立重算。全支撑证书与观测 Cholesky 诊断分别记录。紧凑证据不含轨迹数组和官方原始输入。
+该命令核验来源哈希并重算标量汇总。原 `independent_validation.json` 记录完整性、汇总及完整目标的完整性与协议间比较，不代表逐草图状态误差的独立重算。全支撑证书与观测 Cholesky 诊断分别记录。紧凑证据不含轨迹数组和官方原始输入。
 
 ## 从官方输入完整重跑
 
@@ -35,7 +35,7 @@ python -B Experiments/experiment5_support_stable_20261031/run_stable.py --histor
 
 运行器兼容上述根入口输出，以及历史的 `inputs/` 加 `outputs/formal_01/` 布局。程序核验所消耗输入与源码哈希，重算发生变化的目标并冻结概率，通过全支撑门禁后才抽样。Ridge/HBF/SOAR 保留匹配哈希且参数不变的历史目标，Landweber/Showalter/Nesterov 重算稳定数值映射。所有规定迭代与 RK4 阶段均执行。
 
-抽样后自动检查标量完整性与均值、核验完整目标并比较新旧目标，生成 `independent_validation.json`、`RESULTS.md` 和比较表图。该后处理不新增估计量求解，也不逐草图独立重算状态误差。已有完整输出可单独执行：
+抽样后自动检查标量完整性与均值，核验完整目标并比较历史协议和全支撑稳定协议的目标，生成 `independent_validation.json`、`RESULTS.md` 和协议对照表图。该后处理不执行估计量求解，也不逐草图独立重算状态误差。已有完整输出可单独执行：
 
 ```text
 python -B Experiments/experiment5_support_stable_20261031/compare_results.py --historical-root runs/historical_v/exp5 --output runs/stable_v/formal_01

@@ -36,6 +36,6 @@ python -B Experiments/ridge_liniu_ablation_20261101/run_experiment.py run --prep
 
 数据包恢复 40 份冻结输入，离线安装见[仿真数据说明](../../docs/SIMULATION_DATA_CN.md)。prepare 固定目标、概率及源码哈希；pilot 核对导数、概率约束、重复抽样权重和系数恢复。正式运行保存五规则状态与共同随机数，随后进行独立状态分析。已完成任务仅在身份和哈希一致时复用。
 
-该计算不需要先运行稳定 V。科学协议中的原 `release_gate` 字段记录作者当时的任务调度；当前便携入口默认采用独立运行门禁。如需保留原顺序，可显式添加 `--predecessor /path/to/completed-stable-v`，此时仍要求原协议、完成状态、核验回执及比较报告。等待脚本 `queue_after_v.py` 仅供可选调度，不是独立复现的必要步骤。
+本实验默认独立运行。可选参数 `--predecessor /path/to/completed-stable-v` 核对指定稳定 V 的协议、完成状态、核验回执及比较报告；`queue_after_v.py` 提供相应等待功能。两种模式均执行上述输入、pilot 和源码检查。
 
 所有预算与原始区间端点均保留；对数图省略非正下端点并说明。未检出显著差异不等于证明等价。

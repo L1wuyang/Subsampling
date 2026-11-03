@@ -1,12 +1,12 @@
 > Historical V evidence from v2026.10.30.2. The reported manuscript results use [the new full-support stable evidence](../experiment5_stable/README.md). Original scalar witnesses and Holm analyses here are preserved for provenance.
 
-# Experiment V: empirical results and saved evidence
+# Historical Experiment V: empirical results and saved evidence
 
-This directory supports the real-data results in *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. The current workflow reproduces empirical means, the two coefficient-target figures, and descriptive diagnostics from the saved GDSC and YearPredictionMSD records. These finite-repetition summaries do not establish the ordering of the full conditional MSE. Prediction comparisons are descriptive because the test sets had been explored previously.
+This directory documents the v2026.10.30.2 GDSC and YearPredictionMSD protocol. Its workflow reproduces that version's empirical means, coefficient-target figures and descriptive diagnostics. For the full-support stable protocol reported in the manuscript, use [the stable-V evidence](../experiment5_stable/README.md). These finite-repetition summaries do not establish the ordering of the full conditional MSE. Prediction comparisons are descriptive because the test sets had been explored previously.
 
-`saved_records.tar.gz` contains 530 original draw CSVs with 12,720 metric records, 12 full-target summaries, the formal protocols, the execution record, and the original one-sided comparison table. Original file bytes and relative paths are preserved. These are scalar experiment outputs; raw covariates, responses and fitted coefficient vectors are obtained or computed through the full reproduction workflow.
+`saved_records.tar.gz` contains 530 original draw CSVs with 12,720 metric records, 12 full-target summaries, the formal protocols, the execution record, and the original one-sided comparison table. The archive inventory and checksums identify these files and their relative paths. These are scalar experiment outputs; raw covariates, responses and fitted coefficient vectors are obtained or computed through the full reproduction workflow.
 
-## Reproduce the current empirical summaries and figures
+## Reproduce the historical empirical summaries and figures
 
 From the repository root, using its pinned numerical requirements, first install the separate review-data archive. This restores `saved_records.tar.gz`, the plot/reference files and diagnostic inputs at their original paths; the scripts remain in the core:
 
@@ -16,7 +16,7 @@ python run.py review-data verify
 python -B evidence/experiment5/empirical.py --output runs/experiment5_empirical
 ```
 
-For offline installation, use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` instead of the download command. Choose a new output directory. This command verifies the saved archive, checks all 530 draw files and 12,720 records, and reproduces the 276 visible points in the manuscript's two target-error figures against `paper_plot_reference.json`. It checks that OPT has the smallest empirical mean coefficient-target error in all 78 method-budget cells. GDSC NORM records remain in the summaries; the duplicate NORM curve is represented by UNI in the target figure.
+For offline installation, use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` instead of the download command. Choose a new output directory. This command verifies the saved archive, checks all 530 draw files and 12,720 records, and reproduces the 276 visible points in the v2026.10.30.2 target-error figures against `paper_plot_reference.json`. It checks that OPT has the smallest empirical mean coefficient-target error in all 78 method-budget cells. GDSC NORM records remain in the summaries; the duplicate NORM curve is represented by UNI in the target figure.
 
 Outputs include:
 
@@ -42,13 +42,13 @@ After review-data installation, the lightweight checks use the compact supplied 
 
 ## Earlier analyses
 
-Earlier one-sided and two-sided/Holm analyses are documented in the [complete previous version](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4); they are not the inferential basis of the current V report. `reanalyze.py` remains in the core; `reference/` is restored from the data archive because the current saved-record workflow uses its reference checksums and the archive-verification code. Use the empirical workflow above for the current results.
+Earlier one-sided and two-sided/Holm analyses are documented in the [complete previous version](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4); they are not the inferential basis of the manuscript's full-support stable V report. `reanalyze.py` remains in the core; `reference/` is restored from the data archive because this historical saved-record workflow uses its reference checksums and the archive-verification code. Use the empirical workflow above for the v2026.10.30.2 summaries.
 
 ## Relation to full reproduction
 
-Use the root `run.py` for obtaining official data and running or analyzing new experiments. `run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis` now generates empirical summaries and figures; it does not automatically run the historical mean-based tests.
+Use the root `run.py` for obtaining official data and running or analyzing new experiments. `run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis` generates empirical summaries and figures for the historical protocol; it does not automatically run the historical mean-based tests.
 
-For a full run with `--output runs/formal_v`, Experiment V metrics are written under `runs/formal_v/exp5/formal/`. Analysis with `--output runs/formal_v_analysis` writes reports under `runs/formal_v_analysis/exp5/`. The saved-record commands above write directly to their specified output directories. The preserved historical script's original full-project paths are supplied by its archive wrapper and are not required for the current empirical workflow.
+For a full run with `--output runs/formal_v`, Experiment V metrics are written under `runs/formal_v/exp5/formal/`. Analysis with `--output runs/formal_v_analysis` writes reports under `runs/formal_v_analysis/exp5/`. The saved-record commands above write directly to their specified output directories. The preserved historical script's original full-project paths are supplied by its archive wrapper and are not required for this historical empirical workflow.
 
 [Chinese guide](README_CN.md) · [Repository reproduction guide](../../README.md)
 All root `run.py formal/analyze --experiment 5` commands in this historical guide execute the preserved 2026-10-25 V protocol. The latest stable version uses its separate [implementation](../../Experiments/experiment5_support_stable_20261031/README_CN.md) and [saved evidence](../experiment5_stable/README.md).

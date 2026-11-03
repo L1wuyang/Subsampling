@@ -1,10 +1,10 @@
-> Historical V references in this I–IV data guide refer to v2026.10.30.2. The reported results use evidence/experiment5_stable and its separate versioned source; the root formal/analyze --experiment 5 workflow remains the earlier V protocol. See PAPER_RESULTS.md for new stable-V and Ridge mappings.
+> Historical V references in this I–IV data guide refer to v2026.10.30.2. The reported results use evidence/experiment5_stable and its separate versioned source; the root formal/analyze --experiment 5 workflow remains the earlier V protocol. See PAPER_RESULTS.md for stable-V and Ridge mappings.
 
 # Simulation data for Experiments I-IV
 
 [中文说明](SIMULATION_DATA_CN.md) · [Repository guide](../README.md)
 
-The `simulations/` directory supplies original simulated inputs, the per-repetition metrics underlying the reported results, and the corresponding summary tables. NPZ inputs preserve the original bytes. Metric records preserve the original fields, including sensitivity, zero-response and tail arms.
+The `simulations/` directory supplies original simulated inputs, the per-repetition metrics underlying the reported results, and the corresponding summary tables. It includes 130 NPZ inputs and 1,432,512 metric records, including sensitivity, zero-response and tail arms.
 
 The entire `simulations/` tree is in the separate review-data ZIP, not in the core source archive. From the repository root, install it once before using the saved-record commands below:
 
@@ -13,7 +13,7 @@ python run.py review-data download
 python run.py review-data verify
 ```
 
-For offline installation use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. See the [root guide](../README.md) for download and integrity details. The split preserves the original inputs, records, tables and metadata; it changes their distribution only.
+For offline installation use `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`. See the [root guide](../README.md) for download and integrity details. Archive and member checksums identify the supplied inputs, records, tables and metadata.
 
 ## Contents
 

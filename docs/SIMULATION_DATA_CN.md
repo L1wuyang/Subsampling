@@ -4,7 +4,7 @@
 
 [English](SIMULATION_DATA.md) · [仓库使用说明](../README_CN.md)
 
-`simulations/` 提供原始仿真输入、论文结果对应的逐次指标和汇总表。输入 NPZ 保持原始字节；指标保留原字段，敏感性、零响应和尾部记录全部收录。
+`simulations/` 提供原始仿真输入、论文结果对应的逐次指标和汇总表。共包含130份 NPZ 输入及1,432,512条指标，敏感性、零响应和尾部记录全部收录。
 
 完整 `simulations/` 目录位于独立复核数据 ZIP 中，不随核心源码包展开。首次使用下面的保存记录命令前，在仓库根目录安装：
 
@@ -13,7 +13,7 @@ python run.py review-data download
 python run.py review-data verify
 ```
 
-离线安装使用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`。下载与校验方式见[仓库说明](../README_CN.md)。此次拆分只改变分发方式，原始输入、记录、表格与元数据的字节保持不变。
+离线安装使用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip`。下载与校验方式见[仓库说明](../README_CN.md)。输入、记录、表格和元数据由压缩包及成员文件的校验值标识。
 
 ## 内容与数量
 
@@ -83,7 +83,7 @@ records = pd.concat((pd.read_csv(path) for path in shards), ignore_index=True)
 | `rank`、`unique_objects`/`unique_rows`、`spike_draws` | 抽样对象的秩与覆盖；低覆盖和重复抽样属于原抽样分布。 |
 | IV 数值诊断 | `resolution_limited` 只描述最终相减的局部尺度。发布诊断另保留两项尚未解决的选定重放警告和六组尾部集中警告，`accuracy_certified` 为 false；解释对应微小差距和尾部均值时须同时查看。 |
 | OPT | 利用完整数据和响应的一阶概率设计 oracle；目标逼近改善本身不代表预测更优或总计算成本更低。 |
-| V 汇总与历史统计 | [V 证据目录](../evidence/experiment5/README_CN.md) 提供当前 `empirical.py` 入口，复现有限重复经验均值和图形，并提供可移植尾部诊断。这些汇总不建立完整条件 MSE 排序。此前的双侧配对检验和一次联合 36 项 Holm 仅作为历史记录，通过 `reanalyze.py` 单独调用，不是当前推断依据；测试集曾被探索使用，预测比较也只作描述性解释。 |
+| V 汇总与历史统计 | [V 证据目录](../evidence/experiment5/README_CN.md) 提供历史协议的 `empirical.py` 入口，复现该版本的有限重复经验均值和图形，并提供可移植尾部诊断。这些汇总不建立完整条件 MSE 排序。此前的双侧配对检验和一次联合 36 项 Holm 仅作为历史记录，通过 `reanalyze.py` 单独调用，不是当前推断依据；测试集曾被探索使用，预测比较也只作描述性解释。 |
 
 III/IV 的逐点 Monte Carlo 区间条件于指定完整数据和参数路径。正式表保留原不确定性计算；便捷汇总不改变统计单位，也不建立新的检验家族。
 

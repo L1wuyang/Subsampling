@@ -1,6 +1,6 @@
 # Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework
 
-Companion code and experimental materials for the manuscript by Junchen Li, Ying-Ao Wang and Ye Zhang. [中文说明](README_CN.md)
+Companion code and experimental materials for the manuscript by Junchen Li, Dianpeng Wang, Ying-Ao Wang and Ye Zhang. [中文说明](README_CN.md)
 
 Submission version **v2026.11.02.1** includes Experiments I–IV, full-support stable Experiment V, and the simulated and GDSC Ridge score comparisons. [Paper figure/table map](docs/PAPER_RESULTS.md) · [Results and interpretation](docs/LATEST_RESULTS.md) · [Citation](docs/CITATION.md)
 
@@ -27,11 +27,11 @@ python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root
 | --- | --- | --- |
 | Stable V: GDSC and YearPredictionMSD | [12,720 scalar records and support certificates](evidence/experiment5_stable/README.md) | [Guide](Experiments/experiment5_support_stable_20261031/README.md) |
 | Simulated Ridge score comparison | [104,000 scalar records on 40 fixed inputs](evidence/ridge_liniu/README.md) | [Guide](Experiments/ridge_liniu_ablation_20261101/README.md) |
-| GDSC Ridge score comparison | [180 new states and 900 comparison records](evidence/gdsc_ridge_liniu/README.md) | [Guide](Experiments/experiment5_gdsc_liniu_20261101/README.md) |
+| GDSC Ridge score comparison | [180 LN_floor states and 900 comparison records](evidence/gdsc_ridge_liniu/README.md) | [Guide](Experiments/experiment5_gdsc_liniu_20261101/README.md) |
 
 Stable-V verification covers record completeness, scalar summaries and full-target integrity/comparisons; it does not independently recompute every sketch error from states. The GDSC state check additionally requires the original preprocessed inputs. Stable-V and simulated Ridge trajectory arrays are not bundled. See [validation scope](validation/README.md).
 
-I–IV inputs and saved results are supplied by the unchanged **v2026.10.30.2 data archive** (240 MB, 545 files including historical V). Install it separately:
+I–IV inputs and saved results are supplied by the **v2026.10.30.2 data archive** (240 MB, 545 files including historical V). Install it separately:
 
 ```text
 python run.py review-data download
@@ -59,4 +59,4 @@ Smoke runs use reduced dimensions and are workflow checks. Formal runs can be ex
 
 The studies distinguish coefficient-target approximation, true-coefficient recovery and prediction. Observed finite-repetition rankings do not establish full conditional-MSE ordering. The two Li–Niu comparisons evaluate exact scores under a common probability floor; they do not evaluate NOPL or its outer iteration, and do not establish a significant finite-budget advantage of FULL/OPT over LN_floor. Detailed numbers and scope are centralized in [reported results](docs/LATEST_RESULTS.md).
 
-`MANIFEST.json` checks this source release; `provenance/frozen_scientific_sources.json` anchors historical scientific sources. The separate review-data descriptor retains the old data archive's hashes. Historical evidence and receipts are preserved as records of their original runs. Cite this submission tag/commit and the separate data archive. [Maintenance](docs/MAINTENANCE.md) · [Additional diagnostics](docs/ADVANCED_DIAGNOSTICS.md) · [Release notes](docs/RELEASE_NOTES.md)
+`MANIFEST.json` lists the source files and checksums for this checkout; `provenance/frozen_scientific_sources.json` identifies the scientific implementations used in the recorded experiments. `provenance/review_data.json` identifies the data version and archive/member checksums. Cite the code tag/commit and the data version used in your analysis. [Maintenance](docs/MAINTENANCE.md) · [Additional diagnostics](docs/ADVANCED_DIAGNOSTICS.md) · [Release notes](docs/RELEASE_NOTES.md)

@@ -10,6 +10,12 @@ Use the documented root adapters for I–IV and historical V, and current experi
 
 The `source_snapshot/`, `source_files` and `run_source_hashes` entries in saved evidence describe original runs. Current execution adapters can evolve under a new code release without rewriting those original hashes, snapshots or scientific records. The `v2026.11.02.1` changes concern directory compatibility, postprocessing and optional scheduling; release checks identify them separately.
 
+## Public guides and archived records
+
+Public guides describe experimental designs, results, limitations and reproducible commands. Archive handling, task scheduling and editorial changes belong in maintenance records. Original protocols and execution receipts remain evidence of their recorded runs; public summaries identify the scientific fields and repository-relative entry points without rewriting those records.
+
+The `release_gate` field in the recorded Ridge protocol describes an optional predecessor check. The current runner supports independent execution and the documented `--predecessor` option. Release notes describe the available behavior; the experiment guide gives the parameter requirements.
+
 ## Inventories and versions
 
 - `VERSION` identifies the code release. `MANIFEST.json` covers its tracked files and records the separate `review_data_version`.

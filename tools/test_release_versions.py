@@ -30,7 +30,12 @@ class ReleaseVersionTests(unittest.TestCase):
                                   **self.record(data_archive.read_bytes())}, 'files': files}
         self.write('VERSION', b'v2026.11.02.1\n')
         self.write('provenance/review_data.json', json.dumps(self.value).encode())
-        self.write('docs/RELEASE_NOTES.md', b'# v2026.11.02.1\n')
+        self.write('README.md', b'# Repository guide\n')
+        self.write('docs/PAPER_RESULTS.md', b'# Paper result map\n')
+        self.write('docs/RELEASE_NOTES.md', (
+            b'# v2026.11.02.1\n'
+            b'[Guide](../README.md) [Map](PAPER_RESULTS.md#figures) '
+            b'[External](https://example.org/paper) [Section](#verification)\n'))
         self.write('run.py', b'print("fixture")\n')
         core = {str(p.relative_to(self.root)).replace('\\', '/'): self.record(p.read_bytes())
                 for p in self.root.rglob('*') if p.is_file()}
@@ -51,6 +56,11 @@ class ReleaseVersionTests(unittest.TestCase):
         self.assertEqual(report['data_source_commit'], 'a' * 40)
         self.assertEqual((output / self.value['archive']['name']).read_bytes(),
                          (self.base / 'original.zip').read_bytes())
+        notes = (output / 'release_notes.md').read_text(encoding='utf-8')
+        self.assertIn('https://github.com/L1wuyang/Subsampling/blob/v2026.11.02.1/README.md', notes)
+        self.assertIn('https://github.com/L1wuyang/Subsampling/blob/v2026.11.02.1/docs/PAPER_RESULTS.md#figures', notes)
+        self.assertIn('[External](https://example.org/paper) [Section](#verification)', notes)
+        self.assertIn('[Guide](../README.md)', (self.root / 'docs/RELEASE_NOTES.md').read_text())
         with zipfile.ZipFile(output / 'Subsampling-core-v2026.11.02.1.zip') as archive:
             self.assertEqual(archive.read('Subsampling-v2026.11.02.1/VERSION'), b'v2026.11.02.1\n')
             self.assertFalse(any('simulations/' in name for name in archive.namelist()))
@@ -78,6 +88,16 @@ class ReleaseVersionTests(unittest.TestCase):
         self.write('run.py', b'changed')
         with self.assertRaisesRegex(ValueError, 'integrity mismatch'):
             release.build(self.base / 'release', self.source, root=self.root)
+
+    def test_release_link_cannot_escape_repository(self):
+        self.write('docs/RELEASE_NOTES.md', b'# v2026.11.02.1\n[Outside](../../secret.md)\n')
+        with self.assertRaisesRegex(ValueError, 'escapes the repository'):
+            release.release_notes(self.root, 'v2026.11.02.1')
+
+    def test_missing_release_document_rejected(self):
+        self.write('docs/RELEASE_NOTES.md', b'# v2026.11.02.1\n[Missing](MISSING.md)\n')
+        with self.assertRaisesRegex(ValueError, 'Missing or unsafe'):
+            release.release_notes(self.root, 'v2026.11.02.1')
 
 
 if __name__ == '__main__':

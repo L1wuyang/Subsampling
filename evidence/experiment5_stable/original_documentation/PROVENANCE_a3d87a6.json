@@ -1,0 +1,134 @@
+{
+  "scope": "Evidence for the reported full-support stable Experiment V",
+  "collected_date": "2026-11-01",
+  "original_output_directory": "D:\\desk\\learning\\Subsampling\\Manuscript\\Workspace\\changes\\experiment_v_stable_rerun_20261031\\formal_01",
+  "source_baseline_commit": "8859ce1be0396225e047122aa4ee0acccf76db2d",
+  "files": {
+    "candidate_bounds.json": {
+      "sha256": "fa224337ebf903101d815b7d95e15024f4e94dbe2ad599726ab63f3d75f51091",
+      "bytes": 3541
+    },
+    "historical_summary_reference.csv": {
+      "sha256": "91809dbb23bff297e2c2b89a1f4f03f440199eed973c1a69d524b53598e3249b",
+      "bytes": 165691
+    },
+    "independent_validation.json": {
+      "sha256": "a1fdc19a39be8e1c5dfececd0f5e00030db34b4b18fceebde2ca0c2ca94a4c39",
+      "bytes": 176
+    },
+    "input_verification.json": {
+      "sha256": "6cdeecfe153b5687ba3a48b6c869bda441643cacd2c8b83797d1fbc6992f0c04",
+      "bytes": 4783
+    },
+    "metrics.csv": {
+      "sha256": "770f063bb90fb394e7d8f8614bfb8e571bc9f77c130494083390d2d460e0302b",
+      "bytes": 2294255
+    },
+    "old_new_comparison.csv": {
+      "sha256": "4eea553d691df6e4f357db235e75a3c18e44bdf5c50e4dc11de2c276fdd6b0ab",
+      "bytes": 36666
+    },
+    "old_new_comparison.pdf": {
+      "sha256": "1843ecae4ddb6fb517861cd730f29dd6534d9104ea6d08c8f71dc7192cf32a88",
+      "bytes": 30063
+    },
+    "old_new_comparison.png": {
+      "sha256": "d37219f05be0070680e065070c5d30e8145a4b7e0377980edddd3e39ae04800f",
+      "bytes": 386269
+    },
+    "protocol.json": {
+      "sha256": "37af1bbe88cee7c328ed409cb4ec58bd94ac29a085bbdbd937ee23110e126062",
+      "bytes": 2225
+    },
+    "results.json": {
+      "sha256": "1e598d984f6702359a959b0cde5fecce51fa5e50e736ee8a8866fcbc90ba8858",
+      "bytes": 390
+    },
+    "RESULTS.md": {
+      "sha256": "3b63ea440195b573ea38d813a54f6911285c9b15a88b8e77ade72386f2f9db92",
+      "bytes": 2265
+    },
+    "run_source_hashes.json": {
+      "sha256": "70fa1b32deb6d6058b27c5b8ea1d21838ab4626c5ab481e99079fe98a9d30912",
+      "bytes": 363
+    },
+    "sampling_release.json": {
+      "sha256": "0939f8c4190be37a4e603af25c5546c0567cef0e996496efe8fb19c860f7815c",
+      "bytes": 149
+    },
+    "status.json": {
+      "sha256": "c7361e2946611dc1405008863bdc83893b7ba8e05d3d9c525acaa59b8c9518af",
+      "bytes": 85
+    },
+    "summary.csv": {
+      "sha256": "94565ff09c5537085a83b46c58119c803df8715345f0beca3c93c866c9e68cda",
+      "bytes": 38329
+    },
+    "support_gate.json": {
+      "sha256": "8e66a9ebaeb5f38b9390c9bed4a961fe4a0c7e8a788d0178314e3edd2fe00450",
+      "bytes": 11780
+    },
+    "target_changes.csv": {
+      "sha256": "9dbc06ed0093947cfaf026d9d7ba1cdde4624831ad7f3fa22bd608bdab3fcc11",
+      "bytes": 353
+    },
+    "target_manifest.json": {
+      "sha256": "cf764404eaf5bccc3ea5ea5637cdf548d39c4c07c09885810bf2ab2dbb0408a0",
+      "bytes": 10557
+    },
+    "targets/gdsc/HBF/summary.json": {
+      "sha256": "4f1845ac13945067b266807e9531e7861886d2db6959bcbf062a4c35a8b42193",
+      "bytes": 472
+    },
+    "targets/gdsc/Landweber/summary.json": {
+      "sha256": "75ca0828e0f742b7c2f6f7bcd5e34e5ec84a0da3acd97223aee8fffe64c39010",
+      "bytes": 525
+    },
+    "targets/gdsc/Nesterov/summary.json": {
+      "sha256": "81a03fd4f5e227e6e5da13d08275912eb6123ca67928c0901f2c638f47c77033",
+      "bytes": 529
+    },
+    "targets/gdsc/Ridge/summary.json": {
+      "sha256": "165a31f621af6a6bc131d4e7aa4efd00069429fa2d5b270e3da669cf04f8ad37",
+      "bytes": 477
+    },
+    "targets/gdsc/Showalter/summary.json": {
+      "sha256": "c8fe11e9efd98c78d1c2310a202928cff006e6ff5a02fe31007fee731267ae44",
+      "bytes": 533
+    },
+    "targets/gdsc/SOAR/summary.json": {
+      "sha256": "f50e81b69d49b25f96a7ddb225833328b258a2de1efa0b5e8e8c6dbc680b18ce",
+      "bytes": 470
+    },
+    "targets/year/HBF/summary.json": {
+      "sha256": "91ee26e8efb6b614a794b355e637bdfe6adfe36ee857f8d0351a71b285c33b0b",
+      "bytes": 469
+    },
+    "targets/year/Landweber/summary.json": {
+      "sha256": "d178955326354723acc3d34862a6596c0ec602042fa162682839d9619f61d4aa",
+      "bytes": 530
+    },
+    "targets/year/Nesterov/summary.json": {
+      "sha256": "36b184818995db95371e8fd1bcc3109b8f419f7f955f079a313ec90083b42b51",
+      "bytes": 531
+    },
+    "targets/year/Ridge/summary.json": {
+      "sha256": "c3d0c54452ec51c42c1bee135eb4db49c1f5079829fd538ed272f7f336ee52c5",
+      "bytes": 472
+    },
+    "targets/year/Showalter/summary.json": {
+      "sha256": "41eec91b6d568bb2ad784e964ba18abe2f0314b3ab068d69c51c192ccac49fa8",
+      "bytes": 530
+    },
+    "targets/year/SOAR/summary.json": {
+      "sha256": "b7c42ffd0a8b4e0281c41e525ac6c4c6ce880ef9d83822f46683eaad6624f0a2",
+      "bytes": 472
+    },
+    "native_pilot.json": {
+      "sha256": "5d140e3bba62f2e66dcb302287049995b275c829e4deaee75ec7ce3f0c8491fb",
+      "bytes": 1521
+    }
+  },
+  "bundled_scope": "complete scalar metric records, summary tables, protocol, gate and original validation records; no trajectory arrays",
+  "original_validation_scope": "Original independent validation was completed using saved arrays at the source path. Saved-metric analysis here checks scalar records only."
+}

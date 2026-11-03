@@ -35,7 +35,7 @@ python -B Experiments/experiment5_support_stable_20261031/run_stable.py --histor
 
 The runner accepts the portable root output layout above as well as the historical `inputs/` plus `outputs/formal_01/` layout. It checks the consumed input/source hashes, rebuilds the changed targets, freezes the probabilities, and requires the full-support gate before drawing. Ridge/HBF/SOAR reuse hash-matched historical targets under the unchanged parameters; Landweber/Showalter/Nesterov use the recomputed stable maps. Every prescribed iterative update and RK4 stage is retained.
 
-After sampling, the runner automatically checks scalar completeness and means, verifies full-target integrity, compares old/new targets, and writes `independent_validation.json`, `RESULTS.md` and comparison tables/figures. This postprocessing performs no new estimator solves and no independent per-sketch state-error recalculation. It can also be run separately on a completed output:
+After sampling, the runner automatically checks scalar completeness and means, verifies full-target integrity, compares the historical and full-support stable targets, and writes `independent_validation.json`, `RESULTS.md` and protocol-comparison tables/figures. This postprocessing performs no estimator solves and no independent per-sketch state-error recalculation. It can also be run separately on a completed output:
 
 ```text
 python -B Experiments/experiment5_support_stable_20261031/compare_results.py --historical-root runs/historical_v/exp5 --output runs/stable_v/formal_01

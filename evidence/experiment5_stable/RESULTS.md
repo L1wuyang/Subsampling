@@ -1,11 +1,13 @@
-# Stable Experiment V results
+# Experiment V: full-support stable results and protocol comparison
 
-Completed fresh full-size run: 12,720 metrics, 530 sketches, all support gates passed.
-OPT has the lowest observed mean in 78/78 cells.
+The full-support stable protocol has 12,720 metrics and 530 sketches; all support gates passed.
+Among UNI/NORM/LEV/OPT, OPT has the lowest observed mean in 78/78 cells.
 
-The old and new runs use different seeds and, for three methods, different numerical targets. Mean changes cannot be attributed solely to the step size.
+Main results are in summary.csv. The table below compares the historical 2026-10-25 protocol with the full-support stable protocol experiment-V-support-stable-20261031-v1.
 
-| Data | Method | Rule | Old mean | New mean | New first-order ratio |
+These protocols use different seeds and, for three methods, different numerical targets. Mean changes cannot be attributed solely to the step size.
+
+| Data | Method | Rule | Historical-protocol mean | Full-support stable mean | Stable first-order ratio |
 |---|---|---|---:|---:|---:|
 | gdsc | HBF | OPT | 0.0180625551 | 0.0182312671 | 1.08166 |
 | gdsc | HBF | UNI | 0.0281461038 | 0.0277358813 | 0.997458 |

@@ -71,18 +71,19 @@ def compare_run(output, historical_root):
             for rule,color in colors.items():
                 v=merged[(merged.dataset==ds)&(merged.method==method)&(merged.rule==rule)].sort_values('budget')
                 ax.loglog(v.budget,v.new_mean,'o-',color=color,label=rule+' stable')
-                ax.loglog(v.budget,v.old_mean,'--',color=color,alpha=.5)
+                ax.loglog(v.budget,v.old_mean,'--',color=color,alpha=.5,label=rule+' historical')
             ax.set_title(ds+' / '+method);ax.set_xlabel('Sampling budget');ax.set_ylabel('Empirical relative squared error');ax.grid(alpha=.2)
     axes[0,0].legend(fontsize=8)
     fig.savefig(out/'old_new_comparison.png',dpi=180);fig.savefig(out/'old_new_comparison.pdf')
     plt.close(fig)
     rows=merged[merged.rule.isin(['UNI','OPT'])].copy()
     rows=rows[rows.apply(lambda r:int(r.budget)==(2996 if r.dataset=='gdsc' else 50000),axis=1)]
-    text=['# Stable Experiment V results', '',
-          'Completed fresh full-size run: 12,720 metrics, 530 sketches, all support gates passed.',
-          f'OPT has the lowest observed mean in {validation["opt_lowest_cells"]}/78 cells.', '',
-          'The old and new runs use different seeds and, for three methods, different numerical targets. Mean changes cannot be attributed solely to the step size.', '',
-          '| Data | Method | Rule | Old mean | New mean | New first-order ratio |',
+    text=['# Experiment V: full-support stable results and protocol comparison', '',
+          'The full-support stable protocol has 12,720 metrics and 530 sketches; all support gates passed.',
+          f'Among UNI/NORM/LEV/OPT, OPT has the lowest observed mean in {validation["opt_lowest_cells"]}/78 cells.', '',
+          'Main results are in summary.csv. The table below compares the historical 2026-10-25 protocol with the full-support stable protocol experiment-V-support-stable-20261031-v1.', '',
+          'These protocols use different seeds and, for three methods, different numerical targets. Mean changes cannot be attributed solely to the step size.', '',
+          '| Data | Method | Rule | Historical-protocol mean | Full-support stable mean | Stable first-order ratio |',
           '|---|---|---|---:|---:|---:|']
     for r in rows.itertuples():
         text.append(f'| {r.dataset} | {r.method} | {r.rule} | {r.old_mean:.9g} | {r.new_mean:.9g} | {r.empirical_to_first_order:.6g} |')

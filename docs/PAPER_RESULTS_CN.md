@@ -2,7 +2,7 @@
 
 [English](PAPER_RESULTS.md) · [仓库说明](../README_CN.md)
 
-论文报告全支撑稳定 V，并包含 Ridge 分数对照，随投稿源码版本 v2026.11.02.1 提供。保持不变的 v2026.10.30.2 数据包提供 I—IV 复核数据及历史 V。序号可能随新增小节变化，以标签/资产识别。
+论文报告全支撑稳定 V，并包含 Ridge 分数对照，随投稿源码版本 v2026.11.02.1 提供。v2026.10.30.2 数据包提供 I—IV 复核数据及历史 V。下表以 LaTeX 标签和图文件名标识图表，列出相应来源、筛选条件和复现命令。
 
 ## 保存指标与最终论文图片
 
@@ -16,7 +16,7 @@ python -B tools/analyze_latest_saved.py --experiment stable-v --output runs/stab
 python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_liniu_saved
 ```
 
-C0 表示核心/已安装复核数据/仿真校验，C1 是 I—IV 保存记录汇总，C3 表示直接查看指定 CSV/JSON，R 是完整重跑并分析。C0/C1/C3 不执行轨迹；I—IV 需旧 review-data，两个新分析只需自带紧凑证据。新分析复算全部标量均值、相应区间/校准与唯一主比较。稳定 V 的核验范围为完整性、汇总及完整目标的完整性与新旧比较，不包含逐草图状态误差的独立重算；模拟 Ridge 另有原二次型状态检查，GDSC 状态检查另需原预处理输入。便捷图不声明与期刊图相同排版。
+C0 表示核心/已安装复核数据/仿真校验，C1 是 I—IV 保存记录汇总，C3 表示直接查看指定 CSV/JSON，R 是完整重跑并分析。C0/C1/C3 不执行轨迹；I—IV 需 v2026.10.30.2 review-data；稳定 V 和模拟 Ridge 分析使用随附紧凑证据，复算全部标量均值、相应区间/校准与唯一主比较。稳定 V 的核验范围为完整性、汇总及完整目标的完整性与协议间比较，不包含逐草图状态误差的独立重算；模拟 Ridge 另有原二次型状态检查，GDSC 状态检查另需原预处理输入。便捷图不声明与期刊图相同排版。
 
 最终六幅图的精确副本在 `evidence/paper_figures_20261101/`，对应收据固定来源及 PDF 哈希。期刊版式只读表格重绘：
 
@@ -24,19 +24,19 @@ C0 表示核心/已安装复核数据/仿真校验，C1 是 I—IV 保存记录�
 python -B tools/make_review_paper_figures.py --evidence-root evidence --output runs/paper_figures --qa-output runs/paper_figure_qa --receipt runs/paper_figure_receipt.json
 ```
 
-重绘 PDF 元数据可能随时间/环境变化，复制的最终资产与本次论文所用文件一致。下文路径相对仓库根，`Tn` 表示 `simulations/experimentn/tables/`。
+重绘 PDF 元数据可能随时间/环境变化，复制的最终资产与论文所用文件一致。下文路径相对仓库根，`Tn` 表示 `simulations/experimentn/tables/`。
 
-## 新图片与补充表
+## 稳定 V 与 Ridge 图表
 
 | 标签或资产 | 精确来源与筛选 | 解释 |
 | --- | --- | --- |
 | `fig:real_column_fixed` / `r5_01_gdsc_target.pdf` | `evidence/experiment5_stable/summary.csv`，gdsc，`mean`，每点30次重复；Ridge的LN_floor另读 `evidence/gdsc_ridge_liniu/summary.csv` | NORM=UNI，无均值置信带。 |
 | `fig:real_row_fixed` / `r5_02_year_target.pdf` | 同上，year，每点50次重复 | 有限重复经验均值，不是完整 MSE 排序。 |
-| `fig:real_native_prediction` / `r5_04_prediction.pdf` | 稳定版 summary `test_rmse`，加上GDSC Ridge LN_floor的新summary；`targets/<dataset>/<method>/summary.json` 的 `full.response_test_rmse` | 逐次 RMSE 均值不是平均 MSE 的平方根；描述性测试集比较。 |
+| `fig:real_native_prediction` / `r5_04_prediction.pdf` | 稳定版 summary `test_rmse`，以及 GDSC Ridge LN_floor 的 summary；`targets/<dataset>/<method>/summary.json` 的 `full.response_test_rmse` | 逐次 RMSE 均值不是平均 MSE 的平方根；描述性测试集比较。 |
 | `r1_04_ridge_liniu.pdf` | `evidence/ridge_liniu/summary.csv` 及 `dataset_means.csv` 的 FULL_OPT−LN_floor 配对差 | 五规则曲线及逐点t39区间，保留全部预算与反转。 |
 | `r1_05_ridge_liniu_calibration.pdf` | Ridge summary `calibration`，LN_floor/FULL_OPT，全部13预算 | 小预算约1.58，最大约1.12，不是精确有限样本公式。 |
-| `tab:rd_min_parameters` | 稳定版 `candidate_bounds.json`、`support_gate.json`、12份完整目标 summary、`metrics.csv` 的 `prescribed_steps` 与协议 | 替换旧步长表，48项全支持门禁及新抽样种子202610310501。 |
-| `tab:real_calibration` | 稳定版 summary：C=`budget*theoretical`，OPT/UNI和OPT/LEV；最小/最大预算的 `empirical_to_first_order` | GDSC 75/2996、Year 500/50000，勿使用旧重算方法常数。 |
+| `tab:rd_min_parameters` | 稳定版 `candidate_bounds.json`、`support_gate.json`、12份完整目标 summary、`metrics.csv` 的 `prescribed_steps` 与协议 | 采用全支撑稳定协议的数值参数、48项支撑稳定性检查及抽样种子202610310501。 |
+| `tab:real_calibration` | 稳定版 summary：C=`budget*theoretical`，OPT/UNI和OPT/LEV；最小/最大预算的 `empirical_to_first_order` | GDSC 75/2996、Year 500/50000，常数对应全支撑稳定协议的数值目标。 |
 | `tab:real_prediction_compact` | 稳定版 summary `test_rmse`，GDSC N=2996、Year N=50000；完整目标预测参考 | 保留全部四规则与GDSC重复项。 |
 | Ridge唯一主比较 | `primary_comparison.json`，N=150，40个数据集均值 | FULL−LN=-0.0003228063，95% CI=[-0.0009423789,0.0002967663]，p=.298436，26/40 FULL较低。 |
 | Ridge分数诊断 | `score_diagnostics.csv` | 概率TV均值.002990，一阶准则平均降幅.006058%；LN_floor含共同精确下界。 |
@@ -74,15 +74,15 @@ python -B tools/make_review_paper_figures.py --evidence-root evidence --output r
 | H.2 `tab:exp4_replay` | `simulations/experiment4/metadata/verification.json` 的 `dense_native_replays`，选 `budget=38400`；`relative_coefficient_difference,replay_change_over_gap`。 | C0 后查看 JSON：10 行保存结果，5 种方法×2 个方向，第 0 次重复。`diagnostics/resolution_report.json` 另记录两项 Nesterov 警告。当前根目录 IV 诊断仅回放选定 Nesterov 配置，其核验范围限于所选配置，完整十行表需使用对应的保存记录。 |
 | H.3 `tab:exp4_tails` | T4 `gap_summary.csv`，`arm=tails,budget=60`；`mean,median,maximum,top_one_percent_share`。 | C0/C3；6 组、每组 1,000 次抽样。最后一列是 0–1 的份额，不是次数，也不是已乘 100 的百分数。 |
 
-旧V见证及Holm分析保留在 `evidence/experiment5/`，其数值与旧步长不用于新图表。复算标量不恢复全部轨迹数组，不建立新数据独立确认或端到端加速结论。
+历史 V 协议的见证及 Holm 分析见 `evidence/experiment5/`；其数值和步长对应 v2026.10.30.2，而论文稳定 V 图表采用全支撑稳定协议。复算标量不恢复全部轨迹数组，不建立新数据独立确认或端到端加速结论。
 
-## GDSC Ridge Li-Niu addendum / 实验五新增对照
+## GDSC Ridge Li–Niu 分数对照
 
-`fig:real_column_fixed` (`r5_01_gdsc_target.pdf`) and `fig:real_native_prediction` (`r5_04_prediction.pdf`) additionally use `evidence/gdsc_ridge_liniu/summary.csv`, rule=LN_floor, for the GDSC Ridge panel only. Other methods and Year are unchanged.
+`fig:real_column_fixed`（`r5_01_gdsc_target.pdf`）和 `fig:real_native_prediction`（`r5_04_prediction.pdf`）的 GDSC Ridge 面板另使用 `evidence/gdsc_ridge_liniu/summary.csv` 中 `rule=LN_floor` 的记录；其余方法和 Year 面板使用稳定 V 汇总。
 
-New supplement `fig:gdsc_liniu` / `r5_05_gdsc_liniu.pdf` reads all 30 five-rule cells and `paired_comparisons.csv`; `tab:gdsc_liniu_budgets` contains all six paired results. Intervals are pointwise t29 Monte Carlo intervals across 30 common-uniform sketches of one fixed dataset, rather than t39 intervals across simulated datasets. All new budgets are descriptive. At N=2996 LN_floor/OPT errors are .02879534/.02857425; at N=374/749 OPT is higher. The 78/78 claim applies only to the original four rules.
+补充图 `fig:gdsc_liniu` / `r5_05_gdsc_liniu.pdf` 使用全部30个五规则汇总单元及 `paired_comparisons.csv`；`tab:gdsc_liniu_budgets` 列出全部六个配对结果。区间为单一固定数据集上30次共同均匀随机数抽样的逐点 t29 Monte Carlo 区间，与模拟数据集之间的 t39 区间不同。六个预算均为描述性结果。N=2996时 LN_floor/OPT 误差为 .02879534/.02857425；N=374/749时 OPT 更高。78/78 的陈述仅适用于 UNI/NORM/LEV/OPT 四规则。
 
-Saved scalar reanalysis (no additional estimator solves):
+从保存标量复核汇总与配对区间（不执行估计量求解）：
 
 ```text
 python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root evidence/gdsc_ridge_liniu --stable-root evidence/experiment5_stable --report runs/gdsc_ln_check.json

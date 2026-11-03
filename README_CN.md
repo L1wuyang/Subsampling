@@ -1,6 +1,6 @@
 # Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework
 
-Junchen Li、Ying-Ao Wang 与 Ye Zhang 的论文配套代码和实验材料。[English](README.md)
+Junchen Li、Dianpeng Wang、Ying-Ao Wang 与 Ye Zhang 的论文配套代码和实验材料。[English](README.md)
 
 投稿版本 **v2026.11.02.1** 包含实验 I—IV、全支撑稳定实验 V，以及模拟与 GDSC Ridge 分数对照。[论文图表索引](docs/PAPER_RESULTS_CN.md) · [数值与解释](docs/LATEST_RESULTS_CN.md) · [引用](docs/CITATION.md)
 
@@ -27,11 +27,11 @@ python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root
 | --- | --- | --- |
 | 稳定 V：GDSC 与 YearPredictionMSD | [12,720 条标量记录与支撑稳定性证书](evidence/experiment5_stable/README_CN.md) | [指南](Experiments/experiment5_support_stable_20261031/README_CN.md) |
 | 模拟 Ridge 分数对照 | [40 份既有输入上的 104,000 条标量记录](evidence/ridge_liniu/README_CN.md) | [指南](Experiments/ridge_liniu_ablation_20261101/README_CN.md) |
-| GDSC Ridge 分数对照 | [180 个新增状态与 900 条对照记录](evidence/gdsc_ridge_liniu/README_CN.md) | [指南](Experiments/experiment5_gdsc_liniu_20261101/README_CN.md) |
+| GDSC Ridge 分数对照 | [180 个 LN_floor 状态与 900 条对照记录](evidence/gdsc_ridge_liniu/README_CN.md) | [指南](Experiments/experiment5_gdsc_liniu_20261101/README_CN.md) |
 
-稳定 V 的核验覆盖记录完整性、标量汇总及完整目标的完整性与新旧比较，不包含逐草图状态误差的独立重算。GDSC 状态核验另需原预处理输入。稳定 V 和模拟 Ridge 的轨迹数组未随紧凑包分发。[核验范围](validation/README.md)
+稳定 V 的核验覆盖记录完整性、标量汇总及完整目标的完整性与协议间比较，不包含逐草图状态误差的独立重算。GDSC 状态核验另需原预处理输入。稳定 V 和模拟 Ridge 的轨迹数组未随紧凑包分发。[核验范围](validation/README.md)
 
-I—IV 输入和保存结果来自保持不变的 **v2026.10.30.2 数据归档**（240 MB、545 个文件，含历史 V），单独安装：
+I—IV 输入和保存结果来自 **v2026.10.30.2 数据归档**（240 MB、545 个文件，含历史 V），单独安装：
 
 ```text
 python run.py review-data download
@@ -59,4 +59,4 @@ Smoke 使用缩小规模，仅检查运行流程。正式运行可能昂贵，�
 
 各实验分别评价系数目标近似、真实系数恢复和预测。有限重复的观测排序不证明完整条件 MSE 排序。两项 Li–Niu 对照采用共同概率下界下的精确分数，未评价 NOPL 或原文外层迭代，也未确立 FULL/OPT 相对 LN_floor 的显著有限预算优势。详细数值与边界集中在[结果说明](docs/LATEST_RESULTS_CN.md)。
 
-`MANIFEST.json` 核验本次源码发行；冻结来源清单保留历史科学来源哈希，独立 review-data 描述仍固定旧数据包。历史证据与回执保留原运行记录。引用时记录本投稿 tag/commit 及独立数据归档版本。[维护](docs/MAINTENANCE.md) · [进一步诊断](docs/ADVANCED_DIAGNOSTICS_CN.md) · [发行说明](docs/RELEASE_NOTES.md)
+`MANIFEST.json` 列出代码源文件及校验值；`provenance/frozen_scientific_sources.json` 标识已记录实验采用的科研实现。`provenance/review_data.json` 标识数据版本及压缩包、成员文件的校验值。引用时注明实际分析采用的代码 tag/commit 及数据版本。[维护](docs/MAINTENANCE.md) · [进一步诊断](docs/ADVANCED_DIAGNOSTICS_CN.md) · [发行说明](docs/RELEASE_NOTES.md)

@@ -17,6 +17,7 @@ import stat
 import subprocess
 import tempfile
 import urllib.request
+from urllib.parse import quote, urlsplit, urlunsplit
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,6 +106,27 @@ def write_zip(path, records, read, prefix=''):
             archive.writestr(info, checked_bytes(read(name), records[name], name))
 
 
+def release_notes(root, version):
+    """Resolve repository-relative Markdown links for the GitHub Release page."""
+    root = Path(root).resolve()
+    notes = regular_file(root, 'docs/RELEASE_NOTES.md').read_text(encoding='utf-8')
+
+    def resolve(match):
+        prefix, target, suffix = match.groups()
+        parts = urlsplit(target)
+        if parts.scheme or parts.netloc or not parts.path:
+            return match.group(0)
+        path = (root/'docs'/parts.path).resolve()
+        if not path.is_relative_to(root):
+            raise ValueError('Release document link escapes the repository')
+        relative = path.relative_to(root).as_posix()
+        regular_file(root, relative)
+        url = f'https://github.com/{REPOSITORY}/blob/{version}/{quote(relative)}'
+        return prefix + urlunsplit((*urlsplit(url)[:3], parts.query, parts.fragment)) + suffix
+
+    return re.sub(r'(\[[^\]\n]+\]\()([^\s)]+)(\))', resolve, notes)
+
+
 @contextmanager
 def data_reader(value, source_dir=None, timeout=90):
     if source_dir is not None:
@@ -153,7 +175,7 @@ def build(output, source_dir=None, timeout=90, root=ROOT):
         checked_file(root, name, record)
     core = dict(core)
     core['MANIFEST.json'] = {'bytes': manifest_path.stat().st_size, 'sha256': digest(manifest_path)}
-    notes = regular_file(root, 'docs/RELEASE_NOTES.md').read_text(encoding='utf-8')
+    notes = release_notes(root, version)
     if version not in notes:
         raise ValueError('Release notes do not identify VERSION')
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -248,7 +270,7 @@ def publish(output, root=ROOT):
     data_record = report['assets'][value['archive']['name']]
     if data_record != {k:value['archive'][k] for k in ('sha256','bytes')}:
         raise ValueError('Data asset no longer matches descriptor')
-    notes = regular_file(root, 'docs/RELEASE_NOTES.md').read_text(encoding='utf-8')
+    notes = release_notes(root, version)
     if regular_file(output, 'release_notes.md').read_text(encoding='utf-8') != notes:
         raise ValueError('Release notes changed after build')
     head = subprocess.check_output(['git','rev-parse','HEAD'],cwd=root).decode().strip()

@@ -1,12 +1,12 @@
 > 本目录保存历史实验五的证据；当前稿件采用[全支撑稳定结果](../experiment5_stable/README_CN.md)。历史见证与 Holm 分析用于来源追溯。
 
-# 实验 V：经验结果与保存证据
+# 历史实验 V：经验结果与保存证据
 
-本目录对应论文 *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework* 的 GDSC 与 YearPredictionMSD 真实数据实验。当前报告流程从保存记录复现经验均值、两幅系数目标误差图及描述性诊断。这些有限重复汇总不建立完整条件 MSE 的排序；预测比较也只作描述性解释，因为测试集曾被探索使用。
+本目录对应 v2026.10.30.2 的 GDSC 与 YearPredictionMSD 历史协议；保存记录流程复现该版本的经验均值、两幅系数目标误差图及描述性诊断。论文报告的全支撑稳定协议见[稳定 V 证据](../experiment5_stable/README_CN.md)。这些有限重复汇总不建立完整条件 MSE 的排序；预测比较也只作描述性解释，因为测试集曾被探索使用。
 
-`saved_records.tar.gz` 保留 530 份原始逐次指标 CSV，共 12,720 条记录，以及 12 份全样本目标汇总、正式协议、执行记录和原单侧比较表。归档保留原始文件字节及相对路径。这些文件是实验输出的标量指标；原始协变量、响应值和拟合系数向量由完整复现流程获取或计算。
+`saved_records.tar.gz` 保留 530 份原始逐次指标 CSV，共 12,720 条记录，以及 12 份全样本目标汇总、正式协议、执行记录和原单侧比较表。归档清单及校验值标识各文件和相对路径。这些文件是实验输出的标量指标；原始协变量、响应值和拟合系数向量由完整复现流程获取或计算。
 
-## 复现当前经验汇总与图形
+## 复现历史经验汇总与图形
 
 在仓库根目录使用仓库固定的数值依赖，先安装独立复核数据包。安装会把 `saved_records.tar.gz`、绘图与参考文件、诊断输入恢复到原路径；执行脚本保留在核心包：
 
@@ -16,13 +16,13 @@ python run.py review-data verify
 python -B evidence/experiment5/empirical.py --output runs/experiment5_empirical
 ```
 
-离线安装可用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` 替代下载命令。每次选用新的输出目录。命令校验保存归档及全部 530 份逐次文件、12,720 条记录，并根据 `paper_plot_reference.json` 核对论文两幅目标误差图的 276 个可见数据点。程序同时核验 OPT 在全部 78 个“方法—预算”单元中的经验平均系数目标误差最小。GDSC 的 NORM 记录完整保留在汇总中，目标误差图中以 UNI 表示两者重合的曲线。
+离线安装可用 `python run.py review-data install --file /path/to/Subsampling-review-data-v2026.10.30.2.zip` 替代下载命令。每次选用新的输出目录。命令校验保存归档及全部 530 份逐次文件、12,720 条记录，并根据 `paper_plot_reference.json` 核对 v2026.10.30.2 两幅目标误差图的 276 个可见数据点。程序同时核验 OPT 在全部 78 个“方法—预算”单元中的经验平均系数目标误差最小。GDSC 的 NORM 记录完整保留在汇总中，目标误差图中以 UNI 表示两者重合的曲线。
 
 输出包括：
 
 - `summary.csv`、`summary.json`、`rankings.json`：经验均值、重复次数、经验值与一阶值的比值、已实现样本的稳定性检查及经验排序；
 - `figures/r5_01_gdsc_target.*`、`figures/r5_02_year_target.*`：PDF、SVG、PNG 目标误差图，展示经验均值曲线，不带均值置信带；
-- `r5_01_gdsc_target_plotted_points.csv`、`r5_02_year_target_plotted_points.csv`、`figure_validation.json`：目标误差绘图数值及与论文参考值的核对结果；
+- `r5_01_gdsc_target_plotted_points.csv`、`r5_02_year_target_plotted_points.csv`、`figure_validation.json`：目标误差绘图数值及与该历史版本参考值的核对结果；
 - 经验值与一阶值比值、相对匹配完整模型的测试 RMSE、未修剪误差分布、抽样对象覆盖情况等描述性诊断；
 - `saved_evidence_verification.json`：归档校验值、输入数量及核验范围；
 - `index.html`：汇总结果及图形的本地页面。
@@ -42,13 +42,13 @@ python -B evidence/experiment5/tail_diagnostics/verify_stability.py
 
 ## 早期分析
 
-原单侧及后续双侧/Holm 分析详见[完整旧版](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4)，不作为当前实验 V 的推断依据。当前保存记录流程仍使用 `reanalyze.py` 的归档校验代码及 `reference/` 中的参考校验值；前者保留在核心包，后者随复核数据恢复，当前结果使用上面的经验汇总流程。
+原单侧及后续双侧/Holm 分析详见[完整旧版](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4)，不作为论文全支撑稳定实验 V 的推断依据。本历史保存记录流程使用 `reanalyze.py` 的归档校验代码及 `reference/` 中的参考校验值；前者保留在核心包，后者随复核数据恢复，该历史版本结果使用上面的经验汇总流程。
 
 ## 与完整复现的关系
 
-下载官方数据、运行新实验和分析新实验时，使用仓库根目录 `run.py`。当前 `run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis` 生成经验汇总和图形，不自动执行历史均值检验。
+下载官方数据、运行新实验和分析新实验时，使用仓库根目录 `run.py`。`run.py analyze --experiment 5 --results runs/formal_v --output runs/formal_v_analysis` 生成历史协议的经验汇总和图形，不自动执行历史均值检验。
 
-完整运行指定 `--output runs/formal_v` 时，实验 V 指标保存于 `runs/formal_v/exp5/formal/`；分析指定 `--output runs/formal_v_analysis` 时，报告保存于 `runs/formal_v_analysis/exp5/`。上述保存记录命令直接写入其指定的输出目录。保留的历史脚本所需原完整工程路径由归档适配脚本提供，当前经验汇总流程不依赖这些历史路径。
+完整运行指定 `--output runs/formal_v` 时，实验 V 指标保存于 `runs/formal_v/exp5/formal/`；分析指定 `--output runs/formal_v_analysis` 时，报告保存于 `runs/formal_v_analysis/exp5/`。上述保存记录命令直接写入其指定的输出目录。保留的历史脚本所需原完整工程路径由归档适配脚本提供，本历史经验汇总流程不依赖这些原工作目录路径。
 
 [English guide](README.md) · [仓库复现说明](../../README_CN.md)
 本文根 run.py 的 formal/analyze --experiment 5 命令执行保留的2026-10-25旧V协议；最新稳定版走[独立实现](../../Experiments/experiment5_support_stable_20261031/README_CN.md)与[新证据](../experiment5_stable/README_CN.md)。

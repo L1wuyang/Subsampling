@@ -1,4 +1,4 @@
-> Experiment V diagnostics in this baseline guide concern the preserved historical V protocol. For the local full-support stable update use evidence/experiment5_stable and its versioned implementation.
+> Experiment V diagnostics in this baseline guide concern the preserved historical V protocol. For the reported full-support stable protocol use evidence/experiment5_stable and its versioned implementation.
 
 # Additional numerical diagnostics
 
@@ -27,8 +27,8 @@ python -m repro1026.iv_precision --input runs/formal_simulations/exp4 --directio
 
 This executes the saved number of updates using double-double and triple-double arithmetic. Precision-tier agreement measures numerical consistency for the selected draws. The output records the chosen tiers and tolerances; it is not a uniform floating-point error bound. Replay can be expensive even for one draw.
 
-## Experiment V: diagnostics for the reported protocol
+## Experiment V: diagnostics for the historical protocol
 
-The [portable tail diagnostics](../evidence/experiment5/tail_diagnostics/README.md) check the existing protocol's single-atom tail witnesses and scalar stability premises. Lightweight checks use compact inputs installed by `review-data`; a separate Year/Landweber restoration uses hash-verified raw data and the frozen native code. These diagnostics concern the historical V records. Current full-support stable V records and checks are in `evidence/experiment5_stable/`.
+The [portable tail diagnostics](../evidence/experiment5/tail_diagnostics/README.md) check the historical protocol's single-atom tail witnesses and scalar stability premises. Lightweight checks use compact inputs installed by `review-data`; a separate Year/Landweber restoration uses hash-verified raw data and the frozen native code. These diagnostics concern the historical V records. Current full-support stable V records and checks are in `evidence/experiment5_stable/`.
 
 The earlier optional `stable-v` extension in the [previous full snapshot](https://github.com/L1wuyang/Subsampling/tree/26989d357a1fdbd7ad928482fdac9fba76c8eae4) is distinct from the versioned full-support implementation used here. Follow `Experiments/experiment5_support_stable_20261031/` and the root README for the reported results.

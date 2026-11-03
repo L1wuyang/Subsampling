@@ -45,8 +45,8 @@
       "bytes": 390
     },
     "RESULTS.md": {
-      "sha256": "3b63ea440195b573ea38d813a54f6911285c9b15a88b8e77ade72386f2f9db92",
-      "bytes": 2265
+      "sha256": "dd67ecb8663665224c27ba7f476447cc939d53c32ded8e8c07b4e158bfac4048",
+      "bytes": 2541
     },
     "run_source_hashes.json": {
       "sha256": "70fa1b32deb6d6058b27c5b8ea1d21838ab4626c5ab481e99079fe98a9d30912",
@@ -127,8 +127,22 @@
     "native_pilot.json": {
       "sha256": "5d140e3bba62f2e66dcb302287049995b275c829e4deaee75ec7ce3f0c8491fb",
       "bytes": 1521
+    },
+    "original_documentation/RESULTS.md": {
+      "sha256": "3b63ea440195b573ea38d813a54f6911285c9b15a88b8e77ade72386f2f9db92",
+      "bytes": 2265
+    },
+    "original_documentation/PROVENANCE_a3d87a6.json": {
+      "sha256": "f8495cdfa6107c85569817588afb7591a41051e8ffad95c50695c208fd17c0b2",
+      "bytes": 5275
     }
   },
   "bundled_scope": "complete scalar metric records, summary tables, protocol, gate and original validation records; no trajectory arrays",
-  "original_validation_scope": "Original independent validation was completed using saved arrays at the source path. Saved-metric analysis here checks scalar records only."
+  "original_validation_scope": "Original independent validation was completed using saved arrays at the source path. Saved-metric analysis here checks scalar records only.",
+  "public_documentation": {
+    "result_guide": "RESULTS.md",
+    "original_inventory": "original_documentation/PROVENANCE_a3d87a6.json",
+    "original_reports": "original_documentation/",
+    "scope": "Current guides explain protocols and statistical scope; original reports, scientific sources, numerical records and execution receipts identify the recorded runs."
+  }
 }

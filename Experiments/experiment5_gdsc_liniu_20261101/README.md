@@ -27,4 +27,4 @@ python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root
 
 The runner checks input/target hashes and the analytic OPT quantities, seals probabilities/sources, and reuses the stable-V common uniforms. Both target-dependent scores use the exact constraint `pi_j=max(0.01/p,tau*s_j)`, with `alpha=17737`. All six budgets are fixed; reversals and all outcomes are retained.
 
-The comparison is descriptive conditional on one fixed training set. Intervals are pointwise t29 Monte Carlo intervals. It is an oracle-score comparison and does not evaluate NOPL/outer iteration, population predictive superiority or end-to-end speedup. Original source snapshots and provenance receipts retain the earlier run's bytes; these current guides describe the portable submission workflow.
+The comparison is descriptive conditional on one fixed training set. Intervals are pointwise t29 Monte Carlo intervals. It is an oracle-score comparison and does not evaluate NOPL/outer iteration, population predictive superiority or end-to-end speedup. Source snapshots and file checksums for the recorded experiment are identified in `evidence/gdsc_ridge_liniu/PROVENANCE.json`.

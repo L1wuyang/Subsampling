@@ -2,7 +2,7 @@
 
 # Experiment V: portable tail diagnostics
 
-These files reproduce the October 29 YearPredictionMSD tail checks used to qualify the finite-repetition summaries in the paper. They leave the frozen experimental protocols, draws and scientific conclusions unchanged. [The parent evidence guide](../README.md) covers the saved empirical comparisons; [data acquisition](../../../docs/DATA_SOURCES.md) describes the official raw inputs.
+These files reproduce the October 29 YearPredictionMSD tail checks for the historical V protocol corresponding to data version v2026.10.30.2. They examine the limits of finite-repetition summaries under that protocol. [The parent evidence guide](../README.md) covers its saved empirical comparisons; [data acquisition](../../../docs/DATA_SOURCES.md) describes the official raw inputs. The manuscript's full-support stable protocol is documented in [the stable-V evidence guide](../../experiment5_stable/README.md).
 
 ## 1. Lightweight verification (no raw download)
 

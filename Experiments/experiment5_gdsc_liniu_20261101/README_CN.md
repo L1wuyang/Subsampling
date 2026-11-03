@@ -27,4 +27,4 @@ python -B Experiments/experiment5_gdsc_liniu_20261101/analyze.py --evidence-root
 
 运行前核对输入/目标哈希与解析 OPT 量，封存概率和源码后释放抽样，沿用稳定 V 共同均匀随机数。两种目标相关分数采用同一精确约束 `pi_j=max(0.01/p,tau*s_j)`，`alpha=17737`。六个预算均固定，保留反转与全部结果。
 
-结果是单一固定训练集条件下的描述性比较，区间为 t29 逐点 Monte Carlo 区间。该 oracle 分数对照不评价 NOPL/原文外层迭代、总体预测优越性或端到端加速。原源码快照与来源回执保留原运行字节，本指南说明投稿版本的便携流程。
+结果是单一固定训练集条件下的描述性比较，区间为 t29 逐点 Monte Carlo 区间。该 oracle 分数对照不评价 NOPL/原文外层迭代、总体预测优越性或端到端加速。已记录实验的源码快照与文件校验值见 `evidence/gdsc_ridge_liniu/PROVENANCE.json`。

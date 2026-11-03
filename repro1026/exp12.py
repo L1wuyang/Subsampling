@@ -216,6 +216,20 @@ def _aggregate(run_root, config):
             pd.concat(frames, ignore_index=True).to_csv(out/(prefix+name+'.csv'), index=False)
 
 
+def _report_html(text, smoke_only=False):
+    """Format current reports without altering the frozen analysis sources."""
+    for note in (' New draft only; historical manuscripts preserved.',
+                 ' New draft only; historical versions preserved.'):
+        text = text.replace(note, '')
+    if smoke_only:
+        text = text.replace('40 independent data sets; 13 budgets; 40 paired sketches.',
+                            'SMOKE ONLY: 2 data sets; 3 budgets; 2 paired sketches.')
+        text = text.replace('40 independent spiked-row data sets; 13 budgets; 40 paired sketches.',
+                            'SMOKE ONLY: 2 spiked-row data sets; 3 budgets; 2 paired sketches.')
+        text = text.replace('<h1>', '<p><strong>SMOKE: reduced engineering check, not paper results.</strong></p><h1>', 1)
+    return text
+
+
 def _analyze(experiment, source_root, run_root):
     # All analyze writes, including matplotlib's cache, stay within the new run.
     os.environ['MPLCONFIGDIR'] = str(Path(run_root)/'outputs/matplotlib_cache')
@@ -231,15 +245,8 @@ def _analyze(experiment, source_root, run_root):
     summary['reproduction_mode'] = 'smoke' if config.get('smoke_only') else 'formal'
     summary['paper_results'] = not config.get('smoke_only', False)
     _save(summary_path, summary)
-    if config.get('smoke_only'):
-        path = formal/'index.html'
-        text = path.read_text('utf8')
-        text = text.replace('40 independent data sets; 13 budgets; 40 paired sketches.',
-                            'SMOKE ONLY: 2 data sets; 3 budgets; 2 paired sketches.')
-        text = text.replace('40 independent spiked-row data sets; 13 budgets; 40 paired sketches.',
-                            'SMOKE ONLY: 2 spiked-row data sets; 3 budgets; 2 paired sketches.')
-        text = text.replace('<h1>', '<p><strong>SMOKE: reduced engineering check, not paper results.</strong></p><h1>', 1)
-        path.write_text(text, 'utf8')
+    path = formal/'index.html'
+    path.write_text(_report_html(path.read_text('utf8'), config.get('smoke_only', False)), 'utf8')
     print('ANALYSIS_COMPLETE', experiment, summary['reproduction_mode'],
           summary['main_rows'], summary['robustness_rows'], summary['zero_rows'], flush=True)
 

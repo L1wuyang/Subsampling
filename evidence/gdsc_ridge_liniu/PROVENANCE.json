@@ -790,24 +790,24 @@
       "bytes": 2407
     },
     "README.md": {
-      "sha256": "45df03a5401163c5a106dc9ba23a5b37f28d81dc88affe52fae2331b93307c2b",
-      "bytes": 2207
+      "sha256": "3ebcd8de791f138b4ffbed501aabec276eadd3e0c2cb9ce0130546f00277ab03",
+      "bytes": 2180
     },
     "README_CN.md": {
-      "sha256": "c92a8fb6db2bc52fb57c61c2763ab8443ef3e1ff3da85adfaa9f7f5ba6bc84ac",
-      "bytes": 3055
+      "sha256": "119aaca1681b7cceaf229c9555cee20babaca2226378eb28b9a97de5c06e62b9",
+      "bytes": 3031
     },
     "results.json": {
       "sha256": "980cbdce02ab98e1fd78c5128d291d6b453c5192b2c65b13fc89d58b48da2499",
       "bytes": 4860
     },
     "RESULTS.md": {
-      "sha256": "8e2d0676c0b618872f94000a957e91f729ed15e656262b8dc8ca4e7a3577dfa8",
-      "bytes": 598
+      "sha256": "efa579fba8576953b039e23834c6314fa4b81847864c7cea5f0e30407eaeda39",
+      "bytes": 496
     },
     "RESULTS_CN.md": {
-      "sha256": "2e64f8a90e28ce90d54d8f4dfa54d2b8e415f5950967921a6577463fa326d141",
-      "bytes": 489
+      "sha256": "4ffc94f286cf6febad68d0aa06e88a24df593913386823a4f9d9d332b1161ed5",
+      "bytes": 435
     },
     "sampling_release.json": {
       "sha256": "7b63933a534232e60c4de1c95f1d20cc5306dd0fed81bf977553da3bafe4ca23",
@@ -852,6 +852,10 @@
     "original_documentation/RESULTS_CN.md": {
       "sha256": "1aaec17ce14ea46047a9518d2e4e2f0cc5d151dc6067e56f573cbf6dc5395324",
       "bytes": 2943
+    },
+    "original_documentation/PROVENANCE_a3d87a6.json": {
+      "sha256": "169d7281de451879e631c37cbf5f226afa6a72d903e744176faa2bfa661107ab",
+      "bytes": 33402
     }
   },
   "documentation_publication_history": {
@@ -906,5 +910,11 @@
     },
     "change": "Consolidate duplicate result explanations into README.md and README_CN.md; RESULTS.md and RESULTS_CN.md become navigation pages linking the fixed original reports.",
     "scope": "Documentation only. Numerical records, source_files, original_documentation and original scientific/validation evidence are unchanged."
+  },
+  "public_documentation": {
+    "result_guide": "RESULTS.md",
+    "original_inventory": "original_documentation/PROVENANCE_a3d87a6.json",
+    "original_reports": "original_documentation/",
+    "scope": "Current guides explain protocols and statistical scope; original reports, scientific sources, numerical records and execution receipts identify the recorded runs."
   }
 }

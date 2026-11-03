@@ -36,6 +36,6 @@ python -B Experiments/ridge_liniu_ablation_20261101/run_experiment.py run --prep
 
 The archive restores the 40 frozen inputs; see the [simulation guide](../../docs/SIMULATION_DATA.md) for offline installation. Preparation fixes targets/probabilities and source hashes. The pilot checks derivatives, probability constraints, sampling weights and coefficient recovery. Formal execution saves all five states and the common uniforms, then runs independent state-based analysis. Completed tasks can be reused only when their identity and hashes match.
 
-Stable V is not required for this calculation. The original `release_gate` in the scientific protocol records the author's historical scheduling; the current portable runner defaults to a standalone release gate. To intentionally retain that schedule, add `--predecessor /path/to/completed-stable-v`. That option enforces the old protocol/status/validation/report checks. `queue_after_v.py` is an optional waiting wrapper, not part of the standalone reproduction path.
+This experiment runs independently by default. The optional `--predecessor /path/to/completed-stable-v` parameter checks the specified stable-V protocol, completion status, validation receipt and comparison report. `queue_after_v.py` provides an optional waiting wrapper. The input, pilot and source checks above apply in either mode.
 
 All budgets and raw interval endpoints remain in the summaries. Log plots omit nonpositive lower endpoints and state that convention; nonsignificance does not establish equivalence.

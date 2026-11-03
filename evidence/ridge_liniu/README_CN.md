@@ -14,4 +14,4 @@
 python -B tools/analyze_latest_saved.py --experiment ridge-liniu --output runs/ridge_liniu_saved
 ```
 
-命令检查来源哈希，复算数据集均值、全部曲线均值/标准误/区间/校准、唯一主比较并导出 PDF；不执行轨迹。原 `independent_validation.json` 记录在源目录使用状态数组完成的独立二次型校验，本命令不重复该校验。完整重跑见[版本化源码](../../Experiments/ridge_liniu_ablation_20261101/README_CN.md)，准备输入先安装旧公开 review-data 包，以恢复 40 份原始 NPZ。`PROVENANCE.json` 固定复制文件哈希；准备封印、输入哈希与原校验回执保留原始字节。
+命令检查来源哈希，复算数据集均值、全部曲线均值/标准误/区间/校准、唯一主比较并导出 PDF；不执行轨迹。原 `independent_validation.json` 记录在源目录使用状态数组完成的独立二次型校验，本命令不重复该校验。完整重跑见[版本化源码](../../Experiments/ridge_liniu_ablation_20261101/README_CN.md)，准备输入先安装 v2026.10.30.2 review-data 包，以恢复 40 份原始 NPZ。`PROVENANCE.json` 列出文件来源及校验值；本目录同时提供输入准备记录、输入哈希和独立核验回执。

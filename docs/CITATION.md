@@ -2,11 +2,11 @@
 
 [Repository guide](../README.md) · [Machine-readable citation](../CITATION.cff)
 
-Junchen Li, Ying-Ao Wang and Ye Zhang. *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. Manuscript, 2026.
+Junchen Li, Dianpeng Wang, Ying-Ao Wang and Ye Zhang. *Optimal Subsampling for Regularized Linear Regression: A Generator-Function Framework*. Manuscript, 2026.
 
 ```bibtex
 @unpublished{li2026optimal,
-  author = {Li, Junchen and Wang, Ying-Ao and Zhang, Ye},
+  author = {Li, Junchen and Wang, Dianpeng and Wang, Ying-Ao and Zhang, Ye},
   title = {Optimal Subsampling for Regularized Linear Regression:
            A Generator-Function Framework},
   year = {2026},
@@ -27,8 +27,8 @@ Exact source commit: recorded in the Release notes; git rev-parse HEAD
 
 Suggested data/code availability wording:
 
-> Code and computational materials are available in the Subsampling repository, release v2026.11.02.1 (https://github.com/L1wuyang/Subsampling/releases/tag/v2026.11.02.1). This release includes the reported full-support Experiment V and Ridge score comparisons and uses the unchanged v2026.10.30.2 review-data archive for Experiments I–IV and historical V. Official raw real data are obtained separately as documented in the repository.
+> Code and computational materials are available in the Subsampling repository, release v2026.11.02.1 (https://github.com/L1wuyang/Subsampling/releases/tag/v2026.11.02.1). This release includes the reported full-support Experiment V and Ridge score comparisons and uses the v2026.10.30.2 review-data archive for Experiments I–IV and historical V. Official raw real data are obtained separately as documented in the repository.
 
-The original [v2026.10.30.2 Release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2) remains unchanged. Its data archive is also attached, with its original name and exact bytes, to the current release for convenience. A moving branch such as `main` does not identify a fixed version. Never move a published tag or replace an existing asset with changed contents.
+The I–IV inputs and historical V evidence are supplied by the [v2026.10.30.2 data release](https://github.com/L1wuyang/Subsampling/releases/tag/v2026.10.30.2). Record its version and SHA-256 alongside the code version. To identify a reproducible source version, cite a fixed tag or commit rather than the moving `main` branch. Software authorship is listed separately in `CITATION.cff`.
 
-中文：当前稿件请引用 `v2026.11.02.1` 固定发布版本；I–IV 及历史 V 的数据仍单独标识为 `v2026.10.30.2`，并记录上述校验值。本次未新增代码许可。
+中文：论文引用采用上列论文作者名单；软件署名另见 `CITATION.cff`。代码请注明固定 tag/commit；使用 I–IV 及历史 V 数据时，同时注明数据版本 `v2026.10.30.2` 及上述校验值。

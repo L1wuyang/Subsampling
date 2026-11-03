@@ -16,12 +16,12 @@
       "sha256": "e3ba02d805a36943f9565bff6cd4e99b09917167f04da569c5c7a6f9eeb1b673"
     },
     "README.md": {
-      "bytes": 6070,
-      "sha256": "a8a45366ff2dccb5b8ba48cca12977ce1cf491ddcc10ee989c2cbb7bc503985b"
+      "sha256": "3bccad993fc70e4dc6fe72c831c22af0c2b787ac4af5750f7293d2d63f3bb112",
+      "bytes": 6192
     },
     "README_CN.md": {
-      "bytes": 5347,
-      "sha256": "8b16be2fe3bcf1b8c6ab9344bafec99b53376bf0173f0976cb915c8457e94589"
+      "sha256": "6f14ee2436bd9c56f99531f90df0e1526739a086622df8807b7796b2f3c301fb",
+      "bytes": 5434
     },
     "reanalyze.py": {
       "bytes": 9449,
@@ -44,8 +44,8 @@
       "sha256": "e1355e6de8ba6103bc1e72460e915cb1d6fa98fe3b9154ceae1f006417a63d2a"
     },
     "tail_diagnostics/README.md": {
-      "bytes": 9857,
-      "sha256": "3529bca0e937f728314930c05418dbdda6bd831bce73214f56b606e1e9994d12"
+      "bytes": 9982,
+      "sha256": "db767bf9bad18699a9dbaacd131c13d8ec6605dca0b129c0ddc99cc1fb18fff1"
     },
     "tail_diagnostics/reference/array_manifest.json": {
       "bytes": 1656,
